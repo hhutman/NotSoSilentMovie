@@ -5,15 +5,11 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var child_process = require('child_process');
-//var exec = require('exec');
 var fluent_ffmpeg = require('fluent-ffmpeg');
 
 var routes = require('./routes/index');
-var users = require('./routes/users');
 var fs = require('fs');
 var OBSRemote = require('obs-remote');
-
-//var bootstrap = require('bootstrap');
 
 var app = express();
 
