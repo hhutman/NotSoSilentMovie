@@ -90,13 +90,13 @@ router.get('/streamOnly', function (req, res) {
         });
 });
 
-/*router.get('/mobile', function (req, res) {
+router.get('/mobile', function (req, res) {
         fs.readdir(__dirname + '/../public/thumbnails', function (err, files) {
                 if (err) throw err;
                 // console.log(files);
                 res.render('mobile.html', {files: files });
         });
-});*/
+});
 router.get('/silentmovie', function (req, res) {
         fs.readdir(__dirname + '/../public/uploaded/files', function (err, files) {
                 if (err) throw err;
