@@ -1,11 +1,5 @@
 $(function () {
     var FADE_TIME = 150; // ms
-    var TYPING_TIMER_LENGTH = 400; // ms
-    var COLORS = [
-        '#e21400', '#91580f', '#f8a700', '#f78b00',
-        '#58dc00', '#287b00', '#a8f07a', '#4ae8c4',
-        '#3b88eb', '#3824aa', '#a700ff', '#d300e7'
-    ];
 
     // Initialize variables
     var $window = $(window);
@@ -19,19 +13,12 @@ $(function () {
 
     // Prompt for setting a username
     var username;
-
-    var connected = false;
-
     var thumbnails = [];
     var pause = false;
 
     // var streamLocation = "rtmp://45.79.70.119/live/twitchodyssey";
     var streamLocation = "rtmp://twitchodyssey.net/live/twitchodyssey";
 
-    /*
-     var typing = false;
-     var lastTypingTime;
-     */
     var $currentInput = $usernameInput.focus();
 
     var socket = io();
@@ -39,7 +26,6 @@ $(function () {
     var logsPumped = false;
 
     function addParticipantsMessage(data) {
-        return;
         var $el = $('<li>').addClass('log').text(data);
         addMessageElement($el, options);
         console.log("add users message " + data);
@@ -296,10 +282,6 @@ $(function () {
                 c = b.childNodes[c];
                 // console.log(c);
                 if (c.childNodes && c.childNodes.length != 0) {
-                    // console.log('------');
-                    // console.log(c.childNodes[0]);
-                    // console.log(c.childNodes[0].nextSibling);
-                    // console.log('------');
                     var target = c.childNodes[0].nextSibling;
                     target.onclick = thumbClick2;
                     target.onmouseover = mouseOver;
@@ -310,11 +292,6 @@ $(function () {
             }
         }
     }
-
-    // function pumpLog() {
-    // var text = fs.readFileSync('./public/text/chatLog.txt', 'utf-8');
-    // }
-    // console.log(thumbnails);
 
     function myResize(event) {
         height = window.innerHeight;
@@ -330,16 +307,5 @@ $(function () {
     var w = window.innerWidth;
     var h = window.innerHeight;
 
-    var playerInstance = jwplayer("rtmpfeed");
-    playerInstance.setup({
-        file: "/uploaded/files/twitch_timeout.mp4",
-        controls: false,
-        autostart: true,
-        autoplay: true,
-        repeat: true,
-        width: w, // * .5,
-        height: h * .5
-    });
-    // socket.emit('getStreaming', '?');
     socket.emit('streamStatus', '');
 });

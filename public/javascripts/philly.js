@@ -1,11 +1,5 @@
 $(function () {
     var FADE_TIME = 150; // ms
-    var TYPING_TIMER_LENGTH = 400; // ms
-    var COLORS = [
-        '#e21400', '#91580f', '#f8a700', '#f78b00',
-        '#58dc00', '#287b00', '#a8f07a', '#4ae8c4',
-        '#3b88eb', '#3824aa', '#a700ff', '#d300e7'
-    ];
 
     // Initialize variables
     var $window = $(window);
@@ -20,15 +14,10 @@ $(function () {
     // Prompt for setting a username
     var username;
 
-    var connected = false;
 
     var thumbnails = [];
     var pause = false;
 
-    /*
-     var typing = false;
-     var lastTypingTime;
-     */
     var $currentInput = $usernameInput.focus();
 
     var socket = io();
@@ -37,17 +26,9 @@ $(function () {
 
     function addParticipantsMessage(data) {
         return;
-        var $el = $('<li>').addClass('log').text(data);
-        addMessageElement($el, options);
-        console.log("add users message " + data);
-        socket.emit('sendchat', data);
     }
 
-    function testThumb() {
 
-        console.log("test Thumb");
-        socket.emit('thumbClick', 'for realz');
-    }
 
     // Sets the client's username
     function setUsername() {
