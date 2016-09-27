@@ -12,10 +12,7 @@ var fs = require('fs');
 var OBSRemote = require('obs-remote');
 
 var app = express();
-
-var server = require('http').Server(app);
-var io = require('socket.io')(server);
-var port = 8000;
+var io = require('socket.io')();
 
 var obs = new OBSRemote();
 var streamRunning = false;
@@ -25,10 +22,7 @@ var votes = {};
 var ejs = require('ejs');
 
 var paused = false;
-server.listen(port, function () {
-    console.log('Updated : Server listening at port %d', port);
-    console.log(__dirname + '/public/uploaded/files/', __filename);
-});
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -76,8 +70,6 @@ app.use(function(err, req, res, next) {
 
 
 module.exports = app;
-
-
 
 var usernames = {};
 

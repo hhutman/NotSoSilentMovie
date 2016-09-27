@@ -32,12 +32,6 @@ $(function () {
         socket.emit('sendchat', data);
     }
 
-    function testThumb() {
-
-        console.log("test Thumb");
-        socket.emit('thumbClick', 'for realz');
-    }
-
     // Sets the client's username
     function setUsername() {
         username = cleanInput($usernameInput.val().trim());
