@@ -296,9 +296,6 @@ $(function () {
     function myResize(event) {
         height = window.innerHeight;
         width = window.innerWidth;
-        if (playerInstance) {
-            playerInstance.resize(width, height * .5);
-        }
     }
 
     myResize();
