@@ -12,11 +12,11 @@ var fs = require('fs');
 var OBSRemote = require('obs-remote');
 
 var app = express();
-var io = require('socket.io')();
+var http = require('http').Server(app);
+var io = require('socket.io')(http);
 
 var obs = new OBSRemote();
 var streamRunning = false;
-var streamRunningPhilly = false;
 var streamRunningsilentmovie = false;
 var votes = {};
 var ejs = require('ejs');
@@ -188,14 +188,6 @@ io.on('connection', function (socket) {
             socket.broadcast.emit('changeStream', data);
             streamRunning = false;
         }
-        else if (data == 'startphilly') {
-            socket.broadcast.emit('changeStreamPhilly', data);
-            streamRunningPhilly = true;
-        }
-        else if (data == 'stopphilly') {
-            socket.broadcast.emit('changeStreamPhilly', data);
-            streamRunningPhilly = false;
-        }
         else if (data == 'startsilentmovie') {
             socket.broadcast.emit('changeStreamsilentmovie', data);
             streamRunningsilentmovie = true;
@@ -204,32 +196,6 @@ io.on('connection', function (socket) {
             socket.broadcast.emit('changeStreamsilentmovie', data);
             streamRunningsilentmovie = false;
         }
-    });
-
-    // socket.on('getStreaming', function(data) {
-    //   console.log('get streaming ' + streamRunning);
-    //   io.sockets.emit('changeStream', streamRunning);
-    // });
-
-    socket.on('streamStatus', function(data) {
-        console.log('stream status ' + streamRunning + ' + ' + paused);
-        var status = {streamRunning: streamRunning, paused: paused, streamRunningPhilly: streamRunningPhilly};
-        io.sockets.emit('streamStatus', status);
-    });
-    socket.on('streamStatus', function(data) {
-        console.log('stream status ' + streamRunning + ' + ' + paused);
-        var status = {streamRunning: streamRunning, paused: paused, streamRunningsilentmovie: streamRunningsilentmovie};
-        io.sockets.emit('streamStatus', status);
-    });
-
-    socket.on('recieveVote', function(data) {
-        console.log('vote recieved for ' + data);
-        if (votes[data]) {
-            votes[data]++;
-        } else {
-            votes[data] = 1;
-        }
-        io.sockets.emit('choiceReady', '');
     });
 
     socket.on('playNext', function(data) {
