@@ -18,7 +18,7 @@ var io = require('socket.io')(http);
 /**
  * Pages that can be visited
  */
-var directors = require('./routes/directors');
+var upload = require('./routes/upload');
 var routes = require('./routes/index');
 var theater = require('./routes/theater');
 
@@ -42,7 +42,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
-app.use('/directors', directors);
+app.use('/upload', upload);
 app.use('/theater', theater);
 
 // error handlers

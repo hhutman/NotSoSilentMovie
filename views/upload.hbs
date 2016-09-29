@@ -6,7 +6,7 @@
     <title>Silent Movie: Directors Page</title>
     <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/stylesheets/directors-style.css">
+    <link rel="stylesheet" href="/stylesheets/upload-style.css">
 </head>
 <body>
 
@@ -16,18 +16,31 @@
             <div class="panel panel-default">
                 <div class="panel-body">
                     <h2>Silent Movie</h2>
-                    <h4>Directors Page</h4>
+                    <h4>Upload Page</h4>
                     <div class="progress">
                         <div class="progress-bar" role="progressbar"></div>
                     </div>
                     <button id="selectButton" class="btn btn-lg upload-btn sm-select" type="button">Select File(s)</button>
                     <button id="submitButton" class="btn btn-lg upload-btn sm-submit" type="button">Submit</button>
                     <div>
+                        <label class="radio-inline"><input type="radio" name="optradio" checked="true">Video Clip</label>
+                        <label class="radio-inline"><input type="radio" name="optradio">Title Card</label>
+                        <label class="radio-inline"><input type="radio" name="optradio">Audio Track</label>
+                    </div>
+                    <div class="uploadSupportedFormats">
+                        <div>
+                            (MP4, WebM, FLV)
+                        </div>
+                        <div>
+                            (AAC, MP3, Vorbis)
+                        </div>
+                    </div>
+                    <div>
                         <h4>Files:</h4>
                     </div>
                     <div id="uploadList">
-                        <div>None</div>
                     </div>
+                    <button id="submitButton" class="btn btn-lg upload-btn sm-viewFiles" type="button">View Files</button>
                 </div>
             </div>
         </div>
@@ -38,5 +51,5 @@
 
 <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-<script src="javascripts/directors_client.js"></script>
+<script src="javascripts/upload_client.js"></script>
 </body>

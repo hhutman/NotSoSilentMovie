@@ -12,7 +12,14 @@ body {
 .row {
     margin-top: 80px;
 }
-
+.uploadSupportedFormats {
+    color: gray;
+    font-size: 10px;
+}
+.uploadSupportedFormats div{
+    display: inline-block;
+    margin-left: 60px;
+}
 .upload-btn {
     color: white;
     border: none;
@@ -25,6 +32,9 @@ body {
 }
 .sm-select {
     background-color: #F89406;
+}
+.sm-viewFiles {
+    background-color: #87ceeb;
 }
 .sm-submit:hover,
 .sm-submit:focus,

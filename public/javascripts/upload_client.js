@@ -9,24 +9,22 @@
     $('#upload-input').on('change', function () {
         files = $(this).get(0).files;
 
-
-        if(files.length > 0){
-            $('#uploadList div').empty();
-            for(var i = 0; i < files.length; i++) {
-                var file = files[i];
-
-                $('#uploadList').append(
-                    $("<div></div>").text(file.name)
-                );
-            }
-        } else {
-            $('#uploadList div').empty()
-            $('#uploadList').append(
-                    $("<div>None</div>")
-                );
-        }
+        resetFileList();
 
     });
+
+
+    function resetFileList(){
+        $('#uploadList div').empty();
+
+        for(var i = 0; i < files.length; i++) {
+            var file = files[i];
+
+            $('#uploadList').append(
+                $("<div></div>").text(file.name)
+            );
+        }
+    }
 
 
     $('#submitButton').on('click', function () {

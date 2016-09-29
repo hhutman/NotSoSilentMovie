@@ -7,7 +7,7 @@ var fs = require('fs');
 
 /* GET users listing. */
 router.get('/', function(req, res) {
-    res.render('directors');
+    res.render('upload');
 });
 
 router.post('/', function(req, res){
