@@ -9,7 +9,7 @@ router.get('/', function(req, res, next) {
        fs.readdir(__dirname + '/../public/thumbnails', function (err, files) {
                 if (err) throw err;
                 // console.log(files);
-        	res.render('index.html', { title: 'Twitch Odyssey', files: files });
+        	res.render('index.hbs', { title: 'Twitch Odyssey', files: files });
 	});
 });
 
