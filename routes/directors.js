@@ -11,7 +11,6 @@ router.get('/', function(req, res) {
 });
 
 router.post('/', function(req, res){
-
     // create an incoming form object
     var form = new formidable.IncomingForm();
 
@@ -39,7 +38,6 @@ router.post('/', function(req, res){
 
     // parse the incoming request containing the form data
     form.parse(req);
-
 });
 
 module.exports = router;
