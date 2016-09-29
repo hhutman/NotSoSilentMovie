@@ -20,6 +20,7 @@ var io = require('socket.io')(http);
  */
 var directors = require('./routes/directors');
 var routes = require('./routes/index');
+var theater = require('./routes/theater');
 
 var obs = new OBSRemote();
 var ejs = require('ejs');
@@ -42,7 +43,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
 app.use('/directors', directors);
-
+app.use('/theater', theater);
 
 // error handlers
 
