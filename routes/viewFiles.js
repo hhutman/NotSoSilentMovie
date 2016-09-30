@@ -19,7 +19,7 @@ router.get('/', function(req, res, next) {
 router.post('/', function(req, res, next) {
     var target = req.body.target;
     database.deleteByTarget(target, function(result){
-        res.end(result)
+        res.end('success');
     });
 });
 

@@ -50,7 +50,7 @@
             processData: false,
             contentType: false,
 
-            success: function (data) {
+            complete: function (data) {
                 console.log('upload successful!\n' + data);
             },
 

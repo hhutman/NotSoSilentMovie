@@ -1,4 +1,8 @@
 (function () {
+
+    var TARGET_PREFIX = "fileRow_";
+
+
     // Get Express variables
     if(files == undefined){
         files = {};
@@ -14,7 +18,7 @@
         for(var i = 0; i < files.length; i++) {
             var file = files[i];
             $('#uploadedFileList').append(
-                $('<div class="row uploaded-file-row"></div>').attr('id',"fileRow_" + file.target)
+                $('<div class="row uploaded-file-row"></div>').attr('id',TARGET_PREFIX + file.target)
                     .append(
                     $('<div class="col-xs-1"></div>'),
                     $('<div class="col-xs-5"></div>').text(file.name)
@@ -43,14 +47,13 @@
             data: JSON.stringify(file),
             contentType: "application/json",
             complete: function() {
-                console.log('process complete');
-            },
-            success: function(data) {
-                console.log('process sucess');
-            },
-            error: function() {
-                console.log('Error deleting file');
-            },
+                console.log('success');
+                removeRowByTarget(file.target)
+            }
         });
+    }
+
+    function removeRowByTarget(target){
+        $('#' + TARGET_PREFIX + target).remove();
     }
 })();
