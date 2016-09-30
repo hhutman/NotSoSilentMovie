@@ -21,9 +21,9 @@
                 $('<div class="row uploaded-file-row"></div>').attr('id',TARGET_PREFIX + file.target)
                     .append(
                     $('<div class="col-xs-1"></div>'),
-                    $('<div class="col-xs-5"></div>').text(file.name)
+                    $('<div class="col-xs-6"></div>').text(file.name)
                         .attr('id', 'fileList_title' + i),
-                    $('<div id="fileList_extension" class="col-xs-2"></div>').text(file.fileType),
+                    $('<div id="fileList_extension" class="col-xs-1"></div>').text(file.fileType),
                     $('<div class="col-xs-2"></div>').append(
                         $('<button id="fileList_edit" class="btn btn-lg sm-button edit-btn sm-edit">Edit</button>')
                     ),
