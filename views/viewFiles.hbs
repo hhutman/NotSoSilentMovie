@@ -9,7 +9,9 @@
     <link rel="stylesheet" href="/stylesheets/style.css">
 </head>
 <body>
-
+<script>
+    var files = {{{files}}};
+</script>
 <div class="container">
     <div class="row">
         <div class="col-xs-12">
@@ -17,14 +19,17 @@
                 <div class="panel-body">
                     <h2>Silent Movie</h2>
                     <h4>View Files</h4>
+                    <div id="uploadedFileList">
+
+                    </div>
+                    <br>
+                    <hr>
                     <button id="uploadFilesButton" class="btn btn-lg upload-btn sm-pageLink" type="button">Upload Files</button>
                 </div>
             </div>
         </div>
     </div>
 </div>
-
-<input id="upload-input" type="file" name="uploads[]" multiple="multiple"></br>
 
 <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>

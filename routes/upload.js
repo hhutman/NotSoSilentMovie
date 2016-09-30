@@ -4,6 +4,8 @@ var router = express.Router();
 var path = require('path');
 var formidable = require('formidable');
 var fs = require('fs');
+var crypto = require('crypto');
+
 
 /* GET users listing. */
 router.get('/', function(req, res) {
@@ -15,7 +17,7 @@ router.post('/', function(req, res){
     var form = new formidable.IncomingForm();
 
     // specify that we want to allow the user to upload multiple files in a single request
-    form.multiples = true;
+    form.multiples = false;
 
     // store all uploads in the /uploads directory
     form.uploadDir = path.join(__dirname, '../public/uploaded');
@@ -23,7 +25,10 @@ router.post('/', function(req, res){
     // every time a file has been uploaded successfully,
     // rename it to it's orignal name
     form.on('file', function(field, file) {
-        fs.rename(file.path, path.join(form.uploadDir, file.name));
+        var extension = path.extname(file.name);
+        var hashedName = crypto.createHash('md5').update(file.name).digest('hex');
+
+        fs.rename(file.path, path.join(form.uploadDir, hashedName + extension));
     });
 
     // log any errors that occur

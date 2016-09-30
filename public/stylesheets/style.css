@@ -60,6 +60,9 @@ h4 {
     padding-bottom: 30px;
     color: #B8BDC1;
 }
+.selected-file-title {
+    padding-bottom: 5px;
+}
 
 .glyphicon {
     font-size: 5em;
