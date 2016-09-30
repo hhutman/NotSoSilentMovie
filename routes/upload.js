@@ -5,6 +5,7 @@ var path = require('path');
 var formidable = require('formidable');
 var fs = require('fs');
 var crypto = require('crypto');
+var database = require('../config/database');
 
 
 /* GET users listing. */
@@ -25,10 +26,7 @@ router.post('/', function(req, res){
     // every time a file has been uploaded successfully,
     // rename it to it's orignal name
     form.on('file', function(field, file) {
-        var extension = path.extname(file.name);
-        var hashedName = crypto.createHash('md5').update(file.name).digest('hex');
-
-        fs.rename(file.path, path.join(form.uploadDir, hashedName + extension));
+        fileUploaded( file);
     });
 
     // log any errors that occur
@@ -44,5 +42,14 @@ router.post('/', function(req, res){
     // parse the incoming request containing the form data
     form.parse(req);
 });
+
+function fileUploaded( file){
+    var extension = path.extname(file.name);
+    var hashedName = crypto.createHash('md5').update(file.name).digest('hex');
+
+    fs.rename(file.path, path.join(form.uploadDir, hashedName + extension));
+
+    database.pingDatabase();
+}
 
 module.exports = router;

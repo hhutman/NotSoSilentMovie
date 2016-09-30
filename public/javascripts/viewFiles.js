@@ -16,14 +16,16 @@
             var file = files[i];
             $('#uploadedFileList').append(
                 $('<div class="row uploaded-file-row"></div>').append(
-                    $('<div id="fileList_title" class="col-md-6"></div>').text(file),
-                    $('<div id="fileList_extension" class="col-md-3">ID</div>'),
-                    $('<div class="col-md-2"></div>').append(
+                    $('<div class="col-xs-1"></div>'),
+                    $('<div id="fileList_title" class="col-xs-5"></div>').text(file),
+                    $('<div id="fileList_extension" class="col-xs-2">ID</div>'),
+                    $('<div class="col-xs-2"></div>').append(
                         $('<button id="fileList_edit" class="btn btn-lg sm-button edit-btn sm-edit">Edit</button>')
                     ),
-                    $('<div class="col-md-1"></div>').append(
+                    $('<div class="col-xs-1"></div>').append(
                         $('<button id="fileList_delete" class="btn btn-lg sm-button edit-btn sm-delete">X</button>')
-                    )
+                    ),
+                    $('<div class="col-xs-1"></div>')
                 )
             );
         }
