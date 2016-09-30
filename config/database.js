@@ -1,23 +1,25 @@
-var mongodb = require('mongodb');
+var mongoose = require('mongoose');
 var contentModel = require('../models/content');
 var projectModel = require('../models/project');
 
-var contentCollection;
-var projectCollection;
-
 //We need to work with "MongoClient" interface in order to connect to a mongodb server.
-var MongoClient = mongodb.MongoClient;
+mongoose.connect('mongodb://localhost/silentMovie');
 
-// Connection URL. This is where your mongodb server is running.
-var url = 'mongodb://localhost:27017/silentMovie';
+// Setting up schemas
+var Content = mongoose.model('Content', contentModel);
+var Project = mongoose.model('Project', projectModel);
 
-module.exports.pingDatabase = function(){
-    MongoClient.connect(url, function (err, db) {
+module.exports.addContent = function(hashedName, extension, name){
+    var newAddition = new Content();
+    newAddition.name = name;
+    newAddition.fileType = extension;
+    newAddition.target = hashedName;
+
+    newAddition.save(function (err, object) {
         if (err) {
-            console.log('Unable to connect to the mongoDB server. Error:', err);
+            console.log(err);
         } else {
-            console.log('Connection established to', url);
-            db.close();
+            console.log('saved successfully:', object);
         }
     });
 };

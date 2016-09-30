@@ -26,7 +26,7 @@ router.post('/', function(req, res){
     // every time a file has been uploaded successfully,
     // rename it to it's orignal name
     form.on('file', function(field, file) {
-        fileUploaded(form, file);
+        fileReceived(form, file);
     });
 
     // log any errors that occur
@@ -43,13 +43,13 @@ router.post('/', function(req, res){
     form.parse(req);
 });
 
-function fileUploaded(form, file){
+function fileReceived(form, file){
     var extension = path.extname(file.name);
     var hashedName = crypto.createHash('md5').update(file.name).digest('hex');
 
-    fs.rename(file.path, path.join(form.uploadDir, hashedName + extension));
+    fs.rename(file.path, path.join(form.uploadDir, hashedName));
 
-    database.pingDatabase();
+    database.addContent(hashedName, extension, file.name);
 }
 
 module.exports = router;
