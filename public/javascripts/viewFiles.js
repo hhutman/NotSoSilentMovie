@@ -1,4 +1,3 @@
-
 (function () {
     // Get Express variables
     if(files == undefined){
@@ -15,7 +14,8 @@
         for(var i = 0; i < files.length; i++) {
             var file = files[i];
             $('#uploadedFileList').append(
-                $('<div class="row uploaded-file-row"></div>').append(
+                $('<div class="row uploaded-file-row"></div>').attr('id',"fileRow_" + file.target)
+                    .append(
                     $('<div class="col-xs-1"></div>'),
                     $('<div class="col-xs-5"></div>').text(file.name)
                         .attr('id', 'fileList_title' + i),
@@ -34,9 +34,23 @@
     } resetFileList();
 
     function deleteByName(event){
-        console.log(event.data.file.target);
+        var file = event.data.file;
+
+        $.ajax({
+            url: "/viewFiles",
+            type: "POST",
+            dataType: 'json',
+            data: JSON.stringify(file),
+            contentType: "application/json",
+            complete: function() {
+                console.log('process complete');
+            },
+            success: function(data) {
+                console.log('process sucess');
+            },
+            error: function() {
+                console.log('Error deleting file');
+            },
+        });
     }
-
-
-
 })();

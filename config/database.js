@@ -40,3 +40,15 @@ module.exports.getContent = function(callback){
         db.close();
     });
 };
+module.exports.deleteByTarget = function(target, callback){
+    Content.remove({ target: target }, function(err) {
+        if (!err) {
+            console.log(err);
+            callback('Error');
+        }
+        else {
+            console.log("deleted");
+            callback('Success');
+        }
+    });
+};

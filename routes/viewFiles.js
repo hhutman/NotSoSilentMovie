@@ -16,5 +16,11 @@ router.get('/', function(req, res, next) {
         res.render('viewFiles', {  files: JSON.stringify(files) });
     });
 });
+router.post('/', function(req, res, next) {
+    var target = req.body.target;
+    database.deleteByTarget(target, function(result){
+        res.end(result)
+    });
+});
 
 module.exports = router;
