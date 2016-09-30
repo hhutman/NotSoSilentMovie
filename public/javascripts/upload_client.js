@@ -44,7 +44,7 @@
         appendFilesToForm(formData);
 
         $.ajax({
-            url: '/directors',
+            url: '/upload',
             type: 'POST',
             data: formData,
             processData: false,

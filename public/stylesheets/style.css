@@ -33,7 +33,7 @@ body {
 .sm-select {
     background-color: #F89406;
 }
-.sm-viewFiles {
+.sm-pageLink {
     background-color: #87ceeb;
 }
 .sm-submit:hover,
@@ -49,10 +49,10 @@ body {
 .sm-select.active {
     background-color: #FA8900;
 }
-.sm-viewFiles:hover,
-.sm-viewFiles:focus,
-.sm-viewFiles:active,
-.sm-viewFiles.active {
+.sm-pageLink:hover,
+.sm-pageLink:focus,
+.sm-pageLink:active,
+.sm-pageLink.active {
     background-color: #8ed9f6;
 }
 
