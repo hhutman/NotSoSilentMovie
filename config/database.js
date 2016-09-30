@@ -1,9 +1,13 @@
+var mongodb = require('mongodb');
 var mongoose = require('mongoose');
 var contentModel = require('../models/content');
 var projectModel = require('../models/project');
 
-//We need to work with "MongoClient" interface in order to connect to a mongodb server.
-mongoose.connect('mongodb://localhost/silentMovie');
+var MONGO_ADDRESS = 'mongodb://localhost/silentMovie';
+
+mongoose.connect(MONGO_ADDRESS);
+var MongoClient = mongodb.MongoClient;
+
 
 // Setting up schemas
 var Content = mongoose.model('Content', contentModel);
@@ -19,7 +23,20 @@ module.exports.addContent = function(hashedName, extension, name){
         if (err) {
             console.log(err);
         } else {
-            console.log('saved successfully:', object);
+            console.log('saved successfully:', name);
         }
+    });
+};
+
+module.exports.getContent = function(callback){
+    MongoClient.connect(MONGO_ADDRESS, function(err, db) {
+        if(err) { callback(err, null) }
+
+        var collection = db.collection('contents');
+
+        collection.find().toArray(function(err, list) {
+            callback(err, list);
+        });
+        db.close();
     });
 };

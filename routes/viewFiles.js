@@ -6,11 +6,13 @@ var path = require('path');
 var formidable = require('formidable');
 var fs = require('fs');
 
+
+var database = require('../config/database');
+
 /* GET users listing. */
 router.get('/', function(req, res, next) {
-    fs.readdir(__dirname + '/../public/uploaded', function (err, files) {
-        if (err) throw err;
-
+    database.getContent( function(err, files) {
+        if (err) return;
         res.render('viewFiles', {  files: JSON.stringify(files) });
     });
 });
