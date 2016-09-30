@@ -1,7 +1,7 @@
 html,
 body {
     height: 100%;
-    background-color: #4791D2;
+    background-color: lightblue;
 }
 
 body {
@@ -12,7 +12,14 @@ body {
 .row {
     margin-top: 80px;
 }
-
+.uploadSupportedFormats {
+    color: gray;
+    font-size: 10px;
+}
+.uploadSupportedFormats div{
+    display: inline-block;
+    margin-left: 60px;
+}
 .upload-btn {
     color: white;
     border: none;
@@ -25,6 +32,9 @@ body {
 }
 .sm-select {
     background-color: #F89406;
+}
+.sm-viewFiles {
+    background-color: #87ceeb;
 }
 .sm-submit:hover,
 .sm-submit:focus,
@@ -39,7 +49,12 @@ body {
 .sm-select.active {
     background-color: #FA8900;
 }
-
+.sm-viewFiles:hover,
+.sm-viewFiles:focus,
+.sm-viewFiles:active,
+.sm-viewFiles.active {
+    background-color: #8ed9f6;
+}
 
 h4 {
     padding-bottom: 30px;

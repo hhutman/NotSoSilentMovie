@@ -10,7 +10,10 @@
         files = $(this).get(0).files;
 
         resetFileList();
+    });
 
+    $('#viewFilesButton').on('click', function () {
+        window.location = "/viewFiles";
     });
 
 

@@ -21,6 +21,7 @@ var io = require('socket.io')(http);
 var upload = require('./routes/upload');
 var routes = require('./routes/index');
 var theater = require('./routes/theater');
+var viewFiles = require('./routes/viewFiles');
 
 var obs = new OBSRemote();
 var ejs = require('ejs');
@@ -44,6 +45,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', routes);
 app.use('/upload', upload);
 app.use('/theater', theater);
+app.use('/viewFiles', viewFiles);
 
 // error handlers
 
