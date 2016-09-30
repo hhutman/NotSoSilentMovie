@@ -20,9 +20,11 @@ body {
     display: inline-block;
     margin-left: 60px;
 }
-.upload-btn {
+.sm-button {
     color: white;
     border: none;
+}
+.upload-btn {
     width: 40%;
     margin-left: 2%;
     margin-right: 2%;
@@ -30,24 +32,28 @@ body {
 .sm-submit {
     background-color: #32cd32;
 }
-.sm-select {
-    background-color: #F89406;
-}
-.sm-pageLink {
-    background-color: #87ceeb;
-}
 .sm-submit:hover,
 .sm-submit:focus,
 .sm-submit:active,
 .sm-submit.active {
     background-color: #35d635;
 }
-
+.sm-edit,
+.sm-select {
+    background-color: #F89406;
+}
+.sm-edit:hover,
+.sm-edit:focus,
+.sm-edit:active,
+.sm-edit.active,
 .sm-select:hover,
 .sm-select:focus,
 .sm-select:active,
 .sm-select.active {
     background-color: #FA8900;
+}
+.sm-pageLink {
+    background-color: #87ceeb;
 }
 .sm-pageLink:hover,
 .sm-pageLink:focus,
@@ -55,7 +61,15 @@ body {
 .sm-pageLink.active {
     background-color: #8ed9f6;
 }
-
+.sm-delete {
+    background-color: #ff3040;
+}
+.sm-delete:hover,
+.sm-delete:focus,
+.sm-delete:active,
+.sm-delete.active {
+    background-color: #ff4050;
+}
 h4 {
     padding-bottom: 30px;
     color: #B8BDC1;
@@ -82,7 +96,6 @@ h2 {
 #upload-input {
     display: none;
 }
-
 @media (min-width: 768px) {
     .main-container {
         width: 100%;
@@ -93,10 +106,26 @@ h2 {
     .container {
         width: 450px;
     }
+    .container-editFiles {
+        width: 800px;
+    }
 }
 #upload-input {
     display: none;
 }
 .btn:focus, .upload-btn:focus{
     outline: 0 !important;
+}
+.uploaded-file-row {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.uploaded-file-row div, .uploaded-file-row button{
+    display: inline-block;
+}
+.uploaded-file-row {
+    margin-top: 5px;
+}
+.uploaded-file-row button{
+    padding: 5px 20px;
 }
