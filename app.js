@@ -23,6 +23,7 @@ var routes = require('./routes/index');
 var theater = require('./routes/theater');
 var viewFiles = require('./routes/viewFiles');
 var editFile = require('./routes/editFile');
+var directors = require('./routes/directors');
 
 var obs = new OBSRemote();
 var ejs = require('ejs');
@@ -48,6 +49,7 @@ app.use('/upload', upload);
 app.use('/theater', theater);
 app.use('/viewFiles', viewFiles);
 app.use('/editFile', editFile);
+app.use('/directors', directors);
 
 // error handlers
 
