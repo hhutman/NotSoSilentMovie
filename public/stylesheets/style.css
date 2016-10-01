@@ -61,6 +61,15 @@ body {
 .sm-pageLink.active {
     background-color: #8ed9f6;
 }
+.sm-cancel {
+    background-color: #909090;
+}
+.sm-cancel:hover,
+.sm-cancel:focus,
+.sm-cancel:active,
+.sm-cancel.active {
+    background-color: #a0a0a0;
+}
 .sm-delete {
     background-color: #ff3040;
 }

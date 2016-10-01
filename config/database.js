@@ -52,12 +52,13 @@ module.exports.deleteByTarget = function(target, callback){
     });
 };
 module.exports.getByTarget = function(target, callback){
-    Content.find({ target: target }, function(err) {
-        if (err) {
+    Content.findOne({ target: target }, function(err, file) {
+        if (err || file == null) {
             console.log(err);
             callback('Error', null);
         }
         else {
+            console.log(file)
             callback( null, 'Success');
         }
     });

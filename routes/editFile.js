@@ -16,7 +16,7 @@ router.get('/:target', function(req, res, next) {
         if (err) {
             res.redirect('../');
         }
-        res.render('editFile', {  files: JSON.stringify(file) });
+        res.render('editFile');
     });
 });
 router.post('/', function(req, res, next) {
