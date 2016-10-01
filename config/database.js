@@ -54,11 +54,9 @@ module.exports.deleteByTarget = function(target, callback){
 module.exports.getByTarget = function(target, callback){
     Content.findOne({ target: target }, function(err, file) {
         if (err || file == null) {
-            console.log(err);
             callback('Error', null);
         }
         else {
-            console.log(file)
             callback( null, 'Success');
         }
     });

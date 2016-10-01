@@ -15,6 +15,7 @@ router.get('/:target', function(req, res, next) {
     database.getByTarget(target, function(err, file) {
         if (err) {
             res.redirect('../');
+            return;
         }
         res.render('editFile');
     });
