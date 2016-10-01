@@ -29,9 +29,14 @@ body {
     margin-left: 2%;
     margin-right: 2%;
 }
-.sm-submit {
+.sm-submit,
+.sm-save{
     background-color: #32cd32;
 }
+.sm-save:hover,
+.sm-save:focus,
+.sm-save:active,
+.sm-save.active,
 .sm-submit:hover,
 .sm-submit:focus,
 .sm-submit:active,

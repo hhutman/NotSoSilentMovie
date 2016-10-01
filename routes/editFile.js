@@ -29,7 +29,10 @@ router.get('/:target', function(req, res, next) {
     });
 });
 router.post('/', function(req, res, next) {
-    //TODO
+    var file = req.body;
+    database.updateByTarget(file, function(result){
+        res.end('success');
+    });
 });
 
 module.exports = router;

@@ -62,3 +62,29 @@ module.exports.getByTarget = function(target, callback){
         }
     });
 };
+module.exports.updateByTarget = function(file, callback){
+    Content.findOne({ target: file.target }, function(err, foundFile) {
+        if (err || foundFile == null) {
+            callback('Error', null);
+        }
+        else {
+            if(file.name){
+                foundFile.name = file.name;
+            }
+            if(file.useType){
+                foundFile.useType = file.useType;
+            }
+            if(file.description){
+                foundFile.description = file.description;
+            }
+            if(file.movieTitle){
+                foundFile.movieTitle = file.movieTitle;
+            }
+            if(file.tags){
+                foundFile.tags = file.tags;
+            }
+            foundFile.save();
+            callback( null, file);
+        }
+    });
+};
