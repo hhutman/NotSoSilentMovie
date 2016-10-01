@@ -36,7 +36,7 @@
         }
     });
     function goToEditPage(target){
-        window.location = "/editFile/" + target;
+        window.location = "/editFile/" + target + "/?state=new";
     }
 
     function uploadFiles() {

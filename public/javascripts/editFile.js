@@ -2,8 +2,20 @@
 
     var editedFile = file;
 
+    if(state == undefined ||
+        state == null ||
+        state != "new"){
+        $('#newFileButtons').remove();
+    } else {
+        $('#updateFileButtons').remove();
+    }
+
     $('#cancelButton').on('click', function () {
         window.location = "/viewFiles";
+    });
+
+    $('#deleteButton').on('click', function () {
+        deleteByFile();
     });
 
     $('#saveButton').on('click', function () {
@@ -28,8 +40,20 @@
             data: JSON.stringify(jsonNew),
             contentType: "application/json",
             complete: function() {
-                console.log('success');
-                location.reload();
+                window.location = "/viewFiles";
+            }
+        });
+    }
+
+    function deleteByFile(){
+        $.ajax({
+            url: "/viewFiles",
+            type: "POST",
+            dataType: 'json',
+            data: JSON.stringify(editedFile),
+            contentType: "application/json",
+            complete: function() {
+                window.location = "/upload";
             }
         });
     }

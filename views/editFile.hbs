@@ -11,8 +11,9 @@
 <body>
 <script>
     var file = {{{file}}};
+    var state = "{{{state}}}";
 </script>
-    <div class="container">
+    <div class="container container-editFiles">
         <div class="row">
             <div class="col-xs-12">
                 <div class="panel panel-default">
@@ -71,8 +72,15 @@
                             <div class="col-xs-1"></div>
                         </div>
                         <hr>
-                        <button id="cancelButton" class="btn btn-lg sm-button upload-btn sm-cancel" type="button">Cancel</button>
-                        <button id="saveButton" class="btn btn-lg sm-button upload-btn sm-save" type="button">Save</button>
+                        <div id="updateFileButtons">
+                            <button id="cancelButton" class="btn btn-lg sm-button upload-btn sm-cancel" type="button">Cancel</button>
+                            <button id="saveButton" class="btn btn-lg sm-button upload-btn sm-save" type="button">Save</button>
+                        </div>
+                        <div id="newFileButtons">
+                            <button id="deleteButton" class="btn btn-lg sm-button upload-btn sm-delete" type="button">Cancel</button>
+                            <button id="saveButton" class="btn btn-lg sm-button upload-btn sm-save" type="button">Save</button>
+                        </div>
+
                     </div>
                 </div>
             </div>
@@ -80,5 +88,5 @@
     </div>
     <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-    <script src="../javascripts/editFile.js"></script>
+    <script src="../../javascripts/editFile.js"></script>
 </body>

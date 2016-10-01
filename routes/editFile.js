@@ -17,7 +17,11 @@ router.get('/:target', function(req, res, next) {
             res.redirect('../');
             return;
         }
+
+        var passedVariable = req.query.state;
+
         res.render('editFile', {
+            state: passedVariable,
             file: JSON.stringify(file),
             fileExtension: file.extension,
             fileName: file.name,
