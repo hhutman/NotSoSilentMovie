@@ -17,7 +17,15 @@ router.get('/:target', function(req, res, next) {
             res.redirect('../');
             return;
         }
-        res.render('editFile', { file: JSON.stringify(file) });
+        res.render('editFile', {
+            file: JSON.stringify(file),
+            fileExtension: file.extension,
+            fileName: file.name,
+            fileType: file.useType,
+            movieTitle: file.movieTitle,
+            fileDescription: file.description,
+            fileTags: file.tags
+        });
     });
 });
 router.post('/', function(req, res, next) {

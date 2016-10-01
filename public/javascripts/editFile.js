@@ -6,6 +6,6 @@
         window.location = "/viewFiles";
     });
 
-    $('#info-container').text(editedFile.name);
+    $('#file-name-input').attr('value', editedFile.name);
 
 })();
