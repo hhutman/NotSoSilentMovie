@@ -26,6 +26,7 @@
                     $('<div id="fileList_extension" class="col-xs-1"></div>').text(file.fileType),
                     $('<div class="col-xs-2"></div>').append(
                         $('<button id="fileList_edit" class="btn btn-lg sm-button edit-btn sm-edit">Edit</button>')
+                            .on('click',{ file: file }, goToEditPage)
                     ),
                     $('<div class="col-xs-1"></div>').append(
                         $('<button id="fileList_delete" class="btn btn-lg sm-button edit-btn sm-delete">X</button>')
@@ -51,6 +52,11 @@
                 removeRowByTarget(file.target)
             }
         });
+    }
+
+    function goToEditPage(event){
+        var file = event.data.file;
+        window.location = "/editFile/" + file.target;
     }
 
     function removeRowByTarget(target){

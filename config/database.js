@@ -42,13 +42,23 @@ module.exports.getContent = function(callback){
 };
 module.exports.deleteByTarget = function(target, callback){
     Content.remove({ target: target }, function(err) {
-        if (!err) {
+        if (err) {
             console.log(err);
             callback('Error');
         }
         else {
-            console.log("deleted");
             callback('Success');
+        }
+    });
+};
+module.exports.getByTarget = function(target, callback){
+    Content.find({ target: target }, function(err) {
+        if (err) {
+            console.log(err);
+            callback('Error', null);
+        }
+        else {
+            callback( null, 'Success');
         }
     });
 };
