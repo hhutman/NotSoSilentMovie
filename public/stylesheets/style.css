@@ -94,6 +94,13 @@ h4 {
 a.nounderline {
     text-decoration: none;
 }
+.edit-page_file-information-container,
+.edit-page_file-information-container .row{
+    margin-top: 10px;
+}
+.edit-page_file-information-container .row{
+    text-align: left;
+}
 
 .website-header,
 .website-header:link,
