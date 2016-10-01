@@ -13,11 +13,12 @@ var MongoClient = mongodb.MongoClient;
 var Content = mongoose.model('Content', contentModel);
 var Project = mongoose.model('Project', projectModel);
 
-module.exports.addContent = function(hashedName, extension, name){
+module.exports.addContent = function(hashedName, extension, name, useType){
     var newAddition = new Content();
     newAddition.name = name;
-    newAddition.fileType = extension;
+    newAddition.extension = extension;
     newAddition.target = hashedName;
+    newAddition.useType = useType;
 
     newAddition.save(function (err, object) {
         if (err) {

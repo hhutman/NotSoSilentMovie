@@ -17,12 +17,17 @@ router.post('/', function(req, res){
     // create an incoming form object
     var form = new formidable.IncomingForm();
 
+    var useType = "";
+
     // specify that we want to allow the user to upload multiple files in a single request
-    form.multiples = false;
+    form.multiples = true;
 
     // store all uploads in the /uploads directory
     form.uploadDir = path.join(__dirname, '../public/uploaded');
 
+    form.on('field', function(name, value) {
+        useType = value;
+    });
     // every time a file has been uploaded successfully,
     // rename it to it's orignal name
     form.on('file', function(field, file) {
@@ -41,15 +46,17 @@ router.post('/', function(req, res){
 
     // parse the incoming request containing the form data
     form.parse(req);
+
+    function fileReceived(form, file){
+        var extension = path.extname(file.name);
+        var hashedName = crypto.createHash('md5').update(file.name).digest('hex');
+
+        fs.rename(file.path, path.join(form.uploadDir, hashedName));
+
+        database.addContent(hashedName, extension, file.name, useType);
+    }
 });
 
-function fileReceived(form, file){
-    var extension = path.extname(file.name);
-    var hashedName = crypto.createHash('md5').update(file.name).digest('hex');
 
-    fs.rename(file.path, path.join(form.uploadDir, hashedName));
-
-    database.addContent(hashedName, extension, file.name);
-}
 
 module.exports = router;

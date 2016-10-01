@@ -50,8 +50,8 @@
             processData: false,
             contentType: false,
 
-            complete: function (data) {
-                console.log('upload successful!\n' + data);
+            complete: function () {
+                console.log('upload successful');
             },
 
             xhr: function () {
@@ -64,8 +64,11 @@
         for (var i = 0; i < files.length; i++) {
             var file = files[i];
 
+            var radioValue = $("input[name=optradio]:checked").val();
+
             // add the files to formData object for the data payload
-            formData.append('uploads[]', file, file.name);
+            formData.append('upload', file, file.name);
+            formData.append('useType', radioValue)
         }
     }
 

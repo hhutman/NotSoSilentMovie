@@ -23,7 +23,8 @@
                     $('<div class="col-xs-1"></div>'),
                     $('<div class="col-xs-6"></div>').text(file.name)
                         .attr('id', 'fileList_title' + i),
-                    $('<div id="fileList_extension" class="col-xs-1"></div>').text(file.fileType),
+                        $('<div id="fileList_extension" class="col-xs-1"></div>').text(file.extension),
+                        $('<div id="fileList_useType" class="col-xs-1"></div>').text(file.useType),
                     $('<div class="col-xs-2"></div>').append(
                         $('<button id="fileList_edit" class="btn btn-lg sm-button edit-btn sm-edit">Edit</button>')
                             .on('click',{ file: file }, goToEditPage)

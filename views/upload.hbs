@@ -27,9 +27,9 @@
                     <button id="selectButton" class="btn btn-lg sm-button upload-btn sm-select" type="button">Select File</button>
                     <button id="submitButton" class="btn btn-lg sm-button upload-btn sm-submit" type="button">Submit</button>
                     <div>
-                        <label class="radio-inline"><input type="radio" name="optradio" checked="true">Video Clip</label>
-                        <label class="radio-inline"><input type="radio" name="optradio">Title Card</label>
-                        <label class="radio-inline"><input type="radio" name="optradio">Audio Track</label>
+                        <label class="radio-inline"><input type="radio" value="video" name="optradio" checked="true">Video Clip</label>
+                        <label class="radio-inline"><input type="radio" value="card" name="optradio">Title Card</label>
+                        <label class="radio-inline"><input type="radio" value="audio" name="optradio">Audio Track</label>
                     </div>
                     <div class="uploadSupportedFormats">
                         <div>
@@ -52,7 +52,7 @@
     </div>
 </div>
 
-<input id="upload-input" type="file" name="uploads[]"></br>
+<input id="upload-input" type="file" name="upload"></br>
 
 <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>

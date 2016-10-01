@@ -6,7 +6,11 @@ var content = new mongoose.Schema({
         unique: true,
         required: true
     },
-    fileType: {
+    extension: {
+        type: String,
+        required: true
+    },
+    useType: {
         type: String,
         required: true
     },
