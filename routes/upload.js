@@ -18,6 +18,7 @@ router.post('/', function(req, res){
     var form = new formidable.IncomingForm();
 
     var useType = "";
+    var hashedName = "";
 
     // specify that we want to allow the user to upload multiple files in a single request
     form.multiples = true;
@@ -41,6 +42,7 @@ router.post('/', function(req, res){
 
     // once all the files have been uploaded, send a response to the client
     form.on('end', function() {
+        res.send(hashedName);
         res.end('success');
     });
 
@@ -49,7 +51,7 @@ router.post('/', function(req, res){
 
     function fileReceived(form, file){
         var extension = path.extname(file.name);
-        var hashedName = crypto.createHash('md5').update(file.name).digest('hex');
+        hashedName = crypto.createHash('md5').update(file.name).digest('hex');
 
         fs.rename(file.path, path.join(form.uploadDir, hashedName));
 

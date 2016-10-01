@@ -35,6 +35,9 @@
             uploadFiles();
         }
     });
+    function goToEditPage(target){
+        window.location = "/editFile/" + target;
+    }
 
     function uploadFiles() {
         // create a FormData object which will be sent as the data payload in the
@@ -52,6 +55,9 @@
 
             complete: function () {
                 console.log('upload successful');
+            },
+            success: function(data){
+                goToEditPage(data);
             },
 
             xhr: function () {

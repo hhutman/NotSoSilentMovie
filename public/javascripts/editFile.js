@@ -29,6 +29,7 @@
             contentType: "application/json",
             complete: function() {
                 console.log('success');
+                location.reload();
             }
         });
     }
