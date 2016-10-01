@@ -16,6 +16,7 @@ var content = new mongoose.Schema({
     },
     target: {
         type: String,
+        unique: true,
         required: true
     },
     movieTitle: String,
