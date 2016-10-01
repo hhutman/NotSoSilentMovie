@@ -67,8 +67,8 @@
             var radioValue = $("input[name=optradio]:checked").val();
 
             // add the files to formData object for the data payload
+            formData.append('useType', radioValue);
             formData.append('upload', file, file.name);
-            formData.append('useType', radioValue)
         }
     }
 

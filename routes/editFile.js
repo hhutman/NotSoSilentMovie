@@ -13,11 +13,11 @@ var database = require('../config/database');
 router.get('/:target', function(req, res, next) {
     var target = req.params.target;
     database.getByTarget(target, function(err, file) {
-        if (err) {
+        if (err || file == null) {
             res.redirect('../');
             return;
         }
-        res.render('editFile');
+        res.render('editFile', { file: JSON.stringify(file) });
     });
 });
 router.post('/', function(req, res, next) {

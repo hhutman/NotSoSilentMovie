@@ -58,7 +58,7 @@ module.exports.getByTarget = function(target, callback){
             callback('Error', null);
         }
         else {
-            callback( null, 'Success');
+            callback( null, file);
         }
     });
 };
