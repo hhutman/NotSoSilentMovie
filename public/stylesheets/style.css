@@ -163,3 +163,9 @@ h2 {
 .uploaded-file-row button{
     padding: 5px 20px;
 }
+.display-none {
+    display: none;
+}
+.minimum-height_panel {
+    min-height: 300px;
+}

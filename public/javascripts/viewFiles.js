@@ -61,6 +61,8 @@
     }
 
     function removeRowByTarget(target){
-        $('#' + TARGET_PREFIX + target).remove();
+        $('#' + TARGET_PREFIX + target).fadeOut(200, function(){
+            $('#' + TARGET_PREFIX + target).remove();
+        });
     }
 })();

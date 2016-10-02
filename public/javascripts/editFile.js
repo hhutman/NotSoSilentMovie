@@ -10,7 +10,11 @@
         $('#updateFileButtons').remove();
     }
 
+    $('#pageContents_fadeIn').fadeIn(400);
+
+
     $('#cancelButton').on('click', function () {
+        fadeOutContainer();
         window.location = "/viewFiles";
     });
 
@@ -40,6 +44,7 @@
             data: JSON.stringify(jsonNew),
             contentType: "application/json",
             complete: function() {
+                fadeOutContainer();
                 window.location = "/viewFiles";
             }
         });
@@ -53,9 +58,14 @@
             data: JSON.stringify(editedFile),
             contentType: "application/json",
             complete: function() {
+                fadeOutContainer();
                 window.location = "/upload";
             }
         });
+    }
+
+    function fadeOutContainer(callback){
+        $('#pageContents_fadeIn').fadeOut(100, callback);
     }
 
 })();

@@ -5,6 +5,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var child_process = require('child_process');
+var hbs = require('hbs');
 var fluent_ffmpeg = require('fluent-ffmpeg');
 
 
