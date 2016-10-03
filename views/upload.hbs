@@ -1,56 +1,45 @@
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <title>Silent Movie: Upload Page</title>
-    <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/stylesheets/style.css">
-</head>
+{{> head }}
 <body>
-
 <div class="container">
-    <div class="row">
-        <div class="col-xs-12">
-            <div class="panel panel-default">
-                <div class="panel-body">
-                    <h2>
-                        <a href="/" class="nounderline">
-                            <div class="website-header">Silent Movie</div>
-                        </a>
-                    </h2>
-                    <h4>Upload Page</h4>
-                    <div id='alertSpace' class="text-alert" style='display: none'>
-                        <!-- This is where alerts are displayed -->
-                    </div>
-                    <div>
-                        <label class="radio-inline"><input type="radio" value="video" name="optradio" checked="true">Video Clip</label>
-                        <label class="radio-inline"><input type="radio" value="card" name="optradio">Title Card</label>
-                        <label class="radio-inline"><input type="radio" value="audio" name="optradio">Audio Track</label>
-                    </div>
-                    <div class="uploadSupportedFormats">
-                        <div>
-                            (MP4, WebM, FLV)
-                        </div>
-                        <div>
-                            (AAC, MP3, Vorbis)
-                        </div>
-                    </div>
-                    <div class="progress">
-                        <div class="progress-bar" role="progressbar"></div>
-                    </div>
-                    <button id="selectButton" class="btn btn-lg sm-button upload-btn sm-select" type="button">Select File</button>
-                    <button id="submitButton" disabled="true" class="btn btn-lg sm-button upload-btn sm-submit" type="button">Submit</button>
-                    <div>
-                        <h4 class="selected-file-title">Selected File:</h4>
-                    </div>
-                    <div id="uploadList">
-                    </div>
-                    <hr>
-                    <button id="viewFilesButton" class="btn btn-lg sm-button upload-btn sm-pageLink" type="button">View Files</button>
+    <div class="panel panel-default">
+        <div class="panel-body">
+            {{> header pageTitle='Upload Page' }}
+            <div id='alertSpace' class="text-alert" style='display: none'>
+                <!-- This is where alerts are displayed -->
+            </div>
+            <div>
+                <label class="radio-inline"><input type="radio" value="video" name="optradio" checked="true">Video
+                    Clip</label>
+                <label class="radio-inline"><input type="radio" value="card" name="optradio">Title Card</label>
+                <label class="radio-inline"><input type="radio" value="audio" name="optradio">Audio
+                    Track</label>
+            </div>
+            <div class="uploadSupportedFormats">
+                <div>
+                    (MP4, WebM, FLV)
+                </div>
+                <div>
+                    (AAC, MP3, Vorbis)
                 </div>
             </div>
+            <div class="progress">
+                <div class="progress-bar" role="progressbar"></div>
+            </div>
+            <button id="selectButton" class="btn btn-lg sm-button upload-btn sm-select" type="button">Select
+                File
+            </button>
+            <button id="submitButton" disabled="true" class="btn btn-lg sm-button upload-btn sm-submit"
+                    type="button">Submit
+            </button>
+            <div>
+                <h4 class="selected-file-title">Selected File:</h4>
+            </div>
+            <div id="uploadList">
+            </div>
+            <hr>
+            <button id="viewFilesButton" class="btn btn-lg sm-button upload-btn sm-pageLink" type="button">View
+                Files
+            </button>
         </div>
     </div>
 </div>

@@ -29,6 +29,9 @@ body {
 .sm-button:disabled {
     cursor:default;
 }
+.panel-default{
+    margin-top: 80px;
+}
 .upload-btn {
     width: 40%;
     margin-left: 2%;

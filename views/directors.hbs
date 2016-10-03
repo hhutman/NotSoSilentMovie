@@ -1,37 +1,17 @@
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <title>Silent Movie: Upload Page</title>
-    <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/stylesheets/style.css">
-</head>
+{{> head }}
 <body>
-
 <div class="container">
-    <div class="row">
-        <div class="col-xs-12">
-            <div class="panel panel-default">
-                <div class="panel-body">
-                    <h2>
-                        <a href="/" class="nounderline">
-                            <div class="website-header">Silent Movie</div>
-                        </a>
-                    </h2>
-                    <h4>Director's Page</h4>
-                    <button id="uploadPage" class="btn btn-lg sm-button upload-btn sm-pageLink" type="button">Upload Page</button>
-                    <br><br>
-                    <button id="viewFiles" class="btn btn-lg sm-button upload-btn sm-pageLink" type="button">View Files</button>
-                    <br><br>
-                    <button id="mainPage" class="btn btn-lg sm-button upload-btn sm-pageLink" type="button">Main Page</button>
-                </div>
-            </div>
+    <div class="panel panel-default">
+        <div class="panel-body">
+            {{> header pageTitle="Director's Page" }}
+            <button id="uploadPage" class="btn btn-lg sm-button upload-btn sm-pageLink" type="button">Upload Page
+            </button>
+            <br><br>
+            <button id="viewFiles" class="btn btn-lg sm-button upload-btn sm-pageLink" type="button">View Files</button>
+            <br><br>
+            <button id="mainPage" class="btn btn-lg sm-button upload-btn sm-pageLink" type="button">Main Page</button>
         </div>
     </div>
 </div>
-<script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 <script src="javascripts/directors.js"></script>
 </body>

@@ -1,95 +1,86 @@
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <title>Silent Movie: Edit File</title>
-    <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/stylesheets/style.css">
-</head>
+{{> head}}
 <body>
 <script>
     var file = {{{file}}};
 </script>
-    <div class="container container-editFiles">
-        <div class="row">
-            <div class="col-xs-12">
-                <div class="panel panel-default">
-                    <div class="panel-body minimum-height_panel">
-                        <h2>
-                            <a href="/" class="nounderline">
-                                <div class="website-header">Silent Movie</div>
-                            </a>
-                        </h2>
-                        <h4>Edit Page</h4>
-                        <div id="pageContents_fadeIn" class="display-none">
-                            <div id="fileName">{{fileName}}</div>
-                            <div class="row edit-page_file-information-container">
-                            <div class="col-xs-1"></div>
-                            <div class="col-xs-10">
-                                <div class="row">
-                                    <div class="col-xs-6">
-                                        Name: <input type="text" name="name">{{fileExtension}}
-                                    </div>
-                                    <div class="col-xs-6">
-                                        {{fileName}}{{fileExtension}}
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-xs-6">
-                                        Type:  <input type="text" name="type">
-                                    </div>
-                                    <div class="col-xs-6">
-                                        {{fileType}}
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-xs-6">
-                                        Movie Title: <input type="text" name="movie">
-                                    </div>
-                                    <div class="col-xs-6">
-                                        {{movieTitle}}
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-xs-6">
-                                        Description: <input type="text" name="description">
-                                    </div>
-                                    <div class="col-xs-6">
-                                        {{fileDescription}}
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-xs-6">
-                                        Tags: <input type="text" name="tags">
-                                    </div>
-                                    <div class="col-xs-6">
-                                        {{fileTags}}
-                                    </div>
-                                </div>
+<div class="container container-editFiles">
+    <div class="panel panel-default">
+        <div class="panel-body minimum-height_panel">
+            {{> header pageTitle="Edit Page" }}
+            <div id="pageContents_fadeIn" class="display-none">
+                <div id="fileName">{{fileName}}</div>
+                <div class="row edit-page_file-information-container">
+                    <div class="col-xs-1"></div>
+                    <div class="col-xs-10">
+                        <div class="row">
+                            <div class="col-xs-6">
+                                Name: <input type="text" name="name">{{fileExtension}}
                             </div>
-                            <div class="col-xs-1"></div>
+                            <div class="col-xs-6">
+                                {{fileName}}{{fileExtension}}
+                            </div>
                         </div>
-                            <hr>
-                            {{#if state}}
-                                <div id="newFileButtons">
-                                    <button id="deleteButton" class="btn btn-lg sm-button upload-btn sm-delete" type="button">Cancel</button>
-                                    <button id="saveButton" class="btn btn-lg sm-button upload-btn sm-save" type="button">Save</button>
-                                </div>
-                            {{else}}
-                                <div id="updateFileButtons">
-                                    <button id="cancelButton" class="btn btn-lg sm-button upload-btn sm-cancel" type="button">Cancel</button>
-                                    <button id="saveButton" class="btn btn-lg sm-button upload-btn sm-save" type="button">Save</button>
-                                </div>
-                            {{/if}}
+                        <div class="row">
+                            <div class="col-xs-6">
+                                Type: <input type="text" name="type">
+                            </div>
+                            <div class="col-xs-6">
+                                {{fileType}}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-6">
+                                Movie Title: <input type="text" name="movie">
+                            </div>
+                            <div class="col-xs-6">
+                                {{movieTitle}}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-6">
+                                Description: <input type="text" name="description">
+                            </div>
+                            <div class="col-xs-6">
+                                {{fileDescription}}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-6">
+                                Tags: <input type="text" name="tags">
+                            </div>
+                            <div class="col-xs-6">
+                                {{fileTags}}
+                            </div>
                         </div>
                     </div>
+                    <div class="col-xs-1"></div>
                 </div>
+                <hr>
+                {{#if state}}
+                    <div id="newFileButtons">
+                        <button id="deleteButton" class="btn btn-lg sm-button upload-btn sm-delete"
+                                type="button">Cancel
+                        </button>
+                        <button id="saveButton" class="btn btn-lg sm-button upload-btn sm-save" type="button">
+                            Save
+                        </button>
+                    </div>
+                {{else}}
+                    <div id="updateFileButtons">
+                        <button id="cancelButton" class="btn btn-lg sm-button upload-btn sm-cancel"
+                                type="button">Cancel
+                        </button>
+                        <button id="saveButton" class="btn btn-lg sm-button upload-btn sm-save" type="button">
+                            Save
+                        </button>
+                    </div>
+                {{/if}}
             </div>
+
         </div>
     </div>
-    <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-    <script src="../../javascripts/editFile.js"></script>
+</div>
+<script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script src="../../javascripts/editFile.js"></script>
 </body>
