@@ -8,22 +8,35 @@
   "dependencies": {
     "express": "latest",
     "serve-favicon": "latest",
-    "ejs": "latest",
     "hbs": "latest",
     "morgan": "latest",
     "body-parser": "latest",
-    "cookie-parser": "latest"
+    "cookie-parser": "latest",
+    "debug": "latest",
+    "formidable": "latest",
+    "mongodb": "latest",
+    "mongoose": "latest"
   },
   "description": "Direct your own interactive silent movies using clips from the past!",
   "main": "www",
   "directories": {
     "doc": "doc"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.0",
+    "gulp-jshint": "^2.0.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-uglify": "^2.0.0"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.ncsu.edu/hhutman/SilentMovie.git"
   },
   "author": "Matthew Riegel",
-  "license": "ISC"
+  "license": "ISC",
+  "keywords": [
+    "silent",
+    "movie"
+  ]
 }
