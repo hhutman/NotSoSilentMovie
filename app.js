@@ -4,17 +4,13 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-var child_process = require('child_process');
 var hbs = require('hbs');
-var fluent_ffmpeg = require('fluent-ffmpeg');
 
 
 var fs = require('fs');
-var OBSRemote = require('obs-remote');
 
 var app = express();
 var http = require('http').Server(app);
-var io = require('socket.io')(http);
 
 /**
  * Pages that can be visited
@@ -26,10 +22,6 @@ var theater = require('./routes/theater');
 var viewFiles = require('./routes/viewFiles');
 var editFile = require('./routes/editFile');
 var directors = require('./routes/directors');
-
-var obs = new OBSRemote();
-var ejs = require('ejs');
-
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -61,7 +53,7 @@ app.use('/directors', directors);
 // development error handler
 // will print stacktrace
 if (app.get('env') === 'development') {
-    app.use(function(err, req, res, next) {
+    app.use(function(err, req, res) {
         res.status(err.status || 500);
         res.render('error', {
             message: err.message,
@@ -73,7 +65,7 @@ if (app.get('env') === 'development') {
 
 // production error handler
 // no stacktraces leaked to user
-app.use(function(err, req, res, next) {
+app.use(function(err, req, res) {
     res.status(err.status || 500);
     res.render('error', {
         message: err.message,
@@ -88,12 +80,3 @@ app.get('*', function(req, res) {
 
 
 module.exports = app;
-
-
-// User Connected
-io.on('connection', function (socket) {
-    // User Disconnected
-    socket.on('disconnect', function(){
-
-    });
-});

@@ -4,42 +4,44 @@
     <div class="panel panel-default">
         <div class="panel-body">
             {{> header pageTitle='Upload Page' }}
-            <div id='alertSpace' class="text-alert" style='display: none'>
-                <!-- This is where alerts are displayed -->
-            </div>
-            <div>
-                <label class="radio-inline"><input type="radio" value="video" name="optradio" checked="true">Video
-                    Clip</label>
-                <label class="radio-inline"><input type="radio" value="card" name="optradio">Title Card</label>
-                <label class="radio-inline"><input type="radio" value="audio" name="optradio">Audio
-                    Track</label>
-            </div>
-            <div class="uploadSupportedFormats">
-                <div>
-                    (MP4, WebM, FLV)
+            <div class="sm_fade-in">
+                <div id='alertSpace' class="text-alert" style='display: none'>
+                    <!-- This is where alerts are displayed -->
                 </div>
                 <div>
-                    (AAC, MP3, Vorbis)
+                    <label class="radio-inline"><input type="radio" value="video" name="optradio" checked="true">Video
+                        Clip</label>
+                    <label class="radio-inline"><input type="radio" value="card" name="optradio">Title Card</label>
+                    <label class="radio-inline"><input type="radio" value="audio" name="optradio">Audio
+                        Track</label>
                 </div>
+                <div class="uploadSupportedFormats">
+                    <div>
+                        (MP4, WebM, FLV)
+                    </div>
+                    <div>
+                        (AAC, MP3, Vorbis)
+                    </div>
+                </div>
+                <div class="progress">
+                    <div class="progress-bar" role="progressbar"></div>
+                </div>
+                <button id="selectButton" class="btn btn-lg sm-button upload-btn sm-select" type="button">Select
+                    File
+                </button>
+                <button id="submitButton" disabled="true" class="btn btn-lg sm-button upload-btn sm-submit"
+                        type="button">Submit
+                </button>
+                <div>
+                    <h4 class="selected-file-title">Selected File:</h4>
+                </div>
+                <div id="uploadList">
+                </div>
+                <hr>
+                <button id="viewFilesButton" class="btn btn-lg sm-button upload-btn sm-pageLink" type="button">View
+                    Files
+                </button>
             </div>
-            <div class="progress">
-                <div class="progress-bar" role="progressbar"></div>
-            </div>
-            <button id="selectButton" class="btn btn-lg sm-button upload-btn sm-select" type="button">Select
-                File
-            </button>
-            <button id="submitButton" disabled="true" class="btn btn-lg sm-button upload-btn sm-submit"
-                    type="button">Submit
-            </button>
-            <div>
-                <h4 class="selected-file-title">Selected File:</h4>
-            </div>
-            <div id="uploadList">
-            </div>
-            <hr>
-            <button id="viewFilesButton" class="btn btn-lg sm-button upload-btn sm-pageLink" type="button">View
-                Files
-            </button>
         </div>
     </div>
 </div>

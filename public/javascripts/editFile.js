@@ -2,12 +2,12 @@
 
     var editedFile = file;
 
-    $('#pageContents_fadeIn').fadeIn(400);
-
 
     $('#cancelButton').on('click', function () {
-        fadeOutContainer();
-        window.location = "/viewFiles";
+        fadeOutContainer(function(){
+            window.location = "/viewFiles";
+        });
+
     });
 
     $('#deleteButton').on('click', function () {
@@ -68,7 +68,11 @@
     }
 
     function fadeOutContainer(callback){
-        $('#pageContents_fadeIn').fadeOut(100, callback);
+        $('.sm_fade-in').animate({
+            opacity: '0',
+        }, 500, function() {
+            callback();
+        });
     }
 
 })();
