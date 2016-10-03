@@ -2,14 +2,6 @@
 
     var editedFile = file;
 
-    if(state == undefined ||
-        state == null ||
-        state != "new"){
-        $('#newFileButtons').remove();
-    } else {
-        $('#updateFileButtons').remove();
-    }
-
     $('#pageContents_fadeIn').fadeIn(400);
 
 
@@ -43,11 +35,22 @@
             dataType: 'json',
             data: JSON.stringify(jsonNew),
             contentType: "application/json",
-            complete: function() {
-                fadeOutContainer();
-                window.location = "/viewFiles";
+            success: function() {
+                editSuccess();
+            },
+            error: function(){
+
             }
         });
+    }
+
+    function editSuccess(){
+        fadeOutContainer();
+        window.location = "/viewFiles";
+    }
+    function editFail(){
+        fadeOutContainer();
+        window.location = "/viewFiles";
     }
 
     function deleteByFile(){

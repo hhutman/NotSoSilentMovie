@@ -18,24 +18,35 @@ router.get('/:target', function(req, res, next) {
             return;
         }
 
-        var passedVariable = req.query.state;
-
-        res.render('editFile', {
-            state: passedVariable,
-            file: JSON.stringify(file),
-            fileExtension: file.extension,
-            fileName: file.name,
-            fileType: file.useType,
-            movieTitle: file.movieTitle,
-            fileDescription: file.description,
-            fileTags: file.tags
-        });
+        if( req.query.state == 'new' ){
+            res.render('editFile', {
+                state: 'new',
+                file: file,
+                fileExtension: file.extension,
+                fileName: file.name,
+                fileType: file.useType,
+                movieTitle: file.movieTitle,
+                fileDescription: file.description,
+                fileTags: file.tags
+            });
+        } else {
+            res.render('editFile', {
+                file: JSON.stringify(file),
+                fileExtension: file.extension,
+                fileName: file.name,
+                fileType: file.useType,
+                movieTitle: file.movieTitle,
+                fileDescription: file.description,
+                fileTags: file.tags
+            });
+        }
     });
 });
 router.post('/', function(req, res, next) {
     var file = req.body;
     database.updateByTarget(file, function(result){
-        res.end('success');
+        var response = { status: 200, success: true};
+        res.end(JSON.stringify(response));
     });
 });
 
