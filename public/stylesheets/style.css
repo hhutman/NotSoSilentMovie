@@ -22,6 +22,10 @@ body {
     color: white;
     border: none;
 }
+.text-alert{
+    color: #ff0000;
+    padding: 10px;
+}
 .sm-button:disabled {
     cursor:default;
 }
@@ -86,7 +90,7 @@ body {
     background-color: #ff4050;
 }
 h4 {
-    padding-bottom: 30px;
+    padding-bottom: 10px;
     color: #B8BDC1;
 }
 .selected-file-title {

@@ -49,7 +49,8 @@
     }
 
     function showUploadError(){
-        $('#alertSpace').text('Error Uploading File');
+        $('#alertSpace').text('Error Uploading File')
+            .show();
     }
 
     function uploadFiles() {
