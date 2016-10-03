@@ -8,7 +8,9 @@
 
     $('#upload-input').on('change', function () {
         files = $(this).get(0).files;
-
+        if(files){
+            $('#submitButton').prop('disabled', false);
+        }
         resetFileList();
     });
 
@@ -20,23 +22,34 @@
     function resetFileList(){
         $('#uploadList div').empty();
 
-        for(var i = 0; i < files.length; i++) {
-            var file = files[i];
-
+        if(files[0]){
             $('#uploadList').append(
-                $("<div></div>").text(file.name)
+                $("<div></div>").text(files[0].name)
             );
         }
     }
 
+    function disableButtons(){
+        $('button').prop('disabled', true);
+    }
+
+    function enableButtons(){
+        $('#selectButton').prop('disabled', false);
+        $('#viewFilesButton').prop('disabled', false);
+    }
 
     $('#submitButton').on('click', function () {
-        if (files.length > 0) {
+        if (files[0]) {
+            disableButtons();
             uploadFiles();
         }
     });
     function goToEditPage(target){
         window.location = "/editFile/" + target + "/?state=new";
+    }
+
+    function showUploadError(){
+        $('#alertSpace').text('Error Uploading File');
     }
 
     function uploadFiles() {
@@ -52,12 +65,12 @@
             data: formData,
             processData: false,
             contentType: false,
-
-            complete: function () {
-                console.log('upload successful');
-            },
             success: function(data){
                 goToEditPage(data);
+            },
+            error: function(){
+                showUploadError();
+                enableButtons();
             },
 
             xhr: function () {

@@ -21,7 +21,7 @@ router.get('/:target', function(req, res, next) {
         if( req.query.state == 'new' ){
             res.render('editFile', {
                 state: 'new',
-                file: file,
+                file: JSON.stringify(file),
                 fileExtension: file.extension,
                 fileName: file.name,
                 fileType: file.useType,

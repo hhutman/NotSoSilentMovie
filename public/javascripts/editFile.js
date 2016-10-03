@@ -39,7 +39,7 @@
                 editSuccess();
             },
             error: function(){
-
+                editFail();
             }
         });
     }

@@ -21,11 +21,9 @@
                         </a>
                     </h2>
                     <h4>Upload Page</h4>
-                    <div class="progress">
-                        <div class="progress-bar" role="progressbar"></div>
+                    <div id='alertSpace'>
+                        <!-- This is where alerts are displayed -->
                     </div>
-                    <button id="selectButton" class="btn btn-lg sm-button upload-btn sm-select" type="button">Select File</button>
-                    <button id="submitButton" class="btn btn-lg sm-button upload-btn sm-submit" type="button">Submit</button>
                     <div>
                         <label class="radio-inline"><input type="radio" value="video" name="optradio" checked="true">Video Clip</label>
                         <label class="radio-inline"><input type="radio" value="card" name="optradio">Title Card</label>
@@ -39,6 +37,11 @@
                             (AAC, MP3, Vorbis)
                         </div>
                     </div>
+                    <div class="progress">
+                        <div class="progress-bar" role="progressbar"></div>
+                    </div>
+                    <button id="selectButton" class="btn btn-lg sm-button upload-btn sm-select" type="button">Select File</button>
+                    <button id="submitButton" disabled="true" class="btn btn-lg sm-button upload-btn sm-submit" type="button">Submit</button>
                     <div>
                         <h4 class="selected-file-title">Selected File:</h4>
                     </div>

@@ -43,7 +43,7 @@ router.post('/', function(req, res){
     // once all the files have been uploaded, send a response to the client
     form.on('end', function() {
         res.send(hashedName);
-        res.end('success');
+        res.end();
     });
 
     // parse the incoming request containing the form data
@@ -54,8 +54,9 @@ router.post('/', function(req, res){
         hashedName = crypto.createHash('md5').update(file.name).digest('hex');
 
         fs.rename(file.path, path.join(form.uploadDir, hashedName));
+        var name = path.basename(file.name, extension);
 
-        database.addContent(hashedName, extension, file.name, useType);
+        database.addContent(hashedName, extension, name, useType);
     }
 });
 
