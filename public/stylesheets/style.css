@@ -26,8 +26,14 @@ body {
     color: #ff0000;
     padding: 10px;
 }
-.sm-button:disabled {
+.sm-button:disabled,
+.sm-button:disabled:hover,
+.sm-button:disabled:focus,
+.sm-button:disabled:active,
+.sm-button:disabled.active{
     cursor:default;
+    color: #a9a9a9;
+    background-color: #c9c9c9;
 }
 .panel-default{
     margin-top: 80px;
