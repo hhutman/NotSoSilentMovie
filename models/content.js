@@ -25,3 +25,8 @@ var content = new mongoose.Schema({
 });
 
 module.exports = content;
+
+module.exports.checkFileExtension = function(extension, useType){
+    return true;
+// TODO
+};

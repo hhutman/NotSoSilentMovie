@@ -6,6 +6,7 @@ var formidable = require('formidable');
 var fs = require('fs');
 var crypto = require('crypto');
 var database = require('../config/database');
+var content = require('../models/content');
 
 
 /* GET users listing. */
@@ -51,11 +52,18 @@ router.post('/', function(req, res){
 
     function fileReceived(form, file){
         var extension = path.extname(file.name);
-        hashedName = crypto.createHash('md5').update(file.name).digest('hex');
-
-        fs.rename(file.path, path.join(form.uploadDir, hashedName));
         var name = path.basename(file.name, extension);
 
+        if( !content.checkFileExtension(extension, useType)){
+            res.end();
+        }
+
+        hashedName = crypto.createHash('md5').update(file.name).digest('hex');
+
+        // Saving file to server
+        fs.rename(file.path, path.join(form.uploadDir, hashedName));
+
+        // Saving config to database
         database.addContent(hashedName, extension, name, useType);
     }
 });

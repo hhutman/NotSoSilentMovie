@@ -19,6 +19,7 @@ var io = require('socket.io')(http);
 /**
  * Pages that can be visited
  */
+hbs.registerPartials(__dirname + '/views/partials');
 var upload = require('./routes/upload');
 var routes = require('./routes/index');
 var theater = require('./routes/theater');
@@ -45,6 +46,9 @@ app.use(bodyParser.urlencoded({limit: '500mb', extended: true}));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+/**
+ * Register subdomains
+ */
 app.use('/', routes);
 app.use('/upload', upload);
 app.use('/theater', theater);
