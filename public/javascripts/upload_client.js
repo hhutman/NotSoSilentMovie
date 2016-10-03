@@ -39,17 +39,55 @@
     }
 
     $('#submitButton').on('click', function () {
-        if (files[0]) {
+        if (files[0] && checkFileTypeSupported()) {
             disableButtons();
             uploadFiles();
+        } else {
+            showFileTypeError();
         }
     });
+    function checkFileTypeSupported(){
+        var filename = files[0].name;
+        var extension = filename.substr( (filename.lastIndexOf('.') +1) );
+        switch(extension) {
+            case 'mp4':
+            case 'webm':
+            case 'flv':
+                return checkVideoRadioButtons();  // There's was a typo in the example where
+                break;                         // the alert ended with pdf instead of gif.
+            case 'aac':
+            case 'mp3':
+            case 'vorbis':
+                return checkAudioRadioButton();
+                break;
+            default:
+                return false;
+        }
+    }
+    function checkVideoRadioButtons(){
+        var radioValue = $("input[name=optradio]:checked").val();
+        if( radioValue == "video" || radioValue == "card"){
+            return true;
+        }
+        return false;
+    }
+    function checkAudioRadioButton(){
+        if( $("input[name=optradio]:checked").val() == "audio"){
+            return true;
+        }
+        return false;
+    }
+
     function goToEditPage(target){
         window.location = "/editFile/" + target + "/?state=new";
     }
 
     function showUploadError(){
         $('#alertSpace').text('Error Uploading File')
+            .show();
+    }
+    function showFileTypeError(){
+        $('#alertSpace').text('Error: Unsupported File Type')
             .show();
     }
 
