@@ -8,19 +8,34 @@
                 <div id='alertSpace' class="text-alert" style='display: none'>
                     <!-- This is where alerts are displayed -->
                 </div>
-                <div>
-                    <label class="radio-inline"><input type="radio" value="video" name="optradio" checked="true">Video
-                        Clip</label>
-                    <label class="radio-inline"><input type="radio" value="card" name="optradio">Title Card</label>
-                    <label class="radio-inline"><input type="radio" value="audio" name="optradio">Audio
-                        Track</label>
-                </div>
-                <div class="uploadSupportedFormats">
-                    <div>
-                        (MP4, WebM, FLV)
+                <div class="row">
+                    <div class="col-xs-4">
+                        <label class="radio-inline">
+                            <input type="radio" value="video" name="optradio" checked="true">
+                            VideoClip
+                        </label>
+                        <div class="uploadSupportedFormats">
+                            (MP4, WebM, FLV)
+                        </div>
                     </div>
-                    <div>
-                        (AAC, MP3, Vorbis)
+                    <div class="col-xs-4">
+                        <label class="radio-inline">
+
+                            <input type="radio" value="card" name="optradio">
+                            Title Card
+                        </label>
+                        <div class="uploadSupportedFormats">
+                            (JPG/JPEG, PNG, GIF)
+                        </div>
+                    </div>
+                    <div class="col-xs-4">
+                        <label class="radio-inline">
+                            <input type="radio" value="audio" name="optradio">
+                            Audio Track
+                        </label>
+                        <div class="uploadSupportedFormats">
+                            (AAC, MP3, Vorbis)
+                        </div>
                     </div>
                 </div>
                 <div class="progress">
@@ -46,7 +61,7 @@
     </div>
 </div>
 
-<input id="upload-input" type="file" name="upload" accept=".mp4,.webm,.flv,.aac,.mp3,.vorbis"></br>
+<input id="upload-input" type="file" name="upload" accept=".gif,.png,.jpg,.jpeg,.mp4,.webm,.flv,.aac,.mp3,.vorbis"></br>
 
 <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>

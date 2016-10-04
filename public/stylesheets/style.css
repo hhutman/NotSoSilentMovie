@@ -7,9 +7,6 @@ body {
     text-align: center;
     font-family: 'Raleway', sans-serif;
 }
-.row {
-    margin-top: 80px;
-}
 .sm_fade-in{
     -webkit-animation: fadein 0.5s; /* Safari, Chrome and Opera > 12.1 */
     -moz-animation: fadein 0.5s; /* Firefox < 16 */
@@ -48,10 +45,6 @@ body {
 .uploadSupportedFormats {
     color: gray;
     font-size: 10px;
-}
-.uploadSupportedFormats div{
-    display: inline-block;
-    margin-left: 60px;
 }
 .sm-button {
     color: white;

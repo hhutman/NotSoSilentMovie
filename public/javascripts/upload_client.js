@@ -54,8 +54,13 @@
             case 'mp4':
             case 'webm':
             case 'flv':
-                return checkVideoRadioButtons();  // There's was a typo in the example where
+                return checkVideoRadioButton();  // There's was a typo in the example where
                                                     // the alert ended with pdf instead of gif.
+            case 'jpg':
+            case 'jpeg':
+            case 'png':
+            case 'gif':
+                return checkImageRadioButton();
             case 'aac':
             case 'mp3':
             case 'vorbis':
@@ -64,9 +69,16 @@
                 return false;
         }
     }
-    function checkVideoRadioButtons(){
+    function checkVideoRadioButton(){
         var radioValue = $("input[name=optradio]:checked").val();
-        if( radioValue == "video" || radioValue == "card"){
+        if( radioValue == "video"){
+            return true;
+        }
+        return false;
+    }
+    function checkImageRadioButton(){
+        var radioValue = $("input[name=optradio]:checked").val();
+        if(radioValue == "card"){
             return true;
         }
         return false;
