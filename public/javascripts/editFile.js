@@ -4,10 +4,8 @@
 
 
     $('#cancelButton').on('click', function () {
-        fadeOutContainer(function(){
-            window.location = "/viewFiles";
-        });
-
+        fadeOutContainer();
+        window.location = "/viewFiles";
     });
 
     $('#deleteButton').on('click', function () {
@@ -70,7 +68,7 @@
     function fadeOutContainer(callback){
         $('.sm_fade-in').animate({
             opacity: '0',
-        }, 500, function() {
+        }, 100, function() {
             callback();
         });
     }

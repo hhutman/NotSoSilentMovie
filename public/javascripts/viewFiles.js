@@ -2,13 +2,13 @@
 
     var TARGET_PREFIX = "fileRow_";
 
-
     // Get Express variables
     if(files === undefined){
         files = {};
     }
 
     $('#uploadFilesButton').on('click', function () {
+        fadeOutContainer();
         window.location = "/upload";
     });
 
@@ -56,6 +56,7 @@
     }
 
     function goToEditPage(event){
+        fadeOutContainer();
         var file = event.data.file;
         window.location = "/editFile/" + file.target;
     }
@@ -63,6 +64,14 @@
     function removeRowByTarget(target){
         $('#' + TARGET_PREFIX + target).fadeOut(200, function(){
             $('#' + TARGET_PREFIX + target).remove();
+        });
+    }
+
+    function fadeOutContainer(callback){
+        $('.sm_fade-in').animate({
+            opacity: '0',
+        }, 100, function() {
+            callback();
         });
     }
 })();
