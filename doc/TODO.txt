@@ -1,0 +1,92 @@
+##########################
+DATABASE
+-------------
+- (on boot) Check for database connection and exit if connection failed
+- (on boot) Iterate through files to see if database has reference, delete if data file not found
+- Add new models
+#########################
+* MODELS
+--------------
+Project {
+	name: // Name of project
+	associated files: []{
+		content: content/card.target// Associated file
+		reference: // Reference number
+	} 
+	composite: [] // Reference numbers in order depending on play
+	audio: content.audioType //  Music played over video
+}
+TitleCardTemplate {
+	Name:
+	Image:
+	TextColor:
+	Tags:
+}
+
+ProjectTitleCard {
+	TitleCardTemplate:
+	Text:
+	Time:
+}
+#########################
+* New Pages
+______________
+THEATER PAGE
+-------------
+- (purpose) Display projects
+______________
+PROJECT CREATION PAGE
+-------------
+- (purpose) Make new projects
+______________
+PROJECT EDIT PAGE
+-------------
+- (purpose) Edit properties of project
+- Sanitize
+______________
+FIND CONTENT PAGE
+-------------
+- (purpose) Lists content (video, card, audio) depending on what user is searching
+- Dynamic search page
+______________
+VIEW PROJECTS PAGE
+-------------
+- (purpose) Display projects to play
+
+#########################
+ALL
+-------------
+- Set disabled button CSS
+_________________
+EDIT PAGE
+-------------
+- On file lookup, check to see if file exists on server, delete data file if not found
+- (on 'save') if error, print error and take necessary action
+- (on 'save') if success, print success and wait a few seconds before continuing
+- disable buttons and lock fields on save
+- enable buttons on response
+- Crop filename
+- Lots of styling
+_________________
+VIEW FILES PAGE
+-------------
+- "Are you sure?" popup for delete
+- Fade in
+_________________
+UPLOAD PAGE
+-------------
+- Add new configuration for title cards
+- Put file requirements beneath each radio button
+- Reject title cards that are not images
+- Ensure filename isn't too long
+- Collision detection
+- Sanitize
+_________________
+DIRECTORS PAGE
+-------------
+- Increase button width
+_________________
+MAIN PAGE
+-------------
+- Increase button width
+######################
