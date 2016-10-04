@@ -13,6 +13,30 @@ var MongoClient = mongodb.MongoClient;
 var Content = mongoose.model('Content', contentModel);
 var Project = mongoose.model('Project', projectModel);
 
+
+module.exports.contentmodel = Content;
+module.exports.projectmodel = Project;
+
+module.exports.checkResourceNameExists = function(tryName, callback){
+    Content.find({name : tryName}, function (err, docs) {
+        if (docs.length){
+            callback(docs)
+        }else{
+            callback(null);
+        }
+    });
+};
+
+module.exports.checkResourceTargetExists = function(target, callback){
+    Content.find({target : target}, function (err, docs) {
+        if (docs.length){
+            callback(docs)
+        }else{
+            callback(null);
+        }
+    });
+};
+
 module.exports.addContent = function(hashedName, extension, name, useType){
     var newAddition = new Content();
     newAddition.name = name;

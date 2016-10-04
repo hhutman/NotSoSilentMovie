@@ -67,11 +67,7 @@
         });
     }
 
-    function fadeOutContainer(callback){
-        $('.sm_fade-in').animate({
-            opacity: '0',
-        }, 100, function() {
-            callback();
-        });
+    function fadeOutContainer(){
+        $('.sm_fade-in').animate({ opacity: '0'}, 100);
     }
 })();

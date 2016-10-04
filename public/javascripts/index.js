@@ -5,12 +5,9 @@
         window.location = "/directors";
     });
 
-    function fadeOutContainer(callback){
+    function fadeOutContainer(){
         $('.sm_fade-in').animate({
-            opacity: '0',
-        }, 100, function() {
-            callback();
-        });
+            opacity: '0'}, 100);
     }
 
 })();

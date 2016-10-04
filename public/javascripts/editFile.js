@@ -26,11 +26,11 @@
             tags: $("input[name=tags]").val()
         };
 
-
+        console.log(JSON.stringify(jsonNew));
         $.ajax({
             url: "/editFile",
             type: "POST",
-            dataType: 'json',
+            dataType: "json",
             data: JSON.stringify(jsonNew),
             contentType: "application/json",
             success: function() {
@@ -52,25 +52,25 @@
     }
 
     function deleteByFile(){
+
         $.ajax({
             url: "/viewFiles",
             type: "POST",
-            dataType: 'json',
+            dataType: "json",
             data: JSON.stringify(editedFile),
             contentType: "application/json",
-            complete: function() {
+            success: function(data) {
                 fadeOutContainer();
                 window.location = "/upload";
+            },
+            error: function() {
+                console.log("delete failed");
             }
         });
     }
 
-    function fadeOutContainer(callback){
-        $('.sm_fade-in').animate({
-            opacity: '0',
-        }, 100, function() {
-            callback();
-        });
+    function fadeOutContainer(){
+        $('.sm_fade-in').animate({opacity: "0",}, 100);
     }
 
 })();

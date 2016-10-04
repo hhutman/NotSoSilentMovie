@@ -132,13 +132,8 @@
     }
 
     function appendFilesToForm(formData){
-        for (var i = 0; i < files.length; i++) {
-            var file = files[i];
-
-            var radioValue = $("input[name=optradio]:checked").val();
-
-            // add the files to formData object for the data payload
-            formData.append('useType', radioValue);
+        if(files && files[0]){
+            var file = files[0];
             formData.append('upload', file, file.name);
         }
     }
@@ -171,12 +166,8 @@
         }
     }
 
-    function fadeOutContainer(callback){
-        $('.sm_fade-in').animate({
-            opacity: '0',
-        }, 100, function() {
-            callback();
-        });
+    function fadeOutContainer(){
+        $('.sm_fade-in').animate({ opacity: '0' }, 100)
     }
 
 })();
