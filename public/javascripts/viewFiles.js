@@ -4,7 +4,7 @@
 
 
     // Get Express variables
-    if(files == undefined){
+    if(files === undefined){
         files = {};
     }
 
@@ -50,7 +50,7 @@
             contentType: "application/json",
             complete: function() {
                 console.log('success');
-                removeRowByTarget(file.target)
+                removeRowByTarget(file.target);
             }
         });
     }

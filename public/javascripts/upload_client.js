@@ -54,12 +54,11 @@
             case 'webm':
             case 'flv':
                 return checkVideoRadioButtons();  // There's was a typo in the example where
-                break;                         // the alert ended with pdf instead of gif.
+                                                    // the alert ended with pdf instead of gif.
             case 'aac':
             case 'mp3':
             case 'vorbis':
                 return checkAudioRadioButton();
-                break;
             default:
                 return false;
         }
