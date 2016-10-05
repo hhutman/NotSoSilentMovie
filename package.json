@@ -15,7 +15,8 @@
     "debug": "latest",
     "formidable": "latest",
     "mongodb": "latest",
-    "mongoose": "latest"
+    "mongoose": "latest",
+    "bluebird": "latest"
   },
   "description": "Direct your own interactive silent movies using clips from the past!",
   "main": "www",

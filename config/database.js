@@ -6,6 +6,9 @@ var projectModel = require('../models/project');
 var MONGO_ADDRESS = 'mongodb://localhost/silentMovie';
 
 mongoose.connect(MONGO_ADDRESS);
+
+mongoose.Promise = require('bluebird');
+
 var MongoClient = mongodb.MongoClient;
 
 
