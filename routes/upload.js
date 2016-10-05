@@ -13,12 +13,13 @@ router.get('/', function(req, res) {
 });
 
 router.post('/', function(req, res){
-    fileUpload.newUpload(req,res)
+    fileUpload.newUpload(req)
         .then(function(data) {
-            res.send(data);
+            res.send(200,data);
             res.end();
         })
         .catch(e => {
+            res.send(400);
             res.end();
         });
 });

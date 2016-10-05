@@ -7,12 +7,19 @@ var content = require('../models/content');
 
 
 
-module.exports.newUpload = function(req, res) {
-    return new Promise(function (resolve, reject) {
-    // create an incoming form object
+module.exports.newUpload = function(req) {
+    var resolve;
+    var reject;
     var form = new formidable.IncomingForm();
-
     var file = {};
+
+    var newPromise = new Promise(function (res, rej) {
+        resolve = res;
+        reject = rej;
+    });
+
+
+
 
     // specify that we want to allow the user to upload multiple files in a single request
     form.multiples = true;
@@ -71,6 +78,5 @@ module.exports.newUpload = function(req, res) {
         });
     }
 
-
-    });
+    return newPromise;
 };
