@@ -31,13 +31,14 @@ module.exports.newUpload = function(req, res) {
     // log any errors that occur
     form.on('error', function(err) {
         console.log('An error has occured: \n' + err);
+        reject();
     });
 
     // once all the files have been uploaded, send a response to the client
     form.on('end', function() {
         handleNewFile(function(err, target){
             if(err) {
-                resolve();
+                reject();
             }
             resolve(target);
         });
