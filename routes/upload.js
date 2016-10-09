@@ -18,8 +18,8 @@ router.post('/', function(req, res){
             res.send(200,data);
             res.end();
         })
-        .catch(e => {
-            res.send(400);
+        .catch(function(data) {
+            res.send(400, data);
             res.end();
         });
 });

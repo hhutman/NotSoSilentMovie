@@ -5,6 +5,10 @@ var fs = require('fs');
 var resourceController = require('../controllers/resourcecontroller');
 var content = require('../models/content');
 
+var Promise = require("bluebird");
+
+Promise.promisifyAll(resourceController);
+
 
 
 module.exports.newUpload = function(req) {
@@ -38,44 +42,39 @@ module.exports.newUpload = function(req) {
     // log any errors that occur
     form.on('error', function(err) {
         console.log('An error has occured: \n' + err);
-        reject();
+        reject(err);
     });
 
     // once all the files have been uploaded, send a response to the client
     form.on('end', function() {
-        handleNewFile(function(err, target){
-            if(err) {
-                reject();
-            }
-            resolve(target);
-        });
+        handleNewFile();
     });
 
 
     // parse the incoming request containing the form data
     form.parse(req);
 
-    function handleNewFile(callback){
-        try {
-            var extension = path.extname(file.name);
-            var baseName = path.basename(file.name, extension);
+    function handleNewFile() {
+        var extension = path.extname(file.name);
+        var baseName = path.basename(file.name, extension);
 
+        var finalName = "";
 
-            resourceController.getUniqueName(baseName, function(finalName){
-                resourceController.getUniqueHash(finalName, function(target){
-                    saveFile(finalName, target, extension, callback);
-                });
+        resourceController.getUniqueName(baseName)
+            .then(function (data) { // Returned unique fileName, Looking for unique hash
+                finalName = data;
+                return resourceController.getUniqueHash(data);
+            })
+            .then(function (data) { // Returned 'target', File is saving
+                fs.rename(file.path, path.join(form.uploadDir, data));
+                return resourceController.saveNewFile(data, extension, finalName);
+            })
+            .then(function (data) {
+                resolve (data);
+            })
+            .catch(function (err) {
+                reject(err);
             });
-        } catch (err) {
-            callback(err, null);
-        }
-    }
-
-    function saveFile(name, target, extension, callback){
-        fs.rename(file.path, path.join(form.uploadDir, target));
-        resourceController.saveNewFile(target, extension, name, function(){
-            callback(null, target);
-        });
     }
 
     return newPromise;

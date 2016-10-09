@@ -1,5 +1,7 @@
+var Promise = require("bluebird");
+
 var mongodb = require('mongodb');
-var mongoose = require('mongoose');
+var mongoose = Promise.promisifyAll(require('mongoose'));
 var contentModel = require('../models/content');
 var projectModel = require('../models/project');
 
@@ -20,27 +22,50 @@ var Project = mongoose.model('Project', projectModel);
 module.exports.contentmodel = Content;
 module.exports.projectmodel = Project;
 
-module.exports.checkResourceNameExists = function(tryName, callback){
+module.exports.checkResourceNameExists = function(tryName){
+    var resolve;
+    var reject;
+
+    var newPromise = new Promise(function (res, rej) {
+        resolve = res;
+        reject = rej;
+    });
+
     Content.find({name : tryName}, function (err, docs) {
         if (docs.length){
-            callback(docs)
+            resolve(docs)
         }else{
-            callback(null);
+            resolve(null);
         }
     });
+
+    return newPromise;
 };
 
-module.exports.checkResourceTargetExists = function(target, callback){
+module.exports.checkResourceTargetExists = function(target){
+    var resolve;
+    var reject;
+
+    var newPromise = new Promise(function (res, rej) {
+        resolve = res;
+        reject = rej;
+    });
+
+
     Content.find({target : target}, function (err, docs) {
         if (docs.length){
-            callback(docs)
+            resolve(docs)
         }else{
-            callback(null);
+            resolve(null);
         }
     });
+
+    return newPromise;
 };
 
 module.exports.addContent = function(hashedName, extension, name, useType){
+
+
     var newAddition = new Content();
     newAddition.name = name;
     newAddition.extension = extension;

@@ -3,8 +3,19 @@ var crypto = require('crypto');
 
 var contentmodel = database.contentmodel;
 
+var Promise = require("bluebird");
 
-function getUniqueName(baseName, callback, number){
+Promise.promisifyAll(database);
+
+function getUniqueName(baseName, number){
+    var resolve;
+    var reject;
+
+    var newPromise = new Promise(function (res, rej) {
+        resolve = res;
+        reject = rej;
+    });
+
     var tryName = baseName;
 
     if(number){
@@ -14,35 +25,67 @@ function getUniqueName(baseName, callback, number){
         number = 1;
     }
 
-    database.checkResourceNameExists(tryName, function(exists){
-        if(!exists){
-            callback(tryName);
-        } else {
-            getUniqueName(baseName, function(newName){
-                callback(newName);
-            }, number )
-        }
-    });
+    database.checkResourceNameExists(tryName)
+        .then(function(data) {
+            if (!data) {
+                resolve(tryName)
+            } else {
+                return getUniqueName(baseName, number);
+            }
+        })
+        .then(function(data) {
+            resolve(data);
+        })
+        .catch(function(data){
+            reject(data);
+        });
+
+    return newPromise;
 }
 
-function getUniqueHash(finalName, callback){
-    var hashedName = crypto.createHash('md5').update(finalName).digest('hex');
-    database.checkResourceTargetExists(hashedName, function(exists){
-        if(!exists){
-            callback(hashedName);
-        } else {
-            getUniqueHash(hashedName, function(hashedName){
-                callback(hashedName);
-            })
-        }
+function getUniqueHash(finalName){
+    var resolve;
+    var reject;
+
+    var newPromise = new Promise(function (res, rej) {
+        resolve = res;
+        reject = rej;
     });
+
+    var hashedName = crypto.createHash('md5').update(finalName).digest('hex');
+
+    database.checkResourceTargetExists(hashedName)
+        .then(function(data) {
+            if (!data) {
+                resolve(hashedName)
+            } else {
+                return getUniqueName(hashedName);
+            }
+        })
+        .then(function(data) {
+            resolve(data);
+        })
+        .catch(function(data){
+            reject(data);
+        });
+
+
+    return newPromise;
 }
 
 function getUseType(extension){
     return "video"; //TODO
 }
 
-function saveNewFile(hashedName, extension, name, callback){
+function saveNewFile(hashedName, extension, name){
+    var resolve;
+    var reject;
+
+    var newPromise = new Promise(function (res, rej) {
+        resolve = res;
+        reject = rej;
+    });
+
     var newAddition = new contentmodel;
     newAddition.name = name;
     newAddition.extension = extension;
@@ -52,20 +95,16 @@ function saveNewFile(hashedName, extension, name, callback){
     newAddition.save(function (err, object) {
         if (err) {
             console.log(err);
-            callback(err);
+            reject(err);
         } else {
             console.log('saved successfully:', name);
-            callback(null, hashedName);
+            resolve( hashedName);
         }
     });
+
+    return newPromise;
 }
 
-module.exports.getUniqueName = function (baseName, callback, number){
-    getUniqueName(baseName, callback, number);
-};
-module.exports.getUniqueHash = function (finalName, callback){
-    getUniqueHash(finalName, callback);
-};
-module.exports.saveNewFile = function(hashedName, extension, name, callback){
-    saveNewFile(hashedName, extension, name, callback);
-};
+module.exports.getUniqueName = getUniqueName;
+module.exports.getUniqueHash = getUniqueHash;
+module.exports.saveNewFile = saveNewFile;
