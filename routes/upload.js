@@ -15,11 +15,11 @@ router.get('/', function(req, res) {
 router.post('/', function(req, res){
     fileUpload.newUpload(req)
         .then(function(data) {
-            res.send(200,data);
-            res.end();
+            res.status(200).send(data);
+            res.end()
         })
         .catch(function(data) {
-            res.send(400, data);
+            res.status(400).send( data);
             res.end();
         });
 });

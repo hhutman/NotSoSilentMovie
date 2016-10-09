@@ -81,62 +81,104 @@ module.exports.addContent = function(hashedName, extension, name, useType){
     });
 };
 
-module.exports.getContent = function(callback){
-    MongoClient.connect(MONGO_ADDRESS, function(err, db) {
-        if(err) { callback(err, null) }
+module.exports.getContent = function(){
+    var resolve;
+    var reject;
 
-        var collection = db.collection('contents');
+    var newPromise = new Promise(function (res, rej) {
+        resolve = res;
+        reject = rej;
+    });
 
-        collection.find().toArray(function(err, list) {
-            callback(err, list);
+    MongoClient.connect(MONGO_ADDRESS)
+        .then(function(database) {
+            var collection = database.collection('contents');
+            return collection.find().toArray()
+        })
+        .then(function (data) {
+            resolve(data);
+        })
+        .catch(function(err){
+            reject(err);
         });
-        db.close();
-    });
+
+    return newPromise;
 };
-module.exports.deleteByTarget = function(target, callback){
-    Content.remove({ target: target }, function(err) {
-        if (err) {
-            console.log(err);
-            callback('Error');
-        }
-        else {
-            callback('Success');
-        }
+module.exports.deleteByTarget = function(target){
+    var resolve;
+    var reject;
+
+    var newPromise = new Promise(function (res, rej) {
+        resolve = res;
+        reject = rej;
     });
+
+    Content.remove({ target: target })
+        .then( function(data) {
+            resolve(data);
+        })
+        .catch(function(data) {
+            reject(data);
+        });
+
+    return newPromise;
 };
-module.exports.getByTarget = function(target, callback){
-    Content.findOne({ target: target }, function(err, file) {
-        if (err || file == null) {
-            callback('Error', null);
-        }
-        else {
-            callback( null, file);
-        }
+module.exports.getByTarget = function(target){
+    var resolve;
+    var reject;
+
+    var newPromise = new Promise(function (res, rej) {
+        resolve = res;
+        reject = rej;
     });
+
+    Content.findOne({ target: target })
+        .then(function(content) {
+            resolve(content);
+        })
+        .catch(function(err){
+            reject(err);
+        });
+
+    return newPromise;
 };
-module.exports.updateByTarget = function(file, callback){
-    Content.findOne({ target: file.target }, function(err, foundFile) {
-        if (err || foundFile == null) {
-            callback('Error', null);
-        }
-        else {
-            if(file.name){
-                foundFile.name = file.name;
-            }
-            if(file.useType){
-                foundFile.useType = file.useType;
-            }
-            if(file.description){
-                foundFile.description = file.description;
-            }
-            if(file.movieTitle){
-                foundFile.movieTitle = file.movieTitle;
-            }
-            if(file.tags){
-                foundFile.tags = file.tags;
-            }
-            foundFile.save();
-            callback( null, file);
-        }
+module.exports.updateByTarget = function(file){
+    var resolve;
+    var reject;
+
+    var newPromise = new Promise(function (res, rej) {
+        resolve = res;
+        reject = rej;
     });
+
+
+    Content.findOne({ target: file.target })
+        .then(function(foundFile) {
+            if(!foundFile){
+                reject();
+            } else {
+                if(file.name){
+                    foundFile.name = file.name;
+                }
+                if(file.useType){
+                    foundFile.useType = file.useType;
+                }
+                if(file.description){
+                    foundFile.description = file.description;
+                }
+                if(file.movieTitle){
+                    foundFile.movieTitle = file.movieTitle;
+                }
+                if(file.tags){
+                    foundFile.tags = file.tags;
+                }
+                foundFile.save();
+                resolve();
+            }
+        })
+        .catch(function(err) {
+            reject(err);
+        });
+
+    return newPromise;
 };
