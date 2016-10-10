@@ -19,31 +19,7 @@
             </div>
         </div>
 
-        <div class="modal fade" id="playModal" role="dialog">
-            <div class="modal-dialog">
-
-                <!-- Modal content-->
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h4 id="popupHeader" class="modal-title"></h4>
-                    </div>
-                    <div class="modal-body">
-                        <video controls>
-                            <source src="movie.mp4" type="video/mp4"/>
-                            <source src="movie.webm" type="video/webm"/>
-                            <source src="movie.flv" type="video/flv"/>
-                            <!-- fallback -->
-                            Your browser does not support the <code>video</code> element.
-                        </video>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default sm-button sm-cancel" data-dismiss="modal">Close</button>
-                    </div>
-                </div>
-
-            </div>
-        </div>
+        {{> viewFilesModal_player}}
 
 
     </div>

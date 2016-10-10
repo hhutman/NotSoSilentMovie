@@ -70,6 +70,7 @@
     }
 
     function playFile(event){
+        startPlayer();
         var file = event.data.file;
         $('#popupHeader').text(file.name);
     }
