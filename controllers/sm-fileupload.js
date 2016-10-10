@@ -14,8 +14,6 @@ Promise.promisifyAll(resourceController);
 module.exports.newUpload = function(req) {
     var resolve;
     var reject;
-    var form = new formidable.IncomingForm();
-    var file = {};
 
     var newPromise = new Promise(function (res, rej) {
         resolve = res;
@@ -23,6 +21,8 @@ module.exports.newUpload = function(req) {
     });
 
 
+    var form = new formidable.IncomingForm();
+    var file = {};
 
 
     // specify that we want to allow the user to upload multiple files in a single request
@@ -65,9 +65,9 @@ module.exports.newUpload = function(req) {
                 finalName = data;
                 return resourceController.getUniqueHash(data);
             })
-            .then(function (data) { // Returned 'target', File is saving
-                fs.rename(file.path, path.join(form.uploadDir, data));
-                return resourceController.saveNewFile(data, extension, finalName);
+            .then(function (target) { // Returned 'target', File is saving
+                fs.rename(file.path, path.join(form.uploadDir, target + extension));
+                return resourceController.saveNewFile(target, extension, finalName);
             })
             .then(function (data) {
                 resolve (data);

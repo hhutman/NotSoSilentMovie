@@ -1,8 +1,5 @@
 {{> head }}
 <body>
-<script>
-    var files = {{{files}}};
-</script>
 <div class="container container-editFiles">
     <div class="panel panel-default">
         <div class="panel-body">
@@ -18,14 +15,146 @@
                 </button>
             </div>
         </div>
-
-        {{> viewFilesModal_player}}
-
-
     </div>
 </div>
+<div class="modal fade" id="playModal" role="dialog">
+    <div class="modal-dialog">
 
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button id="closePlayerModalButton" type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 id="popupHeader" class="modal-title"></h4>
+            </div>
+            <div id="contentfeed" class="modal-body">
+                <!-- Player goes here -->
+            </div>
+            <div class="modal-footer">
+                <button id="closePlayerModalButton" type="button" class="btn btn-default sm-button sm-cancel" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
 <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-<script src="javascripts/viewFiles.js"></script>
+<script src="/javascripts/jwplayer/jwplayer.js"></script>
+<script>
+    var files = {{{files}}};
+
+    var playerInstance;
+
+    function startPlayer(file) {
+        jwplayer.key = "hKr0It8yDiMnKte/Cy3p9KDJ74XfRooWYAiO8A==";
+        playerInstance = jwplayer("contentfeed");
+        playerInstance.setup({
+            file: "/uploaded/" + file.target + file.extension,
+            controls: false,
+            autostart: true,
+            autoplay: true,
+            repeat: true,
+            width: $('#contentfeed').width()
+        });
+
+    }
+
+    $('#contentfeed').on('resize', function(){
+        playerInstance.resize($('#contentfeed').width());
+    });
+
+
+    $('#closePlayerModalButton').on('click', function () {
+        if(playerInstance){
+            jwplayer("contentfeed").remove();
+        }
+    });
+
+    (function () {
+
+        var TARGET_PREFIX = "fileRow_";
+
+        // Get Express variables
+        if(files === undefined){
+            files = {};
+        }
+
+        $('#uploadFilesButton').on('click', function () {
+            fadeOutContainer();
+            window.location = "/upload";
+        });
+
+        function resetFileList(){
+            $('#uploadedFileList div').empty();
+
+            for(var i = 0; i < files.length; i++) {
+                var file = files[i];
+                $('#uploadedFileList').append(
+                        $('<div class="row uploaded-file-row"></div>').attr('id',TARGET_PREFIX + file.target)
+                                .append(
+                                        $('<div class="col-xs-2"></div>')
+                                                .append(
+                                                        $('<button id="fileList_play" class="btn btn-lg sm-button sm-play" data-toggle="modal" data-target="#playModal">Play</button>')
+                                                                .on('click',{ file: file }, playFile)
+                                                ),
+                                        $('<div class="col-xs-4"></div>')
+                                                .text(file.name)
+                                                .attr('id', 'fileList_title' + i),
+                                        $('<div id="fileList_extension" class="col-xs-1"></div>')
+                                                .text(file.extension),
+                                        $('<div id="fileList_useType" class="col-xs-1"></div>')
+                                                .text(file.useType),
+                                        $('<div class="col-xs-2"></div>')
+                                                .append(
+                                                        $('<button id="fileList_edit" class="btn btn-lg sm-button sm-edit">Edit</button>')
+                                                                .on('click',{ file: file }, goToEditPage)
+                                                ),
+                                        $('<div class="col-xs-2"></div>')
+                                                .append(
+                                                        $('<button id="fileList_delete" class="btn btn-lg sm-button sm-delete">X</button>')
+                                                                .on('click',{ file: file }, deleteByName)
+                                                )
+                                )
+                );
+            }
+        } resetFileList();
+
+        function deleteByName(event){
+            var file = event.data.file;
+
+            $.ajax({
+                url: "/viewFiles",
+                type: "POST",
+                dataType: 'json',
+                data: JSON.stringify(file),
+                contentType: "application/json",
+                complete: function() {
+                    console.log('success');
+                    removeRowByTarget(file.target);
+                }
+            });
+        }
+
+        function goToEditPage(event){
+            fadeOutContainer();
+            var file = event.data.file;
+            window.location = "/editFile/" + file.target;
+        }
+
+        function playFile(event){
+            var file = event.data.file;
+            startPlayer(file);
+            $('#popupHeader').text(file.name);
+        }
+
+        function removeRowByTarget(target){
+            $('#' + TARGET_PREFIX + target).fadeOut(200, function(){
+                $('#' + TARGET_PREFIX + target).remove();
+            });
+        }
+
+        function fadeOutContainer(){
+            $('.sm_fade-in').animate({ opacity: '0'}, 100);
+        }
+
+    })();
+</script>
 </body>
