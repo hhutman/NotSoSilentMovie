@@ -16,12 +16,13 @@ Promise.promisifyAll(fs);
 router.get('/', function(req, res) {
     database.getContent()
         .then(function(files) {
-            res.render('viewFiles', {  files: JSON.stringify(files) });
+            res.render('viewFiles', {  files: files });
         })
         .catch(function(err) {
             throw err;
         });
 });
+
 
 // Messages sent to viewFiles will delete the given target
 router.post('/', function(req, res) {
