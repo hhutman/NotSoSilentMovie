@@ -4,6 +4,7 @@
       <w>autoplay</w>
       <w>autostart</w>
       <w>clientside</w>
+      <w>contentfeed</w>
       <w>contentmodel</w>
       <w>javascripts</w>
       <w>jsonfile</w>
