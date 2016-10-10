@@ -4,33 +4,10 @@
 <script src="/javascripts/jwplayer/jwplayer.js"></script>
 <script>jwplayer.key = "hKr0It8yDiMnKte/Cy3p9KDJ74XfRooWYAiO8A==";</script>
 <script>
-    var pause = false;
-    var nextVid = "";
-    var randomSkip = false;
-    var choiceReady = false;
-    var startTime = 0;
-    var minTimeElapsed = 3; //seconds, the minimum time a clip must run
-
-
-    var timeoutID;
-
-    function startTimerForDefaultClip() {
-        timeoutID = window.setTimeout(returnToDefaultClip, 60000);
-    }
-
-    function returnToDefaultClip() {
-        if (!pause) {
-            playerInstance.load([{file: "/uploaded/files/twitch_timeout.mp4"}]);
-        }
-    }
-
-    function clearTimerForDefaultClip() {
-        window.clearTimeout(timeoutID);
-    }
 
     function myResize(event) {
-        height = window.innerHeight;
-        width = window.innerWidth;
+        var height = window.innerHeight;
+        var width = window.innerWidth;
         if (playerInstance) {
             playerInstance.resize(width, height);
         }
@@ -43,9 +20,7 @@
 
     var playerInstance = jwplayer("contentfeed");
     playerInstance.setup({
-        file: "/uploaded/files/twitch_timeout.mp4",
-        //height: 650,
-        //width: 1200
+        file: "/content/timeout.mp4",
         controls: false,
         autostart: true,
         autoplay: true,
@@ -76,86 +51,9 @@
         var elapsed = position - startTime;
         if (elapsed > minTimeElapsed && choiceReady) {
             console.log('switching from elapsed time');
-            socket.emit('playNext', '');
             choiceReady = false;
         }
     });
-
-    var socket = io();
-
-    socket.on('pause', function (data) {
-        if (!pause) {
-            playerInstance.pause();
-            console.log(data);
-            pause = true;
-        }
-    });
-
-
-    socket.on('unpause', function (data) {
-        if (pause) {
-            playerInstance.play();
-            console.log(data);
-            pause = false;
-            if (nextVid.length != 0) {
-                playerInstance.load([{file: nextVid}]);
-                nextVid = "";
-            }
-        }
-    });
-
-    socket.on('contentChange', function (data) {
-        console.log('play next ' + data);
-        if (data == 'repeat') {
-            //do nothing as repeat is true
-            return;
-        }
-        changeVideo(data);
-    });
-
-    socket.on('choiceReady', function (data) {
-        // console.log('choice is ready');
-        choiceReady = true;
-    });
-
-    socket.emit('streamStatus', '');
-    socket.on('streamStatus', function (data) {
-        console.log('stream status ' + data.streamRunning + ' : ' + data.paused);
-        if (data.paused) {
-            pause = true;
-            playerInstance.pause();
-        }
-    });
-
-    function changeVideo(data) {
-        console.log("test");
-        names = data.split('/');
-        name = names[names.length - 1];
-        name = name.substring(0, name.length - 4);
-        if (name.substring(name.length - 2, name.length) == '_1') {
-            name = name.substring(0, name.length - 2);
-        } else {
-            console.log('old video attempted to play: ' + name);
-        }
-        name = name + ".mp4";
-        name = "/uploaded/files/" + name;
-        // changeVideo(data);
-        console.log('change video ' + name);
-        clearTimerForDefaultClip();
-        startTimerForDefaultClip();
-
-        // playerInstance.play(true).setVolume(100);
-        if (!pause) {
-            playerInstance.load([{file: name}]);
-            // console.log('play');
-            playerInstance.play(true).setVolume(100);
-            // console.log(playerInstance.getDuration());
-            randomSkip = true;
-            nextVid = "";
-        } else {
-            nextVid = name;
-        }
-    }
 </script>
 </body>
 </html>

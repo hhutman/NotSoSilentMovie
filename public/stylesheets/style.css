@@ -71,10 +71,15 @@ body {
     margin-left: 2%;
     margin-right: 2%;
 }
+.sm-play,
 .sm-submit,
 .sm-save{
     background-color: #32cd32;
 }
+.sm-play:hover,
+.sm-play:focus,
+.sm-play:active,
+.sm-play.active,
 .sm-save:hover,
 .sm-save:focus,
 .sm-save:active,
@@ -193,14 +198,12 @@ h2 {
     outline: 0 !important;
 }
 .uploaded-file-row {
-    margin-left: 10px;
-    margin-right: 10px;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 5px;
 }
 .uploaded-file-row div, .uploaded-file-row button{
     display: inline-block;
-}
-.uploaded-file-row {
-    margin-top: 5px;
 }
 .uploaded-file-row button{
     padding: 5px 20px;
