@@ -10,6 +10,7 @@ var database = require('../config/database');
 var Promise = require("bluebird");
 
 Promise.promisifyAll(database);
+Promise.promisifyAll(fs);
 
 /* GET users listing. */
 router.get('/', function(req, res) {
@@ -21,10 +22,16 @@ router.get('/', function(req, res) {
             throw err;
         });
 });
+
+// Messages sent to viewFiles will delete the given target
 router.post('/', function(req, res) {
     var target = req.body.target;
+    var extension = req.body.extension;
     database.deleteByTarget(target)
         .then(function(data) {
+            return fs.unlink("public/uploaded/" +  target + extension);
+        })
+        .then(function(data){
             res.end(
                 JSON.stringify({ success: "true", })
             );

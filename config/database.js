@@ -35,7 +35,7 @@ module.exports.checkResourceNameExists = function(tryName){
         if (docs.length){
             resolve(docs)
         }else{
-            resolve(null);
+            reject(null);
         }
     });
 
@@ -56,7 +56,7 @@ module.exports.checkResourceTargetExists = function(target){
         if (docs.length){
             resolve(docs)
         }else{
-            resolve(null);
+            reject();
         }
     });
 
@@ -120,7 +120,6 @@ module.exports.deleteByTarget = function(target){
         .catch(function(data) {
             reject(data);
         });
-
     return newPromise;
 };
 module.exports.getByTarget = function(target){

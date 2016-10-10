@@ -27,17 +27,13 @@ function getUniqueName(baseName, number){
 
     database.checkResourceNameExists(tryName)
         .then(function(data) {
-            if (!data) {
-                resolve(tryName)
-            } else {
-                return getUniqueName(baseName, number);
-            }
+            return getUniqueName(baseName, number);
         })
-        .then(function(data) {
-            resolve(data);
+        .then(function(uniqueName) {
+            resolve(uniqueName);
         })
         .catch(function(data){
-            reject(data);
+            resolve(tryName);
         });
 
     return newPromise;
@@ -56,19 +52,14 @@ function getUniqueHash(finalName){
 
     database.checkResourceTargetExists(hashedName)
         .then(function(data) {
-            if (!data) {
-                resolve(hashedName)
-            } else {
-                return getUniqueName(hashedName);
-            }
+            return getUniqueName(hashedName);
         })
         .then(function(data) {
             resolve(data);
         })
         .catch(function(data){
-            reject(data);
+            resolve(hashedName);
         });
-
 
     return newPromise;
 }

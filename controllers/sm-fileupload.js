@@ -61,9 +61,9 @@ module.exports.newUpload = function(req) {
         var finalName = "";
 
         resourceController.getUniqueName(baseName)
-            .then(function (data) { // Returned unique fileName, Looking for unique hash
-                finalName = data;
-                return resourceController.getUniqueHash(data);
+            .then(function (uniqueName) { // Returned unique fileName, Looking for unique hash
+                finalName = uniqueName;
+                return resourceController.getUniqueHash(uniqueName);
             })
             .then(function (target) { // Returned 'target', File is saving
                 fs.rename(file.path, path.join(form.uploadDir, target + extension));
