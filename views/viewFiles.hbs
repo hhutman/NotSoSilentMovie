@@ -55,6 +55,7 @@
     $('#closePlayerModalButton').on('click', function () {
         if (playerInstance) {
             jwplayer("contentfeed").remove();
+            $('#contentfeed').empty();
         }
     });
 
@@ -147,7 +148,7 @@
             autostart: true,
             autoplay: true,
             repeat: true,
-            width: $('#contentfeed').width()
+            width: 598
         });
 
     }
