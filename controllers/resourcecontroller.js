@@ -65,7 +65,24 @@ function getUniqueHash(finalName){
 }
 
 function getUseType(extension){
-    return "video"; //TODO
+    switch(extension) {
+        case '.mp4':
+        case '.webm':
+        case '.flv':
+            return "video";  // There's was a typo in the example where
+        // the alert ended with pdf instead of gif.
+        case '.jpg':
+        case '.jpeg':
+        case '.png':
+        case '.gif':
+            return "card";
+        case '.aac':
+        case '.mp3':
+        case '.vorbis':
+            return "audio";
+        default:
+            return "unknown";
+    }
 }
 
 function saveNewFile(hashedName, extension, name){

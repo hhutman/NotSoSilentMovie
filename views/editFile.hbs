@@ -8,7 +8,7 @@
         <div class="panel-body minimum-height_panel">
             {{> header pageTitle="Edit Page" }}
             <div class="sm_fade-in">
-                <div id="fileName">{{fileName}}</div>
+                <div id="fileName">{{fileName}} - {{fileType}}</div>
                 <div class="row edit-page_file-information-container">
                     <div class="col-xs-1"></div>
                     <div class="col-xs-10">
@@ -22,15 +22,12 @@
                         </div>
                         <div class="row">
                             <div class="col-xs-6">
-                                Type:
-                            </div>
-                            <div class="col-xs-6">
-                                {{fileType}}
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-xs-6">
-                                Movie Title: <input type="text" name="movie">
+                                {{#if image}}
+                                    Text:
+                                {{else}}
+                                    Movie Title:
+                                {{/if}}
+                                <input type="text" name="movie">
                             </div>
                             <div class="col-xs-6">
                                 {{movieTitle}}

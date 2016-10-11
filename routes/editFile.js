@@ -24,7 +24,7 @@ router.get('/:target', function(req, res) {
 });
 
 function handleNewTraffic(file, req, res){
-    res.render('editFile', {
+    var responseData = {
         state: req.query.state,
         file: JSON.stringify(file),
         fileExtension: file.extension,
@@ -33,7 +33,13 @@ function handleNewTraffic(file, req, res){
         movieTitle: file.movieTitle,
         fileDescription: file.description,
         fileTags: file.tags
-    });
+    };
+
+    if(file.useType == 'card'){
+        responseData.image = true;
+    }
+
+    res.render('editFile', responseData );
 }
 
 router.post('/', function(req, res) {
