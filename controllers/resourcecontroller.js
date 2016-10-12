@@ -60,7 +60,6 @@ function getUniqueHash(finalName){
         .catch(function(data){
             resolve(hashedName);
         });
-
     return newPromise;
 }
 
@@ -69,8 +68,7 @@ function getUseType(extension){
         case '.mp4':
         case '.webm':
         case '.flv':
-            return "video";  // There's was a typo in the example where
-        // the alert ended with pdf instead of gif.
+            return "video";
         case '.jpg':
         case '.jpeg':
         case '.png':

@@ -22,6 +22,9 @@ var theater = require('./routes/theater');
 var viewFiles = require('./routes/viewFiles');
 var editFile = require('./routes/editFile');
 var directors = require('./routes/directors');
+var projectPage = require('./routes/projectPage');
+var aboutPage = require('./routes/about');
+var viewProjects = require('./routes/viewProjects');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -47,6 +50,9 @@ app.use('/theater', theater);
 app.use('/viewFiles', viewFiles);
 app.use('/editFile', editFile);
 app.use('/directors', directors);
+app.use('/projectPage',projectPage);
+app.use('/viewProjects',viewProjects);
+app.use('/about',aboutPage);
 
 // error handlers
 

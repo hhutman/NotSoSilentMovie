@@ -71,6 +71,10 @@ body {
     margin-left: 2%;
     margin-right: 2%;
 }
+.delete-modal-body * {
+    margin: 10px;
+    display: inline-block;
+}
 .sm-play,
 .sm-submit,
 .sm-save{

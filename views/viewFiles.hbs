@@ -2,22 +2,25 @@
 <body>
 <script src="/javascripts/jwplayer/jwplayer.js"></script>
 <script>
-    var files = '{{{files}}}';
 
     var playerInstance;
+    var currentFile;
 
-    function deleteByName(event) {
-        var file = event.data.file;
+    function deletePressed(event) {
+        currentFile = event.data.file;
+        $('#deleteModalBody').text(currentFile.name);
+    }
 
+    function confirmDelete(){
         $.ajax({
             url: "/viewFiles",
             type: "POST",
             dataType: 'json',
-            data: JSON.stringify(file),
+            data: JSON.stringify(currentFile),
             contentType: "application/json",
             complete: function () {
                 console.log('success');
-                removeRowByTarget(file.target);
+                removeRowByTarget(currentFile.target);
             }
         });
     }
@@ -96,7 +99,7 @@
                                 </script>
                             </div>
                             <div class="col-xs-2">
-                                <button id="fileList_delete{{@index}}" class="btn btn-lg sm-button sm-delete">X</button>
+                                <button id="fileList_delete{{@index}}" class="btn btn-lg sm-button sm-delete" data-toggle="modal" data-target="#confirmDeleteModal">X</button>
                                 <script>
                                     $('#fileList_delete{{@index}}').on('click',                                             {
                                         file: {
@@ -104,7 +107,7 @@
                                             target: "{{target}}",
                                             name: "{{name}}"
                                         }
-                                    }, deleteByName)
+                                    }, deletePressed)
                                 </script>
                             </div>
                         </div>
@@ -139,6 +142,33 @@
         </div>
     </div>
 </div>
+<div class="modal fade" id="confirmDeleteModal" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button id="closePlayerModalButton" type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">
+                    Delete Content
+                </h4>
+            </div>
+            <div class="modal-body delete-modal-body">
+                <div id="deleteModalBody" >
+
+                </div>
+                <button id="deleteModalButton" type="button" class="btn btn-default sm-button sm-delete"
+                        data-dismiss="modal">Confirm
+                </button>
+            </div>
+            <div class="modal-footer">
+                <button id="closePlayerModalButton" type="button" class="btn btn-default sm-button sm-cancel"
+                        data-dismiss="modal">Close
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
 <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 <script>
@@ -155,6 +185,9 @@
         }
     });
 
+    $('#deleteModalButton').on('click', function () {
+        confirmDelete();
+    });
 
     $('#uploadFilesButton').on('click', function () {
         fadeOutContainer();
