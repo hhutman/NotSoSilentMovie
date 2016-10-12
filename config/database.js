@@ -42,6 +42,7 @@ module.exports.checkResourceNameExists = function(tryName){
     return newPromise;
 };
 
+
 module.exports.checkResourceTargetExists = function(target){
     var resolve;
     var reject;
@@ -104,6 +105,31 @@ module.exports.getContent = function(){
 
     return newPromise;
 };
+
+module.exports.getProjects = function(){
+    var resolve;
+    var reject;
+
+    var newPromise = new Promise(function (res, rej) {
+        resolve = res;
+        reject = rej;
+    });
+
+    MongoClient.connect(MONGO_ADDRESS)
+        .then(function(database) {
+            var collection = database.collection('projects');
+            return collection.find().toArray()
+        })
+        .then(function (data) {
+            resolve(data);
+        })
+        .catch(function(err){
+            reject(err);
+        });
+
+    return newPromise;
+};
+
 module.exports.deleteByTarget = function(target){
     var resolve;
     var reject;

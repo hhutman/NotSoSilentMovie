@@ -12,6 +12,10 @@ var Promise = require("bluebird");
 
 Promise.promisifyAll(database);
 
+router.get('/', function(req, res) {
+    res.redirect('../');
+});
+
 /* GET users listing. */
 router.get('/:target', function(req, res) {
     database.getByTarget(req.params.target)

@@ -6,6 +6,9 @@
             {{> header pageTitle='Projects Page' }}
             <div class="sm_fade-in">
                 <h3>Look at other projects!</h3>
+                {{#each projects}}
+                    {{name}}
+                {{/each}}
                 <button id="directorsPageButton" class="btn btn-lg sm-button upload-btn sm-pageLink" type="button">
                     Director's Page
                 </button>

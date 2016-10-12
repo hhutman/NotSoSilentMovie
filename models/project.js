@@ -1,3 +1,21 @@
-/**
- * Created by Hugh on 9/30/2016.
- */
+var mongoose = require('mongoose');
+
+var project = new mongoose.Schema({
+    name: {
+        type: String,
+        unique: true,
+        required: true
+    },
+    creator: {
+        type: String,
+        required: true
+    },
+    description: String,
+    content: {
+        type: Array,
+        required: true
+    },
+    tags: Array
+});
+
+module.exports = project;
