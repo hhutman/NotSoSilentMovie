@@ -10,6 +10,11 @@ var project = new mongoose.Schema({
         type: String,
         required: true
     },
+    target: {
+        type: String,
+        unique: true,
+        required: true
+    },
     description: String,
     content: {
         type: Array,

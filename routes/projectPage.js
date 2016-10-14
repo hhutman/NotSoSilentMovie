@@ -17,9 +17,9 @@ router.get('/', function(req, res){
 
 router.get('/:target', function(req, res) {
     if(req.params.target == "new"){
-        res.redirect('../directors');
+        res.render('projectPage')
     } else {
-        res.redirect('../viewProjects');
+        res.render('projectPage');
     }
 /*
     database.getByTarget(req.params.target)

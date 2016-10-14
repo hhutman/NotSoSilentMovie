@@ -26,7 +26,6 @@
     }
 
     function goToEditPage(event) {
-        fadeOutContainer();
         var file = event.data.file;
         window.location = "/editFile/" + file.target;
     }
@@ -41,10 +40,6 @@
         $('#fileRow_' + target).fadeOut(200, function () {
             $('#fileRow_' + target).remove();
         });
-    }
-
-    function fadeOutContainer() {
-        $('.sm_fade-in').animate({opacity: '0'}, 100);
     }
 
     function startPlayer(file) {
@@ -190,7 +185,6 @@
     });
 
     $('#uploadFilesButton').on('click', function () {
-        fadeOutContainer();
         window.location = "/upload";
     });
 </script>

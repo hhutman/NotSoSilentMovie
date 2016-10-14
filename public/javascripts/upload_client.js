@@ -15,7 +15,6 @@
     });
 
     $('#viewFilesButton').on('click', function () {
-        fadeOutContainer();
         window.location = "/viewFiles";
     });
 
@@ -91,7 +90,6 @@
     }
 
     function goToEditPage(target){
-        fadeOutContainer();
         window.location = "/editFile/" + target + "/?state=new";
     }
 
@@ -166,8 +164,5 @@
         }
     }
 
-    function fadeOutContainer(){
-        $('.sm_fade-in').animate({ opacity: '0' }, 100)
-    }
 
 })();

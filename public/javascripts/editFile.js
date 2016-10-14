@@ -4,7 +4,6 @@
 
 
     $('#cancelButton').on('click', function () {
-        fadeOutContainer();
         window.location = "/viewFiles";
     });
 
@@ -43,11 +42,9 @@
     }
 
     function editSuccess(){
-        fadeOutContainer();
         window.location = "/viewFiles";
     }
     function editFail(){
-        fadeOutContainer();
         window.location = "/viewFiles";
     }
 
@@ -60,7 +57,6 @@
             data: JSON.stringify(editedFile),
             contentType: "application/json",
             success: function(data) {
-                fadeOutContainer();
                 window.location = "/upload";
             },
             error: function() {
@@ -68,9 +64,4 @@
             }
         });
     }
-
-    function fadeOutContainer(){
-        $('.sm_fade-in').animate({opacity: "0",}, 100);
-    }
-
 })();

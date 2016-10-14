@@ -218,3 +218,23 @@ h2 {
 .minimum-height_panel {
     min-height: 300px;
 }
+.projectPlannerCreator {
+    overflow: auto;
+}
+.projectPlannerCreator {
+    margin: 20px;
+}
+.row-fluid {
+    width: 1200px;
+    white-space: nowrap;
+}
+.row-fluid div{
+    display: inline-block;
+    background-color: rgba(153, 227, 255, 1);
+    height: 80px;
+    width: 80px;
+    margin: 10px;
+}
+
+
+
