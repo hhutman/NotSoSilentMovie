@@ -14,7 +14,8 @@
                     <div class="col-xs-10">
                         <div class="row">
                             <div class="col-xs-6">
-                                Name: <input type="text" name="name">{{fileExtension}}
+                                <label for="input_name">Name: </label>
+                                <input id="input_name" type="text" name="name">{{fileExtension}}
                             </div>
                             <div class="col-xs-6">
                                 {{fileName}}{{fileExtension}}
@@ -23,11 +24,11 @@
                         <div class="row">
                             <div class="col-xs-6">
                                 {{#if image}}
-                                    Text:
+                                    <label for="input_movie"> Text: </label>
                                 {{else}}
-                                    Movie Title:
+                                    <label for="input_movie">Movie Title: </label>
                                 {{/if}}
-                                <input type="text" name="movie">
+                                <input id="input_movie" type="text" name="movie">
                             </div>
                             <div class="col-xs-6">
                                 {{movieTitle}}
@@ -35,7 +36,8 @@
                         </div>
                         <div class="row">
                             <div class="col-xs-6">
-                                Description: <input type="text" name="description">
+                                <label for="input_description">Description: </label>
+                                <input id="input_description" type="text" name="description">
                             </div>
                             <div class="col-xs-6">
                                 {{fileDescription}}
@@ -43,7 +45,8 @@
                         </div>
                         <div class="row">
                             <div class="col-xs-6">
-                                Tags: <input type="text" name="tags">
+                                <label for="input_tags">Tags: </label>
+                                <input id="input_tags" type="text" name="tags">
                             </div>
                             <div class="col-xs-6">
                                 {{fileTags}}
