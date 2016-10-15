@@ -15,7 +15,6 @@ var http = require('http').Server(app);
 /**
  * Pages that can be visited
  */
-hbs.registerPartials(__dirname + '/views/partials');
 var upload = require('./routes/upload');
 var routes = require('./routes/index');
 var theater = require('./routes/theater');
