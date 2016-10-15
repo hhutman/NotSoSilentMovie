@@ -1,55 +1,28 @@
-{{> head }}
+{{> head pageTitle='Project Page' }}
 <body>
-<div class="container">
-    <div class="panel panel-default">
+<div class="container container-editProject">
+    <div class="panel panel-default ">
         <div class="panel-body">
             {{> header pageTitle='Project Page' }}
             <div class="sm_fade-in">
                 <h3>Make a Project!</h3>
-                <div id="projectPlanner" class="projectPlannerCreator">
-                    <div class="row-fluid" >
-                        <div class="col-xs-1">
-                            BLOCK 1
-                        </div>
-                        <div class="col-xs-1">
-                            BLOCK 2
-                        </div>
-                        <div class="col-xs-1">
-                            BLOCK 3
-                        </div>
-                        <div class="col-xs-1">
-                            BLOCK 4
-                        </div>
-                        <div class="col-xs-1">
-                            BLOCK 5
-                        </div>
-                        <div class="col-xs-1">
-                            BLOCK 6
-                        </div>
-                        <div class="col-xs-1">
-                            BLOCK 7
-                        </div>
-                        <div class="col-xs-1">
-                            BLOCK 8
-                        </div>
-                        <div class="col-xs-1">
-                            BLOCK 9
-                        </div>
-                        <div class="col-xs-1">
-                            BLOCK 10
-                        </div>
-                        <div class="col-xs-1">
-                            BLOCK 11
-                        </div>
-                        <div class="col-xs-1">
-                            BLOCK 12
-                        </div>
+                <div id="projectPlanner">
+
+                </div>
+                <div class="input-block-display">
+                    <div>
+                        <label for="input_name">Name:</label><input id="input_name" type="text" name="name">
+                    </div>
+                    <div>
+                        <label for="input_creator">Creator:</label><input id="input_creator" type="text" name="creator">
+                    </div>
+                    <div>
+                        <label for="input_description">Description:</label><input id="input_description" type="text" name="description">
+                    </div>
+                    <div>
+                        <label for="input_tags">Tags:</label><input id="input_tags" type="text" name="tags">
                     </div>
                 </div>
-                Name: <input type="text" name="name">
-                Creator: <input type="text" name="creator">
-
-
                 <button id="directorsPageButton" class="btn btn-lg sm-button upload-btn sm-pageLink" type="button">
                     Director's Page
                 </button>

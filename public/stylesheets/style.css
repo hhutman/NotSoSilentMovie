@@ -127,6 +127,17 @@ body {
 .sm-cancel.active {
     background-color: #a0a0a0;
 }
+.input-block-display > div {
+    display: block;
+}
+.input-block-display > div  > label{
+    margin: 5px;
+    right: 0;
+}
+.input-block-display > div  > input{
+    width: 70%;
+    right: 0;
+}
 .sm-delete {
     background-color: #ff4050;
 }
@@ -218,12 +229,6 @@ h2 {
 }
 .minimum-height_panel {
     min-height: 300px;
-}
-.projectPlannerCreator {
-    overflow: auto;
-}
-.projectPlannerCreator {
-    margin: 20px;
 }
 .row-fluid {
     width: 1200px;
