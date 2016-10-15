@@ -1,0 +1,15 @@
+extends layout.pug
+block variables
+    - var pageTitle = "Director's Page"
+block content
+    button(id="uploadPage", class="btn btn-lg sm-button upload-btn sm-pageLink", type="button").
+        Upload Page
+    br
+    br
+    button(id="viewFiles", class="btn btn-lg sm-button upload-btn sm-pageLink", type="button").
+        View Files
+    br
+    br
+    button(id="mainPage", class="btn btn-lg sm-button upload-btn sm-pageLink", type="button").
+        Main Page
+    script(src="javascripts/directors.js")
