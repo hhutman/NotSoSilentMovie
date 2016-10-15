@@ -6,17 +6,17 @@
     "start": "node ./bin/www"
   },
   "dependencies": {
-    "express": "latest",
-    "serve-favicon": "latest",
-    "hbs": "latest",
-    "morgan": "latest",
+    "bluebird": "latest",
     "body-parser": "latest",
     "cookie-parser": "latest",
     "debug": "latest",
+    "express": "latest",
     "formidable": "latest",
     "mongodb": "latest",
     "mongoose": "latest",
-    "bluebird": "latest"
+    "morgan": "latest",
+    "pug": "^2.0.0-beta6",
+    "serve-favicon": "latest"
   },
   "description": "Direct your own interactive silent movies using clips from the past!",
   "main": "www",
