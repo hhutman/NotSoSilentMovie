@@ -54,7 +54,7 @@ module.exports.checkResourceTargetExists = function(target){
 
     Content.find({target : target}, function (err, docs) {
         if (docs.length){
-            resolve(docs)
+            resolve(docs);
         }else{
             reject();
         }

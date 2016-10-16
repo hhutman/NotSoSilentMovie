@@ -5,20 +5,26 @@ block variables
 block content
     script(src="https://code.jquery.com/jquery-2.2.0.min.js")
     script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js")
+    script(src="/javascripts/projectPage_client.js")
     h3 Make a Project!
-    #projectPlanner
-    .input-block-display
-        div
-            label(for="input_name") Name:
-            input(id="input_name" type="text" name="name")
-        div
-            label(for="input_creator") Creator:
-            input(id="input_creator" type="text" name="creator")
-        div
-            label(for="input_description") Description:
-            input(id="input_description" type="text" name="description")
-        div
-            label(for="input_tags") Tags:
-            input(id="input_tags" type="text" name="tags")
+    div(id="projectPlannerContainer", class="project-planner")
+        button(id="add_0", onclick="projectAddition(this.id)", class="project-planner_addition sm-button") +
+        button(onclick="projectEdit(this.id)", class="project-planner_object sm-button") TEST A
+        button(id="add_1", onclick="projectAddition(this.id)", class="project-planner_addition sm-button") +
+        button(onclick="projectEdit(this.id)", class="project-planner_object sm-button") TEST B
+        button(id="add_2", onclick="projectAddition(this.id)", class="project-planner_addition sm-button") +
+    div
+        label(for="input_name") Name:
+        input(id="input_name" type="text" name="name")
+    div
+        label(for="input_creator") Creator:
+        input(id="input_creator" type="text" name="creator")
+    div
+        label(for="input_description") Description:
+        input(id="input_description" type="text" name="description")
+    div
+        label(for="input_tags") Tags:
+        input(id="input_tags" type="text" name="tags")
+    hr
     button(onclick="window.location.href='/directors'", class="btn btn-lg sm-button upload-btn sm-pageLink", type="button")
          | Director's Page

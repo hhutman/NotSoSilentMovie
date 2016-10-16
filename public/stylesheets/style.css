@@ -127,17 +127,6 @@ body {
 .sm-cancel.active {
     background-color: #a0a0a0;
 }
-.input-block-display > div {
-    display: block;
-}
-.input-block-display > div  > label{
-    margin: 5px;
-    right: 0;
-}
-.input-block-display > div  > input{
-    width: 70%;
-    right: 0;
-}
 .sm-delete {
     background-color: #ff4050;
 }
@@ -241,6 +230,34 @@ h2 {
     width: 80px;
     margin: 10px;
 }
+.project-planner{
+    margin-bottom: 20px;
+}
+.project-planner button{
+    color: black;
+    height: 75px;
+    margin: 2px;
+}
+.project-planner_addition {
+    background-color: #c8eec2;
+    height: 25px;
+}
+.project-planner_object {
+    background-color: #fff0b2;
+    width: 75px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
