@@ -52,7 +52,7 @@ function getUniqueHash(finalName){
 
     database.checkResourceTargetExists(hashedName)
         .then(function(data) {
-            return getUniqueName(hashedName);
+            return getUniqueHash(hashedName);
         })
         .then(function(data) {
             resolve(data);

@@ -35,7 +35,7 @@ module.exports.checkResourceNameExists = function(tryName){
         if (docs.length){
             resolve(docs)
         }else{
-            reject(null);
+            reject();
         }
     });
 
@@ -51,7 +51,6 @@ module.exports.checkResourceTargetExists = function(target){
         resolve = res;
         reject = rej;
     });
-
 
     Content.find({target : target}, function (err, docs) {
         if (docs.length){
@@ -73,7 +72,7 @@ module.exports.addContent = function(hashedName, extension, name, useType){
     newAddition.target = hashedName;
     newAddition.useType = useType;
 
-    newAddition.save(function (err, object) {
+    newAddition.save(function (err) {
         if (err) {
             console.log(err);
         } else {

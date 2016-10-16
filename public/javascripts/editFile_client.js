@@ -1,7 +1,7 @@
 var fileTarget;
+var fileExt;
 
 function updateByTarget(){
-    console.log("jhsgdf");
     var jsonNew = {
         target: fileTarget,
         name: $("input[name=name]").val(),
@@ -30,7 +30,7 @@ function editSuccess(){
     window.location = "/viewFiles";
 }
 function editFail(){
-    //window.location = "/viewFiles";
+    window.location = "/viewFiles";
 }
 
 function deleteByFile(){
@@ -39,13 +39,17 @@ function deleteByFile(){
         url: "/viewFiles",
         type: "POST",
         dataType: "json",
-        data: JSON.stringify(editedFile),
+        data: JSON.stringify({
+            target: fileTarget,
+            extension: fileExt
+
+        }),
         contentType: "application/json",
         success: function(data) {
             window.location = "/upload";
         },
         error: function() {
-            console.log("delete failed");
+            editFail();
         }
     });
 }
