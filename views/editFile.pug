@@ -3,10 +3,11 @@ block variables
     - var pageTitle = "Director's Page"
     - var containerClass = "container-editFiles"
 block content
+    script(src="../../javascripts/editFile_client.js")
     script.
-        var file = "#{file}";
+        var fileTarget = "#{target}";
     div(id="fileName").
-        #{fileName} - #{fileType}
+        #{name} - #{useType}
     div(class="row edit-page_file-information-container")
         .col-xs-1
         .col-xs-10
@@ -14,9 +15,9 @@ block content
                 .col-xs-6
                     label(for="input_name") Name:
                     input(id="input_name", type="text", name="name")
-                    | #{fileExtension}
+                    | #{extension}
                 .col-xs-6
-                    | #{fileName} #{fileExtension}
+                    | #{name} #{extension}
             .row
                 .col-xs-6
                     if image
@@ -31,13 +32,13 @@ block content
                     label(for="input_description") Description:
                     input(id="input_description", type="text", name="description")
                 .col-xs-6
-                    | #{fileDescription}
+                    | #{description}
             .row
                 .col-xs-6
                     label(for="input_tags") Tags:
                     input(id="input_tags", type="text", name="tags")
                 .col-xs-6
-                    | #{fileTags}
+                    | #{tags}
         .col-xs-1
     hr
     if state
@@ -52,4 +53,3 @@ block content
             Save
     script(src="https://code.jquery.com/jquery-2.2.0.min.js")
     script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js")
-    script(src="../../javascripts/editFile_client.js")

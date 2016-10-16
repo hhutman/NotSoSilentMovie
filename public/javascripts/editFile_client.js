@@ -1,9 +1,9 @@
-var editedFile = file;
+var fileTarget;
 
 function updateByTarget(){
     console.log("jhsgdf");
     var jsonNew = {
-        target: editedFile.target,
+        target: fileTarget,
         name: $("input[name=name]").val(),
         useType: $("input[name=type]").val(),
         movieTitle: $("input[name=movie]").val(),

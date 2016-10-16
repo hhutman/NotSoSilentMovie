@@ -18,6 +18,7 @@ router.get('/', function(req, res) {
 
 /* GET users listing. */
 router.get('/:target', function(req, res) {
+    //noinspection JSUnresolvedVariable
     database.getByTarget(req.params.target)
         .then(function(file) {
             handleNewTraffic(file, req, res);
@@ -28,22 +29,13 @@ router.get('/:target', function(req, res) {
 });
 
 function handleNewTraffic(file, req, res){
-    var responseData = {
-        state: req.query.state,
-        file: JSON.stringify(file),
-        fileExtension: file.extension,
-        fileName: file.name,
-        fileType: file.useType,
-        movieTitle: file.movieTitle,
-        fileDescription: file.description,
-        fileTags: file.tags
-    };
-
+    var responseData = file;
+    responseData.state = req.query.state;
     if(file.useType == 'card'){
         responseData.image = true;
     }
 
-    res.render('editFile', responseData );
+    res.render('editFile',  responseData );
 }
 
 router.post('/', function(req, res) {
