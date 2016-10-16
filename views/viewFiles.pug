@@ -8,7 +8,7 @@ block content
     script(src="https://code.jquery.com/jquery-2.2.0.min.js")
     script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js")
     #uploadedFileList
-        each file, index in files
+        each file in files
             - var fileRef = JSON.stringify(file);
             div(id="fileRow_" + file.target, class="row uploaded-file-row")
                 .col-xs-2
@@ -28,7 +28,7 @@ block content
                         X
         br
         hr
-        button(id="uploadFilesButton", class="btn btn-lg sm-button edit-btn sm-pageLink", type="button").
+        button( onclick="window.location.href='/upload'", class="btn btn-lg sm-button edit-btn sm-pageLink", type="button").
             Upload Files
     div(class="modal fade", id="playModal", role="dialog")
         .modal-dialog

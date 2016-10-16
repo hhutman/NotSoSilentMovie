@@ -1,0 +1,24 @@
+extends layout.pug
+block variables
+    - var pageTitle = "Project Page"
+    - var containerClass = "container-editFiles"
+block content
+    script(src="https://code.jquery.com/jquery-2.2.0.min.js")
+    script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js")
+    h3 Make a Project!
+    #projectPlanner
+    .input-block-display
+        div
+            label(for="input_name") Name:
+            input(id="input_name" type="text" name="name")
+        div
+            label(for="input_creator") Creator:
+            input(id="input_creator" type="text" name="creator")
+        div
+            label(for="input_description") Description:
+            input(id="input_description" type="text" name="description")
+        div
+            label(for="input_tags") Tags:
+            input(id="input_tags" type="text" name="tags")
+    button(onclick="window.location.href='/directors'", class="btn btn-lg sm-button upload-btn sm-pageLink", type="button")
+         | Director's Page

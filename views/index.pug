@@ -3,12 +3,11 @@ block variables
     - var pageTitle = "Main Menu"
 block content
     h3 Coming Soon
-    button(id="projectPageButton", class="btn btn-lg sm-button upload-btn sm-pageLink", type="button").
+    button(onclick="window.location.href='/projectPage/new'", class="btn btn-lg sm-button upload-btn sm-pageLink", type="button").
         Make A Project
-    button(id="viewProjectsButton", class="btn btn-lg sm-button upload-btn sm-pageLink", type="button").
+    button(onclick="window.location.href='/viewFiles'", class="btn btn-lg sm-button upload-btn sm-pageLink", type="button").
         View Projects
-    button(id="directorsPageButton", class="btn btn-lg sm-button upload-btn sm-pageLink", type="button").
+    button(onclick="window.location.href='/directors'", class="btn btn-lg sm-button upload-btn sm-pageLink", type="button").
         Director's Page
-    button(id="aboutButton", class="btn btn-lg sm-button upload-btn sm-pageLink", type="button").
+    button(onclick="window.location.href='/about'", class="btn btn-lg sm-button upload-btn sm-pageLink", type="button").
         About
-    script(src="javascripts/index.js")

@@ -1,0 +1,42 @@
+extends layout.pug
+block variables
+    - var pageTitle = "Upload Page"
+block content
+    script(src="https://code.jquery.com/jquery-2.2.0.min.js")
+    script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js")
+    div(id='alertSpace', class="text-alert", style='display: none')
+    div
+        .row
+            .col-xs-4
+                label(class="radio-inline")
+                    input(type="radio", value="video", name="optradio", checked="true")
+                    | VideoClip
+                .uploadSupportedFormats
+                    | (MP4, WebM, FLV)
+            .col-xs-4
+                label(class="radio-inline")
+                    input(type="radio", value="card", name="optradio")
+                    | Title Card
+                .uploadSupportedFormats
+                    | (JPG/JPEG, PNG, GIF)
+            .col-xs-4
+                label(class="radio-inline")
+                    input(type="radio", value="audio", name="optradio")
+                    | Audio Track
+                .uploadSupportedFormats
+                    | (AAC, MP3, Vorbis)
+        .progress
+            div(class="progress-bar" role="progressbar")
+        button(id="selectButton", class="btn btn-lg sm-button upload-btn sm-select", type="button")
+            | Select File
+        button(id="submitButton", disabled="true", class="btn btn-lg sm-button upload-btn sm-submit", type="button")
+            | Submit
+        div
+            h4(class="selected-file-title")
+                | Selected File:
+    #uploadList
+    hr
+    button(id="viewFilesButton", class="btn btn-lg sm-button upload-btn sm-pageLink", type="button")
+        | View Files
+    input(id="upload-input", type="file", name="upload", accept=".gif,.png,.jpg,.jpeg,.mp4,.webm,.flv,.aac,.mp3,.vorbis")
+    script(src="javascripts/upload_client.js")
