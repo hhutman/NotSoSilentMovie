@@ -1,0 +1,55 @@
+extends layout.pug
+block variables
+    - var pageTitle = "Director's Page"
+block content
+    script.
+        var file = #{file};
+    div(id="fileName").
+        #{fileName} - #{fileType}
+    div(class="row edit-page_file-information-container")
+        .col-xs-1
+        .col-xs-10
+            .row
+                .col-xs-6
+                    label(for="input_name") Name:
+                    input(id="input_name", type="text", name="name") #{fileExtension}
+                .col-xs-6
+                    #{fileName}#{fileExtension}
+            .rowW
+                .col-xs-6
+                    if image
+                        label(for="input_movie") Text:
+                    else
+                        label(for="input_movie") Movie Title:
+                    input(id="input_movie", type="text", name="movie")
+                .col-xs-6
+                    #{movieTitle}
+            .row
+                .col-xs-6
+                    label(for="input_description") Description:
+                    input(id="input_description", type="text", name="description")
+                .col-xs-6
+                    #{fileDescription}#
+            .row
+                .col-xs-6
+                    label(for="input_tags") Tags:
+                    input(id="input_tags", type="text", name="tags")
+                .col-xs-6
+                    #{fileTags}
+        .col-xs-1
+        hr
+        if #{state}
+            #newFileButtons
+                button(id="deleteButton", class="btn btn-lg sm-button upload-btn sm-delete", type="button").
+                    Cancel
+                button(id="saveButton", class="btn btn-lg sm-button upload-btn sm-save", type="button").
+                    Save
+        else
+            #updateFileButtons
+                button(id="cancelButton", class="btn btn-lg sm-button upload-btn sm-cancel" type="button").
+                    Cancel
+                button(id="saveButton", class="btn btn-lg sm-button upload-btn sm-save", type="button").
+                    Save
+    script(src="https://code.jquery.com/jquery-2.2.0.min.js")
+    script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js")
+    script(src="../../javascripts/editFile.js")
