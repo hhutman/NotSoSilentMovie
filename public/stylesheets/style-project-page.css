@@ -1,0 +1,149 @@
+.project-planner{
+    margin-bottom: 20px;
+}
+.project-planner button{
+    color: black;
+    height: 75px;
+    margin: 2px;
+}
+.project-planner_addition {
+    background-color: #c8eec2;
+    width: 25px;
+    -webkit-animation: stretch-in-addition .5s; /* Safari, Chrome and Opera > 12.1 */
+    -moz-animation: stretch-in-addition .5s; /* Firefox < 16 */
+    -ms-animation: stretch-in-addition .5s; /* Internet Explorer */
+    -o-animation: stretch-in-addition .5s; /* Opera < 12.1 */
+    animation: stretch-in-addition .5s;
+}
+.project-planner_addition:only-child {
+    width: 25px !important;
+}
+.project-planner_object {
+    background-color: #fff0b2;
+    width: 75px;
+    -webkit-animation: stretch-in-object .5s; /* Safari, Chrome and Opera > 12.1 */
+    -moz-animation: stretch-in-object .5s; /* Firefox < 16 */
+    -ms-animation: stretch-in-object .5s; /* Internet Explorer */
+    -o-animation: stretch-in-object .5s; /* Opera < 12.1 */
+    animation: stretch-in-object .5s;
+}
+.project-empty {
+    background-color: #DDDDDD;
+}
+@keyframes stretch-in-addition {
+    from {
+        width: 0;
+        opacity: 0;
+    }
+    to   {
+        width: 25px;
+        opacity: 1;
+    }
+}
+
+/* Firefox < 16 */
+@-moz-keyframes stretch-in-addition {
+    from {
+        width: 0;
+        opacity: 0;
+    }
+    to   {
+        width: 25px;
+        opacity: 1;
+    }
+}
+
+/* Safari, Chrome and Opera > 12.1 */
+@-webkit-keyframes stretch-in-addition {
+    from {
+        width: 0;
+        opacity: 0;
+    }
+    to   {
+        width: 25px;
+        opacity: 1;
+    }
+}
+
+/* Internet Explorer */
+@-ms-keyframes stretch-in-addition {
+    from {
+        width: 0;
+        opacity: 0;
+    }
+    to   {
+        width: 25px;
+        opacity: 1;
+    }
+}
+
+/* Opera < 12.1 */
+@-o-keyframes stretch-in-addition {
+    from {
+        width: 0;
+        opacity: 0;
+    }
+    to   {
+        width: 25px;
+        opacity: 1;
+    }
+}
+@keyframes stretch-in-addition {
+    from {
+        width: 0;
+        opacity: 0;
+    }
+    to   {
+        width: 25px;
+        opacity: 1;
+    }
+}
+
+/* Firefox < 16 */
+@-moz-keyframes stretch-in-object {
+    from {
+        width: 0;
+        opacity: 0;
+    }
+    to   {
+        width: 75px;
+        opacity: 1;
+    }
+}
+
+/* Safari, Chrome and Opera > 12.1 */
+@-webkit-keyframes stretch-in-object {
+    from {
+        width: 0;
+        opacity: 0;
+    }
+    to   {
+        width: 75px;
+        opacity: 1;
+    }
+}
+
+/* Internet Explorer */
+@-ms-keyframes stretch-in-object {
+    from {
+        width: 0;
+        opacity: 0;
+    }
+    to   {
+        width: 75px;
+        opacity: 1;
+    }
+}
+
+/* Opera < 12.1 */
+@-o-keyframes stretch-in-object {
+    from {
+        width: 0;
+        opacity: 0;
+    }
+    to   {
+        width: 75px;
+        opacity: 1;
+    }
+}
+

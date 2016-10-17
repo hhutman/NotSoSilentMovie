@@ -230,32 +230,6 @@ h2 {
     width: 80px;
     margin: 10px;
 }
-.project-planner{
-    margin-bottom: 20px;
-}
-.project-planner button{
-    color: black;
-    height: 75px;
-    margin: 2px;
-}
-.project-planner_addition {
-    background-color: #c8eec2;
-    height: 25px;
-}
-.project-planner_object {
-    background-color: #fff0b2;
-    width: 75px;
-}
-.project-empty {
-    background-color: #DDDDDD;
-}
-
-
-
-
-
-
-
 
 
 

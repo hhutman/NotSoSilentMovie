@@ -15,7 +15,7 @@ function getAdditionObject(){
     var newID = "add_" + counter;
     var $newObject = $("<button></button>");
     $newObject.text('+');
-    $newObject.addClass("project-planner_addition sm-button");
+    $newObject.addClass("project-planner_addition sm-button sm_stretch-in");
     $newObject.attr("id",newID);
     $newObject.on("click", function (event){
         projectAddition(newID);
@@ -27,7 +27,7 @@ function getNewObject(){
     var newID = "add_" + counter;
     var $newObject = $("<button></button>");
     $newObject.text('EMPTY');
-    $newObject.addClass("project-planner_object sm-button project-empty");
+    $newObject.addClass("project-planner_object sm-button project-empty sm_stretch-in");
     $newObject.attr('data-toggle',"modal");
     $newObject.attr('data-target', "#objectModal");
     $newObject.attr('id',newID);

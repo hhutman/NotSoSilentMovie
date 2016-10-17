@@ -3,16 +3,13 @@ block variables
     - var pageTitle = "Project Page"
     - var containerClass = "container-editFiles"
 block content
+    link(rel="stylesheet", href="/stylesheets/style-project-page.css")
     script(src="https://code.jquery.com/jquery-2.2.0.min.js")
     script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js")
     script(src="/javascripts/projectPage_client.js")
     h3 Make a Project!
     div(id="projectPlannerContainer", class="project-planner")
         button(id="add_0", onclick="projectAddition(this.id)", class="project-planner_addition sm-button") +
-        button(id="obj_4", onclick="projectEdit(this.id)", class="project-planner_object sm-button", data-toggle="modal", data-target="#objectModal") TEST A
-        button(id="add_1", onclick="projectAddition(this.id)", class="project-planner_addition sm-button") +
-        button(id="obj_3", onclick="projectEdit(this.id)", class="project-planner_object sm-button", data-toggle="modal", data-target="#objectModal") TEST B
-        button(id="add_2", onclick="projectAddition(this.id)", class="project-planner_addition sm-button") +
     div
         label(for="input_name") Name:
         input(id="input_name" type="text" name="name")
