@@ -9,9 +9,9 @@ block content
     h3 Make a Project!
     div(id="projectPlannerContainer", class="project-planner")
         button(id="add_0", onclick="projectAddition(this.id)", class="project-planner_addition sm-button") +
-        button(onclick="projectEdit(this.id)", class="project-planner_object sm-button") TEST A
+        button(id="obj_4", onclick="projectEdit(this.id)", class="project-planner_object sm-button", data-toggle="modal", data-target="#objectModal") TEST A
         button(id="add_1", onclick="projectAddition(this.id)", class="project-planner_addition sm-button") +
-        button(onclick="projectEdit(this.id)", class="project-planner_object sm-button") TEST B
+        button(id="obj_3", onclick="projectEdit(this.id)", class="project-planner_object sm-button", data-toggle="modal", data-target="#objectModal") TEST B
         button(id="add_2", onclick="projectAddition(this.id)", class="project-planner_addition sm-button") +
     div
         label(for="input_name") Name:
@@ -28,3 +28,16 @@ block content
     hr
     button(onclick="window.location.href='/directors'", class="btn btn-lg sm-button upload-btn sm-pageLink", type="button")
          | Director's Page
+    div(class="modal fade", id="objectModal", role="dialog")
+        .modal-dialog
+            .modal-content
+                .modal-header
+                    button( type="button", class="close", data-dismiss="modal")
+                        | &times;
+                    h4(id="popupHeader", class="modal-title")
+                        | Edit Clip
+                .modal-body
+                .modal-footer
+                    button( type="button", class="btn btn-default sm-button sm-cancel" data-dismiss="modal").
+                        Close
+    div(class="modal fade", id="confirmDeleteModal", role="dialog")

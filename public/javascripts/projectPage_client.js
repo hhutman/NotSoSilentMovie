@@ -1,11 +1,11 @@
 var counter = 2;
 
-function projectAddition(objectid){
-    var previous = $('#' + objectid);
+function projectAddition(objectID){
+    var previous = $('#' + objectID);
     previous.after(getAdditionObject());
     previous.after(getNewObject());
 }
-function projectEdit (target){
+function projectEdit (objectID){
 
 }
 function getAdditionObject(){
@@ -21,9 +21,16 @@ function getAdditionObject(){
     return $newObject;
 }
 function getNewObject(){
+    counter++;
+    var newID = "add_" + counter;
     var $newObject = $("<button></button>");
-    $newObject.text('NEW');
-    $newObject.addClass("project-planner_object sm-button");
-
+    $newObject.text('EMPTY');
+    $newObject.addClass("project-planner_object sm-button project-empty");
+    $newObject.attr('data-toggle',"modal");
+    $newObject.attr('data-target', "#objectModal");
+    $newObject.attr('id',newID);
+    $newObject.on("click", function (event){
+        projectEdit(newID);
+    });
     return $newObject;
 }
