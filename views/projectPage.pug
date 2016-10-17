@@ -38,6 +38,8 @@ block content
                         | Edit Clip
                 .modal-body
                 .modal-footer
+                    button( onclick="deleteBlock()", type="button", class="btn btn-default sm-button sm-delete" data-dismiss="modal").
+                        Delete
                     button( type="button", class="btn btn-default sm-button sm-cancel" data-dismiss="modal").
                         Close
     div(class="modal fade", id="confirmDeleteModal", role="dialog")

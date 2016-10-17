@@ -1,12 +1,14 @@
 var counter = 2;
 
+var currentID;
+
 function projectAddition(objectID){
     var previous = $('#' + objectID);
     previous.after(getAdditionObject());
     previous.after(getNewObject());
 }
 function projectEdit (objectID){
-
+    currentID = objectID;
 }
 function getAdditionObject(){
     counter++;
@@ -33,4 +35,10 @@ function getNewObject(){
         projectEdit(newID);
     });
     return $newObject;
+}
+
+function deleteBlock (){
+    var $selectedObject = $('#' + currentID);
+    $selectedObject.next().remove();
+    $selectedObject.remove();
 }
