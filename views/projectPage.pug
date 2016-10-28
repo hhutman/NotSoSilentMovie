@@ -32,8 +32,13 @@ block content
                     button( type="button", class="close", data-dismiss="modal")
                         | &times;
                     h4(id="popupHeader", class="modal-title")
-                        | Edit Clip
+                        | Edit Segment
                 .modal-body
+                    .project-page-modal_body-title-buttons
+                        button( onclick="", type="button", class="btn btn-default sm-button sm-pageLink" )
+                            | List Clips
+                        button(onclick="", type="button", class="btn btn-default sm-button sm-pageLink")
+                            | List Cards
                 .modal-footer
                     button( onclick="deleteBlock()", type="button", class="btn btn-default sm-button sm-delete" data-dismiss="modal").
                         Delete

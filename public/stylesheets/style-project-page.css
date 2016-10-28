@@ -30,6 +30,11 @@
 .project-empty {
     background-color: #DDDDDD;
 }
+.project-page-modal_body-title-buttons * {
+    margin-right: 5px;
+}
+
+
 @keyframes stretch-in-addition {
     from {
         width: 0;
