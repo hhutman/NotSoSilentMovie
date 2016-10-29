@@ -38,9 +38,8 @@ router.post('/', function(req, res) {
             );
         })
         .catch(function(err){
-            res.end(
-                JSON.stringify({ error: err, })
-            );
+            res.status(500).send({ error: err });
+            res.end();
         })
 });
 

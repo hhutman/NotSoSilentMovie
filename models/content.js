@@ -10,7 +10,7 @@ var content = new mongoose.Schema({
         type: String,
         required: true
     },
-    useType: {
+    useType: { // Can be 'video','card','audio'
         type: String,
         required: true
     },

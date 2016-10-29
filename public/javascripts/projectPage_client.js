@@ -42,12 +42,12 @@ function deleteBlock (){
     $selectedObject.next().remove();
     $selectedObject.remove();
 }
-function errorLoadingList () {
-    console.log("Error Loading List"); //TODO
+function errorLoadingList (err) {
+    $('#projectPage-contentBlock').text(err);
 }
 
 function loadContentList (data) {
-    $('#projectPage-contentBlock').text("SUCCESS"); //TODO
+    $('#projectPage-contentBlock').text(JSON.stringify(data)); //TODO
 }
 
 function buttonListClips () {
@@ -64,7 +64,7 @@ function dataRequest(request, callback, errCallback) {
             callback(data);
         },
         error: function(jqXHR, textStatus, errorThrown) {
-            errCallback();
+            errCallback(jqXHR.error);
         }
     });
 }

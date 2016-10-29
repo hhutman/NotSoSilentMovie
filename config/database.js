@@ -32,10 +32,10 @@ module.exports.getByJson = function (model, jsonObj) {
         reject = rej;
     });
 
+
     if(!jsonObj){
         jsonObj = {};
     }
-
     model.find(jsonObj, function (err, docs) {
         if (docs && docs.length){
             resolve(docs)
