@@ -42,3 +42,45 @@ function deleteBlock (){
     $selectedObject.next().remove();
     $selectedObject.remove();
 }
+function errorLoadingList () {
+    console.log("Error Loading List"); //TODO
+}
+
+function loadContentList (data) {
+    $('#projectPage-contentBlock').text("SUCCESS"); //TODO
+}
+
+function buttonListClips () {
+    dataRequest("video/all", loadContentList, errorLoadingList);
+}
+//TODO make a button for ListCards
+function dataRequest(request, callback, errCallback) {
+    $.ajax({
+        url: "/dataRequest/" + request,
+        type: "GET",
+        dataType: "json",
+        contentType: "application/json",
+        success: function(data) {
+            callback(data);
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+            errCallback();
+        }
+    });
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

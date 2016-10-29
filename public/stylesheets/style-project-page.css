@@ -33,7 +33,9 @@
 .project-page-modal_body-title-buttons * {
     margin-right: 5px;
 }
-
+.project-page-modal hr {
+    margin-bottom: 10px;
+}
 
 @keyframes stretch-in-addition {
     from {

@@ -24,6 +24,7 @@ var directors = require('./routes/directors');
 var projectPage = require('./routes/projectPage');
 var aboutPage = require('./routes/about');
 var viewProjects = require('./routes/viewProjects');
+var dataRequest = require('./routes/dataRequest');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -51,6 +52,7 @@ app.use('/editFile', editFile);
 app.use('/directors', directors);
 app.use('/projectPage',projectPage);
 app.use('/viewProjects',viewProjects);
+app.use('/dataRequest',dataRequest);
 app.use('/about',aboutPage);
 
 // error handlers
