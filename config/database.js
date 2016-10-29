@@ -23,7 +23,7 @@ module.exports.contentmodel = Content;
 module.exports.projectmodel = Project;
 
 
-module.exports.findByJson = function (jsonObj) {
+module.exports.getByJson = function (model, jsonObj) {
     var resolve;
     var reject;
 
@@ -32,16 +32,20 @@ module.exports.findByJson = function (jsonObj) {
         reject = rej;
     });
 
-    Content.find(jsonObj, function (err, docs) {
-        if (docs.length){
+    if(!jsonObj){
+        jsonObj = {};
+    }
+
+    model.find(jsonObj, function (err, docs) {
+        if (docs && docs.length){
             resolve(docs)
         }else{
-            reject();
+            reject(err);
         }
     });
 
     return newPromise;
-}
+};
 
 module.exports.addContent = function(hashedName, extension, name, useType){
 
@@ -127,25 +131,6 @@ module.exports.deleteByTarget = function(target){
         });
     return newPromise;
 };
-module.exports.getByTarget = function(target){
-    var resolve;
-    var reject;
-
-    var newPromise = new Promise(function (res, rej) {
-        resolve = res;
-        reject = rej;
-    });
-
-    Content.findOne({ target: target })
-        .then(function(content) {
-            resolve(content);
-        })
-        .catch(function(err){
-            reject(err);
-        });
-
-    return newPromise;
-};
 module.exports.updateByTarget = function(file){
     var resolve;
     var reject;
@@ -160,25 +145,25 @@ module.exports.updateByTarget = function(file){
         .then(function(foundFile) {
             if(!foundFile){
                 reject();
-            } else {
-                if(file.name){
-                    foundFile.name = file.name;
-                }
-                if(file.useType){
-                    foundFile.useType = file.useType;
-                }
-                if(file.description){
-                    foundFile.description = file.description;
-                }
-                if(file.movieTitle){
-                    foundFile.movieTitle = file.movieTitle;
-                }
-                if(file.tags){
-                    foundFile.tags = file.tags;
-                }
-                foundFile.save();
-                resolve();
+                return;
             }
+            if(file.name){
+                foundFile.name = file.name;
+            }
+            if(file.useType){
+                foundFile.useType = file.useType;
+            }
+            if(file.description){
+                foundFile.description = file.description;
+            }
+            if(file.movieTitle){
+                foundFile.movieTitle = file.movieTitle;
+            }
+            if(file.tags){
+                foundFile.tags = file.tags;
+            }
+            foundFile.save();
+            resolve();
         })
         .catch(function(err) {
             reject(err);

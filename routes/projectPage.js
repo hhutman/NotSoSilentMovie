@@ -21,14 +21,6 @@ router.get('/:target', function(req, res) {
     } else {
         res.render('projectPage');
     }
-/*
-    database.getByTarget(req.params.target)
-        .then(function(file) {
-            handleNewTraffic(file, req, res);
-        })
-        .catch(function(err) {
-            res.redirect('../');
-        }); */
 });
 
 

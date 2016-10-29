@@ -19,9 +19,9 @@ router.get('/', function(req, res) {
 /* GET users listing. */
 router.get('/:target', function(req, res) {
     //noinspection JSUnresolvedVariable
-    database.getByTarget(req.params.target)
-        .then(function(file) {
-            handleNewTraffic(file, req, res);
+    database.getByJson(database.contentmodel,{ target : req.params.target })
+        .then(function(files) {
+            handleNewTraffic(files[0], req, res);
         })
         .catch(function(err) {
             res.redirect('../');

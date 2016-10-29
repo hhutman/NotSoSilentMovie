@@ -25,7 +25,7 @@ function getUniqueName(baseName, number){
         number = 1;
     }
 
-    database.findByJson({ name : tryName })
+    database.getByJson(database.contentmodel, { name : tryName })
         .then(function(data) {
             return getUniqueName(baseName, number);
         })
@@ -50,7 +50,7 @@ function getUniqueHash(finalName){
 
     var hashedName = crypto.createHash('md5').update(finalName).digest('hex');
 
-    database.findByJson({target : hashedName})
+    database.getByJson(database.contentmodel, {target: hashedName})
         .then(function(data) {
             return getUniqueHash(hashedName);
         })
