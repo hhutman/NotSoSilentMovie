@@ -22,7 +22,8 @@ var Project = mongoose.model('Project', projectModel);
 module.exports.contentmodel = Content;
 module.exports.projectmodel = Project;
 
-module.exports.checkResourceNameExists = function(tryName){
+
+module.exports.findByJson = function (jsonObj) {
     var resolve;
     var reject;
 
@@ -31,7 +32,7 @@ module.exports.checkResourceNameExists = function(tryName){
         reject = rej;
     });
 
-    Content.find({name : tryName}, function (err, docs) {
+    Content.find(jsonObj, function (err, docs) {
         if (docs.length){
             resolve(docs)
         }else{
@@ -40,28 +41,7 @@ module.exports.checkResourceNameExists = function(tryName){
     });
 
     return newPromise;
-};
-
-
-module.exports.checkResourceTargetExists = function(target){
-    var resolve;
-    var reject;
-
-    var newPromise = new Promise(function (res, rej) {
-        resolve = res;
-        reject = rej;
-    });
-
-    Content.find({target : target}, function (err, docs) {
-        if (docs.length){
-            resolve(docs);
-        }else{
-            reject();
-        }
-    });
-
-    return newPromise;
-};
+}
 
 module.exports.addContent = function(hashedName, extension, name, useType){
 

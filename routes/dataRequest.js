@@ -5,6 +5,11 @@ var router = express.Router();
 
 var dataReqController = require('../controllers/sm-dataRequest');
 
+var Promise = require("bluebird");
+
+Promise.promisifyAll(dataReqController);
+Promise.promisifyAll(fs);
+
 
 router.get('/:type/:filter', function (req, res, next) {
     switch(req.params.type) {
@@ -18,6 +23,7 @@ router.get('/:type/:filter', function (req, res, next) {
 });
 
 function videoResponse(res, filter) {
+    dataReqController.
     res.end(JSON.stringify(""));
 }
 
