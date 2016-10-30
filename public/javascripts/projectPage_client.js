@@ -46,9 +46,17 @@ function errorLoadingList (err) {
     $('#projectPage-contentBlock').text(err);
 }
 
-function loadContentList (data) {
-    $('#projectPage-contentBlock').text(JSON.stringify(data)); //TODO
+function loadContentList (list) {
+    for (let content of list){
+        $('#projectPage-contentBlock').append(getNewContentTile(content)); //TODO
+    }
 }
+function getNewContentTile (content) {
+    var $newObject = $("<div></div>");
+    $newObject.text(content.name);
+    return $newObject;
+}
+
 
 function buttonListClips () {
     dataRequest("video/all", loadContentList, errorLoadingList);
