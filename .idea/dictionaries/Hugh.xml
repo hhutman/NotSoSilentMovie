@@ -6,6 +6,8 @@
       <w>clientside</w>
       <w>contentfeed</w>
       <w>contentmodel</w>
+      <w>ffmpeg</w>
+      <w>ffprobe</w>
       <w>javascripts</w>
       <w>jsonfile</w>
       <w>nounderline</w>

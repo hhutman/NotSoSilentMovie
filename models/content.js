@@ -21,7 +21,8 @@ var content = new mongoose.Schema({
     },
     movieTitle: String,
     description: String,
-    tags: Array
+    tags: Array,
+    thumbnailTarget: String
 });
 
 module.exports = content;

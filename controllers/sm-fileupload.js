@@ -4,7 +4,7 @@ var formidable = require('formidable');
 var fs = require('fs');
 var resourceController = require('../controllers/resourcecontroller');
 var content = require('../models/content');
-
+var thumbnailController = require('./thumbnailController');
 var Promise = require("bluebird");
 
 Promise.promisifyAll(resourceController);
@@ -66,11 +66,13 @@ module.exports.newUpload = function(req) {
                 return resourceController.getUniqueHash(uniqueName);
             })
             .then(function (target) { // Returned 'target', File is saving
+
                 fs.rename(file.path, path.join(form.uploadDir, target + extension));
                 return resourceController.saveNewFile(target, extension, finalName);
             })
-            .then(function (data) {
-                resolve (data);
+            .then(function (target) {
+                resolve (target);
+                thumbnailController.makeThumbnailByTarget(target);
             })
             .catch(function (err) {
                 reject(err);

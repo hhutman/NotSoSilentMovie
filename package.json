@@ -11,6 +11,8 @@
     "cookie-parser": "latest",
     "debug": "latest",
     "express": "latest",
+    "ffprobe": "^1.1.0",
+    "fluent-ffmpeg": "latest",
     "formidable": "latest",
     "mongodb": "latest",
     "mongoose": "latest",

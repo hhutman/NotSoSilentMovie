@@ -1,0 +1,4 @@
+Install program
+Export ffmpeg
+Install ffmpeg
+Install mongodb
