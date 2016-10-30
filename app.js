@@ -5,7 +5,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var pug = require('pug');
-
+var thumbnailController = require('./controllers/thumbnailController');
 
 var fs = require('fs');
 
@@ -56,8 +56,10 @@ app.use('/dataRequest',dataRequest);
 app.use('/about',aboutPage);
 
 // handle blank image references
-app.get('/thumbnails/*', function(req, res) {
+app.get('/thumbnails/:filename', function(req, res) {
     res.sendFile(__dirname + '/public/thumbnails/missing_image.png');
+    let target = path.basename(req.params.filename, '.png');
+    thumbnailController.makeThumbnailByTarget(target)
 });
 
 // production error handler
