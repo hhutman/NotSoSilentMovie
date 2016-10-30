@@ -230,8 +230,9 @@ h2 {
     width: 80px;
     margin: 10px;
 }
-
-
+.view-files_play {
+    padding: 0px !important;
+}
 
 
 

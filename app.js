@@ -80,6 +80,7 @@ app.use(function(err, req, res) {
     });
 });
 
+
 // Redirect page
 app.get('*', function(req, res) {
     res.redirect('/');

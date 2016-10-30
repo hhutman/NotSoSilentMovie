@@ -12,8 +12,8 @@ block content
             - var fileRef = JSON.stringify(file);
             div(id="fileRow_" + file.target, class="row uploaded-file-row")
                 .col-xs-2
-                    button( onclick="playFile(" + fileRef  + ")", class="btn btn-lg sm-button sm-play", data-toggle="modal", data-target="#playModal").
-                        Play
+                    button( onclick="playFile(" + fileRef  + ")", class="view-files_play", data-toggle="modal", data-target="#playModal")
+                        img(src="/thumbnails/" + file.target + ".png")
                 .col-xs-4
                     | #{file.name}
                 .col-xs-1
