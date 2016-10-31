@@ -57,7 +57,9 @@ function getNewContentTile (content) {
     $newObject.attr('src', window.location.origin + "/thumbnails/" + content.target + ".png");
     return $newObject;
 }
-
+function buttonListCards () {
+    dataRequest("card/all", loadContentList, errorLoadingList);
+}
 
 function buttonListClips () {
     dataRequest("video/all", loadContentList, errorLoadingList);
