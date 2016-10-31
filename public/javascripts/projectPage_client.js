@@ -120,7 +120,26 @@ function dataRequest(request, callback, errCallback) {
     });
 }
 
+function saveNewProject() {
+    getProjectJSON();
+}
 
+function getProjectJSON() {
+    let projectJson = {
+        name: {},
+        creator: {},
+        description: {},
+        content: [],
+        tags: []
+    };
+    $('.project-planner_object').each(function(){
+        let contentString = this.getAttribute('data-content');
+        if(contentString){
+            projectJson.content.push(JSON.parse(contentString).target);
+        }
+    })
+    console.log(projectJson.content);
+}
 
 
 

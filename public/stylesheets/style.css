@@ -233,8 +233,17 @@ h2 {
 .view-files_play {
     padding: 0px !important;
 }
-
-
+.view-files_play img {
+    height: 100px;
+    width: 100px;
+}
+.uploaded-file-list {
+    overflow-y: scroll;
+    height: 600px;
+    -moz-box-shadow:    inset 0 0 20px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.3);
+    box-shadow:         inset 0 0 20px rgba(0, 0, 0, 0.3);
+}
 
 
 

@@ -89,6 +89,33 @@ module.exports.getContent = function(){
     return newPromise;
 };
 
+module.exports.addProject = function(name, creator, description, content, tags){
+    var resolve;
+    var reject;
+
+    var newPromise = new Promise(function (res, rej) {
+        resolve = res;
+        reject = rej;
+    });
+
+    var newAddition = new Project();
+    newAddition.name = name;
+    newAddition.creator = creator;
+    newAddition.description = description;
+    newAddition.content = content;
+    newAddition.tags = tags;
+
+    newAddition.save(function (err) {
+        if (err) {
+            reject(err);
+        } else {
+            resolve( name);
+        }
+    });
+
+    return newPromise;
+};
+
 module.exports.getProjects = function(){
     var resolve;
     var reject;

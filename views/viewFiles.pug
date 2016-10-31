@@ -7,7 +7,7 @@ block content
     script(src="/javascripts/viewFiles_client.js")
     script(src="https://code.jquery.com/jquery-2.2.0.min.js")
     script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js")
-    #uploadedFileList
+    div(id="uploadedFileList", class="uploaded-file-list")
         each file in files
             - var fileRef = JSON.stringify(file);
             div(id="fileRow_" + file.target, class="row uploaded-file-row")
@@ -26,9 +26,9 @@ block content
                 .col-xs-2
                     button(class="btn btn-lg sm-button sm-delete", onclick="deletePressed(" + fileRef + ")", data-toggle="modal" data-target="#confirmDeleteModal").
                         X
-        br
-        hr
-        button( onclick="window.location.href='/upload'", class="btn btn-lg sm-button edit-btn sm-pageLink", type="button").
+    br
+    hr
+    button( onclick="window.location.href='/upload'", class="btn btn-lg sm-button edit-btn sm-pageLink", type="button").
             Upload Files
     div(class="modal fade", id="playModal", role="dialog")
         .modal-dialog

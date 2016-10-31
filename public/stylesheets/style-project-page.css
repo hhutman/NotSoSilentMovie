@@ -27,6 +27,10 @@
     -o-animation: stretch-in-object .5s; /* Opera < 12.1 */
     animation: stretch-in-object .5s;
 }
+.project-planner_object img{
+    height: 65px;
+    width: 65px;
+}
 .project-empty {
     background-color: #DDDDDD;
 }
@@ -35,6 +39,10 @@
 }
 .project-page-modal hr {
     margin-bottom: 10px;
+}
+.modal img {
+    width: 100px;
+    height: 100px;
 }
 
 @keyframes stretch-in-addition {
