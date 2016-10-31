@@ -1,4 +1,3 @@
-
 var path = require('path');
 var formidable = require('formidable');
 var fs = require('fs');
