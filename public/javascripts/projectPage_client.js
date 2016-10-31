@@ -120,25 +120,51 @@ function dataRequest(request, callback, errCallback) {
     });
 }
 
+function projectUpload(jsonProject, callback, errCallback) {
+    $.ajax({
+        url: "/projectPage",
+        type: "POST",
+        dataType: "json",
+        data: JSON.stringify(jsonProject),
+        contentType: "application/json",
+        success: function() {
+            callback();
+        },
+        error: function(err){
+            errCallback(err);
+        }
+    });
+}
+
 function saveNewProject() {
-    getProjectJSON();
+    let projectJson = getProjectJSON();
+    projectUpload(projectJson, uploadSuccess, uploadError)
+}
+
+function uploadSuccess() {
+    console.log("SUCCESS");
+}
+
+function uploadError(err) {
+    console.log("ERROR: " + err);
 }
 
 function getProjectJSON() {
     let projectJson = {
-        name: {},
-        creator: {},
-        description: {},
+        new: true, //TODO: Placeholder. In future make sure that new represents actual new project
+        name: $("input[name=name]").val(),
+        creator: $("input[name=creator]").val(),
+        description: $("input[name=description]").val(),
         content: [],
-        tags: []
+        tags: $("input[name=tags]").val()
     };
     $('.project-planner_object').each(function(){
         let contentString = this.getAttribute('data-content');
         if(contentString){
             projectJson.content.push(JSON.parse(contentString).target);
         }
-    })
-    console.log(projectJson.content);
+    });
+    return projectJson;
 }
 
 
