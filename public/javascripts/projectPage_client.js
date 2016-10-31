@@ -47,13 +47,14 @@ function errorLoadingList (err) {
 }
 
 function loadContentList (list) {
+    $('#projectPage-contentBlock').empty();
     for (let content of list){
         $('#projectPage-contentBlock').append(getNewContentTile(content)); //TODO
     }
 }
 function getNewContentTile (content) {
-    var $newObject = $("<div></div>");
-    $newObject.text(content.name);
+    var $newObject = $("<img>");
+    $newObject.attr('src', window.location.origin + "/thumbnails/" + content.target + ".png");
     return $newObject;
 }
 
