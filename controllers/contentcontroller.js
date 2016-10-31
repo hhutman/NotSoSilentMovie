@@ -17,7 +17,11 @@ module.exports.determineFileExtension = function (target) {
         }
 
         let file = findFile(files, target);
-        resolve(path.extname(file));
+        if(file) {
+            resolve(path.extname(file));
+        } else {
+            reject("[ContentController] Error finding file: " + target)
+        }
     });
 
     return newPromise;

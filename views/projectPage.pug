@@ -35,7 +35,7 @@ block content
                         | Edit Segment
                 div( class="modal-body project-page-modal")
                     | Current Selection
-                    | EXAMPLE
+                    div(id="projectPage-CurrentSelection")
                     hr
                     | Change Content
                     .project-page-modal_body-title-buttons
@@ -50,5 +50,7 @@ block content
                     button( onclick="deleteBlock()", type="button", class="btn btn-default sm-button sm-delete" data-dismiss="modal").
                         Delete
                     button( type="button", class="btn btn-default sm-button sm-cancel" data-dismiss="modal").
-                        Close
+                        Cancel
+                    button( onclick="saveContent()", type="button", class="btn btn-default sm-button sm-save" data-dismiss="modal").
+                        Save
     div(class="modal fade", id="confirmDeleteModal", role="dialog")

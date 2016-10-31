@@ -2,6 +2,8 @@ var counter = 2;
 
 var currentID;
 
+var currentContent;
+
 function projectAddition(objectID){
     var previous = $('#' + objectID);
     previous.after(getAdditionObject());
@@ -9,6 +11,20 @@ function projectAddition(objectID){
 }
 function projectEdit (objectID){
     currentID = objectID;
+    let contentString = $('#' + objectID).attr('data-content');
+
+    if(!contentString) {
+        $('#projectPage-CurrentSelection')
+            .empty()
+            .text("N/A");
+        return;
+    }
+
+    currentContent = JSON.parse(contentString);
+    $('#projectPage-CurrentSelection')
+        .empty()
+        .append(getNewContentTile(currentContent));
+
 }
 function getAdditionObject(){
     counter++;
@@ -49,9 +65,33 @@ function errorLoadingList (err) {
 function loadContentList (list) {
     $('#projectPage-contentBlock').empty();
     for (let content of list){
-        $('#projectPage-contentBlock').append(getNewContentTile(content)); //TODO
+        $('#projectPage-contentBlock').append(getNewContentButton(content)); //TODO
     }
 }
+function getNewContentButton( content ) {
+    var $newObject = $("<button></button>");
+    $newObject.append(getNewContentTile(content));
+    $newObject.on('click', function () {
+        currentContent = content;
+        $('#projectPage-CurrentSelection')
+            .empty()
+            .append(getNewContentTile(content));
+    });
+    return $newObject;
+}
+
+function saveContent( ) {
+    if( !currentContent){
+        return;
+    }
+
+    $('#' + currentID)
+        .empty()
+        .append(getNewContentTile(currentContent))
+        .attr('data-content', JSON.stringify(currentContent));
+}
+
+
 function getNewContentTile (content) {
     var $newObject = $("<img>");
     $newObject.attr('src', window.location.origin + "/thumbnails/" + content.target + ".png");
