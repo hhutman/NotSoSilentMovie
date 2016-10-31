@@ -11,9 +11,25 @@ function deletePressed(file) {
 }
 
 function playFile(file) {
-        $('#deleteModalBody').text(file.name);
-        currentFile = file;
-        startPlayer();
+    $('#contentfeed').empty();
+    $('#viewModalBody').text(file.name);
+    currentFile = file;
+    switch(currentFile.useType){
+        case "video" :
+            startPlayer();
+            break;
+        case "audio":
+            //TODO
+            break;
+        case "card":
+            setImage();
+            break;
+        default:
+            break;
+    }
+}
+function setImage(){
+    $('#contentfeed').append($('<img src="' + window.location.origin + "/uploaded/" + currentFile.target + '.png">'));
 }
 
 
