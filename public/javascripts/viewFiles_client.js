@@ -63,7 +63,8 @@ function startPlayer() {
         autostart: true,
         autoplay: true,
         repeat: true,
-        width: 598
+        width: 598,
+        mute: true
     });
 
 }
