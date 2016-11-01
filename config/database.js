@@ -105,6 +105,7 @@ module.exports.addProject = function(name, creator, description, content, tags){
     newAddition.content = content;
     newAddition.tags = tags;
 
+
     newAddition.save(function (err) {
         if (err) {
             reject(err);

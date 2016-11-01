@@ -17,6 +17,10 @@ function projectEdit (objectID){
         $('#projectPage-CurrentSelection')
             .empty()
             .text("N/A");
+        $('#cardText_input')
+            .hide();
+        $("input[name=content-text]")
+            .val("");
         return;
     }
 
@@ -24,6 +28,18 @@ function projectEdit (objectID){
     $('#projectPage-CurrentSelection')
         .empty()
         .append(getNewContentTile(currentContent));
+
+    if(currentContent.useType == 'card'){
+        $('#cardText_input')
+            .show();
+        $("input[name=content-text]")
+            .val(currentContent.text);
+    } else {
+        $('#cardText_input')
+            .hide();
+        $("input[name=content-text]")
+            .val("");
+    }
 
 }
 function getAdditionObject(){
@@ -72,18 +88,30 @@ function getNewContentButton( content ) {
     var $newObject = $("<button></button>");
     $newObject.append(getNewContentTile(content));
     $newObject.on('click', function () {
-        currentContent = content;
-        $('#projectPage-CurrentSelection')
-            .empty()
-            .append(getNewContentTile(content));
+        contentButtonClick(content);
     });
     return $newObject;
+}
+
+function contentButtonClick(content){
+    currentContent = content;
+    $('#projectPage-CurrentSelection')
+        .empty()
+        .append(getNewContentTile(content));
+    if(content.useType == 'card') {
+        $('#cardText_input')
+            .show();
+        $("input[name=content-text]")
+            .attr('value',"");
+    }
 }
 
 function saveContent( ) {
     if( !currentContent){
         return;
     }
+
+    currentContent.text = $("input[name=content-text]").val();
 
     $('#' + currentID)
         .empty()
@@ -142,11 +170,11 @@ function saveNewProject() {
 }
 
 function uploadSuccess() {
-    console.log("SUCCESS");
+    //window.location = "/viewProjects";
 }
 
 function uploadError(err) {
-    console.log("ERROR: " + err);
+    console.log("ERROR: " + err); //TODO also do some sort of display for errors
 }
 
 function getProjectJSON() {
@@ -161,7 +189,12 @@ function getProjectJSON() {
     $('.project-planner_object').each(function(){
         let contentString = this.getAttribute('data-content');
         if(contentString){
-            projectJson.content.push(JSON.parse(contentString).target);
+            let content = JSON.parse(contentString);
+            let addition = {
+                target: content.target,
+                text: content.text,
+            };
+            projectJson.content.push(addition);
         }
     });
     return projectJson;

@@ -14,11 +14,14 @@ module.exports.newUpload = function(project) {
         reject = rej;
     });
 
+    console.log("Received New Project: " + project.name);
     database.addProject(project.name, project.creator, project.description, project.content, project.tags)
         .then(function (name) {
+            console.log ("Project <" + name + "> uploaded successfully");
             resolve(name);
         })
         .catch(function(err){
+            console.log("Error uploading project [" + project.name + "]: " + err.message);
             reject(err);
         });
 

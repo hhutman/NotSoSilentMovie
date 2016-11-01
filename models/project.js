@@ -11,7 +11,10 @@ var project = new mongoose.Schema({
         required: true
     },
     description: String,
-    content: [ String ],
+    content: [{
+        target: String,
+        text: String
+    }],
     tags: Array
 });
 

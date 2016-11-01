@@ -2,11 +2,25 @@ extends layout.pug
 block variables
     - var pageTitle = "View Projects"
 block content
-    script(src="https://code.jquery.com/jquery-2.2.0.min.js")
-    script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js")
+    script(src="../../javascripts/viewProjects_client.js")
     h3 Look at other projects!
-    each project in projects
-        | #{project.name}
+    .projectsList
+        each project in projects
+            - var projRef = JSON.stringify(project);
+            div(id="projRow_" + project.target, class="row" )
+                .col-xs-4
+                    button( onclick="playProject(" + projRef + ")", class="view-files_play", data-toggle="modal", data-target="#playModal")
+                        img(src="/thumbnails/" + project.content[0].target + ".png")
+                .col-xs-1
+                    | #{project.name}
+                .col-xs-3
+                    | #{project.description}
+                .col-xs-2
+                    button( onclick="goToEditProject(" + projRef + ")", class="btn btn-lg sm-button sm-edit").
+                        Edit
+                .col-xs-2
+                    button(class="btn btn-lg sm-button sm-delete", onclick="deletePressed(" + projRef + ")", data-toggle="modal" data-target="#confirmDeleteModal").
+                        X
     button( onclick="window.location.href='/directors'", class="btn btn-lg sm-button upload-btn sm-pageLink", type="button")
         | Director's Page
     button( onclick="window.location.href='/projectPage/new'", class="btn btn-lg sm-button upload-btn sm-pageLink", type="button")
