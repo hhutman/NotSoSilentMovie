@@ -13,19 +13,30 @@ module.exports.configureIo = function(io) {
 
 function configureSocket (socket) {
     socket.on("playProject", function(project) {
-        playProject(project);
+        playProject(socket, project);
     });
 }
 
-function playProject ( project ){
+function playProject (socket, project ){
     console.log("Project received: " + project.name);
-    let videoList = [];
+    let targetList = [];
     for(let content of project.content){
-        contentController.determineFileExtension(content.target)
-            .then(function(extension) {
-                console.log(extension);
-            })
+        targetList.push(content.target);
     }
+    contentController.filterByExtension(targetList, '.mp4')
+        .then(function (videoList ) {
+            sendList(socket, videoList);
+        })
+        .catch(function (err) {
+
+        });
     //socket.emit('theater-playProject', videoList);
 
 }
+
+function sendList(socket, videoList) {
+    for(let video of videoList){
+        console.log(video);
+    }
+}
+
