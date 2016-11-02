@@ -170,7 +170,7 @@ function saveNewProject() {
 }
 
 function uploadSuccess() {
-    //window.location = "/viewProjects";
+    window.location = "/viewProjects";
 }
 
 function uploadError(err) {

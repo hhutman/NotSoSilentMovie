@@ -10,5 +10,5 @@ function goToEditProject( project ) {
 }
 
 function playProject( project ) {
-    socket.emit('test', "heeeee")
+    socket.emit('playProject', project);
 }

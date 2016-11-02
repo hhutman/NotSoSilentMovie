@@ -1,4 +1,4 @@
-var socket = io();
+var socket = io.connect();
 
 jwplayer.key = "hKr0It8yDiMnKte/Cy3p9KDJ74XfRooWYAiO8A==";
 
@@ -24,4 +24,8 @@ playerInstance.setup({
     width: w,
     height: h,
     mute: true
+});
+
+socket.on('theater-playProject', function(project) {
+    playProject(project);
 });

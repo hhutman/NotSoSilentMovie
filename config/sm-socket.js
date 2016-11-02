@@ -1,3 +1,8 @@
+var contentController = require('../controllers/contentcontroller');
+var Promise = require("bluebird");
+
+Promise.promisifyAll(contentController);
+
 
 module.exports.configureIo = function(io) {
     io.on("connection", function(socket) {
@@ -7,7 +12,20 @@ module.exports.configureIo = function(io) {
 };
 
 function configureSocket (socket) {
-    socket.on("test", function(message) {
-        console.log("Message received: " + message);
+    socket.on("playProject", function(project) {
+        playProject(project);
     });
+}
+
+function playProject ( project ){
+    console.log("Project received: " + project.name);
+    let videoList = [];
+    for(let content of project.content){
+        contentController.determineFileExtension(content.target)
+            .then(function(extension) {
+                console.log(extension);
+            })
+    }
+    //socket.emit('theater-playProject', videoList);
+
 }
