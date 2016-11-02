@@ -3,8 +3,10 @@ var Promise = require("bluebird");
 
 Promise.promisifyAll(contentController);
 
+var io;
 
-module.exports.configureIo = function(io) {
+module.exports.configureIo = function(newio) {
+    io = newio;
     io.on("connection", function(socket) {
         console.log('New Socket Connected');
         configureSocket(socket);
@@ -30,13 +32,13 @@ function playProject (socket, project ){
         .catch(function (err) {
 
         });
-    //socket.emit('theater-playProject', videoList);
-
 }
 
 function sendList(socket, videoList) {
     for(let video of videoList){
         console.log(video);
     }
+    console.log('sending project');
+    io.emit("theater-playProject",videoList);
 }
 

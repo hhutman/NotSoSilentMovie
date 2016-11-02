@@ -16,7 +16,9 @@ var h = window.innerHeight;
 
 var playerInstance = jwplayer("contentfeed");
 playerInstance.setup({
-    file: "/content/timeout.mp4",
+    playlist: [{
+        file: "/content/timeout.mp4"
+    }],
     controls: false,
     autostart: true,
     autoplay: true,
@@ -27,5 +29,19 @@ playerInstance.setup({
 });
 
 socket.on('theater-playProject', function(project) {
-    playProject(project);
+    console.log('projectReceived');
+    selectButtonClick(project);
 });
+
+
+function selectButtonClick(project){
+    let newPlaylist = [];
+    for(let video of project){
+        newPlaylist.push({
+            file: '/uploaded/' + video + '.mp4',
+        })
+    }
+
+    playerInstance.load(newPlaylist);
+    playerInstance.play();
+}
