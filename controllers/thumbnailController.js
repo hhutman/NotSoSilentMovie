@@ -16,6 +16,7 @@ Ffmpeg.setFfmpegPath(ffmpegPath + "ffmpeg.exe");
 Ffmpeg.setFfprobePath(ffmpegPath + "ffprobe.exe");
 
 module.exports.makeThumbnailByTarget = function (target) {
+    console.log("Missing thumbnail: " + target);
     contentController.determineFileExtension(target)
         .then(function(extension) {
             handleExtension(extension, target);
@@ -28,11 +29,16 @@ module.exports.makeThumbnailByTarget = function (target) {
 
 function handleExtension (extension, target) {
     switch(extension) {
-        case '.png' :
-            makeImageThumbnail(target);
+        case '.jpg':
+        case '.jpeg':
+        case '.png':
+        case '.gif':
+            makeImageThumbnail(target, extension);
             break;
-        case '.mp4' :
-            makeVideoThumbnail(target);
+        case '.mp4':
+        case '.webm':
+        case '.flv':
+            makeVideoThumbnail(target, extension);
             break;
         default :
             console.log("Thumbnail Creation: Unknown Extension - " + target + " | " + extension);
@@ -40,8 +46,8 @@ function handleExtension (extension, target) {
     }
 }
 
-function makeVideoThumbnail (target){
-    const filePath = path.join(__dirname, '../public/uploaded/' + target + ".mp4" );
+function makeVideoThumbnail (target, extension){
+    const filePath = path.join(__dirname, '../public/uploaded/' + target + extension );
     console.log("making thumbanil for: " + filePath);
     Ffmpeg(filePath)
         .on('end', function() {
@@ -59,8 +65,8 @@ function makeVideoThumbnail (target){
             './public/thumbnails');
 }
 
-function makeImageThumbnail (target) {
-    jimp.read('./public/uploaded/' + target + ".png" , function (err, image) {
+function makeImageThumbnail (target, extension) {
+    jimp.read('./public/uploaded/' + target + extension , function (err, image) {
         if (err) throw err;
         image.resize(THUMBNAIL_SIZE, THUMBNAIL_SIZE)            // resize
             .quality(60)                 // set JPEG quality
