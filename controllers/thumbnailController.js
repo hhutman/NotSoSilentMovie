@@ -1,3 +1,4 @@
+"use strict";
 var Ffmpeg = require('fluent-ffmpeg');
 var path = require('path');
 var contentController = require('./contentcontroller');

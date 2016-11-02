@@ -1,3 +1,4 @@
+"use strict";
 var database = require("../config/database");
 var crypto = require('crypto');
 

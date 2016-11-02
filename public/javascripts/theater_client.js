@@ -1,3 +1,4 @@
+"use strict";
 var socket = io.connect();
 
 jwplayer.key = "hKr0It8yDiMnKte/Cy3p9KDJ74XfRooWYAiO8A==";

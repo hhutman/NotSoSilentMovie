@@ -1,3 +1,4 @@
+"use strict";
 var database = require("../config/database");
 var resourceController = require('../controllers/resourcecontroller');
 var Promise = require("bluebird");

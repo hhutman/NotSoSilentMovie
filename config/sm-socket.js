@@ -1,3 +1,4 @@
+"use strict";
 var contentController = require('../controllers/contentcontroller');
 var Promise = require("bluebird");
 
