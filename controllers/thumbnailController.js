@@ -47,6 +47,7 @@ function handleExtension (extension, target) {
 }
 
 function makeVideoThumbnail (target, extension){
+    console.log("breakpoint 1");
     const filePath = path.join(__dirname, '../public/uploaded/' + target + extension );
     console.log("making thumbanil for: " + filePath);
     Ffmpeg(filePath)
