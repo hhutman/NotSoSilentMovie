@@ -48,6 +48,7 @@ function handleExtension (extension, target) {
 
 function makeVideoThumbnail (target, extension){
     const filePath = path.join(__dirname, '../public/uploaded/' + target + extension );
+    const targetPath = path.join(__dirname, '../public/thumbnails/' );
     console.log("making thumbanil for: " + filePath);
     Ffmpeg(filePath)
         .on('end', function() {
@@ -62,14 +63,16 @@ function makeVideoThumbnail (target, extension){
                 filename: target + '.png',
                 size: THUMBNAIL_SIZE + 'x' + THUMBNAIL_SIZE
             },
-            './public/thumbnails');
+            targetPath);
 }
 
 function makeImageThumbnail (target, extension) {
-    jimp.read('./public/uploaded/' + target + extension , function (err, image) {
+    const filePath = path.join(__dirname, '../public/uploaded/' + target + extension );
+    const targetPath = path.join(__dirname, '../public/thumbnails/' );
+    jimp.read(filePath , function (err, image) {
         if (err) throw err;
         image.resize(THUMBNAIL_SIZE, THUMBNAIL_SIZE)            // resize
             .quality(60)                 // set JPEG quality
-            .write('./public/thumbnails/' + target + '.png'); // save
+            .write(targetPath + target + '.png'); // save
     });
 }
