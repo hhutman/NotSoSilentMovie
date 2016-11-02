@@ -6,11 +6,12 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var pug = require('pug');
 var thumbnailController = require('./controllers/thumbnailController');
-
 var fs = require('fs');
-
 var app = express();
 var http = require('http').Server(app);
+
+
+
 
 /**
  * Pages that can be visited
@@ -62,9 +63,10 @@ app.get('/thumbnails/:filename', function(req, res) {
     thumbnailController.makeThumbnailByTarget(target)
 });
 
+
 // production error handler
 // no stacktraces leaked to user
-app.use(function(err, req, res) {
+app.use(function(req, res, err) {
     res.status(err.status || 500);
     res.render('error', {
         message: err.message,

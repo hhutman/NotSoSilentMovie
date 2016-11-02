@@ -20,7 +20,8 @@
     "mongoose": "latest",
     "morgan": "latest",
     "pug": "^2.0.0-beta6",
-    "serve-favicon": "latest"
+    "serve-favicon": "latest",
+    "socket.io": "^1.5.1"
   },
   "description": "Direct your own interactive silent movies using clips from the past!",
   "main": "www",

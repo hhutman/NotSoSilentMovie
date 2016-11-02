@@ -21,6 +21,7 @@ app.set('port', port);
 
 var server = http.createServer(app);
 
+
 /**
  * Listen on provided port, on all network interfaces.
  */
@@ -91,3 +92,27 @@ function onListening() {
     : 'port ' + addr.port;
   debug('Listening on ' + bind);
 }
+
+/**
+ * Sockets and stuff
+ */
+
+var socketio = require("socket.io");
+var smSocket = require('../config/sm-socket');
+var io = socketio.listen(server);
+smSocket.configureIo(io);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -2,6 +2,7 @@ extends layout.pug
 block variables
     - var pageTitle = "View Projects"
 block content
+    script(src="https://cdn.socket.io/socket.io-1.4.5.js")
     script(src="../../javascripts/viewProjects_client.js")
     h3 Look at other projects!
     .projectsList
