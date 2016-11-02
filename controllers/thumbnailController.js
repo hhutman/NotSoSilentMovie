@@ -15,6 +15,14 @@ const THUMBNAIL_SIZE = 150;
 Ffmpeg.setFfmpegPath(ffmpegPath + "ffmpeg.exe");
 Ffmpeg.setFfprobePath(ffmpegPath + "ffprobe.exe");
 
+
+/**
+ *  //TODO FFmpeg path should be {setFfmpegPath("/usr/bin/");}
+ *  // TODO                               setPath ans setProbe don't use .exe
+ * @param target
+ */
+
+
 module.exports.makeThumbnailByTarget = function (target) {
     console.log("Missing thumbnail: " + target);
     contentController.determineFileExtension(target)
