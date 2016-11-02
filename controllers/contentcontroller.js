@@ -12,7 +12,8 @@ function determineFileExtension (target) {
         reject = rej;
     });
 
-    fs.readdir('public/uploaded', function (err, files) {
+    const dirPath = path.join(__dirname, '../public/uploaded/');
+    fs.readdir(dirPath, function (err, files) {
         if(err){
             reject(err);
         }
