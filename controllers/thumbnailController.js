@@ -11,16 +11,18 @@ const THUMBNAIL_SIZE = 150;
 Promise.promisifyAll(contentController);
 
 let ffmpegPath = path.join(__dirname, '../tools/ffmpeg-3.2/bin/');
+let extension = ".exe";
 try{
     fs.statSync(ffmpegPath)
 }
 catch (err){
     console.log("Using globally install ffmpeg");
     ffmpegPath = "/usr/bin/";
+    extension = "";
 }
 
-Ffmpeg.setFfmpegPath(ffmpegPath + "ffmpeg");
-Ffmpeg.setFfprobePath(ffmpegPath + "ffprobe");
+Ffmpeg.setFfmpegPath(ffmpegPath + "ffmpeg" + extension);
+Ffmpeg.setFfprobePath(ffmpegPath + "ffprobe" + extension);
 
 
 /**
