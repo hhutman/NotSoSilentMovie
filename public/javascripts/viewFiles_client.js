@@ -29,7 +29,7 @@ function playFile(file) {
     }
 }
 function setImage(){
-    $('#contentfeed').append($('<img src="' + window.location.origin + "/uploaded/" + currentFile.target + '.png">'));
+    $('#contentfeed').append($('<img src="' + window.location.origin + "/uploaded/" + currentFile.target +  currentFile.extension + '">'));
 }
 
 
