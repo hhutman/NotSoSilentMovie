@@ -112,6 +112,7 @@ function saveNewFile(hashedName, extension, name){
     return newPromise;
 }
 
+module.exports.getUseType = getUseType;
 module.exports.getUniqueName = getUniqueName;
 module.exports.getUniqueHash = getUniqueHash;
 module.exports.saveNewFile = saveNewFile;

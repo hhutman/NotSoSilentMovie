@@ -5,7 +5,7 @@ var path = require('path');
 var formidable = require('formidable');
 var fs = require('fs');
 
-
+var debugUseType = require('../controllers/debug/debugUseType');
 var database = require('../config/database');
 
 var Promise = require("bluebird");
@@ -29,6 +29,7 @@ router.get('/:target', function(req, res) {
 });
 
 function handleNewTraffic(file, req, res){
+    debugUseType.analyzeUseType(file);
     var responseData = file;
     responseData.state = req.query.state;
     if(file.useType == 'card'){
