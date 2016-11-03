@@ -3,17 +3,24 @@ var Ffmpeg = require('fluent-ffmpeg');
 var path = require('path');
 var contentController = require('./contentcontroller');
 var Promise = require("bluebird");
+var fs = require('fs');
 var jimp = require("jimp");
 
+const THUMBNAIL_SIZE = 150;
 
 Promise.promisifyAll(contentController);
 
-const ffmpegPath = path.join(__dirname, '../tools/ffmpeg-3.2/bin/');
-const THUMBNAIL_SIZE = 150;
+let ffmpegPath = path.join(__dirname, '../tools/ffmpeg-3.2/bin/');
+try{
+    fs.statSync(ffmpegPath)
+}
+catch (err){
+    console.log("Using globally install ffmpeg");
+    ffmpegPath = "/usr/bin/";
+}
 
-
-Ffmpeg.setFfmpegPath(ffmpegPath + "ffmpeg.exe");
-Ffmpeg.setFfprobePath(ffmpegPath + "ffprobe.exe");
+Ffmpeg.setFfmpegPath(ffmpegPath + "ffmpeg");
+Ffmpeg.setFfprobePath(ffmpegPath + "ffprobe");
 
 
 /**
