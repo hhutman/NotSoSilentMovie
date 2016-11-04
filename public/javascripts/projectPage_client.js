@@ -107,7 +107,7 @@ function dataRequest(request, callback, errCallback) {
         url: "/dataRequest/" + request,
         type: "GET",
         dataType: "json",
-        contentType: "application/json",
+        contentType:"application/json;charset=UTF-8",
         success: function(data) {
             callback(data);
         },
