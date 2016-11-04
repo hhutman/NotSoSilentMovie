@@ -11,7 +11,7 @@ block content
             div(id="projRow_" + project.name, class="row" )
                 .col-xs-4
                     button( onclick="playProject(" + projRef + ")", class="view-files_play", data-toggle="modal", data-target="#playModal")
-                        if project.content[0].target
+                        if project.content[0]
                             img(src="/thumbnails/" + project.content[0].target + ".png")
                         else
                             img(src="/thumbnails/missing_image.png")
