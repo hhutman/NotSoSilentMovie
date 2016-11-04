@@ -1,5 +1,9 @@
 .project-planner{
-    margin-bottom: 20px;
+    overflow-y: scroll;
+    height: 150px;
+    -moz-box-shadow:    inset 0 0 20px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.3);
+    box-shadow:         inset 0 0 20px rgba(0, 0, 0, 0.3);
 }
 .project-planner button{
     color: black;
@@ -34,131 +38,29 @@
 .project-empty {
     background-color: #DDDDDD;
 }
+.container_project-page .panel {
+    margin-top: 30px;
+}
+
+
 .project-page-modal_body-title-buttons * {
     margin-right: 5px;
 }
 .project-page-modal hr {
     margin-bottom: 10px;
 }
-.modal img {
-    width: 100px;
-    height: 100px;
+.container_project-page img {
+    width: 65px;
+    height: 65px;
 }
-
-@keyframes stretch-in-addition {
-    from {
-        width: 0;
-        opacity: 0;
-    }
-    to   {
-        width: 25px;
-        opacity: 1;
-    }
+.projectPage_content-Block {
+    overflow-y: scroll;
+    height: 300px;
+    -moz-box-shadow:    inset 0 0 20px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.3);
+    box-shadow:         inset 0 0 20px rgba(0, 0, 0, 0.3);
 }
-
-/* Firefox < 16 */
-@-moz-keyframes stretch-in-addition {
-    from {
-        width: 0;
-        opacity: 0;
-    }
-    to   {
-        width: 25px;
-        opacity: 1;
-    }
+.current-selection_block {
+    width: 360px;
+    height: 200px;
 }
-
-/* Safari, Chrome and Opera > 12.1 */
-@-webkit-keyframes stretch-in-addition {
-    from {
-        width: 0;
-        opacity: 0;
-    }
-    to   {
-        width: 25px;
-        opacity: 1;
-    }
-}
-
-/* Internet Explorer */
-@-ms-keyframes stretch-in-addition {
-    from {
-        width: 0;
-        opacity: 0;
-    }
-    to   {
-        width: 25px;
-        opacity: 1;
-    }
-}
-
-/* Opera < 12.1 */
-@-o-keyframes stretch-in-addition {
-    from {
-        width: 0;
-        opacity: 0;
-    }
-    to   {
-        width: 25px;
-        opacity: 1;
-    }
-}
-@keyframes stretch-in-addition {
-    from {
-        width: 0;
-        opacity: 0;
-    }
-    to   {
-        width: 25px;
-        opacity: 1;
-    }
-}
-
-/* Firefox < 16 */
-@-moz-keyframes stretch-in-object {
-    from {
-        width: 0;
-        opacity: 0;
-    }
-    to   {
-        width: 75px;
-        opacity: 1;
-    }
-}
-
-/* Safari, Chrome and Opera > 12.1 */
-@-webkit-keyframes stretch-in-object {
-    from {
-        width: 0;
-        opacity: 0;
-    }
-    to   {
-        width: 75px;
-        opacity: 1;
-    }
-}
-
-/* Internet Explorer */
-@-ms-keyframes stretch-in-object {
-    from {
-        width: 0;
-        opacity: 0;
-    }
-    to   {
-        width: 75px;
-        opacity: 1;
-    }
-}
-
-/* Opera < 12.1 */
-@-o-keyframes stretch-in-object {
-    from {
-        width: 0;
-        opacity: 0;
-    }
-    to   {
-        width: 75px;
-        opacity: 1;
-    }
-}
-

@@ -231,7 +231,7 @@ h2 {
     margin: 10px;
 }
 .view-files_play {
-    padding: 0px !important;
+    padding: 0 !important;
 }
 .view-files_play img {
     height: 100px;

@@ -1,30 +1,30 @@
 extends layout.pug
 block variables
     - var pageTitle = "Project Page"
-    - var containerClass = "container-editFiles"
+    - var containerClass = "container-editFiles container_project-page"
 block content
     link(rel="stylesheet", href="/stylesheets/style-project-page.css")
+    script(src="/javascripts/jwplayer/jwplayer.js")
     script(src="https://code.jquery.com/jquery-2.2.0.min.js")
     script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js")
+    script(src="/javascripts/Sortable.min.js")
     script(src="/javascripts/projectPage_client.js")
-    h3 Make a Project!
-    div(id="projectPlannerContainer", class="project-planner")
-        button(id="add_0", onclick="projectAddition(this.id)", class="project-planner_addition sm-button") +
-    div
-        label(for="input_name") Name:
-        input(id="input_name" type="text" name="name")
-    div
-        label(for="input_creator") Creator:
-        input(id="input_creator" type="text" name="creator")
-    div
-        label(for="input_description") Description:
-        input(id="input_description" type="text" name="description")
-    div
-        label(for="input_tags") Tags:
-        input(id="input_tags" type="text" name="tags")
+    .row
+        .col-xs-6
+            h3 Make A Project!
+            div(id="projectPlannerContainer", class="project-planner")
+            h3 Current Selection
+            div(id="projectPage-CurrentSelection", class="current-selection_block")
+        .col-xs-6
+            h3 List here
+            .project-page-modal_body-title-buttons
+                button( onclick="buttonListClips()", type="button", class="btn btn-default sm-button sm-pageLink" )
+                    | List Clips
+                button(onclick="buttonListCards()", type="button", class="btn btn-default sm-button sm-pageLink")
+                    | List Cards
+            br
+            div(id="projectPage-contentBlock" class="projectPage_content-Block")
     hr
-    button(onclick="window.location.href='/directors'", class="btn btn-lg sm-button upload-btn sm-pageLink", type="button")
-        | Director's Page
     button(onclick="saveNewProject()", class="btn btn-lg sm-button upload-btn sm-save", type="button")
         | Save New Project
     div(class="modal fade", id="objectModal", role="dialog")
@@ -34,23 +34,20 @@ block content
                     button( type="button", class="close", data-dismiss="modal")
                         | &times;
                     h4(id="popupHeader", class="modal-title")
-                        | Edit Segment
+                        | Save Project
                 div( class="modal-body project-page-modal")
-                    | Current Selection
-                    div(id="projectPage-CurrentSelection")
-                    #cardText_input
-                        label(for="content_text") Text:
-                        input(id="content_text" type="text" name="content-text")
-                    hr
-                    | Change Content
-                    .project-page-modal_body-title-buttons
-                        button( onclick="buttonListClips()", type="button", class="btn btn-default sm-button sm-pageLink" )
-                            | List Clips
-                        button(onclick="buttonListCards()", type="button", class="btn btn-default sm-button sm-pageLink")
-                            | List Cards
-                    hr
-                    | List here
-                    div(id="projectPage-contentBlock")
+                    div
+                        label(for="input_name") Name:
+                        input(id="input_name" type="text" name="name")
+                    div
+                        label(for="input_creator") Creator:
+                        input(id="input_creator" type="text" name="creator")
+                    div
+                        label(for="input_description") Description:
+                        input(id="input_description" type="text" name="description")
+                    div
+                        label(for="input_tags") Tags:
+                        input(id="input_tags" type="text" name="tags")
                 .modal-footer
                     button( onclick="deleteBlock()", type="button", class="btn btn-default sm-button sm-delete" data-dismiss="modal").
                         Delete

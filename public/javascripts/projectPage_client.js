@@ -3,14 +3,24 @@ var counter = 2;
 var currentID;
 
 var currentContent;
+var playerInstance;
 
-function projectAddition(objectID){
-    var previous = $('#' + objectID);
-    previous.after(getAddButton());
-    var $newObjectButton = getNewObjectButton();
-    previous.after($newObjectButton);
-    $newObjectButton.click();
-}
+window.onload = function () {
+    var projectContainer = document.getElementById("projectPlannerContainer");
+    Sortable.create(projectContainer, {
+        group: "content",
+        animation: 150,
+        draggable: '.content-draggable'
+    });
+
+    var contentList = document.getElementById("projectPage-contentBlock");
+    Sortable.create(contentList, {
+        group: "content",
+        animation: 150,
+        draggable: '.content-draggable'
+    });
+};
+
 function projectEdit (objectID){
     currentID = objectID;
     let contentString = $('#' + objectID).attr('data-content');
@@ -44,38 +54,7 @@ function projectEdit (objectID){
     }
 
 }
-function getAddButton(){
-    counter++;
-    var newID = "add_" + counter;
-    var $newObject = $("<button></button>");
-    $newObject.text('+');
-    $newObject.addClass("project-planner_addition sm-button sm_stretch-in");
-    $newObject.attr("id",newID);
-    $newObject.on("click", function (event){
-        projectAddition(newID);
-    });
-    return $newObject;
-}
-function getNewObjectButton(){
-    counter++;
-    var newID = "add_" + counter;
-    var $newObject = $("<button></button>");
-    $newObject.text('EMPTY');
-    $newObject.addClass("project-planner_object sm-button project-empty sm_stretch-in");
-    $newObject.attr('data-toggle',"modal");
-    $newObject.attr('data-target', "#objectModal");
-    $newObject.attr('id',newID);
-    $newObject.on("click", function (event){
-        projectEdit(newID);
-    });
-    return $newObject;
-}
 
-function deleteBlock (){
-    var $selectedObject = $('#' + currentID);
-    $selectedObject.next().remove();
-    $selectedObject.remove();
-}
 function errorLoadingList (err) {
     $('#projectPage-contentBlock').text(err);
 }
@@ -87,25 +66,12 @@ function loadContentList (list) {
     }
 }
 function getNewContentButton( content ) {
-    var $newObject = $("<button></button>");
+    var $newObject = $("<button class='content-draggable'></button>");
     $newObject.append(getNewContentTile(content));
     $newObject.on('click', function () {
-        contentButtonClick(content);
+        playFile(content);
     });
     return $newObject;
-}
-
-function contentButtonClick(content){
-    currentContent = content;
-    $('#projectPage-CurrentSelection')
-        .empty()
-        .append(getNewContentTile(content));
-    if(content.useType == 'card') {
-        $('#cardText_input')
-            .show();
-        $("input[name=content-text]")
-            .attr('value',"");
-    }
 }
 
 function saveContent( ) {
@@ -203,8 +169,44 @@ function getProjectJSON() {
 }
 
 
+buttonListClips();
 
 
+
+function playFile(content) {
+    $('#projectPage-CurrentSelection').empty();
+    switch(content.useType){
+        case "video" :
+            startPlayer(content);
+            break;
+        case "audio":
+            //TODO
+            break;
+        case "card":
+            setImage(content);
+            break;
+        default:
+            break;
+    }
+}
+function setImage(content){
+    $('#projectPage-CurrentSelection').append($('<img src="' + window.location.origin + "/uploaded/" + content.target +  content.extension + '">'));
+}
+
+function startPlayer(content) {
+    jwplayer.key = "hKr0It8yDiMnKte/Cy3p9KDJ74XfRooWYAiO8A==";
+    playerInstance = jwplayer("projectPage-CurrentSelection");
+    playerInstance.setup({
+        file: "../../uploaded/" + content.target + content.extension,
+        controls: false,
+        autostart: true,
+        autoplay: true,
+        repeat: true,
+        width: 360,
+        height: 200,
+        mute: true
+    });
+}
 
 
 

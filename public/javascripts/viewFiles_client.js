@@ -66,5 +66,4 @@ function startPlayer() {
         width: 598,
         mute: true
     });
-
 }
