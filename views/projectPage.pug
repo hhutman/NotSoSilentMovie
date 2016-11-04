@@ -11,16 +11,16 @@ block content
     script(src="/javascripts/projectPage_client.js")
     .row
         .col-xs-6
-            h3 Make A Project!
+            h3 Your Project
             div(id="projectPlannerContainer", class="project-planner")
-            h3 Current Selection
+            h3 Click A Square To Preview
             div(id="projectPage-CurrentSelection", class="current-selection_block")
         .col-xs-6
-            h3 List here
+            h3 Drag & Drop
             .project-page-modal_body-title-buttons
                 button( onclick="buttonListClips()", type="button", class="btn btn-default sm-button sm-pageLink" )
                     | List Clips
-                button(onclick="buttonListCards()", type="button", class="btn btn-default sm-button sm-pageLink")
+                button(onclick="buttonListCards()", type="button", class="btn btn-default sm-button sm-pageLink", disabled="disabled")
                     | List Cards
             br
             div(id="projectPage-contentBlock" class="projectPage_content-Block")
