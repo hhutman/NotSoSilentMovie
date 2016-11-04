@@ -160,6 +160,25 @@ module.exports.deleteByTarget = function(target){
         });
     return newPromise;
 };
+module.exports.deleteProject = function(name) {
+    var resolve;
+    var reject;
+
+    var newPromise = new Promise(function (res, rej) {
+        resolve = res;
+        reject = rej;
+    });
+
+    Project.remove({ name: name })
+        .then( function(data) {
+            resolve(data);
+        })
+        .catch(function(data) {
+            reject(data);
+        });
+    return newPromise;
+};
+
 module.exports.updateByTarget = function(file){
     var resolve;
     var reject;
