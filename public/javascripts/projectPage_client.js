@@ -6,8 +6,10 @@ var currentContent;
 
 function projectAddition(objectID){
     var previous = $('#' + objectID);
-    previous.after(getAdditionObject());
-    previous.after(getNewObject());
+    previous.after(getAddButton());
+    var $newObjectButton = getNewObjectButton();
+    previous.after($newObjectButton);
+    $newObjectButton.click();
 }
 function projectEdit (objectID){
     currentID = objectID;
@@ -42,7 +44,7 @@ function projectEdit (objectID){
     }
 
 }
-function getAdditionObject(){
+function getAddButton(){
     counter++;
     var newID = "add_" + counter;
     var $newObject = $("<button></button>");
@@ -54,7 +56,7 @@ function getAdditionObject(){
     });
     return $newObject;
 }
-function getNewObject(){
+function getNewObjectButton(){
     counter++;
     var newID = "add_" + counter;
     var $newObject = $("<button></button>");
