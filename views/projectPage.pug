@@ -25,9 +25,9 @@ block content
             br
             div(id="projectPage-contentBlock" class="projectPage_content-Block")
     hr
-    button(onclick="saveNewProject()", class="btn btn-lg sm-button upload-btn sm-save", type="button")
+    button(class="btn btn-lg sm-button upload-btn sm-save", type="button", data-toggle="modal", data-target="#projectModal")
         | Save New Project
-    div(class="modal fade", id="objectModal", role="dialog")
+    div(class="modal fade", id="projectModal", role="dialog")
         .modal-dialog
             .modal-content
                 .modal-header
@@ -49,10 +49,8 @@ block content
                         label(for="input_tags") Tags:
                         input(id="input_tags" type="text" name="tags")
                 .modal-footer
-                    button( onclick="deleteBlock()", type="button", class="btn btn-default sm-button sm-delete" data-dismiss="modal").
-                        Delete
                     button( type="button", class="btn btn-default sm-button sm-cancel" data-dismiss="modal").
                         Cancel
-                    button( onclick="saveContent()", type="button", class="btn btn-default sm-button sm-save" data-dismiss="modal").
+                    button( onclick="saveNewProject()", type="button", class="btn btn-default sm-button sm-save").
                         Save
     div(class="modal fade", id="confirmDeleteModal", role="dialog")

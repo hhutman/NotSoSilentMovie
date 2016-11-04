@@ -68,6 +68,7 @@ function loadContentList (list) {
 function getNewContentButton( content ) {
     var $newObject = $("<button class='content-draggable'></button>");
     $newObject.append(getNewContentTile(content));
+    $newObject.attr('data-content', JSON.stringify(content));
     $newObject.on('click', function () {
         playFile(content);
     });
@@ -154,7 +155,7 @@ function getProjectJSON() {
         content: [],
         tags: $("input[name=tags]").val()
     };
-    $('.project-planner_object').each(function(){
+    $('#projectPlannerContainer').children().each(function(){
         let contentString = this.getAttribute('data-content');
         if(contentString){
             let content = JSON.parse(contentString);
