@@ -248,6 +248,13 @@ h2 {
     width: 550px;
     height: 450px;
 }
-
-
+.content-draggable {
+    display: inline-block;
+    height: 100px;
+    width: 100px;
+}
+.content-draggable img {
+    height: 100px !important;
+    width: 100px !important;
+}
 

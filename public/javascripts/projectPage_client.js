@@ -1,5 +1,3 @@
-var counter = 2;
-
 var currentID;
 
 var currentContent;
@@ -10,14 +8,12 @@ window.onload = function () {
     Sortable.create(projectContainer, {
         group: "content",
         animation: 150,
-        draggable: '.content-draggable'
     });
 
     var contentList = document.getElementById("projectPage-contentBlock");
     Sortable.create(contentList, {
         group: "content",
         animation: 150,
-        draggable: '.content-draggable'
     });
 };
 
@@ -64,9 +60,10 @@ function loadContentList (list) {
     for (let content of list){
         $('#projectPage-contentBlock').append(getNewContentButton(content)); //TODO
     }
+
 }
 function getNewContentButton( content ) {
-    var $newObject = $("<button class='content-draggable'></button>");
+    var $newObject = $("<div class='content-draggable'></div>");
     $newObject.append(getNewContentTile(content));
     $newObject.attr('data-content', JSON.stringify(content));
     $newObject.on('click', function () {
@@ -104,10 +101,10 @@ function buttonListClips () {
 //TODO make a button for ListCards
 function dataRequest(request, callback, errCallback) {
     $.ajax({
-        url: "/dataRequest/" + request,
-        type: "GET",
-        dataType: "json",
-        contentType:"application/json;charset=UTF-8",
+        url:"/dataRequest/" + request,
+        type:"GET",
+        dataType:"json",
+        contentType:"application/json;charset=UTF-8;",
         success: function(data) {
             callback(data);
         },
