@@ -1,1 +1,15 @@
-| Mobile Page
+extends layout_empty.pug
+block variables
+    - var pageTitle = "Odyssey Mobile"
+block content
+    script(src="socket.io/socket.io.js")
+    link(rel="stylesheet", href="/stylesheets/style-odyssey.css")
+    .row
+        .col-xs-6.col-sm-8.col-md-9
+            .row
+                each file in files
+                    - var fileRef = JSON.stringify(file);
+                    div( onclick="playFile(" + fileRef + ")", class="col-xs-12 col-sm-4 col-md-3")
+                        img(src="/thumbnails/" + file.target + ".png", class="sm-mobile-file_img")
+        .col-xs-6.col-sm-4.col-md-3
+            | Queue
