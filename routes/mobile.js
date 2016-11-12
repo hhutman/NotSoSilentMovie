@@ -3,7 +3,7 @@ var express = require('express');
 var fs = require('fs');
 var router = express.Router();
 
-
+var odysseyQueue = require('../odyssey/sm-odyssey-queue');
 var database = require('../config/database');
 
 var Promise = require("bluebird");
@@ -13,9 +13,10 @@ Promise.promisifyAll(fs);
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
-    database.getContent()
+    database.getByJson(database.contentmodel,{ useType : "video" })
         .then(function(files) {
-            res.render('mobile', {  files: files });
+            let queueList = odysseyQueue.getQueue();
+            res.render('mobile', {  files: files, queue: queueList });
         })
         .catch(function(err) {
             throw err;
