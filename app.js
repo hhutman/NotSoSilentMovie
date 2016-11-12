@@ -27,6 +27,11 @@ var projectPage = require('./routes/projectPage');
 var aboutPage = require('./routes/about');
 var viewProjects = require('./routes/viewProjects');
 var dataRequest = require('./routes/dataRequest');
+/**
+ * Odyssey-Pages
+ */
+var theater1 = require('./routes/theater1');
+var mobile = require('./routes/mobile');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -56,6 +61,8 @@ app.use('/projectPage',projectPage);
 app.use('/viewProjects',viewProjects);
 app.use('/dataRequest',dataRequest);
 app.use('/about',aboutPage);
+app.use('/theater1',theater1);
+app.use('/mobile',mobile);
 
 // handle blank image references
 app.get('/thumbnails/:filename', function(req, res) {
