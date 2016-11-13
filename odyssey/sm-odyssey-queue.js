@@ -29,3 +29,6 @@ function checkArrayEmpty(){
 module.exports.emptyQueue = function() {
     videoQueue = [];
 };
+module.exports.contains = function(target) {
+    return (videoQueue.indexOf(target) > -1);
+};

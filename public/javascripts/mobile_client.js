@@ -10,7 +10,9 @@ function fileClick( target ){
     }
     standby = true;
     styleDisabledImages(target);
-    sendAppendMessage( target );
+    if(!checkIfAlreadyInQueue(target)){
+        sendAppendMessage( target );
+    }
 }
 
 function sendAppendMessage( target ){
@@ -31,7 +33,7 @@ socket.on('odyssey_mobile_shift-queue', function(target) {
 
 socket.on('odyssey_all_empty-queue', function() {
     document.getElementById("queue").innerHTML = "";
-    //TODO Enable control
+    reset();
 });
 
 function appendClip( target) {
@@ -44,7 +46,7 @@ function appendClip( target) {
 
     var node = document.createElement("DIV");
     node.setAttribute('class',"col-xs-12");
-    node.setAttribute('id', 'q_' + target);
+    node.id = 'q_' + target;
     node.appendChild(img_node);
 
     document.getElementById("queue").appendChild(node);
@@ -83,7 +85,14 @@ function reset(){
     standby = false;
 }
 
-
+function  checkIfAlreadyInQueue(target ){
+    var node = document.getElementById('q_' + target);
+    if(node){
+        node.firstChild.className += " sm_mobile_image-enabled";
+        return true;
+    }
+    return false;
+}
 
 
 

@@ -18,6 +18,9 @@ function initializeTheater(socket) {
 function configureSocket (socket) {
     socket.on("odyssey_mobile_append-clip", function(target) {
         console.log("message received from client: " + target);
+        if(videoQueue.contains(target)){
+            return;
+        }
         appendClipToTheaters(socket, target);
         videoQueue.appendQueue(target);
     });
