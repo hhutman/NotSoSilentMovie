@@ -17,5 +17,5 @@ function configureSocket (socket) {
 }
 
 function appendClipToTheaters (socket, target) {
-    io.emit("odyssey_theater_append-clip", target);
+    io.emit("odyssey_all_append-clip", target);
 }
