@@ -8,12 +8,16 @@ block content
     .row
         .col-xs-6.col-sm-8.col-md-9
             .row
+                .col-xs-12.sm_mobile_header
+                    | Twitch Odyssey
+            .row.sm_mobile_mobile-image-container
                 each file in files
-                    div( onclick="fileClick('" + file.target + "')", class="col-xs-12 col-sm-4 col-md-3")
-                        img(src="/thumbnails/" + file.target + ".png", class="sm-mobile-file_img")
-        .col-xs-6.col-sm-4.col-md-3
-            | Queue
-            #queue
+                    div( onclick="fileClick('" + file.target + "')", class="col-xs-12 col-sm-4 col-md-3 sm_mobile_mobile-image-block")
+                        img(src="/thumbnails/" + file.target + ".png", class="sm-mobile-file_img sm_mobile_mobile-image")
+        .col-xs-6.col-sm-4.col-md-3.sm_mobile_queue-container
+            .sm_mobile_queue-title Queue
+                hr
+            div(id="queue", class="sm_mobile_queue")
                 each target in queue
                     div( onclick="fileClick('" + target + "')", class="col-xs-12")
                         img(src="/thumbnails/" + target + ".png", class="sm-mobile-file_img")

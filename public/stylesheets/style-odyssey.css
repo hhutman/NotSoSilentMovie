@@ -1,3 +1,51 @@
 .sm-mobile-file_img {
     width: 100%;
 }
+
+.sm_mobile_mobile-image-container {
+    padding: 5%;
+}
+.sm_mobile_mobile-image-block {
+    padding: 15px;
+}
+.sm_mobile_mobile-image, .sm-mobile-file_img {
+    box-shadow: 5px 5px 10px rgba(0,0,0,.5);
+}
+.sm_mobile_header {
+    background-color: #333333;
+    color: white;
+    padding: 30px 25%;
+    box-shadow: 5px 5px 10px rgba(0,0,0,.5);
+    font-size: 40px;
+    font-weight: bolder;
+}
+.sm_mobile_queue-container {
+    height: 100%;
+    background-color: #CCCCCC;
+    border-style: none none none solid;
+}
+.sm_mobile_queue-title {
+    font-size: 40px;
+    font-weight: bolder;
+}
+.sm_mobile_queue-title hr {
+    border-top: 1px solid #000000;
+}
+@media only screen and (max-width: 500px) {
+    .sm_mobile_header {
+        font-size: 30px;
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
