@@ -2,6 +2,7 @@
 var socket = io.connect();
 var videoArray = [];
 var standingBy = true;
+var lastClipID;
 
 jwplayer.key = "hKr0It8yDiMnKte/Cy3p9KDJ74XfRooWYAiO8A==";
 
@@ -21,8 +22,6 @@ var playerInstance = jwplayer("contentfeed");
 playerInstance.setup({
     file: "/content/timeout.mp4",
     controls: false,
-    autostart: true,
-    autoplay: true,
     width: w,
     height: h,
     mute: true
@@ -36,11 +35,23 @@ socket.on('odyssey_all_append-clip', function(target) {
     }
 });
 
+socket.on('odyssey_theater_initialize-array', function(array) {
+    videoArray = array;
+    playNextClip();
+});
+
 jwplayer().onComplete(playNextClip);
 
 function playNextClip () {
+    updateServer();
     jwplayer().load({file:getNextClip()});
     jwplayer().play()
+}
+
+function updateServer() {
+    if(lastClipID) {
+        socket.emit("odyssey_theater_shift-array", lastClipID);
+    }
 }
 
 function getNextClip() {
@@ -52,7 +63,8 @@ function getNextClip() {
             console.log("Playlist empty, reverting to default clip");
             return getDefaultClip();
     }
-    return "/uploaded/" + videoArray.shift() + ".mp4";
+    lastClipID = videoArray.shift();
+    return "/uploaded/" + lastClipID + ".mp4";
 }
 
 function getDefaultClip () {

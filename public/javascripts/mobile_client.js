@@ -13,6 +13,10 @@ socket.on('odyssey_all_append-clip', function(target) {
     appendClip(target);
 });
 
+socket.on('odyssey_mobile_shift-queue', function(target) {
+    shiftQueue(target);
+});
+
 function appendClip( target ) {
     var img_node = document.createElement("IMG");
     img_node.setAttribute('src', "/thumbnails/" + target + ".png");
@@ -20,7 +24,15 @@ function appendClip( target ) {
 
     var node = document.createElement("DIV");
     node.setAttribute('class',"col-xs-12");
+    node.setAttribute('id', 'q_' + target);
     node.appendChild(img_node);
 
     document.getElementById("queue").appendChild(node);
+}
+
+function shiftQueue( target ){
+    var node = document.getElementById("queue").firstChild;
+    if (node.id == "q_" + target){
+        node.remove();
+    }
 }
