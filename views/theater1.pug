@@ -1,1 +1,9 @@
-| Theater Page
+extends layout_empty.pug
+block variables
+    - var pageTitle = "Odyssey Theater"
+block content
+    #contentfeed
+    script(src="/javascripts/jwplayer/jwplayer.js")
+    script(src="socket.io/socket.io.js")
+    script(src="/javascripts/theater1_client.js")
+    link(rel="stylesheet", href="/stylesheets/style-odyssey.css")
