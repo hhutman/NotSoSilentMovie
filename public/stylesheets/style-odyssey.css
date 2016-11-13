@@ -1,3 +1,7 @@
+body {
+    transition: 2s;
+}
+
 .sm-mobile-file_img {
     width: 100%;
 }

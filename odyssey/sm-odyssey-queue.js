@@ -22,8 +22,7 @@ module.exports.appendQueue = function( target ) {
 };
 
 function checkArrayEmpty(){
-    return (!videoQueue
-        || !videoQueue.length);
+    return !videoQueue.length;
 }
 
 module.exports.emptyQueue = function() {
