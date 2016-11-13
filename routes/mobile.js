@@ -16,7 +16,13 @@ router.get('/', function (req, res, next) {
     database.getByJson(database.contentmodel,{ useType : "video" })
         .then(function(files) {
             let queueList = odysseyQueue.getQueue();
-            res.render('mobile', {  files: files, queue: queueList });
+
+            //TODO BAAAD
+            let clips = files.slice(0, 20);
+            let cards = files.slice(files.length - 11, files.length - 1);
+
+
+            res.render('mobile', {  files: clips.concat(cards), queue: queueList });
         })
         .catch(function(err) {
             throw err;
