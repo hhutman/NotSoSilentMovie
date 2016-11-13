@@ -2,6 +2,8 @@ extends layout.pug
 block variables
     - var pageTitle = "Director's Page"
 block content
+    script(src="socket.io/socket.io.js")
+    script(src="/javascripts/directors_client.js")
     button(onclick="window.location.href='/upload'", class="btn btn-lg sm-button upload-btn sm-pageLink", type="button").
         Upload Page
     br
@@ -12,3 +14,8 @@ block content
     br
     button(onclick="window.location.href='/'", class="btn btn-lg sm-button upload-btn sm-pageLink", type="button").
         Main Page
+    br
+    br
+    button(onclick="emptyQueue()", class="btn btn-lg sm-button upload-btn sm-edit", type="button").
+        Empty Queue
+

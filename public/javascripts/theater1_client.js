@@ -53,7 +53,10 @@ socket.on('odyssey_theater_initialize-array', function(array) {
     playerInitialize(array);
 });
 
-
+socket.on('odyssey_all_empty-queue', function() {
+    videoArray = [];
+    playNextClip();
+});
 
 function playNextClip () {
     if(lastClipID)

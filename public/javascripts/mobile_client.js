@@ -17,6 +17,11 @@ socket.on('odyssey_mobile_shift-queue', function(target) {
     shiftQueue(target);
 });
 
+socket.on('odyssey_all_empty-queue', function() {
+    document.getElementById("queue").innerHTML = "";
+    //TODO Enable control
+});
+
 function appendClip( target ) {
     var img_node = document.createElement("IMG");
     img_node.setAttribute('src', "/thumbnails/" + target + ".png");

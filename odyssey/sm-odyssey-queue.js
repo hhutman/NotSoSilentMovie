@@ -25,3 +25,7 @@ function checkArrayEmpty(){
     return (!videoQueue
         || !videoQueue.length);
 }
+
+module.exports.emptyQueue = function() {
+    videoQueue = [];
+};

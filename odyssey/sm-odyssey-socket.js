@@ -25,7 +25,13 @@ function configureSocket (socket) {
     socket.on("odyssey_theater_shift-array", function(target) {
         shiftQueueClients(target);
         videoQueue.shiftQueue(target);
-    })
+    });
+
+    socket.on("odyssey_directors_empty-queue", function() {
+        console.log("Emptying queue");
+        videoQueue.emptyQueue();
+        io.emit("odyssey_all_empty-queue", "");
+    });
 }
 
 function appendClipToTheaters (socket, target) {

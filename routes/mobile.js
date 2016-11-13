@@ -23,5 +23,10 @@ router.get('/', function (req, res, next) {
         });
 });
 
+router.post('/emptyQueue', function(req, res){
+    odysseyQueue.emptyQueue();
+    res.end(JSON.stringify({status: 200, success: true}));
+});
+
 
 module.exports = router;
