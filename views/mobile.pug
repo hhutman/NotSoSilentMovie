@@ -9,12 +9,11 @@ block content
         .col-xs-6.col-sm-8.col-md-9
             .row
                 each file in files
-                    - var fileRef = JSON.stringify(file);
-                    div( onclick="fileClick(" + fileRef + ")", class="col-xs-12 col-sm-4 col-md-3")
+                    div( onclick="fileClick('" + file.target + "')", class="col-xs-12 col-sm-4 col-md-3")
                         img(src="/thumbnails/" + file.target + ".png", class="sm-mobile-file_img")
         .col-xs-6.col-sm-4.col-md-3
             | Queue
             #queue
                 each target in queue
-                    div( onclick="fileClick(" + target + ")", class="col-xs-12")
+                    div( onclick="fileClick('" + target + "')", class="col-xs-12")
                         img(src="/thumbnails/" + target + ".png", class="sm-mobile-file_img")
