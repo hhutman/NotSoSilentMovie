@@ -32,7 +32,7 @@ function appendClip( target ) {
 
 function shiftQueue( target ){
     var node = document.getElementById("queue").firstChild;
-    if (node.id == "q_" + target){
+    if (node && node.id == "q_" + target){
         node.remove();
     }
 }
