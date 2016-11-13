@@ -19,13 +19,26 @@ var w = window.innerWidth;
 var h = window.innerHeight;
 
 var playerInstance = jwplayer("contentfeed");
-playerInstance.setup({
-    file: "/content/timeout.mp4",
-    controls: false,
-    width: w,
-    height: h,
-    mute: true
-});
+
+function playerInitialize (array) {
+    var init_file;
+    if(array && array.length > 0){
+        init_file = getTargetURL(array[0]);
+    } else {
+        init_file = "/content/timeout.mp4";
+    }
+    playerInstance.setup({
+        file: init_file,
+        autostart: true,
+        autoplay: true,
+        controls: false,
+        width: w,
+        height: h,
+        mute: true
+    });
+
+    jwplayer().onComplete(playNextClip);
+}
 
 socket.on('odyssey_all_append-clip', function(target) {
     appendNewClip(target);
@@ -37,13 +50,14 @@ socket.on('odyssey_all_append-clip', function(target) {
 
 socket.on('odyssey_theater_initialize-array', function(array) {
     videoArray = array;
-    playNextClip();
+    playerInitialize(array);
 });
 
-jwplayer().onComplete(playNextClip);
+
 
 function playNextClip () {
-    updateServer();
+    if(lastClipID)
+        updateServer();
     jwplayer().load({file:getNextClip()});
     jwplayer().play()
 }
@@ -64,7 +78,7 @@ function getNextClip() {
             return getDefaultClip();
     }
     lastClipID = videoArray.shift();
-    return "/uploaded/" + lastClipID + ".mp4";
+    return getTargetURL(lastClipID);
 }
 
 function getDefaultClip () {
@@ -74,5 +88,9 @@ function getDefaultClip () {
 function appendNewClip ( target ) {
     videoArray.push(target);
     console.log("Current Array: " + videoArray.toString());
+}
+
+function getTargetURL( target ) {
+    return "/uploaded/" + target + ".mp4";
 }
 
