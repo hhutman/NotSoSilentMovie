@@ -27,6 +27,8 @@
     opacity: .5;
 }
 .sm_mobile_queue-container {
+    position: fixed;
+    right: 0;
     height: 100%;
     background-color: #CCCCCC;
     border-style: none none none solid;
