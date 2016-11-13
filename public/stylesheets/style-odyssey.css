@@ -19,6 +19,12 @@
     font-size: 40px;
     font-weight: bolder;
 }
+.sm_mobile_image-enabled {
+    border: solid yellow;
+}
+.sm_mobile_image-disabled {
+    opacity: .5;
+}
 .sm_mobile_queue-container {
     height: 100%;
     background-color: #CCCCCC;
