@@ -6,14 +6,10 @@
     padding: 5%;
 }
 .sm_mobile_mobile-image-block {
+    z-index: 999;
     cursor:pointer;
     border: 0;
     padding: 15px;
-}
-.play-button {
-    width: 100%;
-    background-color: #a6ff94;
-    border: none;
 }
 .sm_mobile_mobile-image, .sm-mobile-file_img {
     transition: 0.5s;
