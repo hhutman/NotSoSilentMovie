@@ -93,15 +93,3 @@ function  checkIfAlreadyInQueue(target ){
     }
     return false;
 }
-
-
-
-
-
-
-function reload() {
-    if (window.location.href != "Download.html#") {
-        window.location.href="Download.html#"
-    }
-}
-reload();
