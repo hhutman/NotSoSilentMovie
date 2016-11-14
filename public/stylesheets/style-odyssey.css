@@ -9,6 +9,7 @@
     padding: 15px;
 }
 .sm_mobile_mobile-image, .sm-mobile-file_img {
+    pointer-events: none;
     transition: 0.5s;
     box-shadow: 5px 5px 10px rgba(0,0,0,.5);
 }
