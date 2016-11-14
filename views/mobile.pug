@@ -13,7 +13,8 @@ block content
             .row.sm_mobile_mobile-image-container
                 each file in files
                     button(type="button", onclick="fileClick('" + file.target + "')", class="col-xs-4 col-sm-3 col-md-2 sm_mobile_mobile-image-block")
-        .sm_mobile_queue-container
+                        img(id="img_" + file.target, src="/thumbnails/" + file.target + ".png", class="sm-mobile-file_img sm_mobile_mobile-image")
+        .col-xs-12.sm_mobile_queue-container
             .sm_mobile_queue-title Queue
                 hr
             div(id="queue", class="sm_mobile_queue")
