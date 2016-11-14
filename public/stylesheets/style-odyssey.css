@@ -6,6 +6,8 @@
     padding: 5%;
 }
 .sm_mobile_mobile-image-block {
+    background: none;
+    border: 0;
     padding: 15px;
 }
 .sm_mobile_mobile-image, .sm-mobile-file_img {

@@ -12,7 +12,7 @@ block content
                     | Twitch Odyssey
             .row.sm_mobile_mobile-image-container
                 each file in files
-                    div(touchstart="javascript:fileClick('" + file.target + "')", style="cursor: pointer", onfocus="javascript:fileClick('" + file.target + "')", onchange="javascript:fileClick('" + file.target + "')", onclick="javascript:fileClick('" + file.target + "')", class="col-xs-4 col-sm-3 col-md-2 sm_mobile_mobile-image-block")
+                    button(touchstart="javascript:fileClick('" + file.target + "')", style="cursor: pointer", onfocus="javascript:fileClick('" + file.target + "')", onchange="javascript:fileClick('" + file.target + "')", onclick="javascript:fileClick('" + file.target + "')", class="col-xs-4 col-sm-3 col-md-2 sm_mobile_mobile-image-block")
                         img(id="img_" + file.target, src="/thumbnails/" + file.target + ".png", class="sm-mobile-file_img sm_mobile_mobile-image")
         .sm_mobile_queue-container
             .sm_mobile_queue-title Queue
