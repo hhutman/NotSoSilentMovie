@@ -6,6 +6,7 @@
     padding: 5%;
 }
 .sm_mobile_mobile-image-block {
+    pointer-events: all;
     background: none;
     border: 0;
     padding: 15px;
