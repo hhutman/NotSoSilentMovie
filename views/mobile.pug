@@ -12,8 +12,9 @@ block content
                     | Twitch Odyssey
             .row.sm_mobile_mobile-image-container
                 each file in files
-                    div(   click="fileClick('" + file.target + "')", onclick="fileClick('" + file.target + "')", class="col-xs-4 col-sm-3 col-md-2 sm_mobile_mobile-image-block")
-                        img(onmouseover="fileClick('" + file.target + "')",id="img_" + file.target, src="/thumbnails/" + file.target + ".png", class="sm-mobile-file_img sm_mobile_mobile-image")
+                    div(onclick="fileClick('" + file.target + "')", class="col-xs-4 col-sm-3 col-md-2 sm_mobile_mobile-image-block")
+                        img(id="img_" + file.target, src="/thumbnails/" + file.target + ".png", class="sm-mobile-file_img sm_mobile_mobile-image")
+                        button(onclick="fileClick('" + file.target + "')", class="play-button") Play
         .sm_mobile_queue-container
             .sm_mobile_queue-title Queue
                 hr
