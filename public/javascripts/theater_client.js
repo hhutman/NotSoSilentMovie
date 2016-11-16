@@ -37,9 +37,9 @@ socket.on('theater-playProject', function(project) {
 
 function selectButtonClick(project){
     let newPlaylist = [];
-    for(let video of project){
+    for( var i = 0; i < project.length; i++){
         newPlaylist.push({
-            file: '/uploaded/' + video + '.mp4',
+            file: '/uploaded/' + project[i] + '.mp4',
         })
     }
 

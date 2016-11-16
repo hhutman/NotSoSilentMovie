@@ -70,8 +70,8 @@ function styleDisabledImages( target ){
 
 function styleResetImages() {
     var allImages = document.getElementsByClassName("sm_mobile_mobile-image");
-    for( var image of allImages){
-        image.className = "sm-mobile-file_img sm_mobile_mobile-image";
+    for( var i = 0; i < allImages.length; i++){
+        allImages[i].className = "sm-mobile-file_img sm_mobile_mobile-image";
     }
 }
 

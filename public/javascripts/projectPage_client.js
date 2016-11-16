@@ -57,8 +57,8 @@ function errorLoadingList (err) {
 
 function loadContentList (list) {
     $('#projectPage-contentBlock').empty();
-    for (let content of list){
-        $('#projectPage-contentBlock').append(getNewContentButton(content)); //TODO
+    for( var i = 0; i < list.length; i++){
+        $('#projectPage-contentBlock').append(getNewContentButton(list[i])); //TODO
     }
 
 }
