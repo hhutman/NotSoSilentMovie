@@ -6,6 +6,7 @@
     padding: 5%;
 }
 .sm_mobile_mobile-image-block {
+    width: 200px;
     background: none;
     cursor:pointer;
     border: 0;
@@ -30,6 +31,7 @@
     opacity: .5;
 }
 .sm_mobile_queue-container {
+    display: none;
     position: fixed;
     right: 0;
     height: 100%;
@@ -48,10 +50,6 @@
         font-size: 30px;
     }
 
-}
-
-.sm_mobile_queue-container {
-    display: none;
 }
 
 
