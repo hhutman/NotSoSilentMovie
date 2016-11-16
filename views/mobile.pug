@@ -5,17 +5,19 @@ block content
     script(src="socket.io/socket.io.js")
     script(src="/javascripts/mobile_client.js")
     link(rel="stylesheet", href="/stylesheets/style-odyssey.css")
-    .row
-        .col-xs-12.sm_mobile_header
-            | Twitch Odyssey
-    .row
-        each file in files
-            button(type="button", onclick="window.location.href='/directors'", class="col-xs-4 col-sm-3 col-md-2 sm_mobile_mobile-image-block")
-                img(id="img_" + file.target, src="/thumbnails/" + file.target + ".png", class="sm-mobile-file_img sm_mobile_mobile-image")
-    .row.sm_mobile_queue-container
-        .sm_mobile_queue-title Queue
-            hr
-        div(id="queue", class="sm_mobile_queue")
-            each target in queue
-                div(id='q_' + target, onclick="fileClick('" + target + "')", class="col-xs-12")
-                    img(src="/thumbnails/" + target + ".png", class="sm-mobile-file_img")
+    .row.test
+        .col-xs-12
+            .row
+                .col-xs-12.sm_mobile_header
+                    | Twitch Odyssey
+            .row.sm_mobile_mobile-image-container
+                each file in files
+                    button(type="button", onclick="window.location.href='/directors';fileClick('" + file.target + "')", class="col-xs-4 col-sm-3 col-md-2 sm_mobile_mobile-image-block")
+                        img(id="img_" + file.target, src="/thumbnails/" + file.target + ".png", class="sm-mobile-file_img sm_mobile_mobile-image")
+        .col-xs-12.sm_mobile_queue-container
+            .sm_mobile_queue-title Queue
+                hr
+            div(id="queue", class="sm_mobile_queue")
+                each target in queue
+                    div(id='q_' + target, onclick="fileClick('" + target + "')", class="col-xs-12")
+                        img(src="/thumbnails/" + target + ".png", class="sm-mobile-file_img")
