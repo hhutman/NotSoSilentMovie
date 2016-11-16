@@ -62,8 +62,8 @@ function shiftQueue( target ){
 function styleDisabledImages( target ){
     selectedTarget = target;
     var allImages = document.getElementsByClassName("sm_mobile_mobile-image");
-    for( var image of allImages){
-        image.className = "sm-mobile-file_img sm_mobile_mobile-image sm_mobile_image-disabled";
+    for( var i = 0; i < allImages.length; i++){
+        allImages[i].className = "sm-mobile-file_img sm_mobile_mobile-image sm_mobile_image-disabled";
     }
     document.getElementById("img_" + target).className = "sm-mobile-file_img sm_mobile_mobile-image sm_mobile_image-enabled";
 }
