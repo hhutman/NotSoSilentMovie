@@ -1,0 +1,12 @@
+html,
+body {
+    height: 100%;
+}
+body {
+    text-align: center;
+    font-family: 'Raleway', sans-serif;
+}
+.left_bar_icon {
+    background-color: black;
+    color: white;
+}
