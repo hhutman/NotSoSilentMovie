@@ -1,0 +1,10 @@
+extends layout.pug
+block variables
+    - var pageTitle = "Main Menu"
+block content
+    .col-xs-1
+        include partials/left_bar_icon.pug
+    .col-xs-2
+        include partials/left_bar_main.pug
+    .col-xs-9
+        | Main segment

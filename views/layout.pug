@@ -14,9 +14,4 @@ html
         script(src="https://code.jquery.com/jquery-2.2.0.min.js")
         script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js")
     body
-        div(class="container " + (containerClass || ""))
-            div(class="panel panel-default")
-                .panel-body
-                    include  partials/header.pug
-                    .sm_fade-in
-                        block content
+        block content
