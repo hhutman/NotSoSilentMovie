@@ -96,18 +96,8 @@ function onListening() {
 /**
  * Sockets and stuff
  */
-/* TODO remove this
 var socketio = require("socket.io");
 var smSocket = require('../config/sm-socket');
-var io = socketio.listen(server);
-smSocket.configureIo(io);
-*/
-/**
- * Odyssey Sockets
- */
-
-var socketio = require("socket.io");
-var smSocket = require('../odyssey/sm-odyssey-socket');
 var io = socketio.listen(server);
 smSocket.configureIo(io);
 
