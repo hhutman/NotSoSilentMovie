@@ -13,7 +13,7 @@ body {
     height: 100%;
 }
 .left_bar_header {
-    height: 23%;
+    height: 26%;
 }
 .left_bar_child {
     height: 17%;
@@ -26,6 +26,9 @@ body {
     line-height: 40px;
     font-size: 30px;
     font-weight: 500;
+}
+.left_bar_child_make-a-movie > * {
+    top: 0;
 }
 .left_bar_text-icon {
     line-height: 40px;

@@ -2,9 +2,9 @@ extends layout.pug
 block variables
     - var pageTitle = "Main Menu"
 block content
-    .col-xs-1
+    .col-xs-2.col-sm-2.col-md-1
         include partials/left_bar_icon.pug
-    .col-xs-2
+    .hidden-xs.col-sm-3.col-md-2
         include partials/left_bar_main.pug
-    .col-xs-9
+    .col-xs-10.col-sm-7.col-md-9
         | Main segment
