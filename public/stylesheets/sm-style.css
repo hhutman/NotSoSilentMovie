@@ -23,15 +23,15 @@ body {
     top: 20%;
 }
 .left_bar_text-main {
-    line-height: 40px;
+    line-height: 50px;
     font-size: 30px;
     font-weight: 500;
 }
 .left_bar_child_make-a-movie > * {
-    top: 0;
+    top: 5%;
 }
 .left_bar_text-icon {
-    line-height: 40px;
+    line-height: 50px;
     font-size: 40px;
     font-weight: 600;
 }
