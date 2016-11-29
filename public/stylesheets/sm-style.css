@@ -1,12 +1,33 @@
 html,
 body {
     height: 100%;
-}
-body {
-    text-align: center;
-    font-family: 'Raleway', sans-serif;
-}
-.left_bar_icon {
     background-color: black;
     color: white;
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+}
+.row {
+    margin: 0;
+}
+.left_bar {
+    height: 100%;
+}
+.left_bar_header {
+    height: 23%;
+}
+.left_bar_child {
+    height: 17%;
+}
+.left_bar_child > *, .left_bar_header > * {
+    position: relative;
+    top: 20%;
+}
+.left_bar_text {
+    font-size: 30px;
+    font-weight: 600;
+}
+.left_bar_main * {
+    position: relative;
+    text-align: left;
+    left: 0;
 }
