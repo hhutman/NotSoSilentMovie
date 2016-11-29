@@ -22,8 +22,14 @@ body {
     position: relative;
     top: 20%;
 }
-.left_bar_text {
+.left_bar_text-main {
+    line-height: 40px;
     font-size: 30px;
+    font-weight: 500;
+}
+.left_bar_text-icon {
+    line-height: 40px;
+    font-size: 40px;
     font-weight: 600;
 }
 .left_bar_main * {
