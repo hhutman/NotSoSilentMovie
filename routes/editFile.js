@@ -29,7 +29,8 @@ router.get('/:target', function(req, res) {
 });
 
 function handleNewTraffic(file, req, res){
-    debugUseType.analyzeUseType(file);
+    /*
+    debugUseType.analyzeUseType(file); */
     var responseData = file;
     responseData.state = req.query.state;
     if(file.useType == 'card'){

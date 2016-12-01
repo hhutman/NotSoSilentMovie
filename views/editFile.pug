@@ -36,6 +36,12 @@ block content
                     | #{description}
             .row
                 .col-xs-6
+                    label(for="input_usetype") Use Type:
+                    input(id="input_usetype", type="text", name="useType")
+                .col-xs-6
+                    | #{useType}
+            .row
+                .col-xs-6
                     label(for="input_tags") Tags:
                     input(id="input_tags", type="text", name="tags")
                 .col-xs-6

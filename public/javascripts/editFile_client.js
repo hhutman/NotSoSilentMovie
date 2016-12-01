@@ -8,6 +8,7 @@ function updateByTarget(){
         useType: $("input[name=type]").val(),
         movieTitle: $("input[name=movie]").val(),
         description: $("input[name=description]").val(),
+        useType: $("input[name=useType]").val(),
         tags: $("input[name=tags]").val()
     };
 
