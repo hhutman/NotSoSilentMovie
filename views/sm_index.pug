@@ -6,5 +6,26 @@ block content
         include partials/left_bar_icon.pug
     .hidden-xs.col-sm-3.col-md-2
         include partials/left_bar_main.pug
-    .col-xs-12.col-sm-7.col-md-9
-        | Main segment
+    .col-xs-12.col-sm-7.col-md-9.sm_main-content
+        .row
+            .col-xs-7
+                img(class="sm_main-page_tap-here_img",src="/content/images/main-page_tap-here.png", alt="Tap here to make a movie")
+            .col-xs-5
+                .row
+                    img(class="sm_main-page_now-playing_img",src="thumbnails/1f2a872e21e5340a7e9d923bcdb8bde2.png")
+                .row
+                    .sm_main-page_now-playing_title A cool movie
+                    .sm_main-page_now-playing_author Daxit
+                    .sm_main-page_now-playing_appreciate Appreciate
+        .row.sm_main-page_appreciated_header
+            | Most appreciated
+        .row
+            .col-xs-4.sm_main-page_appreciated_block
+                img(class="sm_main-page_appreciated_img",src="thumbnails/1f2a872e21e5340a7e9d923bcdb8bde2.png")
+                | Movie A
+            .col-xs-4.sm_main-page_appreciated_block
+                img(class="sm_main-page_appreciated_img",src="thumbnails/1f2a872e21e5340a7e9d923bcdb8bde2.png")
+                | Movie B
+            .col-xs-4.sm_main-page_appreciated_block
+                img(class="sm_main-page_appreciated_img",src="thumbnails/1f2a872e21e5340a7e9d923bcdb8bde2.png")
+                | Movie C
