@@ -29,7 +29,11 @@ router.get('/:type/:filter', function (req, res, next) {
 function handleInt (req, res) {
     database.getByJson(database.contentmodel,{ useType : req.params.type, extension : ".mp4" })
         .then(function(files) {
-            let filteredFiles = spliceRandom(files, 6);
+            let count = 4;
+            if(req.params.type == "video"){
+                count = 6;
+            }
+            let filteredFiles = spliceRandom(files, count);
             res.end(JSON.stringify(filteredFiles));
         })
         .catch(function(err) {

@@ -179,8 +179,8 @@ function getProjectJSON() {
 }
 
 
+buttonListCards();
 buttonListClips();
-
 
 
 function playFile(content) {
