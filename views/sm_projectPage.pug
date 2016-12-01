@@ -8,24 +8,32 @@ block content
     .col-xs-12.col-sm-2.col-md-1
         include partials/left_bar_icon.pug
     .col-xs-12.col-sm-10.col-md-11.sm_main-content
+        .row.sm_project-page_header
+            | Make a Movie
+        .row.sm_project-page_table
+            .col-xs-2.sm_project-page_gray-bg
+                #projectPlannerContainer
+                | Drag and drop clips and cards here
+            .col-xs-6
+                .row.sm_project-page_yellow-bg
+                    div(onclick="buttonListClips()")
+                        | Clips -- refresh
+                .row.sm_project-page_gray-bg
+                    #projectPage-clipBlock
+                .row.sm_project-page_gray-bg
+                    | Add 10 more clips!
+            .col-xs-4
+                .row.sm_project-page_yellow-bg
+                    div(onclick="buttonListCards()")
+                        | Cards -- Refresh
+                .row.sm_project-page_gray-bg
+                    #projectPage-cardBlock
+                .row.sm_project-page_gray-bg
+                    #projectPage-CurrentSelection
+                    | Tap a clip to preview
         .row
-            .col-xs-6
-                h3 Your Project
-                div(id="projectPlannerContainer", class="project-planner")
-                h3 Click A Square To Preview
-                div(id="projectPage-CurrentSelection", class="current-selection_block")
-            .col-xs-6
-                h3 Drag & Drop
-                .project-page-modal_body-title-buttons
-                    button( onclick="buttonListClips()", type="button", class="btn btn-default sm-button sm-pageLink" )
-                        | List Clips
-                    button(onclick="buttonListCards()", type="button", class="btn btn-default sm-button sm-pageLink", disabled="disabled")
-                        | List Cards
-                br
-                div(id="projectPage-contentBlock" class="projectPage_content-Block")
-        hr
-        button(class="btn btn-lg sm-button upload-btn sm-save", type="button", data-toggle="modal", data-target="#projectModal")
-            | Save New Project
+            div(data-toggle="modal", data-target="#projectModal")
+                | Next
     div(class="modal fade", id="projectModal", role="dialog")
         .modal-dialog
             .modal-content

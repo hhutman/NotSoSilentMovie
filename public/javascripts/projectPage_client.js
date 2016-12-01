@@ -10,8 +10,14 @@ window.onload = function () {
         animation: 150,
     });
 
-    var contentList = document.getElementById("projectPage-contentBlock");
-    Sortable.create(contentList, {
+    var clipList = document.getElementById("projectPage-clipBlock");
+    Sortable.create(clipList, {
+        group: "content",
+        animation: 150,
+    });
+
+    var cardList = document.getElementById("projectPage-cardBlock");
+    Sortable.create(cardList, {
         group: "content",
         animation: 150,
     });
@@ -52,16 +58,22 @@ function projectEdit (objectID){
 }
 
 function errorLoadingList (err) {
-    $('#projectPage-contentBlock').text(err);
+    $('#projectPage-cardBlock').text(err);
 }
 
-function loadContentList (list) {
-    $('#projectPage-contentBlock').empty();
+function loadClipList (list) {
+    $('#projectPage-clipBlock').empty();
     for( var i = 0; i < list.length; i++){
-        $('#projectPage-contentBlock').append(getNewContentButton(list[i]));
+        $('#projectPage-clipBlock').append(getNewContentButton(list[i]));
     }
-
 }
+function loadCardList (list) {
+    $('#projectPage-cardBlock').empty();
+    for( var i = 0; i < list.length; i++){
+        $('#projectPage-cardBlock').append(getNewContentButton(list[i]));
+    }
+}
+
 function getNewContentButton( content ) {
     var $newObject = $("<div class='content-draggable'></div>");
     $newObject.append(getNewContentTile(content));
@@ -92,11 +104,11 @@ function getNewContentTile (content) {
     return $newObject;
 }
 function buttonListCards () {
-    dataRequest("card/all", loadContentList, errorLoadingList);
+    dataRequest("card/all", loadCardList, errorLoadingList);
 }
 
 function buttonListClips () {
-    dataRequest("video/all", loadContentList, errorLoadingList);
+    dataRequest("video/all", loadClipList, errorLoadingList);
 }
 //TODO make a button for ListCards
 function dataRequest(request, callback, errCallback) {

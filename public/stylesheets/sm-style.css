@@ -115,6 +115,30 @@ body {
     user-select: none; /* Non-prefixed version, currently not supported by any browser */
     cursor: pointer;
 }
+.sm_project-page_header {
+    font-size: 35px;
+    margin-bottom: 20px;
+}
+.sm_project-page_table {
+    display: flex;
+}
+.sm_project-page_gray-bg {
+    background-color: #353535;
+}
+.sm_project-page_yellow-bg {
+    background-color: #d3c127;
+    color: black;
+}
+#projectPlannerContainer {
+    min-height: 500px;
+}
+#projectPage-clipBlock > *, #projectPage-cardBlock > * {
+    width: 30%;
+    display: inline-block;
+}
+#projectPage-clipBlock img, #projectPage-cardBlock img {
+    width: 100%;
+}
 /* Extra small devices (phones, less than 768px) */
 /* No media query since this is the default in Bootstrap */
 
