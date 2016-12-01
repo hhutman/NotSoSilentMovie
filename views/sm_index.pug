@@ -20,15 +20,9 @@ block content
         .row.sm_main-page_appreciated_header
             | Most appreciated
         .row
-            .col-xs-12.col-md-4.sm_main-page_appreciated_block
-                .col-xs-6.sm_no-padding.col-md-12
-                    img(class="sm_main-page_appreciated_img",src="thumbnails/1f2a872e21e5340a7e9d923bcdb8bde2.png")
-                .col-xs-5.col-xs-offset-1.sm_no-padding.col-md-12.sm_main-page_appreciated_txt Movie C
-            .col-xs-12.col-md-4.sm_main-page_appreciated_block
-                .col-xs-6.sm_no-padding.col-md-12
-                    img(class="sm_main-page_appreciated_img",src="thumbnails/1f2a872e21e5340a7e9d923bcdb8bde2.png")
-                .col-xs-5.col-xs-offset-1.sm_no-padding.col-md-12.sm_main-page_appreciated_txt Movie C
-            .col-xs-12.col-md-4.sm_main-page_appreciated_block
-                .col-xs-6.sm_no-padding.col-md-12
-                    img(class="sm_main-page_appreciated_img",src="thumbnails/1f2a872e21e5340a7e9d923bcdb8bde2.png")
-                .col-xs-5.col-xs-offset-1.sm_no-padding.col-md-12.sm_main-page_appreciated_txt Movie C
+            each movie in movies
+                .col-xs-12.col-md-4.sm_main-page_appreciated_block
+                    .col-xs-6.sm_no-padding.col-md-12
+                        img(class="sm_main-page_appreciated_img",src="/thumbnails/" + movie.content[0].target + ".png")
+                    .col-xs-5.col-xs-offset-1.sm_no-padding.col-md-12.sm_main-page_appreciated_txt
+                        | #{movie.name}
