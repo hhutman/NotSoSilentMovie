@@ -66,7 +66,6 @@ body {
     width: 100%;
 }
 .sm_main-page_appreciated_img {
-    display: block;
     width: 100%;
 }
 .sm_main-content {
@@ -82,6 +81,7 @@ body {
 .sm_main-page_appreciated_block {
     font-size: 20px;
     text-align: left;
+    margin-bottom: 15px;
 }
 .sm_main-page_now-playing_title {
     text-align: left;
@@ -98,7 +98,12 @@ body {
     float: left;
     text-align: left;
     margin-top: 15px;
-    margin-bottom: 10px;
+}
+.sm_no-padding {
+    padding: 0;
+}
+.sm_main-page_tap-here_container {
+    margin-bottom: 30px;
 }
 /* Extra small devices (phones, less than 768px) */
 /* No media query since this is the default in Bootstrap */
@@ -107,7 +112,11 @@ body {
 /*@media (min-width: @screen-sm-min) { ... }*/
 
 /* Medium devices (desktops, 992px and up) */
-/*@media (min-width: @screen-md-min) { ... }*/
+@media (max-width: 990px) {
+    .sm_main-page_appreciated_header {
+        margin-top: 30px;
+    }
+}
 
 /* Large devices (large desktops, 1200px and up) */
 /*@media (min-width: @screen-lg-min) { ... }*/
