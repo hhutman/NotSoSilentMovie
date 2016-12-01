@@ -21,9 +21,9 @@ router.get('/', function(req, res){
 
 router.get('/:target', function(req, res) {
     if(req.params.target == "new"){
-        res.render('projectPage')
+        res.render('sm_projectPage')
     } else {
-        res.render('projectPage');
+        res.render('sm_projectPage'); //TODO
     }
 });
 
