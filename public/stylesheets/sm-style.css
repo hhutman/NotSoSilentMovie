@@ -1,7 +1,7 @@
 html,
 body {
     height: 100%;
-    background-color: black;
+    background-color: #1A1A1A;
     color: white;
     text-align: center;
     font-family: 'Arial', sans-serif;
@@ -92,7 +92,7 @@ body {
     font-size: 20px;
 }
 .sm_main-page_now-playing_appreciate {
-    background-color: #252525;
+    background-color: #353535;
     padding: 8px;
     font-size: 20px;
     float: left;
@@ -104,6 +104,16 @@ body {
 }
 .sm_main-page_tap-here_container {
     margin-bottom: 30px;
+}
+
+.sm_button {
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Chrome/Safari/Opera */
+    -khtml-user-select: none; /* Konqueror */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently not supported by any browser */
+    cursor: pointer;
 }
 /* Extra small devices (phones, less than 768px) */
 /* No media query since this is the default in Bootstrap */
