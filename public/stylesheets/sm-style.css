@@ -9,9 +9,6 @@ body {
 .row {
     margin: 0;
 }
-.left_bar {
-    height: 100%;
-}
 .left_bar_header {
     height: 26%;
 }
@@ -40,3 +37,34 @@ body {
     text-align: left;
     left: 0;
 }
+@media (max-width: 760px) { /* xs media */
+    .left_bar_header {
+        height: 60px;
+    }
+
+    .left_bar_child {
+        height: 60px;
+    }
+
+    .left_bar_text-icon {
+        font-size: 35px;
+    }
+
+    .left_bar_header > * {
+        padding: 0;
+        position: relative;
+        top: 13px;
+        font-size: 40px;
+    }
+}
+/* Extra small devices (phones, less than 768px) */
+/* No media query since this is the default in Bootstrap */
+
+/* Small devices (tablets, 768px and up) */
+/*@media (min-width: @screen-sm-min) { ... }*/
+
+/* Medium devices (desktops, 992px and up) */
+/*@media (min-width: @screen-md-min) { ... }*/
+
+/* Large devices (large desktops, 1200px and up) */
+/*@media (min-width: @screen-lg-min) { ... }*/
