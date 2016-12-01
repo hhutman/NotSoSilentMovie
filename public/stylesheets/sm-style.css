@@ -132,11 +132,24 @@ body {
 #projectPlannerContainer {
     min-height: 500px;
 }
-#projectPage-clipBlock > *, #projectPage-cardBlock > * {
+#projectPage-clipBlock > * {
     width: 30%;
+    margin: 1%;
     display: inline-block;
 }
-#projectPage-clipBlock img, #projectPage-cardBlock img {
+#projectPage-cardBlock > * {
+    width: 45%;
+    margin: 2%;
+    display: inline-block;
+}
+#projectPlannerContainer > * {
+    width: 90%;
+    margin: 3%;
+}
+#projectPlannerContainer img, #projectPage-clipBlock img, #projectPage-cardBlock img {
+    width: 100%;
+}
+#projectPage-CurrentSelection *{
     width: 100%;
 }
 /* Extra small devices (phones, less than 768px) */

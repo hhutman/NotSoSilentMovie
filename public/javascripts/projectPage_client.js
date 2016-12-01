@@ -193,7 +193,8 @@ function playFile(content) {
             //TODO
             break;
         case "card":
-            setImage(content);
+            startPlayer(content);
+            //TODO setImage(content);
             break;
         default:
             break;
@@ -212,8 +213,8 @@ function startPlayer(content) {
         autostart: true,
         autoplay: true,
         repeat: true,
-        width: 360,
-        height: 200,
+        width: document.getElementById("projectPage-CurrentSelection").offsetWidth,
+        height: document.getElementById("projectPage-CurrentSelection").offsetWidth * 0.66666,
         mute: true
     });
 }
