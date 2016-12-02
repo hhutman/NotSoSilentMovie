@@ -113,6 +113,7 @@ body {
     color: black;
     padding: 3px;
     text-align: center;
+    margin-bottom: 15px;
 }
 .sm_project-page_modal-button {
     background-color: #FFD447;
@@ -217,8 +218,26 @@ body {
         width: 90%;
         margin: 3%;
     }
+    #projectPage-cardBlock > *{
+        width: 90%;
+        margin: 3%;
+    }
     #projectPlannerContainer {
         min-height: 600px;
+    }
+
+    .sm_xs_no-padding {
+        padding: 0;
+    }
+
+    .sm_project-page_preview-block {
+        position: absolute;
+        top: -400px;
+        width: 300%;
+        left: -200%;
+    }
+    .sm_project-page_header {
+        margin-top: 350px;
     }
 }
 /* Extra small devices (phones, less than 768px) */
