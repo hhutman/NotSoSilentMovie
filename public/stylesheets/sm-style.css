@@ -169,6 +169,9 @@ body {
     padding-top: 15px;
     min-height: 300px;
 }
+.sm_project-page_card-list {
+    margin-bottom: 15px;
+}
 #projectPage-clipBlock > * {
     width: 30%;
     margin: 1%;
