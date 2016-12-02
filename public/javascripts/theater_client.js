@@ -18,16 +18,28 @@ var h = window.innerHeight;
 var playerInstance = jwplayer("contentfeed");
 playerInstance.setup({
     playlist: [{
-        file: "/content/timeout.mp4"
+        file: "/content/videos/movieloop_ipearl.mp4"
     }],
     controls: false,
     autostart: true,
     autoplay: true,
-    repeat: true,
     width: w,
     height: h,
     mute: true
 });
+
+playerInstance.on('playlistComplete', function() {
+    let newPlaylist = [];
+    newPlaylist.push({
+        file: '/content/videos/movieloop_ipearl.mp4',
+    });
+    playerInstance.load(newPlaylist);
+    playerInstance.play();
+});
+
+
+
+
 
 socket.on('theater-playProject', function(project) {
     console.log('projectReceived');
@@ -37,12 +49,17 @@ socket.on('theater-playProject', function(project) {
 
 function selectButtonClick(project){
     let newPlaylist = [];
+    newPlaylist.push({
+        file: '/content/videos/countdown.mp4',
+    });
     for( var i = 0; i < project.length; i++){
         newPlaylist.push({
             file: '/uploaded/' + project[i] + '.mp4',
         })
     }
-
+    newPlaylist.push({
+        file: '/content/videos/the-end-slate.mp4',
+    });
     playerInstance.load(newPlaylist);
     playerInstance.play();
 }

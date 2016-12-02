@@ -79,6 +79,7 @@ body {
     float: left;
     text-align: left;
     margin-top: 15px;
+    color: #aaa;
 }
 .sm_no-padding {
     padding: 0;
