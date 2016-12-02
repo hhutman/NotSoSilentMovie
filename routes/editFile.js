@@ -54,4 +54,18 @@ router.post('/', function(req, res) {
         })
 });
 
+database.getContent()
+    .then(function(files) {
+        for(let file in files){
+            if(file.name.substring(0,1) == "T"){
+                file.useType = "card";
+                database.updateByTarget(file);
+            }
+        }
+    })
+    .catch(function(err) {
+        throw err;
+    });
+
+
 module.exports = router;
