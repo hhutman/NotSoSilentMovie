@@ -148,7 +148,7 @@ function saveNewProject() {
 }
 
 function uploadSuccess() {
-    window.location = "/viewProjects";
+    window.location = "/";
 }
 
 function uploadError(err) {

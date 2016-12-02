@@ -37,26 +37,7 @@ body {
     text-align: left;
     left: 0;
 }
-@media (max-width: 760px) { /* xs media */
-    .left_bar_header {
-        height: 60px;
-    }
 
-    .left_bar_child {
-        height: 60px;
-    }
-
-    .left_bar_text-icon {
-        font-size: 35px;
-    }
-
-    .left_bar_header > * {
-        padding: 0;
-        position: relative;
-        top: 13px;
-        font-size: 40px;
-    }
-}
 
 .sm_main-page_tap-here_img {
     width: 100%;
@@ -206,6 +187,34 @@ body {
 }
 #projectPage-CurrentSelection *{
     width: 100%;
+}
+
+@media (max-width: 760px) { /* xs media */
+    .left_bar_header {
+        height: 60px;
+    }
+
+    .left_bar_child {
+        height: 60px;
+    }
+
+    .left_bar_text-icon {
+        font-size: 35px;
+    }
+
+    .left_bar_header > * {
+        padding: 0;
+        position: relative;
+        top: 13px;
+        font-size: 40px;
+    }
+    #projectPage-clipBlock > *{
+        width: 90%;
+        margin: 3%;
+    }
+    #projectPlannerContainer {
+        min-height: 600px;
+    }
 }
 /* Extra small devices (phones, less than 768px) */
 /* No media query since this is the default in Bootstrap */
