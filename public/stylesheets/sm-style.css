@@ -166,6 +166,7 @@ body {
     padding-bottom: 10px;
 }
 #projectPlannerContainer {
+    padding-top: 15px;
     min-height: 300px;
 }
 #projectPage-clipBlock > * {
@@ -180,7 +181,7 @@ body {
 }
 #projectPlannerContainer > * {
     width: 90%;
-    margin: 3%;
+    margin: auto auto 15px;
 }
 #projectPlannerContainer img, #projectPage-clipBlock img, #projectPage-cardBlock img {
     width: 100%;
