@@ -11,53 +11,59 @@ block content
         .row.sm_project-page_header
             | Make a Movie
         .row.sm_project-page_table
-            .col-xs-2.sm_project-page_gray-bg.sm_no-padding
-                #projectPlannerContainer
-                | Drag and drop clips and cards here
-            .col-xs-6
+            .col-xs-3.col-md-2.sm_project-page_bottom-padding
+                .sm_project-page_gray-bg
+                    #projectPlannerContainer
+                    .sm_project-page_drag-text
+                        | Drag and drop clips and cards here
+            .col-xs-9.col-md-6.sm_project-page_bottom-padding
                 .row.sm_project-page_yellow-bg
-                    div(onclick="buttonListClips()")
-                        | Clips -- refresh
+                    div(onclick="buttonListClips()", class="sm_project-page_yellow-txt")
+                        | Clips
                 .row.sm_project-page_gray-bg
                     #projectPage-clipBlock
-                .row.sm_project-page_gray-bg
-                    | Add 10 more clips!
-            .col-xs-4
-                .row.sm_project-page_yellow-bg
-                    div(onclick="buttonListCards()")
-                        | Cards -- Refresh
-                .row.sm_project-page_gray-bg
-                    #projectPage-cardBlock
-                .row.sm_project-page_gray-bg
-                    #projectPage-CurrentSelection
-                    | Tap a clip to preview
+                .row.sm_project-page_gray-bg.sm_project-page_add-text
+                    | Add 5 clips!
+            .col-xs-12.col-md-4.sm_project-page_bottom-padding
+                .col-xs-6.col-md-12.sm_no-padding
+                    div
+                        .row.sm_project-page_yellow-bg
+                            div(onclick="buttonListCards()", class="sm_project-page_yellow-txt")
+                                | Cards -- Refresh
+                        .row.sm_project-page_gray-bg
+                            #projectPage-cardBlock
+                .col-xs-6.col-md-12.sm_no-padding
+                    .sm_project-page_gray-bg
+                        .sm_project-page_preview-text
+                            | Tap a clip to preview
+                        #projectPage-CurrentSelection
         .row
-            div(data-toggle="modal", data-target="#projectModal")
+            div(class="sm_project-page_next-button", data-toggle="modal", data-target="#projectModal")
                 | Next
     div(class="modal fade", id="projectModal", role="dialog")
         .modal-dialog
-            .modal-content
-                .modal-header
+            .modal-content.sm_project-page_modal-content
+                .modal-header.sm_project-page_modal-header
                     button( type="button", class="close", data-dismiss="modal")
                         | &times;
-                    h4(id="popupHeader", class="modal-title")
-                        | Save Project
-                div( class="modal-body project-page-modal")
-                    div
-                        label(for="input_name") Name:
-                        input(id="input_name" type="text" name="name")
-                    div
-                        label(for="input_creator") Creator:
-                        input(id="input_creator" type="text" name="creator")
-                    div
-                        label(for="input_description") Description:
-                        input(id="input_description" type="text" name="description")
-                    div
-                        label(for="input_tags") Tags:
-                        input(id="input_tags" type="text" name="tags")
+                    h4(id="popupHeader", class="modal-title sm_project-page_modal-header-txt")
+                        | Give your movie a title & an author.
+                div( class="modal-body sm_project-page_modal-body")
+                    .row
+                        .col-xs-3
+                            label(for="input_name") Name:
+                        .col-xs-6
+                            input(id="input_name" type="text" name="name")
+                        .col-xs-3
+                    .row
+                        .col-xs-3
+                            label(for="input_creator") Creator:
+                        .col-xs-6
+                            input(id="input_creator" type="text" name="creator")
+                        .col-xs-3
                 .modal-footer
-                    button( type="button", class="btn btn-default sm-button sm-cancel" data-dismiss="modal").
+                    div( type="button", class="sm_project-page_modal-button" data-dismiss="modal").
                         Cancel
-                    button( onclick="saveNewProject()", type="button", class="btn btn-default sm-button sm-save").
-                        Save
+                    div( onclick="saveNewProject()", type="button", class="sm_project-page_modal-button").
+                        Publish
     div(class="modal fade", id="confirmDeleteModal", role="dialog")

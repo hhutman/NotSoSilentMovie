@@ -119,18 +119,73 @@ body {
     font-size: 35px;
     margin-bottom: 20px;
 }
-.sm_project-page_table {
-    display: flex;
-}
 .sm_project-page_gray-bg {
     background-color: #353535;
 }
+.sm_project-page_next-button {
+    background-color: #FFD447;
+    width: 120px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 25px;
+    color: black;
+    padding: 3px;
+    text-align: center;
+}
+.sm_project-page_modal-button {
+    background-color: #FFD447;
+    display: inline-block;
+    margin-right: 18%;
+    width: 120px;
+    font-size: 25px;
+    color: black;
+    padding: 3px;
+    text-align: center;
+}
+.sm_project-page_modal-header-txt {
+    font-size: 30px;
+}
+.sm_project-page_modal-header {
+    background-color: #262B29;
+}
+.sm_project-page_modal-content {
+    background-color: #303633;
+}
+.sm_project-page_modal-body {
+    font-size: 20px;
+}
+.sm_project-page_modal-body input{
+    background-color: #1A1A1A;
+    margin: 10px;
+    border: none;
+}
+.sm_project-page_preview-text {
+    font-size: 20px;
+    padding: 5px;
+}
+.sm_project-page_yellow-txt {
+    font-size: 25px;
+    padding: 5px;
+    font-weight: bold;
+}
 .sm_project-page_yellow-bg {
-    background-color: #d3c127;
+    background-color: #FFD447;
     color: black;
 }
+.sm_project-page_add-text {
+    font-size: 32px;
+    padding-top: 10px;
+    padding-bottom: 5px;
+}
+.sm_project-page_bottom-padding {
+    margin-bottom: 20px;
+}
+.sm_project-page_drag-text {
+    color: gray;
+    padding-bottom: 10px;
+}
 #projectPlannerContainer {
-    min-height: 500px;
+    min-height: 300px;
 }
 #projectPage-clipBlock > * {
     width: 30%;
