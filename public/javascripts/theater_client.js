@@ -50,15 +50,15 @@ socket.on('theater-playProject', function(project) {
 function selectButtonClick(project){
     let newPlaylist = [];
     newPlaylist.push({
-        file: '/content/videos/countdown.mp4',
+        file: '../content/videos/countdown.mp4',
     });
     for( var i = 0; i < project.length; i++){
         newPlaylist.push({
-            file: '/uploaded/' + project[i] + '.mp4',
+            file: '../uploaded/' + project[i] + '.mp4',
         })
     }
     newPlaylist.push({
-        file: '/content/videos/the-end-slate.mp4',
+        file: '../content/videos/the-end-slate.mp4',
     });
     playerInstance.load(newPlaylist);
     playerInstance.play();
