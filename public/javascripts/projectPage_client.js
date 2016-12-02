@@ -210,6 +210,7 @@ function startPlayer(content) {
     jwplayer.key = "hKr0It8yDiMnKte/Cy3p9KDJ74XfRooWYAiO8A==";
     playerInstance = jwplayer("projectPage-CurrentSelection");
     playerInstance.setup({
+        primary: "html5",
         file: "../../uploaded/" + content.target + content.extension,
         controls: false,
         autostart: true,

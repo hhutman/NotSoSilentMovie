@@ -20,6 +20,7 @@ playerInstance.setup({
     playlist: [{
         file: "/content/videos/movieloop_ipearl.mp4"
     }],
+    primary: "html5",
     controls: false,
     autostart: true,
     autoplay: true,
