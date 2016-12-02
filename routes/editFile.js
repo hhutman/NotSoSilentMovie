@@ -13,6 +13,18 @@ var Promise = require("bluebird");
 Promise.promisifyAll(database);
 
 router.get('/', function(req, res) {
+    database.getContent()
+        .then(function(files) {
+            for(var i = 0; i < files.length; i++){
+                if(files[i].name.substring(0,1) == "T"){
+                    files[i].useType = "card";
+                    database.updateByTarget(files[i]);
+                }
+            }
+        })
+        .catch(function(err) {
+            throw err;
+        });
     res.redirect('../');
 });
 
@@ -54,18 +66,7 @@ router.post('/', function(req, res) {
         })
 });
 
-database.getContent()
-    .then(function(files) {
-        for(let file in files){
-            if(file.name.substring(0,1) == "T"){
-                file.useType = "card";
-                database.updateByTarget(file);
-            }
-        }
-    })
-    .catch(function(err) {
-        throw err;
-    });
+
 
 
 module.exports = router;
