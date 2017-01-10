@@ -30,7 +30,7 @@ playerInstance.setup({
 });
 
 playerInstance.on('playlistComplete', function() {
-    let newPlaylist = [];
+    var newPlaylist = [];
     newPlaylist.push({
         file: '/content/videos/movieloop_ipearl.mp4',
     });
@@ -49,7 +49,7 @@ socket.on('theater-playProject', function(project) {
 
 
 function selectButtonClick(project){
-    let newPlaylist = [];
+    var newPlaylist = [];
     newPlaylist.push({
         file: '../content/videos/countdown.mp4',
     });
