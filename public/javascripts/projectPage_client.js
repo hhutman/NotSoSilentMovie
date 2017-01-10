@@ -27,7 +27,7 @@ window.onload = function () {
 
 function projectEdit (objectID){
     currentID = objectID;
-    let contentString = $('#' + objectID).attr('data-content');
+    var contentString = $('#' + objectID).attr('data-content');
 
     if(!contentString) {
         $('#projectPage-CurrentSelection')
@@ -145,7 +145,7 @@ function projectUpload(jsonProject, callback, errCallback) {
 }
 
 function saveNewProject() {
-    let projectJson = getProjectJSON();
+    var projectJson = getProjectJSON();
     projectUpload(projectJson, uploadSuccess, uploadError)
 }
 
@@ -158,7 +158,7 @@ function uploadError(err) {
 }
 
 function getProjectJSON() {
-    let projectJson = {
+    var projectJson = {
         new: true, //TODO: Placeholder. In future make sure that new represents actual new project
         name: $("input[name=name]").val(),
         creator: $("input[name=creator]").val(),
@@ -167,10 +167,10 @@ function getProjectJSON() {
         tags: $("input[name=tags]").val()
     };
     $('#projectPlannerContainer').children().each(function(){
-        let contentString = this.getAttribute('data-content');
+        var contentString = this.getAttribute('data-content');
         if(contentString){
-            let content = JSON.parse(contentString);
-            let addition = {
+            var content = JSON.parse(contentString);
+            var addition = {
                 target: content.target,
                 text: content.text,
             };
