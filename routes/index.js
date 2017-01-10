@@ -18,13 +18,10 @@ router.get('/', function (req, res, next) {
             if(!movies || movies.length == 0){
                 throw "error - movies empty";
             }
-            let int1 = Math.floor(Math.random() * movies.length);
-            let int2 = Math.floor(Math.random() * movies.length);
-            let int3 = Math.floor(Math.random() * movies.length);
             let short_movies = [];
-            short_movies.push(movies[int1]);
-            short_movies.push(movies[int2]);
-            short_movies.push(movies[int3]);
+            short_movies.push(getMovie(movies));
+            short_movies.push(getMovie(movies));
+            short_movies.push(getMovie(movies));
             res.render('sm_index', {  movies: short_movies });
         })
         .catch(function(err) {
@@ -33,5 +30,21 @@ router.get('/', function (req, res, next) {
         });
 });
 
+function getMovie(movies) {
+    if(!movies ||
+        movies.length < 1){
+        throw "Error: getMovie has bad 'movies' list";
+    }
+
+    let movie = movies[Math.floor(Math.random() * movies.length)];
+
+    if(movie.content &&
+        movie.content[0] &&
+        movie.content[0].target){
+        return movie;
+    } else {
+        return getMovie(movies);
+    }
+}
 
 module.exports = router;
