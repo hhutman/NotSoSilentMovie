@@ -49,6 +49,9 @@ body {
 .sm_main-page_appreciated_img {
     width: 100%;
 }
+.sm_main-page_movie-list-row {
+    margin-top: 20px;
+}
 .sm_main-content {
     padding-top: 40px;
     padding-right: 30px;

@@ -18,10 +18,7 @@ block content
                 .col-xs-offset-1.col-xs-5.col-md-12.sm_no-padding
                     .sm_main-page_now-playing_title A Cool Movie
                     .sm_main-page_now-playing_author Daxit Agarwal
-                    .sm_main-page_now-playing_appreciate APPRECIATE
-        .row.sm_main-page_appreciated_header
-            | Most appreciated
-        .row
+        .row.sm_main-page_movie-list-row
             each movie in movies
                 - var projRef = JSON.stringify(movie);
                 .col-xs-12.col-md-4.sm_main-page_appreciated_block
