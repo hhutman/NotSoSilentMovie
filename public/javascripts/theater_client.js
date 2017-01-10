@@ -64,3 +64,7 @@ function selectButtonClick(project){
     playerInstance.load(newPlaylist);
     playerInstance.play();
 }
+
+window.onclick = function (event) {
+    playerInstance.play();
+};
