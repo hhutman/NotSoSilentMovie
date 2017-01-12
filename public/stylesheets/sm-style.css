@@ -53,6 +53,9 @@ body {
     padding-top: 40px;
     padding-right: 30px;
 }
+.theater-text-container {
+    margin: auto;
+}
 .sm_main-page_appreciated_header {
     text-align: left;
     padding-left: 15px;
