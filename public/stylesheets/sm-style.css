@@ -49,9 +49,6 @@ body {
 .sm_main-page_appreciated_img {
     width: 100%;
 }
-.sm_main-page_movie-list-row {
-    margin-top: 20px;
-}
 .sm_main-content {
     padding-top: 40px;
     padding-right: 30px;
@@ -248,12 +245,23 @@ body {
 
 /* Small devices (tablets, 768px and up) */
 /*@media (min-width: @screen-sm-min) { ... }*/
-
+.theater-text {
+    position: absolute;
+    width: 100%;
+    z-index: 10;
+    color: gray;
+    visibility: hidden;
+}
 /* Medium devices (desktops, 992px and up) */
 @media (max-width: 990px) {
     .sm_main-page_appreciated_header {
         margin-top: 30px;
     }
+    .theater-text {
+        visibility: visible;
+    }
+
+
 }
 
 /* Large devices (large desktops, 1200px and up) */

@@ -67,4 +67,5 @@ function selectButtonClick(project){
 
 window.onclick = function (event) {
     playerInstance.play();
+    document.getElementsByClassName('theater-text')[0].style.display = 'none';
 };
