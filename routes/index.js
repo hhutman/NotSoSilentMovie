@@ -18,11 +18,7 @@ router.get('/', function (req, res, next) {
             if(!movies || movies.length == 0){
                 throw "error - movies empty";
             }
-            let short_movies = [];
-            short_movies.push(getMovie(movies));
-            short_movies.push(getMovie(movies));
-            short_movies.push(getMovie(movies));
-            res.render('sm_index', {  movies: short_movies });
+            res.render('sm_index', {  movies: movies });
         })
         .catch(function(err) {
             console.log(err);
@@ -30,21 +26,5 @@ router.get('/', function (req, res, next) {
         });
 });
 
-function getMovie(movies) {
-    if(!movies ||
-        movies.length < 1){
-        throw "Error: getMovie has bad 'movies' list";
-    }
-
-    let movie = movies[Math.floor(Math.random() * movies.length)];
-
-    if(movie.content &&
-        movie.content[0] &&
-        movie.content[0].target){
-        return movie;
-    } else {
-        return getMovie(movies);
-    }
-}
 
 module.exports = router;

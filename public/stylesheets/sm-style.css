@@ -63,9 +63,11 @@ body {
     margin-bottom: 10px;
 }
 .sm_main-page_appreciated_block {
+    display: inline-block;
+    width: 25%;
+    margin: 10px;
     font-size: 20px;
     text-align: left;
-    margin-bottom: 15px;
 }
 .sm_main-page_now-playing_title {
     text-align: left;
@@ -198,6 +200,16 @@ body {
     width: 100%;
 }
 
+.sm_main-page_movie-list {
+    padding: 5px;
+    -webkit-box-shadow: inset 0px 0px 32px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: inset 0px 0px 32px 0px rgba(0,0,0,0.75);
+    box-shadow: inset 0px 0px 32px 0px rgba(0,0,0,0.75);
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+}
+
 @media (max-width: 760px) { /* xs media */
     .left_bar_header {
         height: 60px;
@@ -264,6 +276,17 @@ body {
         visibility: visible;
     }
 
+    .sm_main-page_appreciated_block {
+        display: block;
+        width: 400px;
+        height: 200px;
+    }
+
+    .sm_main-page_movie-list {
+        overflow-y: scroll;
+        overflow-x: hidden;
+        height: 400px;
+    }
 
 }
 
