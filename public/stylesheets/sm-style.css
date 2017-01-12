@@ -210,6 +210,7 @@ body {
     white-space: nowrap;
 }
 
+
 @media (max-width: 760px) { /* xs media */
     .left_bar_header {
         height: 60px;
@@ -232,15 +233,43 @@ body {
     #projectPage-clipBlock > *{
         width: 90%;
         margin: 3%;
+        padding-right: 15px;
     }
     #projectPage-cardBlock > *{
         width: 90%;
         margin: 3%;
+        padding-right: 15px;
+    }
+    #projectPlannerContainer > * {
+        padding-right: 15px;
+    }
+    #projectPage-clipBlock {
+        height: 300px;
+        overflow-y: auto;
+        overflow-x: hidden;
+        -webkit-box-shadow: inset 0px 0px 32px 0px rgba(0,0,0,0.75);
+        -moz-box-shadow: inset 0px 0px 32px 0px rgba(0,0,0,0.75);
+        box-shadow: inset 0px 0px 32px 0px rgba(0,0,0,0.75);
+    }
+    #projectPage-cardBlock {
+        height: 300px;
+        overflow-y: auto;
+        overflow-x: hidden;
+        -webkit-box-shadow: inset 0px 0px 32px 0px rgba(0,0,0,0.75);
+        -moz-box-shadow: inset 0px 0px 32px 0px rgba(0,0,0,0.75);
+        box-shadow: inset 0px 0px 32px 0px rgba(0,0,0,0.75);
     }
     #projectPlannerContainer {
-        min-height: 600px;
+        height: 400px;
+        overflow-y: auto;
+        overflow-x: hidden;
+        -webkit-box-shadow: inset 0px 0px 32px 0px rgba(0,0,0,0.75);
+        -moz-box-shadow: inset 0px 0px 32px 0px rgba(0,0,0,0.75);
+        box-shadow: inset 0px 0px 32px 0px rgba(0,0,0,0.75);
     }
-
+    .sm_project-page_add-text {
+        background-color: #1A1A1A;
+    }
     .sm_xs_no-padding {
         padding: 0;
     }
