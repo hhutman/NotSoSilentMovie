@@ -275,13 +275,10 @@ body {
     }
 
     .sm_project-page_preview-block {
-        position: absolute;
-        top: -400px;
+        top: 100px;
         width: 300%;
         left: -200%;
-    }
-    .sm_project-page_header {
-        margin-top: 350px;
+        height: 400px;
     }
 }
 /* Extra small devices (phones, less than 768px) */
