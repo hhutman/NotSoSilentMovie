@@ -213,18 +213,16 @@ function startPlayer(content) {
         primary: "html5",
         file: "../../uploaded/" + content.target + content.extension,
         controls: false,
-        autostart: true,
-        autoplay: true,
         repeat: true,
         width: document.getElementById("projectPage-CurrentSelection").offsetWidth,
         height: document.getElementById("projectPage-CurrentSelection").offsetWidth * 0.66666,
         mute: true
     });
+    jwplayer().on('ready', function () {
+        playerInstance.play();
+    });
+
 }
-
-
-
-
 
 
 
