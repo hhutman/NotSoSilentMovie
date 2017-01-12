@@ -208,8 +208,11 @@ body {
     overflow-x: scroll;
     overflow-y: hidden;
     white-space: nowrap;
+    margin-bottom: 20px;
 }
-
+.sm_main-page_movie-list img {
+    cursor: pointer;
+}
 
 @media (max-width: 760px) { /* xs media */
     .left_bar_header {
