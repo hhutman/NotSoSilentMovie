@@ -90,29 +90,7 @@ function getInactivePlayer () {
     }
 }
 
-socket.on('theater-playProject', function(project) {
-    console.log('projectReceived');
 
-    selectButtonClick(project);
-});
-
-
-function selectButtonClick(project){
-    var newPlaylist = [];
-    newPlaylist.push({
-        file: '../content/videos/countdown.mp4',
-    });
-    for( var i = 0; i < project.length; i++){
-        newPlaylist.push({
-            file: '../uploaded/' + project[i] + '.mp4',
-        })
-    }
-    newPlaylist.push({
-        file: '../content/videos/the-end-slate.mp4',
-    });
-    playerInstance.load(newPlaylist);
-    playerInstance.play();
-}
 
 function theaterScreenClick (event) {
     if(playerInstance.getState() != "playing"){

@@ -35,6 +35,21 @@ function configureSocket (socket) {
     })
 }
 
+function newMovie () {
+    database.getProjects()
+        .then(function(movies) {
+            if(!movies || movies.length == 0){
+                throw "error - movies empty";
+            }
+            io.emit('theater-receive-list',movies[movies.length - 1].content);
+        })
+        .catch(function(err) {
+            console.log(err);
+        });
+}
+
+module.exports.newMovie = newMovie;
+
 
 function playProject (socket, project ){
     console.log("Project received: " + project.name);

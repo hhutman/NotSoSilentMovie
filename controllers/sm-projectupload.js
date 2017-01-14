@@ -2,6 +2,7 @@
 var database = require("../config/database");
 var resourceController = require('../controllers/resourcecontroller');
 var Promise = require("bluebird");
+var socket = require("../config/sm-socket");
 
 Promise.promisifyAll(resourceController);
 Promise.promisifyAll(database);
@@ -19,6 +20,7 @@ module.exports.newUpload = function(project) {
     database.addProject(project.name, project.creator, project.description, project.content, project.tags)
         .then(function (name) {
             console.log ("Project <" + name + "> uploaded successfully");
+            socket.newMovie();
             resolve(name);
         })
         .catch(function(err){
