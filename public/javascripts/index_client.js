@@ -6,5 +6,8 @@ window.onload = function () {
 };
 
 function playProject( project ) {
+    for(var i = 0; i < project.content.length; i++){
+        console.log(project.content[i].target);
+    }
     socket.emit('playProject', project);
 }
