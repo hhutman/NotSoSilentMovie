@@ -50,6 +50,7 @@ playerInstance.on('complete', function () {
 });
 playerInstance2.on('complete', function () {
     activePlayer = 0;
+    playerInstance.play();
     document.getElementById("contentfeed2").style.display = "none";
     document.getElementById("contentfeed").style.display = "block";
     loadNextVideo(playerInstance2);
