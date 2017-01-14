@@ -27,8 +27,6 @@ playerInstance.setup({
     image: "/content/images/playbutton.jpg",
     primary: "html5",
     controls: false,
-    autostart: true,
-    autoplay: true,
     width: w,
     height: h,
     mute: true
@@ -52,7 +50,6 @@ playerInstance.on('complete', function () {
 });
 playerInstance2.on('complete', function () {
     activePlayer = 0;
-    playerInstance.play();
     document.getElementById("contentfeed2").style.display = "none";
     document.getElementById("contentfeed").style.display = "block";
     loadNextVideo(playerInstance2);
@@ -89,12 +86,20 @@ function getInactivePlayer () {
         return playerInstance2;
     }
 }
+function getActivePlayer () {
+    if(activePlayer){
+        return playerInstance2;
+    } else {
+        return playerInstance;
+    }
+}
 
 
 
 function theaterScreenClick (event) {
-    if(playerInstance.getState() != "playing"){
-        playerInstance.play();
+    var activePlayer = getActivePlayer();
+    if(activePlayer.getState() != "playing"){
+        activePlayer.play();
     }
     document.getElementsByClassName('theater-text')[0].style.display = 'none';
 }
