@@ -1,7 +1,9 @@
 "use strict";
 var contentController = require('../controllers/contentcontroller');
+var database = require('../config/database');
 var Promise = require("bluebird");
 
+Promise.promisifyAll(database);
 Promise.promisifyAll(contentController);
 
 var io;
@@ -18,7 +20,21 @@ function configureSocket (socket) {
     socket.on("playProject", function(project) {
         playProject(socket, project);
     });
+
+    socket.on('theater-request-list', function (movieInteger) {
+        database.getProjects()
+            .then(function(movies) {
+                if(!movies || movies.length == 0){
+                    throw "error - movies empty";
+                }
+                socket.emit('theater-receive-list',movies[movieInteger % movies.length].content);
+            })
+            .catch(function(err) {
+                console.log(err);
+            });
+    })
 }
+
 
 function playProject (socket, project ){
     console.log("Project received: " + project.name);

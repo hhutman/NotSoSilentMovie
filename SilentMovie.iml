@@ -22,5 +22,6 @@
     <orderEntry type="library" name="fluent-ffmpeg-DefinitelyTyped" level="application" />
     <orderEntry type="library" name="jwplayer-DefinitelyTyped" level="application" />
     <orderEntry type="library" name="socket.io-1.4.5" level="application" />
+    <orderEntry type="library" name="bluebird-DefinitelyTyped" level="application" />
   </component>
 </module>
