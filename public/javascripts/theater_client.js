@@ -11,6 +11,7 @@ myResize();
 
 window.onresize = myResize;
 
+
 var playlist = [];
 var movieCount = 0;
 
@@ -67,6 +68,11 @@ function loadNextVideo( player ){
         file: video
     }]);
 }
+
+window.onload = function () {
+    playerInstance.play();
+};
+
 loadNextVideo(playerInstance2);
 
 socket.on('theater-receive-list', function(videoList) {
