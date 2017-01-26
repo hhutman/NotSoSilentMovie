@@ -284,6 +284,11 @@ body {
         height: 400px;
     }
 }
+
+
+#contentfeed2 {
+    display: none;
+}
 /* Extra small devices (phones, less than 768px) */
 /* No media query since this is the default in Bootstrap */
 

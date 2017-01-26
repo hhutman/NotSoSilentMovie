@@ -2,7 +2,7 @@ extends layout_empty.pug
 block variables
     - var pageTitle = "Theater"
 block content
-    div(onclick="theaterScreenClick()")
+    div(onclick="theaterScreenClick()",id="content-feed-container")
         .theater-text
             .theater-text-container
                 | Click here if video does not start automatically
