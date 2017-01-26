@@ -23,5 +23,16 @@
     <orderEntry type="library" name="jwplayer-DefinitelyTyped" level="application" />
     <orderEntry type="library" name="socket.io-1.4.5" level="application" />
     <orderEntry type="library" name="bluebird-DefinitelyTyped" level="application" />
+    <orderEntry type="module-library">
+      <library name="PHP Runtime" type="php">
+        <CLASSES>
+          <root url="jar://$APPLICATION_PLUGINS_DIR$/php/lib/php.jar!/stubs/standard" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="jar://$APPLICATION_PLUGINS_DIR$/php/lib/php.jar!/stubs/standard" />
+        </SOURCES>
+      </library>
+    </orderEntry>
   </component>
 </module>
