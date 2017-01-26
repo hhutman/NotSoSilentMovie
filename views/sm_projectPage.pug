@@ -5,65 +5,71 @@ block content
     script(src="/javascripts/jwplayer/jwplayer.js")
     script(src="/javascripts/Sortable.min.js")
     script(src="/javascripts/projectPage_client.js")
-    .col-xs-12.col-sm-2.col-md-1
-        include partials/left_bar_icon.pug
-    .col-xs-12.col-sm-10.col-md-11.sm_main-content.sm_xs_no-padding
-        .row.sm_project-page_header
+    
+    //- .col-xs-12.col-sm-2.col-md-1
+    //-     include partials/left_bar_icon.pug
+    .sm_main-content
+        .sm_project-page_header
             | Make a Movie
-        .row.sm_project-page_table
-            .col-xs-4.col-sm-3.col-md-2.sm_project-page_bottom-padding.sm_xs_no-padding
-                .sm_project-page_gray-bg
-                    .sm_project-page_drag-text
-                        | Drag and drop clips and cards here
-                    #projectPlannerContainer
-            .col-xs-4.col-sm-9.col-md-6.sm_project-page_bottom-padding.sm_xs_no-padding
-                .row.sm_project-page_yellow-bg
-                    div(onclick="buttonListClips()", class="sm_project-page_yellow-txt")
-                        | Refresh Clips
-                .row.sm_project-page_gray-bg
-                    #projectPage-clipBlock
-                .row.sm_project-page_gray-bg.sm_project-page_add-text
-                    | Add 5 clips!
-            .col-xs-4.col-sm-12.col-md-4.sm_project-page_bottom-padding.sm_xs_no-padding
-                .col-xs-12.col-sm-6.col-md-12.sm_no-padding.sm_project-page_card-list
-                    div
-                        .row.sm_project-page_yellow-bg
-                            div(onclick="buttonListCards()", class="sm_project-page_yellow-txt")
-                                | Refresh Cards
-                        .row.sm_project-page_gray-bg
-                            #projectPage-cardBlock
-                .col-xs-12.col-sm-6.col-md-12.sm_no-padding.sm_project-page_preview-block
-                    .sm_project-page_gray-bg
-                        .sm_project-page_preview-text
-                            | Tap a clip to preview
-                        #projectPage-CurrentSelection
-        .row
-            div(class="sm_project-page_next-button", data-toggle="modal", data-target="#projectModal")
-                | Next
+        .sm_project-page_table
+
+            //- Planner
+            .sm_project-planner
+                .sm_project-planner_text
+                    | Drag &amp; drop clips &amp; cards here
+                #projectPlannerContainer
+
+            //- Preview, Clips, Cards
+            .sm_project-creator
+
+                //- Styling for Preview Container
+                .preview
+                    .preview_text
+                        | Tap a clip to preview
+                    #projectPage-CurrentSelection
+
+                //- Styling for Clips
+                .actionbar
+                    img(src='../content/images/clips.svg')
+                    .actionbar_title
+                        | Clips
+                    div(onclick="buttonListClips()", class="refresh")
+                        img(src='../content/images/refresh.svg')
+                        .refresh_text
+                            | Refresh
+                #projectPage-clipBlock
+
+                //- Styling for Cards
+                .actionbar
+                    img(src='../content/images/cards.svg')
+                    .actionbar_title
+                        | Cards
+                    div(onclick="buttonListCards()", class="refresh")
+                        img(src='../content/images/refresh.svg')
+                        .refresh_text
+                            | Refresh
+                #projectPage-cardBlock
+        div(class="sm_project-page_next", data-toggle="modal", data-target="#projectModal")
+            | Next
+
     div(class="modal fade", id="projectModal", role="dialog")
-        .modal-dialog
-            .modal-content.sm_project-page_modal-content
-                .modal-header.sm_project-page_modal-header
-                    button( type="button", class="close", data-dismiss="modal")
-                        | &times;
-                    h4(id="popupHeader", class="modal-title sm_project-page_modal-header-txt")
-                        | Give your movie a title & an author.
-                div( class="modal-body sm_project-page_modal-body")
-                    .row
-                        .col-xs-3
-                            label(for="input_name") Name:
-                        .col-xs-6
-                            input(id="input_name" type="text" name="name")
-                        .col-xs-3
-                    .row
-                        .col-xs-3
-                            label(for="input_creator") Creator:
-                        .col-xs-6
-                            input(id="input_creator" type="text" name="creator")
-                        .col-xs-3
-                .modal-footer
-                    div( type="button", class="sm_project-page_modal-button" data-dismiss="modal").
-                        Cancel
-                    div( onclick="saveNewProject()", type="button", class="sm_project-page_modal-button").
-                        Publish
+      .modal-dialog
+          .sm_project-modal
+              .header
+                  | Give your movie a title &amp; an author.
+                  button( type="button", class="close", data-dismiss="modal")
+                      | &times;
+                  //- h4(id="popupHeader", class="modal-title sm_project-page_modal-header-txt")
+              .body
+                  .labels
+                      label(for="input_name") Name:
+                      label(for="input_creator") Creator:
+                  .inputs
+                      input(id="input_name" type="text" name="name")
+                      input(id="input_creator" type="text" name="creator")
+              .footer
+                  div( type="button", class="button" data-dismiss="modal").
+                          Cancel
+                  div( onclick="saveNewProject()", type="button", class="button").
+                          Publish
     div(class="modal fade", id="confirmDeleteModal", role="dialog")
