@@ -214,6 +214,10 @@ body {
     cursor: pointer;
 }
 
+.sm_project-page_preview-block {
+    pointer-events: none;
+}
+
 @media (max-width: 760px) { /* xs media */
     .left_bar_header {
         height: 60px;
