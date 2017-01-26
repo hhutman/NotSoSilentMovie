@@ -2,12 +2,13 @@ extends layout_empty.pug
 block variables
     - var pageTitle = "Theater"
 block content
-    div(onclick="theaterScreenClick()",id="content-feed-container")
+    .theater-full
         .theater-text
             .theater-text-container
                 | Click here if video does not start automatically
-        #contentfeed
-        #contentfeed2
-        script(src="/javascripts/jwplayer/jwplayer.js")
-        script(src="socket.io/socket.io.js")
-        script(src="/javascripts/theater_client.js")
+        div(onclick="theaterScreenClick()",id="content-feed-container")
+            #contentfeed
+            #contentfeed2
+            script(src="/javascripts/jwplayer/jwplayer.js")
+            script(src="socket.io/socket.io.js")
+            script(src="/javascripts/theater_client.js")

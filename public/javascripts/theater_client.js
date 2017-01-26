@@ -2,21 +2,11 @@ var socket = io.connect();
 
 jwplayer.key = "hKr0It8yDiMnKte/Cy3p9KDJ74XfRooWYAiO8A==";
 
-function myResize() {
-    if (playerInstance) {
-        playerInstance.resize(window.innerWidth, window.innerHeight);
-    }
-}
-myResize();
-
-window.onresize = myResize;
-
-
 var playlist = [];
 var movieCount = 0;
 
-var w = window.innerWidth;
-var h = window.innerHeight;
+var w = '100%';
+var h = '100%';
 
 var playerInstance = jwplayer("contentfeed");
 var playerInstance2 = jwplayer("contentfeed2");

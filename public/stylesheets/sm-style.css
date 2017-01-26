@@ -285,9 +285,27 @@ body {
     }
 }
 
-
+.theater-text {
+    position: absolute;
+}
 #contentfeed2 {
     display: none;
+}
+
+@media (min-width: 1400px) {
+    #content-feed-container {
+        padding-left: 23%;
+        padding-top: 6.8%;
+        width: 43%;
+        height: 88%;
+    }
+
+    .theater-full {
+        height: 100%;
+        width: 100%;
+        background-image: url("../content/images/theater.png");
+        background-size: 100% 100%;
+    }
 }
 /* Extra small devices (phones, less than 768px) */
 /* No media query since this is the default in Bootstrap */
