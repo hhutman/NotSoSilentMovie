@@ -1,6 +1,0 @@
-Install program
-Export ffmpeg
-Install ffmpeg
-Install mongodb
-
-Errors isntalling NPM http://stackoverflow.com/questions/21365714/nodejs-error-installing-with-npm
