@@ -218,7 +218,7 @@ body {
     pointer-events: none;
 }
 
-@media (max-width: 760px) { /* xs media */
+@media (max-device-width: 760px) { /* xs media */
     .left_bar_header {
         height: 60px;
     }
@@ -296,7 +296,7 @@ body {
     display: none;
 }
 
-@media (min-width: 1400px) {
+@media (min-device-width: 1400px) {
     #content-feed-container {
         padding-left: 23%;
         padding-top: 6.8%;
@@ -324,7 +324,7 @@ body {
     visibility: hidden;
 }
 /* Medium devices (desktops, 992px and up) */
-@media (max-width: 990px) {
+@media (max-device-width: 990px) {
     .sm_main-page_appreciated_header {
         margin-top: 30px;
     }
