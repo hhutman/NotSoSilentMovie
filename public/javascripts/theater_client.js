@@ -67,7 +67,6 @@ loadNextVideo(playerInstance2);
 
 socket.on('theater-receive-list', function(videoList) {
     console.log('Theater List Received');
-    playlist = [];
     playlist.push("/content/videos/countdown.mp4");
     for(var i = 0; i < videoList.length; i++){
         playlist.push('../uploaded/' + videoList[i].target + '.mp4');
