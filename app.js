@@ -18,7 +18,6 @@ var http = require('http').Server(app);
  * Pages that can be visited
  */
 var upload = require('./routes/upload');
-var routes = require('./routes/index');
 var theater = require('./routes/theater');
 var viewFiles = require('./routes/viewFiles');
 var editFile = require('./routes/editFile');
@@ -46,13 +45,12 @@ app.use(express.static(path.join(__dirname, 'public')));
 /**
  * Register subdomains
  */
-app.use('/', routes);
 app.use('/upload', upload);
 app.use('/theater', theater);
 app.use('/viewFiles', viewFiles);
 app.use('/editFile', editFile);
 app.use('/directors', directors);
-app.use('/projectPage',projectPage);
+app.use('/',projectPage);
 app.use('/viewProjects',viewProjects);
 app.use('/dataRequest',dataRequest);
 app.use('/about',aboutPage);

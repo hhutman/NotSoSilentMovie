@@ -14,17 +14,9 @@ var Promise = require("bluebird");
 Promise.promisifyAll(projectUpload);
 Promise.promisifyAll(database);
 
-router.get('/', function(req, res){
-    res.redirect('../');
-});
 
-
-router.get('/:target', function(req, res) {
-    if(req.params.target == "new"){
-        res.render('sm_projectPage')
-    } else {
-        res.render('sm_projectPage'); //TODO
-    }
+router.get('/', function(req, res) {
+    res.render('sm_projectPage');
 });
 
 router.post('/', function(req, res){

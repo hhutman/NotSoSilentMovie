@@ -372,7 +372,7 @@ html, body {
 
 
 /* For Tablets */
-@media (min-width: 760px) {
+@media (min-device-width: 760px) {
     .left_bar_header {
         height: 60px;
     }
@@ -394,7 +394,7 @@ html, body {
 
 
 /* For Laptops */
-@media (min-width: 1024px) {
+@media (min-device-width: 1024px) {
     .theater-text {
         visibility: hidden;
     }
@@ -413,8 +413,18 @@ html, body {
     }
 }
 
+@media (min-device-width: 1400px) {
+    #content-feed-container {
+        padding-left: 23%;
+        padding-top: 6.8%;
+        width: 43%;
+        height: 88%;
+    }
 
-
-
-/* For Large Screens */
-/*@media (min-width: 1440) { ... }*/
+    .theater-full {
+        height: 100%;
+        width: 100%;
+        background-image: url("../content/images/theater.png");
+        background-size: 100% 100%;
+    }
+}
