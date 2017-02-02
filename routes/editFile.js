@@ -13,19 +13,7 @@ var Promise = require("bluebird");
 Promise.promisifyAll(database);
 
 router.get('/', function(req, res) {
-    database.getContent()
-        .then(function(files) {
-            for(var i = 0; i < files.length; i++){
-                if(files[i].name.substring(0,1) == "T"){
-                    files[i].useType = "card";
-                    database.updateByTarget(files[i]);
-                }
-            }
-        })
-        .catch(function(err) {
-            throw err;
-        });
-    res.redirect('../');
+    res.redirect('/');
 });
 
 /* GET users listing. */

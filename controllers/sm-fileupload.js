@@ -11,7 +11,7 @@ Promise.promisifyAll(resourceController);
 
 
 
-module.exports.newUpload = function(req) {
+module.exports.newUpload = function(req, filetype) {
     var resolve;
     var reject;
 
@@ -68,7 +68,7 @@ module.exports.newUpload = function(req) {
             .then(function (target) { // Returned 'target', File is saving
 
                 fs.rename(file.path, path.join(form.uploadDir, target + extension));
-                return resourceController.saveNewFile(target, extension, finalName);
+                return resourceController.saveNewFile(target, extension, finalName, filetype);
             })
             .then(function (target) {
                 resolve (target);

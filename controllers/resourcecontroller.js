@@ -64,27 +64,8 @@ function getUniqueHash(finalName){
     return newPromise;
 }
 
-function getUseType(extension){
-    switch(extension) {
-        case '.mp4':
-        case '.webm':
-        case '.flv':
-            return "video";
-        case '.jpg':
-        case '.jpeg':
-        case '.png':
-        case '.gif':
-            return "card";
-        case '.aac':
-        case '.mp3':
-        case '.vorbis':
-            return "audio";
-        default:
-            return "unknown";
-    }
-}
 
-function saveNewFile(hashedName, extension, name){
+function saveNewFile(hashedName, extension, name, filetype){
     var resolve;
     var reject;
 
@@ -97,7 +78,7 @@ function saveNewFile(hashedName, extension, name){
     newAddition.name = name;
     newAddition.extension = extension;
     newAddition.target = hashedName;
-    newAddition.useType = getUseType(extension);
+    newAddition.useType = filetype;
 
     newAddition.save(function (err, object) {
         if (err) {
@@ -112,7 +93,6 @@ function saveNewFile(hashedName, extension, name){
     return newPromise;
 }
 
-module.exports.getUseType = getUseType;
 module.exports.getUniqueName = getUniqueName;
 module.exports.getUniqueHash = getUniqueHash;
 module.exports.saveNewFile = saveNewFile;

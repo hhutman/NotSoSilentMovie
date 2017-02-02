@@ -7,24 +7,20 @@ block content
     div(id='alertSpace', class="text-alert", style='display: none')
     div
         .row
-            .col-xs-4
+            .col-xs-3
+            .col-xs-3
                 label(class="radio-inline")
                     input(type="radio", value="video", name="optradio", checked="true")
                     | VideoClip
                 .uploadSupportedFormats
-                    | (MP4, WebM, FLV)
-            .col-xs-4
+                    | (MP4)
+            .col-xs-3
                 label(class="radio-inline")
                     input(type="radio", value="card", name="optradio")
                     | Title Card
                 .uploadSupportedFormats
-                    | (JPG/JPEG, PNG, GIF)
-            .col-xs-4
-                label(class="radio-inline")
-                    input(type="radio", value="audio", name="optradio")
-                    | Audio Track
-                .uploadSupportedFormats
-                    | (AAC, MP3, Vorbis)
+                    | (MP4)
+            .col-xs-3
         .progress
             div(class="progress-bar" role="progressbar")
         button(id="selectButton", onclick="selectButtonClick()", class="btn btn-lg sm-button upload-btn sm-select", type="button")

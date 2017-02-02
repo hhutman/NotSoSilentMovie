@@ -13,7 +13,13 @@ router.get('/', function(req, res) {
 });
 
 router.post('/', function(req, res){
-    fileUpload.newUpload(req)
+    var filetype = req.param('filetype');
+    if(!filetype){
+        res.status(400).send( data);
+        res.end();
+    }
+
+    fileUpload.newUpload(req, filetype)
         .then(function(data) {
             res.status(200).send(data);
             res.end()

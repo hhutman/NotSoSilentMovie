@@ -48,38 +48,7 @@ function enableButtons(){
 function checkFileTypeSupported(){
     var filename = files[0].name;
     var extension = filename.substr( (filename.lastIndexOf('.') +1) );
-    switch(extension) {
-        case 'mp4':
-        case 'webm':
-        case 'flv':
-            return checkVideoRadioButton();  // There's was a typo in the example where
-                                                // the alert ended with pdf instead of gif.
-        case 'jpg':
-        case 'jpeg':
-        case 'png':
-        case 'gif':
-            return checkImageRadioButton();
-        case 'aac':
-        case 'mp3':
-        case 'vorbis':
-            return checkAudioRadioButton();
-        default:
-            return false;
-    }
-}
-function checkVideoRadioButton(){
-    var radioValue = $("input[name=optradio]:checked").val();
-    return radioValue == "video";
-
-}
-function checkImageRadioButton(){
-    var radioValue = $("input[name=optradio]:checked").val();
-    return radioValue == "card";
-
-}
-function checkAudioRadioButton(){
-    return $("input[name=optradio]:checked").val() == "audio";
-
+    return extension == 'mp4';
 }
 
 function goToEditPage(target){
@@ -100,10 +69,12 @@ function uploadFiles() {
     // AJAX request
     var formData = new FormData();
 
+    var radioValue = $("input[name=optradio]:checked").val();
     appendFilesToForm(formData);
 
+
     $.ajax({
-        url: '/upload',
+        url: '/upload/?filetype=' + radioValue,
         type: 'POST',
         data: formData,
         processData: false,
