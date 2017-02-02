@@ -130,7 +130,7 @@ function dataRequest(request, callback, errCallback) {
 
 function projectUpload(jsonProject, callback, errCallback) {
     $.ajax({
-        url: "/projectPage",
+        url: "/",
         type: "POST",
         dataType: "json",
         data: JSON.stringify(jsonProject),
