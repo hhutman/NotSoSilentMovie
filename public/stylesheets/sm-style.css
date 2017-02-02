@@ -444,6 +444,7 @@ html, body {
     top: 0;
   }
   .sm_project-page_next {
+    z-index: 999;
     width: 5em;
     height: 2em;
     line-height: 2em;
