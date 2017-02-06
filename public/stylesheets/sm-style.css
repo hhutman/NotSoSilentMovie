@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Poppins:400,600');
+@import url('https://fonts.googleapis.com/css?family=Rubik:400,500');
 
 html, body {
   height: 100vh;
@@ -6,15 +6,16 @@ html, body {
   background-color: #1A1A1A;
   color: white;
   text-align: center;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Rubik', sans-serif;
   font-weight: 400;
   position: relative;
   margin: 0;
   padding: 0;
 }
 .sm_main-content {
-  position: relative;
+  position: fixed;
   height: 100vh;
+  width: 100vw;
   padding: 0;
   margin: 0;
 }
@@ -22,7 +23,6 @@ html, body {
   font-size: 30px;
   height: 15vh;
   line-height: 15vh;
-  font-weight: 400;
   overflow: hidden;
 }
 .sm_project-page_table {
@@ -37,11 +37,12 @@ html, body {
   height: 100%;
   display: inline-block;
   position: relative;
+  background-color: #37474F;
+  position: relative;
 }
-.sm_project-planner_text {
-  color: gray;
+.sm_project-planner p {
   text-align: left;
-  line-height: 2.2em;
+  line-height: 1.8em;
   font-size: 1.1em;
   position: absolute;
   width: 5em;
@@ -54,11 +55,21 @@ html, body {
   height: 100%;
   padding-top: 1em;
   overflow-y: scroll;
-  background-color: rgb(56, 63, 59);
+  z-index: 100;
+  position: relative;
+}
+#projectPlannerContainer .content-draggable {
+  width: calc(100% - 2em);
+  padding-top: calc(75% - 2em);
+  position: relative;
+  margin: 0 1em 1em 1em;
 }
 #projectPlannerContainer img {
-  width: calc(100% - 2em);
-  margin-bottom: 1em;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
 }
 
 
@@ -71,12 +82,11 @@ html, body {
 .sm_project-creator .preview {
   width: 100%;
   height: 25vh;
-  background-color: rgb(34,38,36);
+  background-color: #263238;
   position: relative;
   overflow: hidden;
 }
 .sm_project-creator .preview_text {
-  color: gray;
   font-size: 16px;
   position: absolute;
   width: 12em;
@@ -86,8 +96,8 @@ html, body {
   transform: translate(-50%, -50%);
 }
 #projectPage-CurrentSelection {
-  width: 100%;
-  height: 100%;
+  width: auto;
+  height: auto;
 }
 #projectPage-CurrentSelection > * {
   position: absolute;
@@ -98,7 +108,7 @@ html, body {
   transform: translate(-50%, -50%);
 }
 .sm_project-creator .actionbar {
-  background-color: #FFD447;
+  background-color: #81D4FA;
   height: 5vh;
   color: black;
   position: relative;
@@ -106,7 +116,7 @@ html, body {
 }
 .sm_project-creator .actionbar_title {
   font-size: 1.3em;
-  font-weight: 600;
+  font-weight: 500;
   height: 5vh;
   line-height: 5vh;
   margin-left: 1em;
@@ -129,122 +139,126 @@ html, body {
   top: 0;
 }
 .sm_project-creator .refresh_text {
-  font-size: 1em;
-  font-weight: 600;
+  font-size: 1.1em;
+  font-weight: 500;
   height: 5vh;
   line-height: 5vh;
   text-align: left;
   vertical-align: middle;
   margin: auto 1em;
   display: inline-block;
-  transform: translateY(0.08em);
 }
 .sm_project-creator .refresh img {
   height: 1.1em;
-  margin-right: 0.5em;
   display: inline-block;
   vertical-align: middle;
 }
 #projectPage-clipBlock, #projectPage-cardBlock {
   height: 28vh;
-  padding: 4px;
+  padding-top: 0.7em;
+  padding-left: 0.7em;
   overflow-y: scroll;
-  padding-top: 1.2em;
-  background-color: #303633;
+  background-color: #263238;
 }
 #projectPage-cardBlock {
   height: 15vh;
 }
-#projectPage-clipBlock > *, #projectPage-cardBlock > * {
-  width: calc(33% - 6px);
-  padding: 2px;
-  height: calc(50% - 6px);
+#projectPage-clipBlock .content-draggable, #projectPage-cardBlock .content-draggable {
+  width: calc(33.33% - 0.7em);
+  height: calc(50% - 0.7em);
+  position: relative;
+  margin-right: 0.7em;
+  margin-bottom: 0.7em;
   display: inline-block;
-  text-align: left;
-}
-#projectPage-cardBlock > * {
-  height: calc(100% - 6px);
 }
 #projectPage-clipBlock img, #projectPage-cardBlock img {
-  width: 100%;
+  position: absolute;
   height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
 }
 
 
 /* Styling for Project Page Next Button */
 .sm_project-page_next {
-  background-color: #FFD447;
+  background-color: #81D4FA;
   color: black;
   font-size: 1.8em;
-  font-weight: 600;
+  font-weight: 500;
   height: 7vh;
   line-height: 7vh;
 }
-
+.sm_project-page_next:hover {
+  background-color: #03A9F4;
+}
 
 /* Styling for Project Page Modal */
 .sm_project-modal {
-  background-color: #303633;
+  background-color: #37474F;
 }
-.sm_project-modal .header {
+.sm_project-modal header {
   font-size: 1.8em;
   padding: 1em;
   padding-left: 2em;
   padding-right: 2em;
-  background-color: #262B29;
 }
-.sm_project-modal .close {
+.sm_project-modal hr {
+  margin: 0.2em;
+  opacity: 0;
+}
+.sm_project-modal .exit {
   position: absolute;
   top: 0em;
   right: 0em;
   padding: 0.5em;
-  color: rgba(255, 255, 255, 0.51);
+  line-height: 0.7em;
+  opacity: 0.5;
+  cursor: pointer;
 }
-.sm_project-modal .body {
+.sm_project-modal .exit:hover {
+  opacity: 1;
+}
+.sm_project-modal main {
   font-size: 20px;
   margin: auto;
   padding: 1em;
   text-align: left;
   max-width: 20em;
 }
-.sm_project-modal .body .labels {
-  width: auto;
+.sm_project-modal label {
+  width: calc(33% - 1em);
   margin-right: 1em;
   display: inline-block;
-  text-align: right;
-}
-.sm_project-modal .body label {
+  text-align: left;
   font-weight: 400;
-  display: block;
 }
-.sm_project-modal .body .inputs {
+.sm_project-modal input {
   width: 66%;
   display: inline-block;
-}
-.sm_project-modal .body input {
-  background-color: rgba(0, 0, 0, 0.5);
-  display: inline-block;
-  font-weight: 400;
+  padding: 0.3em;
+  font-size: 0.8em;
+  background-color: #263238;
   border: none;
-  width: 100%;
 }
-.sm_project-modal .footer {
-  margin: 1em;
+.sm_project-modal footer {
+  padding: 1em;
   text-align: center;
-  padding-top: 1em;
-  padding-bottom: 2em;
-  margin-left: -1em;
 }
-.sm_project-modal .footer .button {
-  background-color: #FFD447;
+.sm_project-modal footer div {
+  background-color: #81D4FA;
   display: inline-block;
-  width: 120px;
-  font-size: 20px;
-  font-weight: 600;
+  width: 7em;
+  font-size: 1.5em;
+  font-weight: 500;
   color: black;
   padding: 0.3em;
-  margin-left: 1em;
+  margin: 0.5em 1em;
   text-align: center;
+  cursor: pointer;
+}
+.sm_project-modal footer div:hover {
+  background-color: #03A9F4; 
 }
 
 
@@ -262,7 +276,7 @@ html, body {
 .left_bar_text-main {
   line-height: 50px;
   font-size: 30px;
-  font-weight: 600;
+  font-weight: 500;
 }
 .left_bar_child_make-a-movie > * {
   top: 5%;
@@ -270,7 +284,7 @@ html, body {
 .left_bar_text-icon {
   line-height: 50px;
   font-size: 40px;
-  font-weight: 600;
+  font-weight: 500;
 }
 .left_bar_main * {
   position: relative;
@@ -394,7 +408,7 @@ html, body {
 
 
 /* For Laptops */
-@media (min-device-width: 1024px) {
+@media only screen and (min-device-width: 1024px) {
   /* Make a Movie styling for Laptops */
   .sm_project-page_table {
     height: calc(78vh - 8em);
@@ -425,7 +439,7 @@ html, body {
   }
   .sm_project-creator .refresh:hover {
     cursor: pointer;
-    background-color: #FFD447;
+    background-color: #03A9F4;
   }
   #projectPage-clipBlock {
     height: 100%;
@@ -438,6 +452,22 @@ html, body {
     right: 0;
     top: 5vh;
   }
+  #projectPage-clipBlock .content-draggable, #projectPage-cardBlock .content-draggable {
+    width: calc(50% - 0.7em);
+    height: 0;
+    padding-top: calc(37.5% - 0.7em);
+    position: relative;
+    margin-right: 0.7em;
+    margin-bottom: 0.7em;
+    display: inline-block;
+  }
+  #projectPage-clipBlock img, #projectPage-cardBlock img {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+  }
   .sm_project-creator .actionbar.cards {
     position: absolute;
     right: 0;
@@ -449,9 +479,6 @@ html, body {
     line-height: 2em;
     margin: 2em auto;
     cursor: pointer;
-  }
-  .sm_project-page_next:hover {
-    background-color: #F7CA18;
   }
 
   /* Other sytling for laptops */
