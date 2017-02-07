@@ -9,24 +9,28 @@ block content
     //- .col-xs-12.col-sm-2.col-md-1
     //-     include partials/left_bar_icon.pug
     .makeamovie
+        //- Header
         .header
             | Make a Movie
 
         .maincontent
+
             //- Planner
             .planner
                 p
                     | Drag &amp; drop clips &amp; cards here
                 #projectPlannerContainer
+
             //- Preview, Clips, Cards
             .creator
-                //- Styling for Preview Container
+
+                //- Preview
                 .preview
                     h1
                         | Tap a clip to preview
                     #projectPage-CurrentSelection
 
-                //- Styling for Clips
+                //- Clips
                 .panelheader
                     img(src='../content/images/clips.svg', class="icon")
                     h1
@@ -37,8 +41,8 @@ block content
                             | Refresh
                 #projectPage-clipBlock
 
-                //- Styling for Cards
-                .panelheader
+                //- Cards
+                .panelheader.cards
                     img(src='../content/images/cards.svg', class="icon")
                     h1
                         | Cards
@@ -48,26 +52,28 @@ block content
                             | Refresh
                 #projectPage-cardBlock
 
-        div(class="next", data-toggle="modal", data-target="#projectModal")
+        //- Next Button
+        .next
             | Next
 
-    //- div(class="modal fade", id="projectModal", role="dialog")
-    //-   .modal-dialog
-    //-       .sm_project-modal
-    //-           header
-    //-               | Give your movie a title &amp; an author.
-    //-               div(class="exit", data-dismiss="modal")
-    //-                   | &times;
-    //-               //- h4(id="popupHeader", class="modal-title sm_project-page_modal-header-txt")
-    //-           main
-    //-               label(for="input_name") Name:
-    //-               input(id="input_name" type="text" name="name")
-    //-               hr
-    //-               label(for="input_creator") Author:
-    //-               input(id="input_creator" type="text" name="creator")
-    //-           footer
-    //-               div( type="button", data-dismiss="modal").
-    //-                   Cancel
-    //-               div( type="button", onclick="saveNewProject()").
-    //-                   Publish
-    //- div(class="modal fade", id="confirmDeleteModal", role="dialog")
+    script(src="/javascripts/modal.js")
+    .modalbkg
+    //- Modal / Popup
+    div(class="modal fade", id="projectModal", role="dialog")
+        header
+            | Give your movie a title &amp; an author.
+            //- h4(id="popupHeader", class="modal-title sm_project-page_modal-header-txt")
+        main
+            label(for="input_name") Name:
+            input(id="input_name" type="text" name="name")
+            hr
+            label(for="input_creator") Author:
+            input(id="input_creator" type="text" name="creator")
+        footer
+            .btn.cancel
+                | Cancel
+            div(class="btn" onclick="saveNewProject()")
+                | Publish
+        .exit
+            | &times;
+    div(class="modal fade", id="confirmDeleteModal", role="dialog")
