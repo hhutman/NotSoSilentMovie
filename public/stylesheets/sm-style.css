@@ -102,10 +102,12 @@ h1,h2,h3 {
 }
 #projectPage-CurrentSelection > * {
   position: absolute;
-  top: 47.5%;
+  top: 50%;
   left: 50%;
+/*
   min-width: 120%;
   min-height: 120%;
+*/
   transform: translate(-50%, -50%);
 }
 /* Clips & Cards Header Bars */
