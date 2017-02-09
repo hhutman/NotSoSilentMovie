@@ -27,7 +27,7 @@ function configureSocket (socket) {
                 if(!movies || movies.length == 0){
                     throw "error - movies empty";
                 }
-                socket.emit('theater-receive-list',movies[movieInteger % movies.length].content);
+                socket.emit('theater-receive-list', movies[movieInteger % movies.length]);
             })
             .catch(function(err) {
                 console.log(err);

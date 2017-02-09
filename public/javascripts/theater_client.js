@@ -3,6 +3,8 @@ var socket = io.connect();
 jwplayer.key = "hKr0It8yDiMnKte/Cy3p9KDJ74XfRooWYAiO8A==";
 
 var playlist = [];
+var nextTitle = 'Waiting...';
+
 var movieCount = 0;
 
 var w = '100%';
@@ -37,6 +39,7 @@ playerInstance.on('complete', function () {
     playerInstance2.play();
     document.getElementById("contentfeed").style.display = "none";
     document.getElementById("contentfeed2").style.display = "block";
+    document.getElementById("movieTitle").innerHTML = nextTitle;
     loadNextVideo(playerInstance);
 });
 playerInstance2.on('complete', function () {
@@ -44,6 +47,7 @@ playerInstance2.on('complete', function () {
     playerInstance.play();
     document.getElementById("contentfeed2").style.display = "none";
     document.getElementById("contentfeed").style.display = "block";
+    document.getElementById("movieTitle").innerHTML = nextTitle;
     loadNextVideo(playerInstance2);
 });
 
@@ -53,7 +57,9 @@ function loadNextVideo( player ){
         movieCount++;
         return;
     }
-    var video = playlist.shift();
+    var next = playlist.shift();
+    var video = next.clip;
+    nextTitle = "<div>" + next.text + "</div><div>By " + next.creator + "</div>";
     player.load([{
         file: video
     }]);
@@ -65,13 +71,25 @@ window.onload = function () {
 
 loadNextVideo(playerInstance2);
 
-socket.on('theater-receive-list', function(videoList) {
+socket.on('theater-receive-list', function(movie) {
     console.log('Theater List Received');
-    playlist.push("/content/videos/countdown.mp4");
-    for(var i = 0; i < videoList.length; i++){
-        playlist.push('../uploaded/' + videoList[i].target + '.mp4');
+    playlist.push( {
+        clip: "/content/videos/countdown.mp4",
+        text: movie.name,
+        creator: movie.creator
+    });
+    for(var i = 0; i < movie.content.length; i++){
+        playlist.push({
+            clip: '../uploaded/' +movie.content[i].target + '.mp4',
+            text: movie.name,
+            creator: movie.creator
+        });
     }
-    playlist.push("/content/videos/the-end-slate.mp4");
+    playlist.push( {
+        clip: "/content/videos/the-end-slate.mp4",
+        text: movie.name,
+        creator: movie.creator
+    });
     loadNextVideo(getInactivePlayer());
 });
 
