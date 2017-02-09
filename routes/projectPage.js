@@ -31,7 +31,7 @@ router.post('/', function(req, res){
         return;
     }
     if(project.content.length < 3){
-        res.status(400).send("Invalid Movie Length - " + project.content.length);
+        res.status(400).send("Invalid Movie Length - " + project.content.length + "/3");
         return;
     }
 
