@@ -595,7 +595,7 @@ h1,h2,h3 {
   }
 
   #movieTitle {
-    top: -120px;
-    font-size: 50px;
+    top: -60px;
+    font-size: 160%;
   }
 }
