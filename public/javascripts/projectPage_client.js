@@ -148,12 +148,34 @@ function saveNewProject() {
 }
 
 function uploadSuccess() {
-    window.location = "/";
+    switchToSuccessModal();
 }
 
 function uploadError(err) {
     console.log(err);
     document.getElementById("upload_message").innerHTML = "Error: " + err;
+}
+
+function openPublishModal () {
+    $("#projectModal").fadeIn();
+    $(".modalbkg").fadeIn();
+    $(".makeamovie").addClass("expblur");
+    document.getElementById("upload_message").innerHTML = "";
+}
+
+function exitPublishModal() {
+    $("#projectModal").fadeOut();
+    $(".modalbkg").fadeOut();
+    $(".makeamovie").removeClass("expblur");
+}
+
+function switchToSuccessModal() {
+    $("#projectModal").fadeOut();
+    $("#successModal").fadeIn();
+}
+
+function exitSuccessModal() {
+    window.location = "/";
 }
 
 function getProjectJSON() {

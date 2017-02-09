@@ -51,11 +51,8 @@ block content
                 #projectPage-cardBlock
 
         //- Next Button
-        .next
+        div(class="next",onclick="openPublishModal()")
             | Next
-
-    script(src="/javascripts/modal.js")
-    .modalbkg
     //- Modal / Popup
     div(class="modal fade", id="projectModal", role="dialog")
         header
@@ -69,10 +66,19 @@ block content
             input(id="input_creator" type="text" name="creator")
             #upload_message
         footer
-            .btn.cancel
+            div(class="btn cancel",onclick="exitPublishModal()")
                 | Cancel
-            div(class="btn" onclick="saveNewProject()")
+            div(class="btn", onclick="saveNewProject()")
                 | Publish
-        .exit
+        div(class="exit", onclick="exitPublishModal()")
             | &times;
-    div(class="modal fade", id="confirmDeleteModal", role="dialog")
+        //- Modal / Popup
+    div(class="modal fade", id="successModal", role="dialog")
+        header
+            | Movie uploaded successfully!
+        main
+        footer
+            div(class="btn cancel",onclick="exitSuccessModal()")
+                | Continue
+        div(class="exit", onclick="exitSuccessModal()")
+            | &times;
