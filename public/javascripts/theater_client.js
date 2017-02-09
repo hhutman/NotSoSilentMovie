@@ -5,7 +5,7 @@ jwplayer.key = "hKr0It8yDiMnKte/Cy3p9KDJ74XfRooWYAiO8A==";
 var playlist = [];
 var nextTitle = 'Waiting...';
 
-var movieCount = 0;
+var movieCount = Math.floor(Math.random() * 100);
 
 var w = '100%';
 var h = '100%';
