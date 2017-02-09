@@ -593,4 +593,9 @@ h1,h2,h3 {
     background-image: url("../content/images/theater.png");
     background-size: 100% 100%;
   }
+
+  #movieTitle {
+    top: -120px;
+    font-size: 50px;
+  }
 }
