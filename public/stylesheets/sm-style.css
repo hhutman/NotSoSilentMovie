@@ -442,6 +442,12 @@ h1,h2,h3 {
   display: none;
 }
 
+#upload_message {
+  position: absolute;
+  color: red;
+  margin-top: 10px;
+}
+
 #movieTitle {
   position: relative;
   width: 100%;

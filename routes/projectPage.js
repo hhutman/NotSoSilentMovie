@@ -20,16 +20,29 @@ router.get('/', function(req, res) {
 });
 
 router.post('/', function(req, res){
-    var project = req.body;
+    const project = req.body;
+
+    if(!project.name) {
+        res.status(400).send("Invalid Movie Name");
+        return;
+    }
+    if(!project.creator) {
+        res.status(400).send("Invalid Movie Creator");
+        return;
+    }
+    if(project.content.length < 3){
+        res.status(400).send("Invalid Movie Length - " + project.content.length);
+        return;
+    }
+
+
     projectUpload.newUpload(project)
         .then(function(result) {
-            var response = {status: 200, success: true};
+            const response = {status: 200, success: true};
             res.end(JSON.stringify(response));
         })
         .catch(function(err){
-            //TODO: Error not handled properly clientside
-            var response = {status: 400, error: err};
-            res.end(JSON.stringify(response));
+            res.status(400).send(err);
         })
 });
 

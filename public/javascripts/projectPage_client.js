@@ -133,11 +133,11 @@ function projectUpload(jsonProject, callback, errCallback) {
         dataType: "json",
         data: JSON.stringify(jsonProject),
         contentType: "application/json",
-        success: function() {
+        success: function(data, code, jqXHR) {
             callback();
         },
-        error: function(err){
-            errCallback(err);
+        error: function(jqXHR, code, error){
+            errCallback(jqXHR.responseText);
         }
     });
 }
@@ -152,7 +152,8 @@ function uploadSuccess() {
 }
 
 function uploadError(err) {
-    console.log("ERROR: " + err); //TODO also do some sort of display for errors
+    console.log(err);
+    document.getElementById("upload_message").innerHTML = "Error: " + err;
 }
 
 function getProjectJSON() {

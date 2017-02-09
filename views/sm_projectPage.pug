@@ -6,8 +6,6 @@ block content
     script(src="/javascripts/Sortable.min.js")
     script(src="/javascripts/projectPage_client.js")
 
-    //- .col-xs-12.col-sm-2.col-md-1
-    //-     include partials/left_bar_icon.pug
     .makeamovie
         //- Header
         .header
@@ -69,6 +67,7 @@ block content
             hr
             label(for="input_creator") Author:
             input(id="input_creator" type="text" name="creator")
+            #upload_message
         footer
             .btn.cancel
                 | Cancel
