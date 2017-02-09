@@ -41,7 +41,7 @@ function newMovie () {
             if(!movies || movies.length == 0){
                 throw "error - movies empty";
             }
-            io.emit('theater-receive-list',movies[movies.length - 1].content);
+            io.emit('theater-receive-list',movies[movies.length - 1]);
         })
         .catch(function(err) {
             console.log(err);
