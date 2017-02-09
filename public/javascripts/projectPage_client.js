@@ -141,6 +141,9 @@ function projectUpload(jsonProject, callback, errCallback) {
         }
     });
 }
+window.onbeforeunload = function() {
+    return "Are you sure you wish to leave the page?\nAll your work will be removed.";
+}
 
 function saveNewProject() {
     var projectJson = getProjectJSON();
