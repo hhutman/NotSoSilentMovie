@@ -3,7 +3,6 @@ var socket = io.connect();
 jwplayer.key = "hKr0It8yDiMnKte/Cy3p9KDJ74XfRooWYAiO8A==";
 
 var playlist = [];
-var nextTitle = 'Waiting...';
 
 var movieCount = Math.floor(Math.random() * 100);
 
@@ -47,22 +46,28 @@ playerInstance2.on('complete', function () {
     playerInstance.play();
     document.getElementById("contentfeed2").style.display = "none";
     document.getElementById("contentfeed").style.display = "block";
-    document.getElementById("movieTitle").innerHTML = nextTitle;
     loadNextVideo(playerInstance2);
 });
 
-function loadNextVideo( player ){
-    if(playlist.length <= 0){
+function loadNextVideo( player ) {
+    if (playlist.length <= 0) {
         socket.emit('theater-request-list', movieCount);
         movieCount++;
         return;
     }
     var next = playlist.shift();
     var video = next.clip;
-    nextTitle = "<div>" + next.text + "</div><div>By " + next.creator + "</div>";
+    if (next.callback){
+        next.callback();
+    }
+
     player.load([{
         file: video
     }]);
+}
+
+function loadNextTitle (movieTitle, creator){
+    document.getElementById("movieTitle").innerHTML = "<div>" + movieTitle + "</div><div>By " + creator + "</div>";
 }
 
 window.onload = function () {
@@ -75,20 +80,17 @@ socket.on('theater-receive-list', function(movie) {
     console.log('Theater List Received');
     playlist.push( {
         clip: "/content/videos/countdown.mp4",
-        text: movie.name,
-        creator: movie.creator
+        callback: function (){
+            loadNextTitle(movie.name, movie.creator)
+        }
     });
     for(var i = 0; i < movie.content.length; i++){
         playlist.push({
-            clip: '../uploaded/' +movie.content[i].target + '.mp4',
-            text: movie.name,
-            creator: movie.creator
+            clip: '../uploaded/' +movie.content[i].target + '.mp4'
         });
     }
     playlist.push( {
-        clip: "/content/videos/the-end-slate.mp4",
-        text: movie.name,
-        creator: movie.creator
+        clip: "/content/videos/the-end-slate.mp4"
     });
     loadNextVideo(getInactivePlayer());
 });
