@@ -74,13 +74,29 @@ window.onload = function () {
     playerInstance.play();
 };
 
+function removeComingUpNextChild(){
+    var list = document.getElementById("theater-up_next-list");   // Get the <ul> element with id="myList"
+    if(list.childNodes.length > 0){
+        list.removeChild(list.childNodes[0]);
+    }
+}
+
+function appendComingUpNext( title ){
+    var newBlock = document.createElement("div");
+    newBlock.innerHTML = title;
+    document.getElementById("theater-up_next-list").appendChild(newBlock);
+}
+
 loadNextVideo(playerInstance2);
 
 socket.on('theater-receive-list', function(movie) {
     console.log('Theater List Received');
+    appendComingUpNext(movie.name);
+
     playlist.push( {
         clip: "/content/videos/countdown.mp4",
         callback: function (){
+            removeComingUpNextChild();
             loadNextTitle(movie.name, movie.creator)
         }
     });
