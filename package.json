@@ -6,6 +6,7 @@
     "start": "node ./bin/www"
   },
   "dependencies": {
+    "bad-language-filter": "^1.0.2",
     "bluebird": "latest",
     "body-parser": "latest",
     "cookie-parser": "latest",
@@ -19,9 +20,11 @@
     "mongodb": "latest",
     "mongoose": "latest",
     "morgan": "latest",
+    "profam": "^2.0.2",
     "pug": "^2.0.0-beta6",
     "serve-favicon": "latest",
-    "socket.io": "^1.5.1"
+    "socket.io": "^1.5.1",
+    "swearjar": "^0.1.3"
   },
   "description": "Direct your own interactive silent movies using clips from the past!",
   "main": "www",
