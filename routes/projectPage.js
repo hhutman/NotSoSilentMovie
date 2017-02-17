@@ -1,15 +1,18 @@
 'use strict';
-var express = require('express');
-var fs = require('fs');
-var router = express.Router();
+const express = require('express');
+const fs = require('fs');
+const router = express.Router();
 
 
-var database = require('../config/database');
-var projectUpload = require('../controllers/sm-projectupload');
+const database = require('../config/database');
+const projectUpload = require('../controllers/sm-projectupload');
 
-var Promise = require("bluebird");
+const Promise = require("bluebird");
 
+const swearjar = require('swearjar');
 
+const minClips = 3;
+const textLimit = 10;
 
 Promise.promisifyAll(projectUpload);
 Promise.promisifyAll(database);
@@ -20,16 +23,41 @@ router.get('/', function(req, res) {
 });
 
 router.post('/', function(req, res){
-    var project = req.body;
+    const project = req.body;
+
+    project.creator = project.creator.replace(/[^0-9a-z]/gi, '');
+    project.name = project.name.replace(/[^0-9a-z]/gi, '');
+
+    if(!project.name) {
+        res.status(400).send("Invalid Movie Name");
+        return;
+    }
+    if(!project.creator) {
+        res.status(400).send("Invalid Movie Creator");
+        return;
+    }
+    if(project.content.length < minClips){
+        res.status(400).send("Invalid Movie Length - " + project.content.length + "/" + minClips);
+        return;
+    }
+    if(swearjar.profane(project.creator) || swearjar.profane(project.name)){
+        res.status(400).send("Profanity detected");
+        return;
+    }
+    if(project.creator.length > textLimit || project.name.length > textLimit){
+        res.status(400).send("Please shorten your labels to " + textLimit + " characters");
+        return;
+    }
+
+
     projectUpload.newUpload(project)
         .then(function(result) {
-            var response = {status: 200, success: true};
+            const response = {status: 200, success: true};
             res.end(JSON.stringify(response));
         })
         .catch(function(err){
-            //TODO: Error not handled properly clientside
-            var response = {status: 400, error: err};
-            res.end(JSON.stringify(response));
+            //TODO: Error can return all types, not just duplicate names
+            res.status(400).send("Name Already Exists");
         })
 });
 

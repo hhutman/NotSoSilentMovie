@@ -15,7 +15,7 @@ router.get('/', function(req, res) {
 router.post('/', function(req, res){
     var filetype = req.param('filetype');
     if(!filetype){
-        res.status(400).send( data);
+        res.status(400).send();
         res.end();
     }
 

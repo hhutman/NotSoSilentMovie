@@ -21,8 +21,11 @@ window.onload = function () {
         group: "content",
         animation: 150,
     });
+<<<<<<< HEAD
 
     //document.getElementById("sm-icon-makemovie").style.color = "#FFD447";
+=======
+>>>>>>> refs/remotes/origin/comingUp
 };
 
 function projectEdit (objectID){
@@ -135,11 +138,11 @@ function projectUpload(jsonProject, callback, errCallback) {
         dataType: "json",
         data: JSON.stringify(jsonProject),
         contentType: "application/json",
-        success: function() {
+        success: function(data, code, jqXHR) {
             callback();
         },
-        error: function(err){
-            errCallback(err);
+        error: function(jqXHR, code, error){
+            errCallback(jqXHR.responseText);
         }
     });
 }
@@ -150,11 +153,34 @@ function saveNewProject() {
 }
 
 function uploadSuccess() {
-    window.location = "/";
+    switchToSuccessModal();
 }
 
 function uploadError(err) {
-    console.log("ERROR: " + err); //TODO also do some sort of display for errors
+    console.log(err);
+    document.getElementById("upload_message").innerHTML = "Error: " + err;
+}
+
+function openPublishModal () {
+    $("#projectModal").fadeIn();
+    $(".modalbkg").fadeIn();
+    $(".makeamovie").addClass("expblur");
+    document.getElementById("upload_message").innerHTML = "";
+}
+
+function exitPublishModal() {
+    $("#projectModal").fadeOut();
+    $(".modalbkg").fadeOut();
+    $(".makeamovie").removeClass("expblur");
+}
+
+function switchToSuccessModal() {
+    $("#projectModal").fadeOut();
+    $("#successModal").fadeIn();
+}
+
+function exitSuccessModal() {
+    window.location = "/";
 }
 
 function getProjectJSON() {

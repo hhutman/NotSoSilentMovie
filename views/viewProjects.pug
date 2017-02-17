@@ -2,6 +2,9 @@ extends layout.pug
 block variables
     - var pageTitle = "View Projects"
 block content
+    link(href='https://fonts.googleapis.com/css?family=Raleway',rel='stylesheet',type='text/css')
+    link(href="/stylesheets/bootstrap.min.css" rel="stylesheet")
+    script(src="/javascripts/bootstrap.min.js")
     script(src="https://cdn.socket.io/socket.io-1.4.5.js")
     script(src="../../javascripts/viewProjects_client.js")
     h3 Look at other projects!
@@ -9,7 +12,8 @@ block content
         each project in projects
             - var projRef = JSON.stringify(project);
             div(id="projRow_" + project.name, class="row" )
-                .col-xs-4
+                .col-xs-3
+                .col-xs-3
                     button( onclick="playProject(" + projRef + ")", class="view-files_play", data-toggle="modal", data-target="#playModal")
                         if project.content[0]
                             img(src="/thumbnails/" + project.content[0].target + ".png")
@@ -17,16 +21,12 @@ block content
                             img(src="/thumbnails/missing_image.png")
                 .col-xs-1
                     | #{project.name}
-                .col-xs-3
+                .col-xs-1
                     | #{project.description}
-                .col-xs-2
-                    button(disabled="disabled", onclick="goToEditProject(" + projRef + ")", class="btn btn-lg sm-button sm-edit", ).
-                        Edit
-                .col-xs-2
+                .col-xs-1
                     button( class="btn btn-lg sm-button sm-delete", onclick="deletePressed(" + projRef + ")", data-toggle="modal" data-target="#confirmDeleteModal").
                         X
-    button( onclick="window.location.href='/projectPage/new'", class="btn btn-lg sm-button upload-btn sm-pageLink", type="button")
-        | Make a Project!
+                .col-xs-3
     div(class="modal fade", id="confirmDeleteModal", role="dialog")
         .modal-dialog
             .modal-content
