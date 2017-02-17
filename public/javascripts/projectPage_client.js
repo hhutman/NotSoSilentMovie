@@ -22,7 +22,7 @@ window.onload = function () {
         animation: 150,
     });
 
-    document.getElementById("sm-icon-makemovie").style.color = "#FFD447";
+    //document.getElementById("sm-icon-makemovie").style.color = "#FFD447";
 };
 
 function projectEdit (objectID){
