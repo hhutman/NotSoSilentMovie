@@ -1,0 +1,191 @@
+@import url('https://fonts.googleapis.com/css?family=Rubik:400,500');
+
+body {
+  height: 100vh;
+  width: 100vw;
+  background-color: #1A1A1A;
+  color: white;
+  text-align: center;
+  font-family: 'Rubik', sans-serif;
+  font-weight: 400;
+  position: relative;
+  margin: 0;
+  padding: 0;
+  z-index: 0;
+}
+
+
+/* Styling for the Left Bar */
+
+.left_bar_header {
+  height: 26%;
+}
+
+.left_bar_child {
+  height: 17%;
+}
+
+.left_bar_child > *,
+.left_bar_header > * {
+  position: relative;
+  top: 20%;
+}
+
+.left_bar_text-main {
+  line-height: 50px;
+  font-size: 30px;
+  font-weight: 500;
+}
+
+.left_bar_child_make-a-movie > * {
+  top: 5%;
+}
+
+.left_bar_text-icon {
+  line-height: 50px;
+  font-size: 40px;
+  font-weight: 500;
+}
+
+.left_bar_main * {
+  position: relative;
+  text-align: left;
+  left: 0;
+}
+
+
+/* Styling for the Main Page */
+
+.sm_main-page_tap-here_img {
+  width: 100%;
+}
+
+.sm_main-page_now-playing_img {
+  width: 100%;
+}
+
+.sm_main-page_appreciated_img {
+  width: 100%;
+}
+
+.sm_main-page_appreciated_header {
+  text-align: left;
+  padding-left: 15px;
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+
+.sm_main-page_appreciated_block {
+  display: inline-block;
+  width: 25%;
+  margin: 10px;
+  font-size: 20px;
+  text-align: left;
+}
+
+.sm_main-page_now-playing_title {
+  text-align: left;
+  font-size: 35px;
+}
+
+.sm_main-page_now-playing_author {
+  text-align: left;
+  font-size: 20px;
+}
+
+.sm_main-page_now-playing_appreciate {
+  background-color: #353535;
+  padding: 8px;
+  font-size: 20px;
+  float: left;
+  text-align: left;
+  margin-top: 15px;
+  color: #aaa;
+}
+
+.sm_main-page_tap-here_container {
+  margin-bottom: 30px;
+}
+
+.sm_main-page_movie-list {
+  padding: 5px;
+  -webkit-box-shadow: inset 0px 0px 32px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: inset 0px 0px 32px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: inset 0px 0px 32px 0px rgba(0, 0, 0, 0.75);
+  overflow-x: scroll;
+  overflow-y: hidden;
+  white-space: nowrap;
+  margin-bottom: 20px;
+}
+
+.sm_main-page_movie-list img {
+  cursor: pointer;
+}
+
+
+/* Other Styling */
+
+.sm_no-padding {
+  padding: 0;
+}
+
+.sm_button {
+  -webkit-touch-callout: none;
+  /* iOS Safari */
+  -webkit-user-select: none;
+  /* Chrome/Safari/Opera */
+  -khtml-user-select: none;
+  /* Konqueror */
+  -moz-user-select: none;
+  /* Firefox */
+  -ms-user-select: none;
+  /* Internet Explorer/Edge */
+  user-select: none;
+  /* Non-prefixed version, currently not supported by any browser */
+  cursor: pointer;
+}
+
+.sm_xs_no-padding {
+  padding: 0;
+}
+
+
+/* For Tablets */
+
+@media (min-device-width: 760px) {
+  .left_bar_header {
+    height: 60px;
+  }
+  .left_bar_child {
+    height: 60px;
+  }
+  .left_bar_text-icon {
+    font-size: 35px;
+  }
+  .left_bar_header > * {
+    padding: 0;
+    position: relative;
+    top: 13px;
+    font-size: 40px;
+  }
+}
+
+
+/* For Laptops */
+
+@media (min-device-width: 1024px) {
+  /* Main page styling for laptops */
+  .sm_main-page_appreciated_header {
+    margin-top: 30px;
+  }
+  .sm_main-page_appreciated_block {
+    display: block;
+    width: 400px;
+    height: 200px;
+  }
+  .sm_main-page_movie-list {
+    overflow-y: scroll;
+    overflow-x: hidden;
+    height: 400px;
+  }
+}

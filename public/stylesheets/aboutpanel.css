@@ -1,0 +1,80 @@
+/* Styling for Project Page About Panel */
+@import url('https://fonts.googleapis.com/css?family=Rubik:300');
+
+.aboutpanel {
+  position: fixed;
+  top: 0;
+  left: calc(100vw);
+  z-index: 99;
+  width: calc(80vw - 2.5em);
+  height: 100vh;
+  background: #212121;
+  overflow-y: scroll;
+  padding: 1em 1.25em;
+  text-align: justify;
+  transition: 1s transform;
+}
+.aboutpanel p {
+  font-size: 1.1em;
+  font-weight: 400;
+  line-height: 1.5em;
+  margin-bottom: 4em;
+}
+.aboutpanel .contribution {
+  margin-top: 1.5em;
+  font-weight: 300;
+}
+.aboutpanel .thanks {
+  margin-top: 3em;
+  margin-bottom: 4em;
+  padding: 1em;
+  font-weight: 300;
+  background: rgba(204, 0, 0, 0.65);
+}
+.aboutpanel .close {
+  font-size: 1.5em;
+}
+
+.aboutmove {
+  transform: translateX(-80vw);
+}
+/*.aboutbtn {
+  position: fixed;
+  height: 2.5em;
+  width: 2.5em;
+  top: 2.5em;
+  right: 1.5em;
+  fill: #ffffff;
+}*/
+.aboutbtn {
+  position: fixed;
+  top: 2em;
+  width: 3em;
+  padding: 0.3em 0.6em;
+  right: -0.05em;
+  font-size: 0.9em;
+  letter-spacing: 0.08em;
+  background-color: #212121;
+  z-index: 99;
+  transition: 1s transform;
+  cursor: pointer;
+}
+.aboutpanelbkg {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 98;
+  background: rgba(0, 0, 0, 0.5);
+  display: none;
+}
+
+/* For Laptops */
+
+@media (min-device-width: 1024px) and (orientation: landscape) {
+  .aboutbtn {
+    /*TODO Optimize for desktop*/
+  }
+
+}
