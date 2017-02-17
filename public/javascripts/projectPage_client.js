@@ -21,6 +21,11 @@ window.onload = function () {
         group: "content",
         animation: 150,
     });
+<<<<<<< HEAD
+
+    //document.getElementById("sm-icon-makemovie").style.color = "#FFD447";
+=======
+>>>>>>> refs/remotes/origin/comingUp
 };
 
 function projectEdit (objectID){
