@@ -1,0 +1,20 @@
+script(src="/javascripts/modal.js")
+.modalbkg
+//- Modal / Popup
+div(class="modal fade", id="projectModal", role="dialog")
+    header
+        | Give your movie a title &amp; an author.
+    main
+        label(for="input_name") Name:
+        input(id="input_name" type="text" name="name")
+        hr
+        label(for="input_creator") Author:
+        input(id="input_creator" type="text" name="creator")
+    footer
+        .btn.cancel
+            | Cancel
+        div(class="btn" onclick="saveNewProject()")
+            | Publish
+    .exit
+        | &times;
+div(class="modal fade", id="confirmDeleteModal", role="dialog")

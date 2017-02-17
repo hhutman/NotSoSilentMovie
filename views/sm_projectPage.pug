@@ -2,73 +2,62 @@ extends layout.pug
 block variables
     - var pageTitle = "Project Page"
 block content
+    link(rel="stylesheet", href="/stylesheets/makeamovie.css")
     script(src="/javascripts/jwplayer/jwplayer.js")
     script(src="/javascripts/Sortable.min.js")
     script(src="/javascripts/projectPage_client.js")
 
-    //- .col-xs-12.col-sm-2.col-md-1
-    //-     include partials/left_bar_icon.pug
-    .sm_main-content
-        .sm_project-page_header
+
+    .makeamovie
+        //- Header
+        .header
             | Make a Movie
 
-        .sm_project-page_table
+        .maincontent
+
             //- Planner
-            .sm_project-planner
+            .planner
                 p
                     | Drag &amp; drop clips &amp; cards here
                 #projectPlannerContainer
 
             //- Preview, Clips, Cards
-            .sm_project-creator
-                //- Styling for Preview Container
+            .creator
+
+                //- Preview
                 .preview
-                    .preview_text
+                    h1
                         | Tap a clip to preview
                     #projectPage-CurrentSelection
 
-                //- Styling for Clips
-                .actionbar
-                    img(src='../content/images/clips.svg')
-                    .actionbar_title
+                //- Clips
+                .panelheader
+                    img(src='../content/images/clips.svg', class="icon")
+                    h1
                         | Clips
-                    div(onclick="buttonListClips()", class="refresh")
-                        img(src='../content/images/refresh.svg')
-                        .refresh_text
+                    div(onclick="buttonListClips()")
+                        img(src='../content/images/refresh.svg', class="refresh")
+                        h2
                             | Refresh
                 #projectPage-clipBlock
 
-                //- Styling for Cards
-                .actionbar.cards
-                    img(src='../content/images/cards.svg')
-                    .actionbar_title
+                //- Cards
+                .panelheader.cards
+                    img(src='../content/images/cards.svg', class="icon")
+                    h1
                         | Cards
-                    div(onclick="buttonListCards()", class="refresh")
-                        img(src='../content/images/refresh.svg')
-                        .refresh_text
+                    div(onclick="buttonListCards()")
+                        img(src='../content/images/refresh.svg', class="refresh")
+                        h2
                             | Refresh
                 #projectPage-cardBlock
 
-        div(class="sm_project-page_next", data-toggle="modal", data-target="#projectModal")
+        //- Next Button
+        .next
             | Next
 
-    div(class="modal fade", id="projectModal", role="dialog")
-      .modal-dialog
-          .sm_project-modal
-              header
-                  | Give your movie a title &amp; an author.
-                  div(class="exit", data-dismiss="modal")
-                      | &times;
-                  //- h4(id="popupHeader", class="modal-title sm_project-page_modal-header-txt")
-              main
-                  label(for="input_name") Name:
-                  input(id="input_name" type="text" name="name")
-                  hr
-                  label(for="input_creator") Creator:
-                  input(id="input_creator" type="text" name="creator")
-              footer
-                  div( type="button", data-dismiss="modal").
-                      Cancel
-                  div( type="button", onclick="saveNewProject()").
-                      Publish
-    div(class="modal fade", id="confirmDeleteModal", role="dialog")
+    link(rel="stylesheet", href="/stylesheets/modal.css")
+    include makeamoviepartials/modal.pug
+
+    //- link(rel="stylesheet", href="/stylesheets/aboutpanel.css")
+    //- include makeamoviepartials/aboutpanel.pug
