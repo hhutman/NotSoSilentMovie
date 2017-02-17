@@ -36,6 +36,22 @@
 }
 
 
+#contentfeed2 {
+  display: none;
+}
+#upload_message {
+  position: absolute;
+  color: red;
+  margin-top: 10px;
+}
+#movieTitle {
+  position: relative;
+  width: 100%;
+  z-index: 1;
+  top: -160px;
+  font-size: 2em;
+}
+
 
 
 /* Styling for the Theater Page - This is the updated styling
@@ -92,5 +108,3 @@ but the changing of selectors may have broke things */
   }
 }
 */
-
-

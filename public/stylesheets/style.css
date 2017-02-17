@@ -1,5 +1,11 @@
 @import url('https://fonts.googleapis.com/css?family=Rubik:400,500');
 
+html {
+  overflow: hidden;
+}
+body {
+  overflow: auto;
+}
 body {
   height: 100vh;
   width: 100vw;
