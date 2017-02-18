@@ -72,7 +72,7 @@
 }
 
 .modal footer div {
-  background-color: #81D4FA;
+  background-color: #B0BEC5;
   display: inline-block;
   width: 7em;
   font-size: 1.2em;
@@ -85,7 +85,7 @@
 }
 
 .modal footer div:hover {
-  background-color: #03A9F4;
+  background-color: #ECEFF1;
 }
 
 .modalbkg {
