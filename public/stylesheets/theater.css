@@ -1,15 +1,28 @@
 /* Styling for the Theater Page */
 .theater-text {
   position: absolute;
+  padding: 1em;
   width: 100%;
   z-index: 10;
   color: gray;
   visibility: visible;
+  background: black;
+  min-height: 4em;
 }
 .theater-text-container {
   margin: auto;
 }
 
+.info, .link {
+  display: none;
+}
+
+#content-feed-container {
+  width: 100vw;
+  height: 100vh;
+  padding: 0;
+  margin: 0;
+}
 
 /* For Laptops */
 @media only screen and (min-device-width: 1024px) {
@@ -19,20 +32,57 @@
   }
 }
 
-@media (min-device-width: 1400px) {
+/* Please set this to 6000px when not testing */
+@media (min-device-width: 6000px){
   #content-feed-container {
     padding-left: 23%;
     padding-top: 6.8%;
-    width: 43%;
+    width: 42.6%;
     height: 88%;
   }
-
+  
+  #contentfeed, #contentfeed2 {
+    border-radius: 10em;
+  }
+  
   .theater-full {
     height: 100%;
     width: 100%;
     background-image: url("../content/images/theater.png");
     background-size: 100% 100%;
   }
+  
+  @import url('https://fonts.googleapis.com/css?family=Roboto:400,500');
+
+  .info, .link {
+    display: block;
+    position: fixed;
+    right: 2em;
+    font-size: 7em;
+    width: 35vw;
+    text-align: left;
+    font-family: 'Roboto', sans-serif
+  }
+  
+  .info {
+    top: 2em;
+    font-weight: 500;
+  }
+  .link {
+    top: 70%;
+    transform: translateY(-50%);
+  }
+  .link .url {
+    display: block;
+    margin-left: 5.5em;
+  }
+  
+  .info img {
+    height: 4em;
+    display: block;
+    margin-bottom: 1em;
+  }
+
 }
 
 

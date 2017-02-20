@@ -2,10 +2,11 @@ extends layout_empty.pug
 block variables
     - var pageTitle = "Theater"
 block content
+    link(rel="stylesheet", href="/stylesheets/theater.css")
     .theater-full
-        .theater-up_next-header
+        //-.theater-up_next-header
             | Coming up next:
-        #theater-up_next-list
+        //-#theater-up_next-list
         .theater-text
             .theater-text-container
                 | Click here if video does not start automatically
@@ -17,3 +18,11 @@ block content
         script(src="/javascripts/jwplayer/jwplayer.js")
         script(src="socket.io/socket.io.js")
         script(src="/javascripts/theater_client.js")
+    .theater.info
+        img(src="/content/images/title.svg")
+        | Empowering the receiver of information with the
+        | ability to determine meaning for themselves.
+    .theater.link
+        | Make Your Own Movie Here
+        .url
+          | bit.ly/1ipearl-ui
