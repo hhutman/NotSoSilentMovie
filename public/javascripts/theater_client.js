@@ -36,17 +36,18 @@ playerInstance2.setup({
 playerInstance.on('complete', function () {
     activePlayer = 1;
     playerInstance2.play();
+    loadNextVideo(playerInstance);
     document.getElementById("contentfeed").style.display = "none";
     document.getElementById("contentfeed2").style.display = "block";
     document.getElementById("movieTitle").innerHTML = nextTitle;
-    loadNextVideo(playerInstance);
 });
 playerInstance2.on('complete', function () {
     activePlayer = 0;
     playerInstance.play();
+    loadNextVideo(playerInstance2);
     document.getElementById("contentfeed2").style.display = "none";
     document.getElementById("contentfeed").style.display = "block";
-    loadNextVideo(playerInstance2);
+    document.getElementById("movieTitle").innerHTML = nextTitle;
 });
 
 function loadNextVideo( player ) {
