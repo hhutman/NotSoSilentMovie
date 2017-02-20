@@ -24,6 +24,20 @@
   margin: 0;
 }
 
+#video {
+  width: 100%;
+  height: 100%;
+  background-color: black;
+}
+
+.theater-up_next-container {
+  font-size: 3em;
+  width: 100%;
+  top: 5%;
+  position: absolute;
+  z-index: 1;
+}
+
 /* For Laptops */
 @media only screen and (min-device-width: 1024px) {
   /* Other sytling for laptops */
@@ -41,7 +55,7 @@
     height: 88%;
   }
   
-  #contentfeed, #contentfeed2 {
+  #video {
     border-radius: 10em;
   }
   
@@ -85,10 +99,6 @@
 
 }
 
-
-#contentfeed2 {
-  display: none;
-}
 #upload_message {
   position: absolute;
   color: red;

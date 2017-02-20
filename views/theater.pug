@@ -4,15 +4,16 @@ block variables
 block content
     link(rel="stylesheet", href="/stylesheets/theater.css")
     .theater-full
-        .theater-up_next-header
-            | Coming up next:
-        #theater-up_next-list
+        .theater-up_next-container
+            .theater-up_next-header
+                | Coming up next:
+            #theater-up_next-list
         .theater-text
             .theater-text-container
                 | Click here if video does not start automatically
         div(onclick="theaterScreenClick()",id="content-feed-container")
-            #contentfeed
-            #contentfeed2
+            video(id="video",preload="none", muted)
+                | Video not supported
             #movieTitle
                 | Waiting...
         script(src="/javascripts/jwplayer/jwplayer.js")
