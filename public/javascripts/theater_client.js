@@ -35,16 +35,16 @@ playerInstance2.setup({
 
 playerInstance.on('complete', function () {
     activePlayer = 1;
-    playerInstance2.play();
     loadNextVideo(playerInstance);
+    playerInstance2.play();
     document.getElementById("contentfeed").style.display = "none";
     document.getElementById("contentfeed2").style.display = "block";
     document.getElementById("movieTitle").innerHTML = nextTitle;
 });
 playerInstance2.on('complete', function () {
     activePlayer = 0;
-    playerInstance.play();
     loadNextVideo(playerInstance2);
+    playerInstance.play();
     document.getElementById("contentfeed2").style.display = "none";
     document.getElementById("contentfeed").style.display = "block";
     document.getElementById("movieTitle").innerHTML = nextTitle;
