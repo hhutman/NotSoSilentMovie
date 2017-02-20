@@ -22,6 +22,9 @@ window.onload = function () {
 };
 
 socket.emit('theater-request-list', movieCount);
+movieCount++;
+
+document.getElementById("music").volume = 0.2;
 
 function loadNextVideo( player ) {
     var next = playlist.shift();
