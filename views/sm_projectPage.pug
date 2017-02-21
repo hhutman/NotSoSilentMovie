@@ -5,7 +5,6 @@ block content
     link(rel="stylesheet", href="/stylesheets/makeamovie.css")
     script(src="/javascripts/jwplayer/jwplayer.js")
     script(src="/javascripts/Sortable.min.js")
-    script(src="/javascripts/projectPage_client.js")
 
 
     .makeamovie
@@ -28,7 +27,9 @@ block content
                 .preview
                     h1
                         | Tap a clip to preview
-                    #projectPage-CurrentSelection
+                    video(id="video",preload="none", muted, loop)
+                        | Video not supported
+                    //-#projectPage-CurrentSelection
 
                 //- Clips
                 .panelheader
@@ -57,6 +58,7 @@ block content
             | Next
 
     link(rel="stylesheet", href="/stylesheets/modal.css")
+    script(src="/javascripts/projectPage_client.js")
     include makeamoviepartials/modal.pug
 
     //- link(rel="stylesheet", href="/stylesheets/aboutpanel.css")

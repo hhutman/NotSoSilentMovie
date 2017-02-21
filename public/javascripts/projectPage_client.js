@@ -205,47 +205,21 @@ function getProjectJSON() {
 buttonListCards();
 buttonListClips();
 
-
-function playFile(content) {
-    $('#projectPage-CurrentSelection').empty();
-    switch(content.useType){
-        case "video" :
-            startPlayer(content);
-            break;
-        case "audio":
-            //TODO
-            break;
-        case "card":
-            startPlayer(content);
-            //TODO setImage(content);
-            break;
-        default:
-            break;
-    }
-}
 function setImage(content){
     $('#projectPage-CurrentSelection').append($('<img src="' + window.location.origin + "/uploaded/" + content.target +  content.extension + '">'));
 }
 
-function startPlayer(content) {
-    jwplayer.key = "hKr0It8yDiMnKte/Cy3p9KDJ74XfRooWYAiO8A==";
-    playerInstance = jwplayer("projectPage-CurrentSelection");
-    playerInstance.setup({
-        primary: "html5",
-        file: "../../uploaded/" + content.target + content.extension,
-        controls: false,
-        repeat: true,
-        width: document.getElementById("projectPage-CurrentSelection").offsetWidth,
-        height: document.getElementById("projectPage-CurrentSelection").offsetWidth * 0.66666,
-        mute: true
-    });
-    jwplayer().on('ready', function () {
-        playerInstance.play();
-    });
+var videoPlayer = document.getElementById('video');
+var videoSource = document.createElement('source');
+videoPlayer.appendChild(videoSource);
 
+function playFile( content ) {
+    var clip = "../../uploaded/" + content.target + content.extension;
+    videoSource.setAttribute('src', clip);
+
+    videoPlayer.load();
+    videoPlayer.play();
 }
-
-
 
 
 
