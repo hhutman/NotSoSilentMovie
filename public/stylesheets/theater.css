@@ -3,11 +3,14 @@
   position: absolute;
   padding: 1em;
   width: 100%;
-  z-index: 10;
+  z-index: 2;
   color: gray;
   visibility: visible;
   background: black;
   min-height: 4em;
+}
+.theater-up_next-header {
+  color: #AAAAAA;
 }
 .theater-text-container {
   margin: auto;
@@ -35,7 +38,7 @@
   width: 100%;
   top: 5%;
   position: absolute;
-  z-index: 1;
+  z-index: 3;
 }
 
 /* For Laptops */
@@ -111,60 +114,3 @@
   top: -160px;
   font-size: 2em;
 }
-
-
-
-/* Styling for the Theater Page - This is the updated styling
-but the changing of selectors may have broke things */
-/*
-.theater {
-  position: relative;
-}
-
-.theater .loadmsg {
-  position: fixed;
-  width: 100%;
-  padding: 0.8em 0;
-  z-index: 10;
-  background-color: rgb(186, 15, 68);
-}
-
-#content-feed-container {
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  position: relative;
-}
-*/
-
-/* For Laptops */
-
-/*
-@media (min-device-width: 1024px) {
-  .loadmsg {
-    display: none;
-  }
-}
-*/
-
-
-/* For iPearl Theater */
-/* Needs to be 6816px width and 2240px height */
-/*
-@media (min-device-width: 1400px) and (orientation: landscape) {
-  .theater {
-    height: 100%;
-    width: 100%;
-    background-image: url("../content/images/theater.png");
-    background-size: 100% 100%;
-  }
-  #content-feed-container {
-    position: fixed;
-    top: 29em;
-    left: 97em;
-    width: 84.5em;
-    height: 95em;
-    border-radius: 10em;
-  }
-}
-*/
