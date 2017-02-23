@@ -39,6 +39,7 @@
   top: 5%;
   position: absolute;
   z-index: 3;
+  display: none;
 }
 
 /* For Laptops */
@@ -117,7 +118,9 @@
   }
 
 
-
+  .theater-up_next-container {
+    display: inherit;
+  }
 }
 
 #upload_message {
