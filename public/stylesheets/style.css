@@ -5,7 +5,6 @@ html {
 }
 body {
   overflow: auto;
-  overflow-y: hidden;
 }
 body {
   height: 100vh;
