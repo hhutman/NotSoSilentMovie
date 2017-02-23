@@ -32,10 +32,6 @@ body {
   height: 17%;
 }
 
-.content-draggable {
-    touch-action: none;
-}
-
 .left_bar_child > *,
 .left_bar_header > * {
   position: relative;
