@@ -1,5 +1,5 @@
 var socket = io.connect();
 
-function emptyQueue (){
-    socket.emit("odyssey_directors_empty-queue", "");
+function hideOverlay (){
+    socket.emit("theater-hide_overlay-socket", "");
 }

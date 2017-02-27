@@ -82,6 +82,10 @@ socket.on('theater-receive-list', function(movie) {
     });
 });
 
+socket.on('theater-hide_overlay-global', function() {
+    $("#theater-overlay").fadeOut();
+});
+
 
 
 

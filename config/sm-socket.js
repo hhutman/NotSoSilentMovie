@@ -20,7 +20,6 @@ function configureSocket (socket) {
     socket.on("playProject", function(project) {
         playProject(socket, project);
     });
-
     socket.on('theater-request-list', function (movieInteger) {
         database.getProjects()
             .then(function(movies) {
@@ -32,7 +31,10 @@ function configureSocket (socket) {
             .catch(function(err) {
                 console.log(err);
             });
-    })
+    });
+    socket.on('theater-hide_overlay-socket', function(){
+        io.emit('theater-hide_overlay-global');
+    });
 }
 
 function newMovie () {
