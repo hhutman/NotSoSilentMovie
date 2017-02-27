@@ -58,12 +58,25 @@
   font-size: 2em;
 }
 
+#theater-overlay {
+  z-index: 5;
+  position: absolute;
+  display: none;
+  width: 100%;
+  height: 100%;
+  left: 0;
+}
+
 /* Please set this to 6000px when not testing */
 @media (min-device-width: 6000px){
 
   #movieTitle {
     position: relative;
     top: -160px;
+  }
+
+  #theater-overlay {
+    display: inline-block;
   }
 
   #content-feed-container {
