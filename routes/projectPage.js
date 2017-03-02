@@ -11,8 +11,8 @@ const Promise = require("bluebird");
 
 const swearjar = require('swearjar');
 
-const minClips = 3;
-const textLimit = 10;
+const MIN_CLIPS = 3;
+const TEXT_LIMIT = 10;
 
 Promise.promisifyAll(projectUpload);
 Promise.promisifyAll(database);
@@ -36,16 +36,16 @@ router.post('/', function(req, res){
         res.status(400).send("Invalid Movie Creator");
         return;
     }
-    if(project.content.length < minClips){
-        res.status(400).send("Invalid Movie Length - " + project.content.length + "/" + minClips);
+    if(project.content.length < MIN_CLIPS){
+        res.status(400).send("Invalid Movie Length - " + project.content.length + "/" + MIN_CLIPS);
         return;
     }
     if(swearjar.profane(project.creator) || swearjar.profane(project.name)){
         res.status(400).send("Profanity detected");
         return;
     }
-    if(project.creator.length > textLimit || project.name.length > textLimit){
-        res.status(400).send("Please shorten your labels to " + textLimit + " characters");
+    if(project.creator.length > TEXT_LIMIT || project.name.length > TEXT_LIMIT){
+        res.status(400).send("Please shorten your labels to " + TEXT_LIMIT + " characters");
         return;
     }
 

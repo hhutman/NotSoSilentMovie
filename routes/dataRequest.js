@@ -19,20 +19,21 @@ Promise.promisifyAll(fs);
 router.get('/:type/:filter', function (req, res, next) {
     var filter = req.params.filter;
 
-/*    if(filter == "all"){
+    if(filter == "all"){
         handleAll(req, res);
-    } else { */
-        handleInt(req, res);
-//    }
+    } else {
+        handleInt(req, res, filter);
+    }
 });
 
-function handleInt (req, res) {
+function handleInt (req, res, filter) {
+    let count = parseInt(filter);
+    if(isNaN(count)){
+        count = 3;
+    }
+
     database.getByJson(database.contentmodel,{ useType : req.params.type, extension : ".mp4" })
         .then(function(files) {
-            let count = 3;
-            if(req.params.type == "video"){
-                count = 6;
-            }
             let filteredFiles = spliceRandom(files, count);
             res.end(JSON.stringify(filteredFiles));
         })

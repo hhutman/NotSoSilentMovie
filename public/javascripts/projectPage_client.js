@@ -104,13 +104,31 @@ function getNewContentTile (content) {
     return $newObject;
 }
 function buttonListCards () {
-    dataRequest("card/all", loadCardList, errorLoadingList);
+    let count;
+    if(isDeviceDesktop()){
+        count = "all";
+    } else {
+        count = 3
+    }
+
+    dataRequest("card/" + count, loadCardList, errorLoadingList);
 }
 
 function buttonListClips () {
-    dataRequest("video/all", loadClipList, errorLoadingList);
+    let count;
+    if(isDeviceDesktop()){
+        count = "all";
+    } else {
+        count = 6
+    }
+    dataRequest("video/" + count, loadClipList, errorLoadingList);
 }
-//TODO make a button for ListCards
+
+function isDeviceDesktop () {
+    return window.screen.width >= 1024;
+}
+
+
 function dataRequest(request, callback, errCallback) {
     $.ajax({
         url:"/dataRequest/" + request,
