@@ -25,8 +25,8 @@ router.get('/', function(req, res) {
 router.post('/', function(req, res){
     const project = req.body;
 
-    project.creator = project.creator.replace(/[^0-9a-z]/gi, '');
-    project.name = project.name.replace(/[^0-9a-z]/gi, '');
+    project.creator = project.creator.replace(/[^0-9a-z' ]/gi, ' ');
+    project.name = project.name.replace(/[^0-9a-z' ]/gi, ' ');
 
     if(!project.name) {
         res.status(400).send("Invalid Movie Name");
