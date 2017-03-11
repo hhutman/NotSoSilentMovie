@@ -104,7 +104,7 @@
   .info, .link {
     display: block;
     position: fixed;
-    right: 2em;
+    right: 1.5em;
     font-size: 7em;
     width: 35vw;
     text-align: left;

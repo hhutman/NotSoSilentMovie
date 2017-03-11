@@ -10,6 +10,10 @@ var h = '100%';
 var videoPlayer = document.getElementById('video');
 var videoSource = document.createElement('source');
 
+var audioPlayer = document.getElementById('music');
+audioPlayer.volume = .2;
+
+
 videoPlayer.addEventListener('ended',loadNextVideo,false);
 
 
