@@ -85,20 +85,20 @@
     width: 42.6%;
     height: 88%;
   }
-  
+
   #video {
     border-radius: 10em;
     position: relative;
   }
 
-  
+
   .theater-full {
     height: 100%;
     width: 100%;
     background-image: url("../content/images/theater.png");
     background-size: 100% 100%;
   }
-  
+
   @import url('https://fonts.googleapis.com/css?family=Roboto:400,500');
 
   .info, .link {
@@ -110,7 +110,7 @@
     text-align: left;
     font-family: 'Roboto', sans-serif
   }
-  
+
   .info {
     top: 2em;
     font-weight: 500;
@@ -123,11 +123,18 @@
     display: block;
     margin-left: 5.5em;
   }
-  
+
   .info img {
     height: 4em;
     display: block;
     margin-bottom: 1em;
+  }
+
+  .info .credit {
+    text-align: right;
+    font-size: 0.6em;
+    margin-right: 5em;
+    margin-top: 1em;
   }
 
 
@@ -141,4 +148,3 @@
   color: red;
   margin-top: 10px;
 }
-
