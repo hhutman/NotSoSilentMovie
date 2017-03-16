@@ -13,6 +13,13 @@ mongoose.connect(MONGO_ADDRESS);
 mongoose.Promise = require('bluebird');
 
 var MongoClient = mongodb.MongoClient;
+var database;
+
+// Initialize connection once
+MongoClient.connect(MONGO_ADDRESS, function(err, db) {
+    if(err) throw err;
+    database = db;
+});
 
 
 // Setting up schemas
@@ -75,11 +82,8 @@ module.exports.getContent = function(){
         reject = rej;
     });
 
-    MongoClient.connect(MONGO_ADDRESS)
-        .then(function(database) {
-            var collection = database.collection('contents');
-            return collection.find().toArray()
-        })
+    var collection = database.collection('contents');
+    collection.find().toArray()
         .then(function (data) {
             resolve(data);
         })
@@ -127,11 +131,8 @@ module.exports.getProjects = function(){
         reject = rej;
     });
 
-    MongoClient.connect(MONGO_ADDRESS)
-        .then(function(database) {
-            var collection = database.collection('projects');
-            return collection.find().toArray()
-        })
+    var collection = database.collection('projects');
+    collection.find().toArray()
         .then(function (data) {
             resolve(data);
         })

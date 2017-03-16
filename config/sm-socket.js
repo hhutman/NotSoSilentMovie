@@ -18,6 +18,7 @@ module.exports.configureIo = function(newio) {
 
         socket.on('disconnect', function() {
             delete clients[socket.id];
+            console.log("Socket Disconnected");
         });
     });
 };
