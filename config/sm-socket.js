@@ -7,12 +7,18 @@ Promise.promisifyAll(database);
 Promise.promisifyAll(contentController);
 
 var io;
+var clients = {};
 
 module.exports.configureIo = function(newio) {
     io = newio;
     io.on("connection", function(socket) {
         console.log('New Socket Connected');
         configureSocket(socket);
+        clients[socket.id] = socket;
+
+        socket.on('disconnect', function() {
+            delete clients[socket.id];
+        });
     });
 };
 
