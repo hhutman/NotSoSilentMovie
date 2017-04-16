@@ -1,0 +1,35 @@
+extends layout_empty.pug
+block variables
+    - var pageTitle = "Theater"
+block content
+    link(rel="stylesheet", href="/stylesheets/theater.css")
+    audio(loop,autoplay,id="music")
+        source(src="/content/music/music1.mp3",type="audio/mp3")
+    img(src="/content/images/theater_overlay.png",id="theater-overlay")
+    .theater-full
+        .theater-up_next-container
+            .theater-up_next-header
+                | Coming up next
+            #theater-up_next-list
+        .theater-text
+            .theater-text-container
+                | Click here if video does not start automatically
+        div(onclick="theaterScreenClick()",id="content-feed-container")
+            video(id="video",preload="none", muted)
+                | Video not supported
+            #movieTitle
+                | Waiting...
+        script(src="socket.io/socket.io.js")
+        script(src="/javascripts/theater_client.js")
+    .theater.info
+        img(src="/content/images/title.svg")
+        | Empowering the receiver of information with the
+        | ability to determine meaning for themselves.
+        .theater.credit
+            | Hope Hutman, Artist-in-Residence
+            br()
+            | Visual Narrative Cluster, NCSU 2016-2017
+    .theater.link
+        | Make Your Own Movie Here
+        .url
+          | bit.ly/ipearlhunt
