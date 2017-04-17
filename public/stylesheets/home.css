@@ -1,0 +1,66 @@
+/* Styling for the Home Page */
+h1 {
+  font-variant: small-caps;
+}
+.theater-up_next-header {
+  color: #AAAAAA;
+}
+.theater-text-container {
+  margin: auto;
+}
+
+.info, .link {
+  display: none;
+}
+
+#content-feed-container {
+  width: 100vw;
+  height: 100vh;
+  padding: 0;
+  margin: 0;
+}
+
+#video {
+  width: 100%;
+  height: 100%;
+  background-color: black;
+}
+
+.theater-up_next-container {
+  font-size: 3em;
+  width: 100%;
+  top: 5%;
+  position: absolute;
+  z-index: 3;
+  display: none;
+}
+
+/* For Laptops */
+@media only screen and (min-device-width: 1024px) {
+  /* Other sytling for laptops */
+  .theater-text {
+    visibility: hidden;
+  }
+}
+
+#movieTitle {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  z-index: 1;
+  font-size: 2em;
+}
+
+#theater-overlay {
+  z-index: 5;
+  position: absolute;
+  display: none;
+  width: 100%;
+  height: 100%;
+  left: 0;
+}
+
+/* Please set this to 6000px when not testing */
+@media (min-device-width: 6000px){
+  
+}
