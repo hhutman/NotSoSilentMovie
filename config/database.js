@@ -223,13 +223,25 @@ module.exports.updateByTarget = function(file){
 
 module.exports.getRandomMovies = function(count) {
     return new Promise(function (resolve, reject) {
-        Project.aggregate({ $sample: { size: count }},
-            function (err, result) {
-                if (err) {
-                    reject(err);
-                }
-                resolve(result);
+        Project.find({}, function (err, docs) {
+            if (docs && docs.length){
+                resolve(spliceRandom(docs,count))
+            }else{
+                reject(err);
             }
-        );
+        });
     });
 };
+
+function spliceRandom(array, count) {
+    count = Math.min(array.length, count);
+    let newArray = [];
+    for(let i = 0; i < count; i++){
+        newArray.push(getRandomFromArray(array));
+    }
+    return newArray;
+}
+
+function getRandomFromArray(array) {
+    return array[Math.floor(Math.random() * array.length)];
+}
