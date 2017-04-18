@@ -2,6 +2,7 @@
 html {
   height: auto;
   overflow: auto;
+  transform: scale(1);
 }
 body {
   background-color: #37474F;
@@ -95,11 +96,13 @@ p {
   max-width: 30em;
 }
 
+
 /* For Laptops */
-@media only screen and (min-device-width: 1375px) {
+@media only screen and (min-device-width: 1024px) {
   html {
     height: 100vh;
     overflow: hidden;
+    transform: scale(0.7);
   }
   body {
     padding-left: 2em;
@@ -132,6 +135,9 @@ p {
     height: 30em;
     margin-top: 0;
   }
+  #nowplaying .title {
+    font-size: 1.6em;
+  }
   .button {
     font-size: 1.6em;
     font-weight: 400;
@@ -155,7 +161,13 @@ p {
     position: relative;
     width: 25%;
     max-width: 30em;
-    padding-top: 6em;
+    padding-top: 4em;
     float: left;
+  }
+}
+
+@media only screen and (min-device-width: 1375px) {
+  html {
+    transform: scale(1);
   }
 }
