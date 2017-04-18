@@ -3,6 +3,8 @@ var currentID;
 var currentContent;
 var playerInstance;
 
+var final_name = '';
+
 window.onload = function () {
     var projectContainer = document.getElementById("projectPlannerContainer");
     Sortable.create(projectContainer, {
@@ -146,13 +148,13 @@ function dataRequest(request, callback, errCallback) {
 
 function projectUpload(jsonProject, callback, errCallback) {
     $.ajax({
-        url: '/ipearlHome',
+        url: '/makeMovie',
         type: "POST",
         dataType: "json",
         data: JSON.stringify(jsonProject),
         contentType: "application/json",
         success: function(data, code, jqXHR) {
-            callback();
+            callback(jsonProject.name);
         },
         error: function(jqXHR, code, error){
             errCallback(jqXHR.responseText);
@@ -193,10 +195,11 @@ function switchToSuccessModal() {
 }
 
 function exitSuccessModal() {
-    window.location = '/ipearlHome';
+    window.location = '/watchMovie/' + final_name;
 }
 
 function getProjectJSON() {
+    final_name = $("input[name=name]").val();
     var projectJson = {
         new: true, //TODO: Placeholder. In future make sure that new represents actual new project
         name: $("input[name=name]").val(),
