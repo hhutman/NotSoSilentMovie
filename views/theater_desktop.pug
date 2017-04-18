@@ -15,12 +15,14 @@ block content
         h2
             | Featured Movies
         #movies
-            #clip
-            .title
-                | Title
-            .author
-                | Author
-        div(onclick="window.location.href='/'", type="button", class="button")
+            each movie in randomMovies
+                #clip
+                    img(src="/thumbnails/" + movie.content[0].target + ".png", style="width:100%;height:100%",onclick="window.location.href='/watchMovie/" + movie.name + "'")
+                .title
+                    | #{movie.name}
+                .author
+                    | #{movie.creator}
+        div(onclick="window.location.href='/makeMovie'", type="button", class="button")
             | Make your own movie &#8594;
     script.
         var contentList = [];

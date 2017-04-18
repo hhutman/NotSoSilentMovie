@@ -3,6 +3,8 @@ var currentID;
 var currentContent;
 var playerInstance;
 
+var final_name = '';
+
 window.onload = function () {
     var projectContainer = document.getElementById("projectPlannerContainer");
     Sortable.create(projectContainer, {
@@ -192,11 +194,12 @@ function switchToSuccessModal() {
     $("#successModal").fadeIn();
 }
 
-function exitSuccessModal(title) {
-    window.location = '/watchMovie/' + title;
+function exitSuccessModal() {
+    window.location = '/watchMovie/' + final_name;
 }
 
 function getProjectJSON() {
+    final_name = $("input[name=name]").val();
     var projectJson = {
         new: true, //TODO: Placeholder. In future make sure that new represents actual new project
         name: $("input[name=name]").val(),

@@ -12,11 +12,23 @@ router.get('/', function(req, res, next) {
             movies[0].content.forEach(function(content) {
                 list.push('/uploaded/' + content.target + '.mp4');
             });
-            res.render('theater_desktop',{
-                name: movies[0].name,
-                creator: movies[0].creator,
-                content: list,
-            });
+            database.getRandomMovies(5)
+                .then(function(random_movies) {
+                    res.render('theater_desktop',{
+                        name: movies[0].name,
+                        creator: movies[0].creator,
+                        content: list,
+                        randomMovies: random_movies
+                    });
+                })
+                .catch(function(err) {
+                    res.render('theater_desktop',{
+                        name: movies[0].name,
+                        creator: movies[0].creator,
+                        content: list,
+                        randomMovies: []
+                    });
+                })
         })
         .catch(function(err) {
             res.render('home');
@@ -32,11 +44,23 @@ router.get('/:title', function(req, res, next) {
             movies[0].content.forEach(function(content) {
                 list.push('/uploaded/' + content.target + '.mp4');
             });
-            res.render('theater_desktop',{
-                name: movies[0].name,
-                creator: movies[0].creator,
-                content: list,
-            });
+            database.getRandomMovies(5)
+                .then(function(random_movies) {
+                    res.render('theater_desktop',{
+                        name: movies[0].name,
+                        creator: movies[0].creator,
+                        content: list,
+                        randomMovies: random_movies
+                    });
+                })
+                .catch(function(err) {
+                    res.render('theater_desktop',{
+                        name: movies[0].name,
+                        creator: movies[0].creator,
+                        content: list,
+                        randomMovies: []
+                    });
+                })
         })
         .catch(function(err) {
             database.getRandomMovies(1)
@@ -45,11 +69,23 @@ router.get('/:title', function(req, res, next) {
                     movies[0].content.forEach(function(content) {
                         list.push('/uploaded/' + content.target + '.mp4');
                     });
-                    res.render('theater_desktop',{
-                        name: movies[0].name,
-                        creator: movies[0].creator,
-                        content: list,
-                    });
+                    database.getRandomMovies(5)
+                        .then(function(random_movies) {
+                            res.render('theater_desktop',{
+                                name: movies[0].name,
+                                creator: movies[0].creator,
+                                content: list,
+                                randomMovies: random_movies
+                            });
+                        })
+                        .catch(function(err) {
+                            res.render('theater_desktop',{
+                                name: movies[0].name,
+                                creator: movies[0].creator,
+                                content: list,
+                                randomMovies: []
+                            });
+                        })
                 })
                 .catch(function(err) {
                     res.render('home');
