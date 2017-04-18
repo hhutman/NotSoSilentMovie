@@ -1,66 +1,90 @@
 /* Styling for the Home Page */
+html {
+  height: auto;
+  overflow: auto;
+}
+body {
+  background-color: #37474F;
+  text-align: left;
+  padding-left: 2em;
+  padding-top: 1.5em;
+  width: auto;
+  height: auto;
+}
 h1 {
+  font-size: 2.2em;
+  font-weight: 500;
+  letter-spacing: 0.1em;
   font-variant: small-caps;
 }
-.theater-up_next-header {
-  color: #AAAAAA;
+h2 {
+  font-size: 2em;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  margin: 2.8em 0 0 0;
 }
-.theater-text-container {
-  margin: auto;
+h3 {
+  font-size: 1.6em;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  margin: 0.5em 0 0 0;
+}
+h4 {
+  font-size: 1.2em;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  margin: 0.8em 0 0 0;
+}
+p {
+  max-width: calc(100% - 2em);
+  font-weight: 400;
+  font-size: 1.2em;
+  letter-spacing: 0.07em;
 }
 
-.info, .link {
-  display: none;
+#nowplaying {
+  background-color: rgba(0, 0, 0, 0.74);
+  width: calc(100% - 2em);
+  height: 18em;
+  margin-top: 3em;
+  position: relative;
 }
-
-#content-feed-container {
-  width: 100vw;
-  height: 100vh;
-  padding: 0;
-  margin: 0;
-}
-
-#video {
-  width: 100%;
-  height: 100%;
-  background-color: black;
-}
-
-.theater-up_next-container {
-  font-size: 3em;
-  width: 100%;
-  top: 5%;
+#nowplaying .title {
+  font-size: 1.2em;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
   position: absolute;
-  z-index: 3;
-  display: none;
+  margin: 0;
+  left: 0.7em;
+  top: 0.4em;
+}
+
+.button {
+  position: relative;
+  text-align: left;
+  width: calc(100% - 9rem);
+  display: block;
+  background-color: #B2EBF2;
+  border: none;
+  padding: 1em;
+  color: #37474F;
+  font-size: 1.4em;
+  padding-left: 4em;
+  font-weight: 500;
+}
+
+.button img {
+  position: absolute;
+  display: block;
+  left: 1em;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 1.5em;
+  max-width: 1.8em;
 }
 
 /* For Laptops */
 @media only screen and (min-device-width: 1024px) {
-  /* Other sytling for laptops */
-  .theater-text {
-    visibility: hidden;
-  }
-}
-
-#movieTitle {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  z-index: 1;
-  font-size: 2em;
-}
-
-#theater-overlay {
-  z-index: 5;
-  position: absolute;
-  display: none;
-  width: 100%;
-  height: 100%;
-  left: 0;
-}
-
-/* Please set this to 6000px when not testing */
-@media (min-device-width: 6000px){
   
 }
