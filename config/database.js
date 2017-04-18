@@ -220,3 +220,16 @@ module.exports.updateByTarget = function(file){
 
     return newPromise;
 };
+
+module.exports.getRandomMovies = function(count) {
+    return new Promise(function (resolve, reject) {
+        Project.aggregate({ $sample: { size: count }},
+            function (err, result) {
+                if (err) {
+                    reject(err);
+                }
+                resolve(result);
+            }
+        );
+    });
+};

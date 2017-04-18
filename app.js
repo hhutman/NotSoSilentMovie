@@ -26,6 +26,8 @@ var projectPage = require('./routes/projectPage');
 var aboutPage = require('./routes/about');
 var viewProjects = require('./routes/viewProjects');
 var dataRequest = require('./routes/dataRequest');
+var home = require('./routes/home');
+var remoteTheater = require('./routes/remoteTheater');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -45,15 +47,17 @@ app.use(express.static(path.join(__dirname, 'public')));
 /**
  * Register subdomains
  */
-app.use('/upload', upload);
+//app.use('/upload', upload);
 app.use('/theater', theater);
-app.use('/viewFiles', viewFiles);
-app.use('/editFile', editFile);
-app.use('/directors', directors);
-app.use('/',projectPage);
-app.use('/viewProjects',viewProjects);
+//app.use('/viewFiles', viewFiles);
+//app.use('/editFile', editFile);
+//app.use('/directors', directors);
+app.use('/makeMovie',projectPage);
+//app.use('/viewProjects',viewProjects);
 app.use('/dataRequest',dataRequest);
-app.use('/about',aboutPage);
+//app.use('/about',aboutPage);
+app.use('/',home);
+app.use('/watchMovie',remoteTheater);
 
 // handle blank image references
 app.get('/thumbnails/:filename', function(req, res) {
