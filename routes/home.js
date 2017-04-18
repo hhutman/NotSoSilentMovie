@@ -12,7 +12,6 @@ Promise.promisifyAll(database);
 router.get('/', function (req, res) {
     database.getRandomMovies(1)
         .then(function(movies) {
-            console.log(movies[0].content[0].target);
             res.render('home', {
                 movie: {
                     title: movies[0].name,

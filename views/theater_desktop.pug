@@ -6,11 +6,11 @@ block content
     h1
         | Theater
     .view
-        #theater
+        video(id="video",preload="none", muted)
         .title
-            | Title
+            | #{name}
         .author
-            | Author
+            | #{creator}
     .explorer
         h2
             | Featured Movies
@@ -22,3 +22,10 @@ block content
                 | Author
         div(onclick="window.location.href='/'", type="button", class="button")
             | Make your own movie &#8594;
+    script.
+        var contentList = [];
+    each file in content
+        script.
+            contentList.push("#{file}");
+    script(src="/socket.io/socket.io.js")
+    script(src="/javascripts/remote_theater_client.js")

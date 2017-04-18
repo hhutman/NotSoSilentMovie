@@ -146,13 +146,13 @@ function dataRequest(request, callback, errCallback) {
 
 function projectUpload(jsonProject, callback, errCallback) {
     $.ajax({
-        url: '/ipearlHome',
+        url: '/makeMovie',
         type: "POST",
         dataType: "json",
         data: JSON.stringify(jsonProject),
         contentType: "application/json",
         success: function(data, code, jqXHR) {
-            callback();
+            callback(jsonProject.name);
         },
         error: function(jqXHR, code, error){
             errCallback(jqXHR.responseText);
@@ -192,8 +192,8 @@ function switchToSuccessModal() {
     $("#successModal").fadeIn();
 }
 
-function exitSuccessModal() {
-    window.location = '/ipearlHome';
+function exitSuccessModal(title) {
+    window.location = '/watchMovie/' + title;
 }
 
 function getProjectJSON() {

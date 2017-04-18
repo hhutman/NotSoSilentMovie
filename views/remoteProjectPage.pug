@@ -1,0 +1,64 @@
+extends layout.pug
+block variables
+    - var pageTitle = "Project Page"
+block content
+    link(rel="stylesheet", href="/stylesheets/makeamovie.css")
+    script(src="/javascripts/Sortable.min.js")
+
+
+    .makeamovie
+        //- Header
+        .header
+            | Make a Movie
+
+        .maincontent
+
+            //- Planner
+            .planner
+                p
+                    | Drag &amp; drop clips &amp; cards here
+                #projectPlannerContainer
+
+            //- Preview, Clips, Cards
+            .creator
+
+                //- Preview
+                .preview
+                    h1
+                        | Tap a clip to preview
+                    video(id="video",preload="none", muted, loop)
+                        | Video not supported
+                    //-#projectPage-CurrentSelection
+
+                //- Clips
+                .panelheader
+                    img(src='../content/images/clips.svg', class="icon")
+                    h1
+                        | Clips
+                    div(onclick="buttonListClips()")
+                        img(src='../content/images/refresh.svg', class="refresh")
+                        h2
+                            | Refresh
+                #projectPage-clipBlock
+
+                //- Cards
+                .panelheader.cards
+                    img(src='../content/images/cards.svg', class="icon")
+                    h1
+                        | Cards
+                    div(onclick="buttonListCards()")
+                        img(src='../content/images/refresh.svg', class="refresh")
+                        h2
+                            | Refresh
+                #projectPage-cardBlock
+
+        //- Next Button
+        div(class="next",onclick="openPublishModal()")
+            | Next
+
+    link(rel="stylesheet", href="/stylesheets/modal.css")
+    script(src="/javascripts/projectPage_client.js")
+    include makeamoviepartials/modal.pug
+
+    //- link(rel="stylesheet", href="/stylesheets/aboutpanel.css")
+    //- include makeamoviepartials/aboutpanel.pug
