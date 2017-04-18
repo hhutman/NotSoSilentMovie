@@ -48,6 +48,7 @@ p {
   height: 18em;
   margin-top: 3em;
   position: relative;
+  
 }
 #nowplaying .title {
   font-size: 1.2em;
@@ -65,16 +66,17 @@ p {
   text-align: left;
   width: calc(100% - 9rem);
   display: block;
-  background-color: #B2EBF2;
+  background-color: #455A64;
   border: none;
   padding: 1em;
-  color: #37474F;
+  color: white;
   font-size: 1.4em;
   padding-left: 4em;
   font-weight: 500;
+  max-width: 10em;
 }
 
-.button img {
+.button svg {
   position: absolute;
   display: block;
   left: 1em;
@@ -82,9 +84,78 @@ p {
   transform: translateY(-50%);
   height: 1.5em;
   max-width: 1.8em;
+  fill: #ffffff;
+}
+
+.player, .info, .actions {
+  width: auto;
+}
+.player {
+  width: 100%;
+  max-width: 30em;
 }
 
 /* For Laptops */
-@media only screen and (min-device-width: 1024px) {
-  
+@media only screen and (min-device-width: 1375px) {
+  html {
+    height: 100vh;
+    overflow: hidden;
+  }
+  body {
+    padding-left: 2em;
+    padding-right: 2em;
+    padding-top: 1.5em;
+    padding-bottom: 2em;
+    width: auto;
+    height: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 80em;
+    transform: translate(-50%, -50%);
+  }
+  h1 {
+    font-size: 3em;
+    margin-bottom: 1em;
+  }
+  h2 {
+    margin: 0;
+    font-size: 2.2em;
+  }
+  h2 br {
+    display: none;
+  }
+  p {
+    line-height: 1.6em;
+  }
+  #nowplaying {
+    height: 30em;
+    margin-top: 0;
+  }
+  .button {
+    font-size: 1.6em;
+    font-weight: 400;
+  }
+  .button:hover {
+    cursor: pointer;
+    background-color: #B2EBF2;
+    color: #37474F;
+    font-weight: 500;
+  }
+  .button:hover svg {
+    fill: #37474F;
+  }
+  .player, .info {
+    position: relative;
+    width: 37.5%;
+    max-width: 35em;
+    float: left;
+  }
+  .actions {
+    position: relative;
+    width: 25%;
+    max-width: 30em;
+    padding-top: 6em;
+    float: left;
+  }
 }

@@ -5,48 +5,52 @@ block content
     link(rel="stylesheet", href="/stylesheets/home.css")
     
     h1
-        | Silent Movie
-    #nowplaying
-        .title
-            | Featured
-    h3
-        //- Replace with dynamic title
-        | Movie Name
-    h4
-        //- Replace with dynamic author
-        | Author
+        | Not So Silent Movie
+    .player
+        #nowplaying
+            .title
+                | Featured
+        h3
+            //- Replace with dynamic title
+            | Movie Name
+        h4
+            //- Replace with dynamic author
+            | Author
     
+    .info
+        h2
+            | What is 
+            br()
+            | Silent Movie?
+        p
+            | Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod 
+            | tempor incididunt ut labore et dolore magna aliqua.
+            br()
+            br()
+            | Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut 
+            | aliquip ex ea commodo consequat.
+            br()
+            br()
+            | Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat 
+            | nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia 
+            | deserunt mollit anim id est laborum.
     
-    h2
-        | What is
-        br()
-        | Silent Movie?
-    p
-        | Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod 
-        | tempor incididunt ut labore et dolore magna aliqua.
-        br()
-        br()
-        | Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut 
-        | aliquip ex ea commodo consequat.
-        br()
-        br()
-        | Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat 
-        | nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia 
-        | deserunt mollit anim id est laborum.
-    
     br()
     br()
     br()
-    div(onclick="window.location.href='/'", type="button", class="button")
-        img(src='../content/images/make.svg', class="icon")
-        | Make your own
+    .actions
+        div(onclick="window.location.href='/'", type="button", class="button")
+            svg(svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 76.75 51.16")
+                path(class="cls-1" d="M59.69,19.19V4.26A4.28,4.28,0,0,0,55.43,0H4.26A4.28,4.28,0,0,0,0,4.26V46.9a4.28,4.28,0,0,0,4.26,4.26H55.43a4.28,4.28,0,0,0,4.26-4.26V32L76.75,49V2.13ZM43.19,27.84H34.34V37.92H28.85V27.84H20V22.67h8.89V13.25h5.49v9.43h8.84Z")
+            | Make your 
+            br()
+            | own Movie
         br()
-        | Silent Movie
-    br()
-    div(onclick="window.location.href='/theater'", type="button", class="button")
-        img(src='../content/images/watch.svg', class="icon")
-        | Watch a 
-        br()
-        | Silent Movie
+        div(onclick="window.location.href='/theater'", type="button", class="button")
+            svg(xmlns="http://www.w3.org/2000/svg" viewBox="0 0 55.13 62.02")
+                path(class="cls-1" d="M48.24,0V6.89H41.35V0H13.78V6.89H6.89V0H0V62H6.89V55.13h6.89V62H41.35V55.13h6.89V62h6.89V0ZM13.78,48.24H6.89V41.35h6.89Zm0-13.78H6.89V27.57h6.89Zm0-13.78H6.89V13.78h6.89ZM48.24,48.24H41.35V41.35h6.89Zm0-13.78H41.35V27.57h6.89Zm0-13.78H41.35V13.78h6.89Z")
+            | Watch a 
+            br()
+            | Movie
     br()
     br()
