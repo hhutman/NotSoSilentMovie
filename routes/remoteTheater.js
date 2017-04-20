@@ -12,7 +12,7 @@ router.get('/', function(req, res, next) {
             movies[0].content.forEach(function(content) {
                 list.push('/uploaded/' + content.target + '.mp4');
             });
-            database.getRandomMovies(5)
+            database.getRandomMovies(30)
                 .then(function(random_movies) {
                     res.render('theater_desktop',{
                         name: movies[0].name,
@@ -44,7 +44,7 @@ router.get('/:title', function(req, res, next) {
             movies[0].content.forEach(function(content) {
                 list.push('/uploaded/' + content.target + '.mp4');
             });
-            database.getRandomMovies(5)
+            database.getRandomMovies(30)
                 .then(function(random_movies) {
                     res.render('theater_desktop',{
                         name: movies[0].name,
@@ -69,7 +69,7 @@ router.get('/:title', function(req, res, next) {
                     movies[0].content.forEach(function(content) {
                         list.push('/uploaded/' + content.target + '.mp4');
                     });
-                    database.getRandomMovies(5)
+                    database.getRandomMovies(30)
                         .then(function(random_movies) {
                             res.render('theater_desktop',{
                                 name: movies[0].name,
