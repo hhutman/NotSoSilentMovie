@@ -1,7 +1,7 @@
 # Deploying App
 
 ## 1) SSH to SilentMovie server
-- ip: 
+- ip: msriegel@ps575052.dreamhostps.com
 - psw: p******1
 
 ## 2) CD into SilentMovie directory
