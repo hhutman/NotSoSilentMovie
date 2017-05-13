@@ -6,7 +6,6 @@
   font-size: 2em;
   height: 18vh;
   line-height: 18vh;
-  padding-left: 1em;
   text-align: center;
 }
 
@@ -122,7 +121,7 @@ h3 {
 /* Clips & Cards Header Bars */
 
 .panelheader {
-  background-color: #B0BEC5;
+  background-color: #B2EBF2;
   height: 6vh;
   line-height: 6vh;
   color: black;
@@ -213,7 +212,7 @@ h3 {
 /* Styling for Project Page Next Button */
 
 .makeamovie .next {
-  background-color: #B0BEC5;
+  background-color: #B2EBF2;
   color: black;
   font-size: 1.8em;
   font-weight: 500;
@@ -228,6 +227,9 @@ h3 {
 
 @media (min-device-width: 1024px) and (orientation: landscape) {
   /* Make a Movie styling for Laptops */
+  body {
+    background: #263238;
+  }
   .makeamovie {
     max-width: 1400px;
     margin: auto;
@@ -255,6 +257,7 @@ h3 {
     width: calc(70% - 3em);
   }
   .creator .preview {
+    background: #37474F;
     width: calc(50% - 2em);
     padding-top: 31%;
     height: 0;
@@ -288,16 +291,19 @@ h3 {
   }
   .panelheader div {
     height: 3em;
+    display: none;
   }
   .panelheader div:hover {
     cursor: pointer;
     background-color: #ECEFF1;
   }
   #projectPage-clipBlock {
+    background: #37474F;
     height: calc(100% - 3.7em);
     width: calc(50% - 2.7em);
   }
   #projectPage-cardBlock {
+    background: #37474F;
     height: calc(50% - 3.7em);
     width: calc(50% - 2.7em);
     position: absolute;

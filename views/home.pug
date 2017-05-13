@@ -2,54 +2,93 @@ extends layout.pug
 block variables
     - var pageTitle = "Home"
 block content
+    script(src="/javascripts/credits.js")
     link(rel="stylesheet", href="/stylesheets/home.css")
     
-    h1
-        | Not So Silent Movie
-    .player
-        #nowplaying
-            img(src=movie.img,style="width:100%;height:100%")
-            .title
-                | Featured
-        h3
-            //- Replace with dynamic title
-            | #{movie.title}
-        h4
-            //- Replace with dynamic author
-            | #{movie.author}
-    
-    .info
-        h2
-            | What is 
-            br()
-            | Silent Movie?
-        p
-            | Storytelling, at some level, is a means of cultural preservation and instilling moral values.
-            br()
-            br()
-            | Not So Silent Movie seeks to investigate what happens when we refuse to accept the
-            | story as it is presented to us. It asks us to question, to draw our own conclusions, to
-            | think critically.
-            br()
-            br()
-            | Not So Silent Movie encourages each of us to find our own meaning in the content provided.
-    
-    br()
-    br()
-    br()
-    .actions
-        div(onclick="window.location.href='/makeMovie'", type="button", class="button")
-            svg(svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 76.75 51.16")
-                path(class="cls-1" d="M59.69,19.19V4.26A4.28,4.28,0,0,0,55.43,0H4.26A4.28,4.28,0,0,0,0,4.26V46.9a4.28,4.28,0,0,0,4.26,4.26H55.43a4.28,4.28,0,0,0,4.26-4.26V32L76.75,49V2.13ZM43.19,27.84H34.34V37.92H28.85V27.84H20V22.67h8.89V13.25h5.49v9.43h8.84Z")
-            | Make your 
-            br()
-            | own Movie
+    #nav
+        h1
+            | Not So Silent Movie
+        svg(xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40.67 39")
+            rect(class="cls-1" width="40.67" height="5.33")
+            rect(class="cls-1" y="16.33" width="40.67" height="5.33")
+            rect(class="cls-1" y="33.67" width="40.67" height="5.33")
+    #credits
+        span
+            | Credits
         br()
-        div(onclick="window.location.href='/watchMovie'", type="button", class="button")
-            svg(xmlns="http://www.w3.org/2000/svg" viewBox="0 0 55.13 62.02")
-                path(class="cls-1" d="M48.24,0V6.89H41.35V0H13.78V6.89H6.89V0H0V62H6.89V55.13h6.89V62H41.35V55.13h6.89V62h6.89V0ZM13.78,48.24H6.89V41.35h6.89Zm0-13.78H6.89V27.57h6.89Zm0-13.78H6.89V13.78h6.89ZM48.24,48.24H41.35V41.35h6.89Zm0-13.78H41.35V27.57h6.89Zm0-13.78H41.35V13.78h6.89Z")
-            | Watch a 
+        .emp
+            | Experience Design &amp; Direction: 
+            b()    
+                | Hope Hutman
+        br
+        | In collaboration with:
+        br()
+        | UI Design and Implementation: 
+        b()
+            | Daxit Agarwal
+        br()
+        br()
+        | Film Curation and Editing: 
+        b()
+            | Harrison Smith
+        br()
+        br()
+        | Lead Developer: 
+        b()
+            | Matthew Scott Riegel
+        br()
+        br()
+        | Special Thanks to 
+        b()
+            | Professor Arnav Jhala
+        |, co-director, Visual Narrative Cluster and Associate Professor of Computer Science, NCSU
+    #content
+        .player
+            | Not So Silent Movie
+            //- #nowplaying
+            //-     img(src=movie.img,style="width:100%;height:100%")
+            //-     .title
+            //-         | Featured
+            //- h3
+            //-     //- Replace with dynamic title
+            //-     | #{movie.title}
+            //- h4
+            //-     //- Replace with dynamic author
+            //-     | #{movie.author}
+        
+        .info
+            h2
+                | What is 
+                br()
+                | Silent Movie?
+            p
+                | Storytelling, at some level, is a means of cultural preservation and instilling moral values.
+                br()
+                br()
+                | Not So Silent Movie seeks to investigate what happens when we refuse to accept the
+                | story as it is presented to us. It asks us to question, to draw our own conclusions, to
+                | think critically.
+                br()
+                br()
+                | Not So Silent Movie encourages each of us to find our own meaning in the content provided.
+        
+        br()
+        br()
+        br()
+        .actions
+            div(onclick="window.location.href='/makeMovie'", type="button", class="button")
+                svg(svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 76.75 51.16")
+                    path(class="cls-1" d="M59.69,19.19V4.26A4.28,4.28,0,0,0,55.43,0H4.26A4.28,4.28,0,0,0,0,4.26V46.9a4.28,4.28,0,0,0,4.26,4.26H55.43a4.28,4.28,0,0,0,4.26-4.26V32L76.75,49V2.13ZM43.19,27.84H34.34V37.92H28.85V27.84H20V22.67h8.89V13.25h5.49v9.43h8.84Z")
+                | Make your 
+                br()
+                | own Movie
             br()
-            | Movie
-    br()
-    br()
+            div(onclick="window.location.href='/watchMovie'", type="button", class="button")
+                svg(xmlns="http://www.w3.org/2000/svg" viewBox="0 0 55.13 62.02")
+                    path(class="cls-1" d="M48.24,0V6.89H41.35V0H13.78V6.89H6.89V0H0V62H6.89V55.13h6.89V62H41.35V55.13h6.89V62h6.89V0ZM13.78,48.24H6.89V41.35h6.89Zm0-13.78H6.89V27.57h6.89Zm0-13.78H6.89V13.78h6.89ZM48.24,48.24H41.35V41.35h6.89Zm0-13.78H41.35V27.57h6.89Zm0-13.78H41.35V13.78h6.89Z")
+                | Watch a 
+                br()
+                | Movie
+        br()
+        br()
+            

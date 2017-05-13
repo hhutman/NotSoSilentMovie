@@ -5,24 +5,66 @@ html {
   transform: scale(1);
 }
 body {
-  background-color: #37474F;
-  text-align: left;
-  padding-left: 2em;
-  padding-top: 1.5em;
+  background-color: #37474F;  
   width: auto;
   height: auto;
+  text-align: left;
+}
+#credits {
+  display: none;
+  padding-top: 1em;
+  margin-left: 1em;
+  margin-right: 1em;
+  padding-bottom: 1em;
+  text-align: left;
+  line-height: 1.6em;
+  font-size: 1.3em;
+  max-width: 30em;
+}
+#credits span {
+  font-size: 1.5em;
+  display: block;
+  font-weight: 500;
+}
+#credits .emp {
+  font-size: 1.3em;
+}
+b {
+  font-weight: 500;
+}
+#nav {
+  padding: 1em 2em 1em 2em;
+  background: #B2EBF2;
+  position: relative;
+}
+#nav svg {
+  fill: #37474F;
+  width: 1.8em;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 2em;
+  cursor: pointer;
+}
+#content {
+  padding-top: 1em;
+  margin-left: 2em;
+  text-align: left;
 }
 h1 {
-  font-size: 2.2em;
+  color: #37474F;
+  font-size: 2em;
   font-weight: 500;
   letter-spacing: 0.1em;
   font-variant: small-caps;
+  margin: 0;
+  max-width: 80%;
 }
 h2 {
   font-size: 2em;
   font-weight: 400;
   letter-spacing: 0.1em;
-  margin: 2.8em 0 0 0;
+  margin: 1.5em 0 0 0;
 }
 h3 {
   font-size: 1.6em;
@@ -92,6 +134,7 @@ p {
   width: auto;
 }
 .player {
+  display: none;
   width: 100%;
   max-width: 30em;
 }
@@ -114,10 +157,18 @@ p {
     position: absolute;
     top: 50%;
     left: 50%;
-    min-width: 80em;
+    min-width: 60em;
     transform: translate(-50%, -50%);
   }
+  #nav {
+    display: block;
+    background: none;
+  }
+  #nav svg {
+    fill: #ffffff;
+  }
   h1 {
+    color: #ffffff;
     font-size: 3em;
     margin-bottom: 1em;
   }
@@ -151,17 +202,22 @@ p {
   .button:hover svg {
     fill: #37474F;
   }
+  .player {
+    display: none;
+    font-size: 6em;
+    font-variant: small-caps;
+    text-align: left;
+    font-weight: 500;
+  }
   .player, .info {
     position: relative;
-    width: 37.5%;
-    max-width: 35em;
+    width: 60%;
     float: left;
   }
   .actions {
     position: relative;
-    width: 25%;
-    max-width: 30em;
-    padding-top: 4em;
+    width: 40%;
+    padding-top: 2em;
     float: left;
   }
 }
